@@ -1,0 +1,1 @@
+ Nuestro proyecto tiene como objetivo realizar un juego de preguntas y respuestas de interés general a modo de entretenimiento, donde el usuario puede registrarse para poder jugar y así guardar sus puntuaciones,partidas y recompensas.
