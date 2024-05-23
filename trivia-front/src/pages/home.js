@@ -1,5 +1,5 @@
-import Welcome from "../components/welcome";
-import Rules from "../components/rules";
+import Welcome from "../components/welcome/welcome";
+import Rules from "../components/rules/rules";
 
 export function Home (){
  return (
