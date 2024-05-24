@@ -1,0 +1,32 @@
+.container1 {
+    background-color: #F9F477;
+    margin: 60px;
+    text-align: center;
+    border-radius: 5px;
+padding: 30px;
+  
+}
+
+.background {
+    background-color: #D9F8FA;
+}
+
+p{
+color:#F99696;
+font-size: 40px;   
+}
+
+.title{
+    color: #FAAE3B;
+}
+
+#lista, ol{
+    text-align: left;
+    color:#F99696;
+    font-size: 40px;
+    background-image: url(../imagenes/brain1.jpg);
+  background-position: -15px 5px;
+  background-size: 2.6rem 2.6rem;
+  background-repeat: no-repeat;
+}
+
