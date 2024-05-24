@@ -36,3 +36,9 @@
     transform: rotate(360deg);
   }
 }
+
+.container{
+  font-family: "Itim", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
