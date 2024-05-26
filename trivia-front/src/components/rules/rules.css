@@ -3,30 +3,112 @@
     margin: 60px;
     text-align: center;
     border-radius: 5px;
-padding: 30px;
-  
+    padding: 30px;
+    max-width: 800px; /* Ancho máximo para responsividad */
+    width: 100%; /* Asegurar que use todo el ancho disponible */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra para mejor visibilidad */
 }
 
 .background {
     background-color: #D9F8FA;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px; /* Padding para responsividad */
 }
 
-p{
-color:#F99696;
-font-size: 40px;   
+p {
+    color: #F99696;
+    font-size: 40px;   
 }
 
-.title{
+.title {
     color: #FAAE3B;
+    font-size: 2em;
+    margin-bottom: 0.5em;
+    text-align: center;
 }
 
-#lista, ol{
+#lista {
     text-align: left;
-    color:#F99696;
+    color: #F99696;
     font-size: 40px;
-    background-image: url(../imagenes/brain1.jpg);
-  background-position: -15px 5px;
-  background-size: 2.6rem 2.6rem;
-  background-repeat: no-repeat;
+    list-style: none; /* Eliminar el estilo de lista predeterminado */
+    padding: 0;
 }
 
+#lista ol {
+    padding: 0;
+}
+
+#lista li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    background-image: url('../imagenes/brain2.jpg');
+    background-position: -5px 5px;
+    background-size: 2.6rem 2.6rem;
+    background-repeat: no-repeat;
+    padding-left: 3rem; /* Espacio para el icono */
+}
+
+/* Medias queries para pantallas pequeñas */
+@media (max-width: 768px) {
+    .title {
+        font-size: 1.5em; /* Ajustar el tamaño del título */
+    }
+
+    .container1 {
+        padding: 10px; /* Reducir padding */
+        margin: 20px; /* Reducir margen */
+    }
+
+    p {
+        font-size: 30px; /* Reducir tamaño del texto */
+    }
+
+    #lista {
+        font-size: 30px; /* Reducir tamaño del texto */
+    }
+
+    #lista li {
+        font-size: 1.5rem; /* Ajustar el tamaño del texto */
+        background-size: 2rem 2rem; /* Ajustar el tamaño del icono */
+    }
+
+    #lista li img {
+        max-width: 2rem; /* Ajustar tamaño máximo de la imagen */
+        max-height: 2rem; /* Ajustar tamaño máximo de la imagen */
+        margin-right: 1rem; /* Espacio entre la imagen y el texto */
+    }
+}
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 1.2em; /* Ajustar el tamaño del título */
+    }
+
+    .container1 {
+        padding: 5px; /* Reducir padding */
+        margin: 10px; /* Reducir margen */
+    }
+
+    p {
+        font-size: 20px; /* Reducir tamaño del texto */
+    }
+
+    #lista {
+        font-size: 20px; /* Reducir tamaño del texto */
+    }
+
+    #lista li {
+        font-size: 1rem; /* Ajustar el tamaño del texto */
+        background-size: 1.5rem 1.5rem; /* Ajustar el tamaño del icono */
+    }
+
+    #lista li img {
+        max-width: 1.5rem; /* Ajustar tamaño máximo de la imagen */
+        max-height: 1.5rem; /* Ajustar tamaño máximo de la imagen */
+        margin-right: 0.3rem; /* Espacio entre la imagen y el texto */
+    }
+}
