@@ -1,0 +1,22 @@
+.nombre {
+   color: cadetblue;
+   font-size: 50px;
+   background-color: rgba(95, 158, 160, 0.103);
+}
+   
+
+.carousel{
+   width: 90%;
+  background-color: #d9f8fabd;
+
+  margin: auto;
+  padding-right: 5px;
+  border-radius: 5px;
+  justify-content: center;
+}
+.texto {
+height: 20%;
+background-color: #D9F8FA;
+border-radius: 9%;
+
+}
