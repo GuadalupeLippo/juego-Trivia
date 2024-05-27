@@ -6,7 +6,8 @@ import { FormLoguin } from "./components/form-loguin/Form-loguin.js";
 <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet"></link>
 function App() {
 
-  return (<div className='container'>
+  return (
+  <div className='container'>
      <Router>
         <Navhome/>
         <Routes>
