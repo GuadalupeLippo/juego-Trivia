@@ -6,17 +6,19 @@
     padding-right: 20px;
     border-radius: 5px;
 }
- .title2{
-    color: #8bfa63;
-font-size: 80px;}
 
-.title3{
-    color: #ae63fa;
-font-size: 50px;
-padding-left: 20px;
+.title1{
+    padding-bottom: 50px; 
 }
 
+ .title2{
+    color: #ae63fa;
+font-size: 70px;
+padding-top: 30px;
+padding-bottom: 30px;}
 
-.background {
-    background-color: #D9F8FA;
+.title3{
+color:#9bfc78;
+font-size: 50px;
+padding-left: 20px;
 }
