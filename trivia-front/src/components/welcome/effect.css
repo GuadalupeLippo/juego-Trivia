@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Jaro:opsz@6..72&family=Jersey+10&family=Luckiest+Guy&family=Permanent+Marker&display=swap');
+
+.permanent-marker-regular {
+    font-family: 'Permanent Marker', cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.encryptClassH2 {
+    margin: auto;
+    margin-top: 50px;
+    transition: margin 2s;
+    color: #ae63fa;
+    font-family: 'Permanent Marker', cursive;
+    text-shadow: 4px 4px 5px rgb(138, 2, 183);
+}
+
+/* Media Queries para pantallas más pequeñas */
+@media (max-width: 1200px) {
+    .encryptClassH2 {
+        font-size: 65px;
+    }
+}
+
+@media (max-width: 992px) {
+    .encryptClassH2 {
+        font-size: 55px;
+    }
+}
+
+@media (max-width: 768px) {
+    .encryptClassH2 {
+        font-size: 45px;
+    }
+}
+
+@media (max-width: 576px) {
+    .encryptClassH2 {
+      
+        font-size: 35px;
+    }
+}
+

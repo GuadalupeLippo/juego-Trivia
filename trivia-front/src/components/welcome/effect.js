@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
+import './effect.css';
 
 export default function EfectoDesencriptarTexto({ text, mLeftInicial = 180, transitionTime = 2, randCar, tickCambioLetra = 150 }) {
     const [marginLeft, setMarginLeft] = useState(mLeftInicial ? mLeftInicial : 0)
@@ -52,8 +53,10 @@ export default function EfectoDesencriptarTexto({ text, mLeftInicial = 180, tran
                 marginTop: '50px',
                 marginLeft: `${marginLeft}px`,
                 transition: `margin ${transitionTime}s`,
-                fontSize: '70px',
+                fontSize: '75px',
                 color:'#ae63fa',
+                fontFamily: `'Permanent Marker', cursive`,
+                textShadow: "4px 4px 5px rgb(138, 2, 183)",
 
             }}>{newText}</h1>
         </div>

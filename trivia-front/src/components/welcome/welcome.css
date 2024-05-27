@@ -1,24 +1,73 @@
 .container2 {
-   text-align: center;
-    background-color: #F99696;
+    text-align: center;
+    background-color: #fdcccc;
     padding-top: 150px;
     padding-bottom: 20px;
     padding-right: 20px;
     border-radius: 5px;
 }
 
-.title1{
+.title1 {
     padding-bottom: 50px; 
 }
 
- .title2{
+.title2 {
     color: #ae63fa;
-font-size: 70px;
-padding-top: 30px;
-padding-bottom: 30px;}
+    font-size: 70px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
 
-.title3{
-color:#9bfc78;
-font-size: 50px;
-padding-left: 20px;
+.title3 {
+    color: #33FD78;
+    font-size: 50px;
+    padding-left: 20px;
+}
+
+/* Media Queries para pantallas más pequeñas */
+@media (max-width: 1200px) {
+    .title2 {
+        font-size: 60px;
+    }
+    .title3 {
+        font-size: 40px;
+    }
+}
+
+@media (max-width: 992px) {
+    .container2 {
+        padding-top: 100px;
+    }
+    .title2 {
+        font-size: 50px;
+    }
+    .title3 {
+        font-size: 35px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container2 {
+        padding-top: 80px;
+    }
+    .title2 {
+        font-size: 40px;
+    }
+    .title3 {
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 576px) {
+    .container2 {
+        padding-top: 60px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .title2 {
+        font-size: 30px;
+    }
+    .title3 {
+        font-size: 25px;
+    }
 }
