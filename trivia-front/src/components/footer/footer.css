@@ -1,0 +1,17 @@
+.footer{
+    display: flex;
+   
+    background-color : hsla(152, 90%, 81%, 0.192);
+    justify-content: space-between;
+    margin: 15px;
+    padding: 40px;
+    width: 90%;
+    height: 70%;
+}
+.logo{
+    color: rgba(22, 22, 22, 0.616);
+}
+.reseña{
+    color: burlywood;
+    background-color: hsla(152, 90%, 81%, 0.178) ;
+}
