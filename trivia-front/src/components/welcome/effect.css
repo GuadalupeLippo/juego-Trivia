@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Jaro:opsz@6..72&family=Jersey+10&family=Luckiest+Guy&family=Permanent+Marker&display=swap');
+
+.permanent-marker-regular {
+    font-family: 'Permanent Marker', cursive;
+    font-weight: 400;
+    font-style: normal;
+   
+}
+
+.encryptClassH2 {
+    margin: auto;
+    margin-top: 50px;
+    transition: margin 2s;
+    color: #ae63fa;
+    font-family: 'Permanent Marker', cursive;
+    text-shadow: 4px 4px 5px rgb(138, 2, 183);
+    animation-name: fluidcolors;
+    animation-duration:12s;
+    animation-delay: 4s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes fluidcolors {
+    0%{color:#ae63fa;
+        text-shadow:  4px 4px 5px rgb(138, 2, 183);}
+    20%{color:#567fb5;
+        text-shadow: 4px 4px 5px rgb(3, 78, 177);}
+    40%{color:#fb4b3a;        
+        text-shadow: 4px 4px 5px rgb(245, 20, 0)}
+    60%{color:#92ba7f;
+        text-shadow: 4px 4px 5px rgb(111, 179, 79);}
+    80%{color:#f9d85d;
+        text-shadow: 4px 4px 5px rgb(250, 198, 10);}
+    100%{color:#f8bdbd;
+        text-shadow: 4px 4px 5px rgb(255, 148, 148);}
+    
+}
+
+/* Media Queries para pantallas más pequeñas */
+@media (max-width: 1200px) {
+    .encryptClassH2 {
+        font-size: 65px;
+    }
+}
+
+@media (max-width: 992px) {
+    .encryptClassH2 {
+        font-size: 55px;
+    }
+}
+
+@media (max-width: 768px) {
+    .encryptClassH2 {
+        font-size: 45px;
+    }
+}
+
+@media (max-width: 576px) {
+    .encryptClassH2 {
+      
+        font-size: 35px;
+    }
+}
+

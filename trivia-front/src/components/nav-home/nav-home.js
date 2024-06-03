@@ -6,7 +6,7 @@ import '../nav-home/nav-home.css'
 export function Navhome () {
   return (
     <div>
-      <nav className="navbar fixed-top">
+      <nav className="navbar fixed-botom">
             <div className="container-fluid">
                 <Link to='/'>
                     <img src={Logo} alt='logo pagina' width='180'/>

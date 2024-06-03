@@ -1,0 +1,52 @@
+.container-invitation{
+    padding: 1rem;
+    display: flex;
+    justify-content:space-between;
+    width: 75vw;
+    max-width: 10000px;
+    min-width: 320px;
+    margin: auto;
+}
+.invitation {
+   width: 50%;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   ;
+ 
+
+}
+.logo{
+    width: 100%;
+    animation: rotar 8s linear infinite;
+}
+.form{
+    width: 50%;
+    background-color: #FAAE3B;
+    padding: 5rem;
+    display: flex;
+    flex-direction: column;
+   border-radius: 10px;  
+   text-align: center; 
+   filter: drop-shadow(5px 5px 21px #fa5b3b);
+}
+.div-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.modal-registrer{
+    background-color: #90F9A7;
+    text-align: center;
+    
+}
+
+@keyframes rotar {
+    from{
+        transform: rotateY(180deg);
+    }
+    to{
+        transform: rotateY(-180deg);
+    }
+}
