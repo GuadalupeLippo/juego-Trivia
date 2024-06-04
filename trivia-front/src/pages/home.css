@@ -1,6 +1,7 @@
 .combinacion {
     display: flex;
     gap: 10px; 
-
+    margin-top: 50px;
+    padding: 5px;
 }
 
