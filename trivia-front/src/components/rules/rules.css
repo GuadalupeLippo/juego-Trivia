@@ -1,9 +1,9 @@
 .container1 {
     background-color: #F9F477;
-    margin: 60px;
+    margin: 20px;
     text-align: center;
     border-radius: 5px;
-    padding: 30px;
+    padding: 5px;
     max-width: 800px; /* Ancho máximo para responsividad */
     width: 100%; /* Asegurar que use todo el ancho disponible */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra para mejor visibilidad */
@@ -14,17 +14,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px; /* Padding para responsividad */
+    padding: 5px; /* Padding para responsividad */
 }
 
 p {
     color: #F99696;
-    font-size: 40px;   
 }
 
 .title {
     color: #FAAE3B;
-    font-size: 2em;
+    font-size:large;
     margin-bottom: 0.5em;
     text-align: center;
 }
@@ -32,7 +31,6 @@ p {
 #lista {
     text-align: left;
     color: #F99696;
-    font-size: 40px;
     list-style: none; /* Eliminar el estilo de lista predeterminado */
     padding: 0;
 }
@@ -44,10 +42,9 @@ p {
 #lista li {
     display: flex;
     align-items: center;
-    margin-bottom: 20px;
     background-image: url('../imagenes/brain2.jpg');
-    background-position: -5px 5px;
-    background-size: 2.6rem 2.6rem;
+    background-position: 10px 2px;
+    background-size: 1.6rem 1.6rem;
     background-repeat: no-repeat;
     padding-left: 3rem; /* Espacio para el icono */
 }
