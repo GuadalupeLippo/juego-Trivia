@@ -7,7 +7,7 @@ import { FormLoguin } from "./components/form-loguin/Form-loguin.js";
 function App() {
 
   return (
-  <div className='container'>
+  <div >
      <Router>
         <Navhome/>
         <Routes>
