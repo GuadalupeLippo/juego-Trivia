@@ -3,11 +3,11 @@
 
 .carousel{
    
-   width: 70%;
+   width: 100%;
   background-color: #cbeff171;
    display: flex;
    position: relative;
-  margin: auto;
+   padding: 5px; 
   float: right;
   justify-content: flex-start;
 }
