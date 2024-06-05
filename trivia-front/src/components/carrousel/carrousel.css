@@ -8,5 +8,10 @@
   float: right;
   filter: drop-shadow(5px 5px 21px  #F9F477);
 }
-
-
+@media (max-width: 1024px){
+.carousel{
+  width: 100%;
+  align-items: center;
+  padding: 10px;
+}
+}
