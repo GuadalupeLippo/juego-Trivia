@@ -1,43 +1,46 @@
 .container-invitation{
-    padding: 1rem;
+    padding:5rem 3rem;
     display: flex;
     justify-content:space-between;
     width: 75vw;
     max-width: 10000px;
     min-width: 320px;
-    margin: auto;
+    margin: 75px auto;
+    background-color: #f4ce96a7;
+    filter: drop-shadow(5px 5px 21px #fa5b3b);
+    border-radius: 10px; 
 }
 .invitation {
-   width: 50%;
    display: flex;
    flex-direction: column;
    align-items: center;
    justify-content: center;
-   ;
  
 
 }
 .logo{
     width: 100%;
     animation: rotar 8s linear infinite;
+    
 }
 .form{
-    width: 50%;
-    background-color: #FAAE3B;
-    padding: 5rem;
+    width: 100%;
     display: flex;
-    flex-direction: column;
-   border-radius: 10px;  
+    flex-direction: column; 
    text-align: center; 
-   filter: drop-shadow(5px 5px 21px #fa5b3b);
+   color: rgb(60, 55, 55);
 }
+.form h3{
+    color: whitesmoke;
+}
+
 .div-btn{
     display: flex;
     justify-content: center;
     align-items: center;
 }
 .modal-registrer{
-    background-color: #90F9A7;
+    background-color: #f9f490e6;
     text-align: center;
     
 }
@@ -50,3 +53,8 @@
         transform: rotateY(-180deg);
     }
 }
+@media only screen and (max-width: 480px) {
+    .logo {
+      width: 100%;
+    }
+  }
