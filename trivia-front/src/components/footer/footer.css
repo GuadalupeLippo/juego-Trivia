@@ -9,10 +9,8 @@
     height: 40%;   
 
 }
- @keyframes mianimacion{
-
- }
-.logo{
+ 
+.logoEmpresa{
     color: rgba(22, 22, 22, 0.575);
     display: flex;
     font-size: 5px;
