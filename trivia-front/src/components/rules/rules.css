@@ -10,11 +10,11 @@
 }
 
 p {
-    color: #F99696;
+    color: #2f2e2e;
 }
 
 .title {
-    color: #FAAE3B;
+    color: #ff9900;
     font-size:large;
     margin-bottom: 0.5em;
     text-align: center;
@@ -22,7 +22,6 @@ p {
 
 #lista {
     text-align: left;
-    color: #F99696;
     list-style: none; /* Eliminar el estilo de lista predeterminado */
     padding: 0;
 }
@@ -47,10 +46,6 @@ p {
         font-size: 1.5em; /* Ajustar el tamaño del título */
     }
 
-    .container1 {
-        padding: 10px; /* Reducir padding */
-        margin: 20px; /* Reducir margen */
-    }
 
     p {
         font-size: 30px; /* Reducir tamaño del texto */
@@ -75,11 +70,6 @@ p {
 @media (max-width: 480px) {
     .title {
         font-size: 1.2em; /* Ajustar el tamaño del título */
-    }
-
-    .container1 {
-        padding: 5px; /* Reducir padding */
-        margin: 10px; /* Reducir margen */
     }
 
     p {
