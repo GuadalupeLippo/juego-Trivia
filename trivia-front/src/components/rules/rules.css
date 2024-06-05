@@ -6,6 +6,7 @@
     align-items: center;
     filter: drop-shadow(5px 5px 21px  #F9F477);
     width: 100%; /* Asegurar que use todo el ancho disponible */
+    margin: 75px auto;
 }
 
 p {

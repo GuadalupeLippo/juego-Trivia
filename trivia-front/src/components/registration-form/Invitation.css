@@ -2,14 +2,12 @@
     padding:5rem 3rem;
     display: flex;
     justify-content:space-between;
-    width: 75vw;
-    max-width: 10000px;
-    min-width: 320px;
     margin: 75px auto;
     background-color: #f4ce96a7;
     filter: drop-shadow(5px 5px 21px #fa5b3b);
     border-radius: 10px; 
 }
+
 .invitation {
    display: flex;
    flex-direction: column;
@@ -39,9 +37,13 @@
     justify-content: center;
     align-items: center;
 }
+.Modal{
+    font-family: "Itim", cursive;;
+}
 .modal-registrer{
     background-color: #f9f490e6;
     text-align: center;
+    
     
 }
 
@@ -53,8 +55,12 @@
         transform: rotateY(-180deg);
     }
 }
-@media only screen and (max-width: 480px) {
-    .logo {
-      width: 100%;
+
+@media (max-width: 768px) {
+    .container-invitation{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
     }
-  }
+}
