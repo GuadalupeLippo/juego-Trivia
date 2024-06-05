@@ -1,15 +1,12 @@
 
-   
-
 .carousel{
-   
-   width: 70%;
-  background-color: #cbeff171;
+   justify-content: center;
+   width: 80%;
+  background-color: #f1ebcb71;
    display: flex;
    position: relative;
-  margin: auto;
   float: right;
-  justify-content: flex-start;
+  filter: drop-shadow(5px 5px 21px  #F9F477);
 }
 
 

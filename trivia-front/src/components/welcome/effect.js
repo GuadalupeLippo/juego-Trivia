@@ -50,10 +50,10 @@ export default function EfectoDesencriptarTexto({ text, mLeftInicial = 180, tran
         <div>
             <h1 className='encryptClassH2' style={{
                 margin: 'auto',
-                marginTop: '50px',
+                marginTop: '20px',
                 marginLeft: `${marginLeft}px`,
                 transition: `margin ${transitionTime}s`,
-                fontSize: '75px',
+                fontSize: '45px',
                 color:'#ae63fa',
                 fontFamily: `'Permanent Marker', cursive`,
                 textShadow: "4px 4px 5px rgb(138, 2, 183)",

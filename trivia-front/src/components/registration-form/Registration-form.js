@@ -24,10 +24,9 @@ export function FormRegistration() {
 
 
   return (
-    <>
-     
+    <div className="col-sm col-md col-lg col-xl" >
      <form ref={form} onSubmit={handleSubmit}>
-            <h3 className='mb-3'><strong>¡Registrate y comienza a jugar!</strong></h3>
+            <h3 className='mb-5'><strong>¡COMIENZA A JUGAR!</strong></h3>
             <FloatingLabel controlId="floatingName" label="Nombre" className="mb-3">
                 <Form.Control type="text" placeholder="Nombre"/>
             </FloatingLabel>
@@ -39,12 +38,10 @@ export function FormRegistration() {
             <FloatingLabel controlId="floatingPassword" label="Contraseña" className='mb-3'>
                 <Form.Control type="password" placeholder="Contraseña"/>
             </FloatingLabel>
-           
             <Button className='btn btn-danger' type='submit' onClick={handleShow}> REGISTRARSE </Button>
-            
             <ModalRegistrer show={show} handleClose={handleClose}/>
         </form>
-    </>
+    </div>
   );
 }
 

@@ -1,33 +1,19 @@
 .container2 {
     text-align: center;
-    padding-top: 150px;
-    padding-bottom: 50px;
-    padding-right: 20px;
     border-radius: 5px;
+
 }
 
 
 .title1 {
-    padding-bottom: 50px; 
-}
-
-.title2 {
-    color: white ;
-    background-color: #fdcccc;
-    font-size: 70px;
-    padding-top: 30px;
-    padding-bottom: 30px;
-    border-radius: 20px;
-    margin-top: 70px;
-    border-color: #ffbbbb;
-    border-width: 10px;
-    border-style:groove;
+    padding-bottom: 10px; 
 }
 
 .title3 {
     color: gray;
-    font-size: 50px;
+    font-size: small;
     padding-left: 20px;
+    margin-top: 25px;
 }
 
 /* Media Queries para pantallas más pequeñas */
