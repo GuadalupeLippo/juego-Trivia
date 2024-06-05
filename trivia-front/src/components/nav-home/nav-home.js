@@ -2,6 +2,8 @@ import React from 'react'
 import Logo from '../images/logocerebritotrivia.png'
 import { Link } from 'react-router-dom'
 import '../nav-home/nav-home.css'
+import { BtnLoguin } from '../form-loguin/Btn-loguin'
+
 
 export function Navhome () {
   return (
@@ -11,9 +13,10 @@ export function Navhome () {
                 <Link to='/'>
                     <img src={Logo} alt='logo pagina' width='180'/>
                 </Link>
-                <form className="d-flex">
-                    <Link className="btn btn-lg btn-primary" to='/Loguin'>Iniciar sesion</Link>
-                </form>
+
+                    <BtnLoguin/>
+                
+                
             </div>
         </nav>
     </div>

@@ -13,7 +13,7 @@ function Carrousel() {
   return (
   
       
-    <div className='carousel'>
+    
     <Carousel data-bs-theme="dark" >
       <Carousel.Item >
         <img  
@@ -65,7 +65,7 @@ function Carrousel() {
       </Carousel.Item>
 
     </Carousel>
-    </div>
+  
  
   );
 }

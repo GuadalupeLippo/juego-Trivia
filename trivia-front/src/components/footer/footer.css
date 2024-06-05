@@ -1,17 +1,26 @@
 .footer{
     display: flex;
-   
-    background-color : hsla(152, 90%, 81%, 0.192);
-    justify-content: space-between;
-    margin: 15px;
-    padding: 40px;
-    width: 90%;
-    height: 70%;
+    background-color:#332f2f1e;
+    
+    margin: 10px 0 10px 0;
+  justify-content: space-between;
+    padding: 30px;
+    width: auto;
+    height: 40%;   
+
 }
-.logo{
-    color: rgba(22, 22, 22, 0.616);
+ 
+.logoEmpresa{
+    color: rgba(22, 22, 22, 0.575);
+    display: flex;
+    font-size: 5px;
+    flex-direction:column
 }
 .reseña{
-    color: burlywood;
-    background-color: hsla(152, 90%, 81%, 0.178) ;
+    color: rgba(25, 34, 39, 0.822);
+    background-color: hsla(152, 90%, 81%, 0.082) ;
+}
+h4 {
+    font-size: 5px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
