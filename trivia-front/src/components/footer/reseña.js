@@ -13,6 +13,20 @@ function CheckReverseExample() {
         <div key={`reverse-${type}`} className="mb-3">
           <Form.Check
             reverse
+            label="⭐"
+            name="group1"
+            type={type}
+            id={`reverse-${type}-1`}
+          />
+          <Form.Check
+            reverse
+            label="⭐ ⭐"
+            name="group1"
+            type={type}
+            id={`reverse-${type}-1`}
+          />
+          <Form.Check
+            reverse
             label="⭐ ⭐ ⭐"
             name="group1"
             type={type}
