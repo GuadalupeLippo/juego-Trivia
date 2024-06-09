@@ -28,15 +28,15 @@ export function FormRegistration() {
      <form ref={form} onSubmit={handleSubmit}>
             <h3 className='mb-5'><strong>¡COMIENZA A JUGAR!</strong></h3>
             <FloatingLabel controlId="floatingName" label="Nombre" className="mb-3">
-                <Form.Control type="text" placeholder="Nombre"/>
+                <Form.Control type="text" placeholder="Nombre" required/>
             </FloatingLabel>
 
             <FloatingLabel controlId="floatingInput" label="E-mail"className="mb-3">
-                <Form.Control type="email" placeholder="E-mail"/>
+                <Form.Control type="email" placeholder="E-mail" required/>
             </FloatingLabel>
       
             <FloatingLabel controlId="floatingPassword" label="Contraseña" className='mb-3'>
-                <Form.Control type="password" placeholder="Contraseña"/>
+                <Form.Control type="password" placeholder="Contraseña" required/>
             </FloatingLabel>
             <Button className='btn btn-danger' type='submit' onClick={handleShow}> REGISTRARSE </Button>
             <ModalRegistrer show={show} handleClose={handleClose}/>

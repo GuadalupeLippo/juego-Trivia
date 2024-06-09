@@ -3,7 +3,7 @@ import './rules.css';
 
 export default function Rules() {
   return (
-    <div className="background">
+    
       <div className="container1">
         <h1 className="title">¿Cómo jugar?</h1>
         <p>¡Es fácil! Una vez que hayas iniciado sesión verás una lista de categorías, haz clic en la que más te guste para iniciar una partida.</p>
@@ -21,6 +21,6 @@ export default function Rules() {
         </div>
         <h1 className="title">Y eso es todo. Buena suerte!</h1>
       </div>
-    </div>
+    
   );
 }

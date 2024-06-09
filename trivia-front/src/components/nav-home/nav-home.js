@@ -13,10 +13,7 @@ export function Navhome () {
                 <Link to='/'>
                     <img src={Logo} alt='logo pagina' width='180'/>
                 </Link>
-
-                    <BtnLoguin/>
-                
-                
+                <BtnLoguin/>
             </div>
         </nav>
     </div>

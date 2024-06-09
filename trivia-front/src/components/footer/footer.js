@@ -10,9 +10,9 @@ function FooterHome() {
             <div className='reseña'>
             <CheckReverseExample />
              </div>
-             <div className='logo'>
+             <div className='logoEmpresa'>
             <h4>Desarrollado por:</h4>
-            <img alt='logoempresa' src={Enlanube} width= '260px'  />
+            <img alt='logoempresa'src={Enlanube}  width={'100px'} />
             <h6>email: enlanube@gmail.com</h6>
            </div>
         </div>

@@ -1,6 +1,17 @@
 .Reseña{
     text-align: right;
+    font-size: 15px;
 }
-h2{
-    color: darkcyan;
+h2 {
+    color: rgba(32, 59, 59, 0.589);
+    font-size: 20px;
+}
+.mb-3{
+    font-size: 15px;
+}
+form{
+    font-size: 10px;
+}
+label{
+    font-size: 13px;
 }
