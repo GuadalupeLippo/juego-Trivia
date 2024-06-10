@@ -3,7 +3,7 @@
     display: flex;
     justify-content:space-between;
     margin: 75px auto;
-    background-color: #f4ce96a7;
+    background-color: #f6ba60fa;
     filter: drop-shadow(5px 5px 21px #fa5b3b);
     border-radius: 10px; 
 }
@@ -41,10 +41,13 @@
     font-family: "Itim", cursive;;
 }
 .modal-registrer{
-    background-color: #f9f490e6;
+    background-color:  #f4e096dd;
     text-align: center;
     
     
+}
+.modal-loguin{
+    background-color:#8BFDF5;
 }
 
 @keyframes rotar {

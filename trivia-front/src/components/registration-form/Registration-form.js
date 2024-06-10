@@ -18,6 +18,7 @@ export function FormRegistration() {
 
     const handleSubmit = (e) => {
         e.preventDefault()
+
         
        };
 
@@ -27,8 +28,8 @@ export function FormRegistration() {
     <div className="col-sm col-md col-lg col-xl" >
      <form ref={form} onSubmit={handleSubmit}>
             <h3 className='mb-5'><strong>¡COMIENZA A JUGAR!</strong></h3>
-            <FloatingLabel controlId="floatingName" label="Nombre" className="mb-3">
-                <Form.Control type="text" placeholder="Nombre"/>
+            <FloatingLabel controlId="floatingName" label="Nombre de usuario" className="mb-3">
+                <Form.Control type="text" placeholder="Nombre de usuario" required/>
             </FloatingLabel>
 
             <FloatingLabel controlId="floatingInput" label="E-mail"className="mb-3">

@@ -1,13 +1,13 @@
-.container{
-  
+.traslucido{
+  width: 100%;
   font-family: "Itim", cursive;
     font-weight: 400;
     font-style: normal;
-    background-color:#fff;
+  background-color:rgba(245, 245, 245, 0.694);
+    
 }
 #root{
-  background-color:#fff;
-  padding: 5px;
+  background-image: url(./29564902.jpg);
   font-family: "Itim", cursive;
   font-weight: 400;
   font-style: normal;
