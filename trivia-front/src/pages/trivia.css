@@ -1,0 +1,9 @@
+.containerCategories {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    /* overflow-x: hidden; */
+    width: 100%;
+}
+

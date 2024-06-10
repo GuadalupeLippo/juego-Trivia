@@ -5,6 +5,7 @@ import FooterHome from "../components/footer/footer";
 import { Invitation } from "../components/registration-form/invitation-play";
 import './home.css';
 
+import { Trivia } from "./trivia";
 
 export function Home (){
  return (
@@ -15,6 +16,7 @@ export function Home (){
     </div>
     <Invitation/>
     <FooterHome />
+    <Trivia/>
     </div>)
 }
 
