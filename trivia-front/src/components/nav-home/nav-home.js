@@ -12,7 +12,7 @@ export function Navhome () {
       <nav className="navbar fixed-botom">
             <div className="container-fluid">
                 <Link to='/'>
-                    <img src={Logo} alt='logo pagina' width='180'/>
+                    <img className='logoNav' src={Logo} alt='logo pagina' width='180'/>
                 </Link>
                 <Link to='/politicas' className='politicas'>
                     Politicas de privacidad
