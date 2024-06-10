@@ -1,7 +1,7 @@
 import './App.css';
 import { Home } from './pages/home';
 import {BrowserRouter as Router, Route, Routes } from 'react-router-dom'
-import Trivia from './pages/trivia.js';
+import {Trivia} from '../src/pages/trivia.js'
 import PoliticasDePrivacidad from './components/Politicas/PoliticasDePrivacidad.js';
 <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet"></link>
 
