@@ -42,7 +42,7 @@ const slideData = [
   },
 ];
 
-export function Trivia (){
+export default function Trivia (){
   return (
     <div className='containerCategories' >
       <Slider heading="Example Slider" slides={slideData} />
