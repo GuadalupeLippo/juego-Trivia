@@ -1,15 +1,16 @@
 
 .footer {
   display: flex;
-  background-color: #00000000;
+  background-color: #0000000a;
   margin: 8px 0;
   padding: 10px;
   width: 100%;
   justify-content: space-between;
-  background: linear-gradient(rgba(126, 213, 111, 0.521), rgba(49, 126, 99, 0.349));
+  background: linear-gradient(rgba(126, 213, 111, 0.719), rgba(49, 126, 99, 0.712));
   position: relative;
   overflow: hidden; /* Asegura que la curva se muestre correctamente */
   border-radius: 5%;
+ 
 }
 
 .footer::before {
@@ -22,18 +23,24 @@
   position: absolute;
   top: -25px; /* Ajusta la posición vertical según sea necesario */
   left: 5;
-  z-index: 10;
+  z-index: 10; 
+  filter: drop-shadow(
+    0 0 10px rgba(21, 22, 21, 0.808)
+  );
 }
 
 .reseña {
-  color: rgba(25, 34, 39, 0.822);
-  background-color: hsla(152, 90%, 81%, 0.082);
-  margin: 20px;
+  color: rgba(255, 255, 255, 0.89);
+  margin-left: 80px;
+  margin-top: 14px;
 }
 
 h4 {
   font-size: 5px;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  filter: drop-shadow(
+    0 0 10px rgb(15, 15, 15)
+  );
 }
 
 .redesSociales img {
@@ -60,4 +67,14 @@ ul h2{
   font-size: 25px;
   padding: 7px;
   margin-top: 50px;
+}
+.politicas{
+  text-align: center;
+  margin: 18px;
+  padding: 40px;
+  font-size: 20px;
+  color: antiquewhite;
+  filter: drop-shadow(
+    0 0 10px rgb(15, 15, 15)
+  );
 }

@@ -1,5 +1,5 @@
 import CheckReverseExample from './reseña'
-
+import PoliticasDePrivacidad from '../Politicas/PoliticasDePrivacidad'
 import './footer.css'
 import facebook from './facebook.png'
 import instagram from './instagram.png'
@@ -35,6 +35,9 @@ function FooterHome() {
              </Link>
              </ul>
              </div>
+             <Link to='/politicas' className='politicas'>
+                    Politicas de privacidad
+                </Link>
            
         </div>
         
