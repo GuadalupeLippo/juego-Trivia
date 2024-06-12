@@ -69,11 +69,12 @@ ul h2{
   margin-top: 50px;
 }
 .politicas{
-  text-align: center;
+  justify-content: flex-end;
   margin: 18px;
-  padding: 40px;
-  font-size: 20px;
-  color: antiquewhite;
+  padding: 95px;
+  font-size: 15px;
+  
+  color: rgb(77, 75, 73);
   filter: drop-shadow(
     0 0 10px rgb(15, 15, 15)
   );
