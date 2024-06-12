@@ -16,7 +16,7 @@ export function ModalLoguin({ showLoguin, handleCloseLoguin }) {
         </Modal.Header>
         <Modal.Body>
           <Form>
-          <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+          <Form.Group className="mb-3" controlId="exampleForm.ControlInput">
               <Form.Label>Usuario</Form.Label>
               <Form.Control
                 type="text"

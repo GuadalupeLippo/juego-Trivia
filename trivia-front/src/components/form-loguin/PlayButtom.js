@@ -5,10 +5,10 @@ import { useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function PlayButton() {
-  const trivia = useNavigate();
+  const loguin = useNavigate();
 
   const handleNavigate = () => {
-    trivia('/trivia');
+    loguin('/loguin');
   };
 
 
