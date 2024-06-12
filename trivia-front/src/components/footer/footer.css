@@ -6,6 +6,7 @@
   padding: 10px;
   width: 100%;
   justify-content: space-between;
+  
   background: linear-gradient(rgba(126, 213, 111, 0.719), rgba(49, 126, 99, 0.712));
   position: relative;
   overflow: hidden; /* Asegura que la curva se muestre correctamente */
@@ -69,11 +70,12 @@ ul h2{
   margin-top: 50px;
 }
 .politicas{
+  display: flex;
   justify-content: flex-end;
-  margin: 18px;
-  padding: 95px;
+  margin: 2px;
+  padding: 2px;
   font-size: 15px;
-  
+  align-items: flex-end;
   color: rgb(77, 75, 73);
   filter: drop-shadow(
     0 0 10px rgb(15, 15, 15)
