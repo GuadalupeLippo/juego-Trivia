@@ -14,9 +14,6 @@ export function Navhome () {
                 <Link to='/'>
                     <img className='logoNav' src={Logo} alt='logo pagina' width='180'/>
                 </Link>
-                <Link to='/politicas' className='politicas'>
-                    Politicas de privacidad
-                </Link>
                 <BtnLoguin/>
             </div>
         </nav>

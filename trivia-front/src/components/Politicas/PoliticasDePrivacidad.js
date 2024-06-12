@@ -23,7 +23,7 @@ export default function PoliticasDePrivacidad() {
 
             No obstante, los Sitios de Internet, Aplicaciones Móviles, productos y servicios pueden tener fines y características distintas. Si se necesita proporcionar información adicional o diferente para un determinado caso previamente mencionado, se publicará dicha obligación por separado en el Sitio de Internet, Aplicación Móvil, producto o servicio que sea pertinente. Cada una de estas obligaciones de proporcionar información adicionales, políticas o declaraciones de privacidad específicas (“Declaración de Privacidad Específica”) complementan y enmiendan esta Política.
         </p>
-            <h2><strong>Información personal recogida por la empresa</strong></h2>
+            <h2 className='h2Politicas'><strong>Información personal recogida por la empresa</strong></h2>
         <p>
                 <strong>En La Nube</strong> recoge los siguientes tipos de información personal:
             <ul>
@@ -49,7 +49,7 @@ export default function PoliticasDePrivacidad() {
                     Una “cookie” es un archivo de información que se instala en su equipo cuando visita un sitio web. Las cookies y tecnologías similares pueden mejorar su experiencia de usuario al guardar sus preferencias, personalizar su experiencia online, almacenar artículos en su carrito de compras y, en algunas ocasiones, proporcionarle anuncios publicitarios adaptados a sus intereses.
             </ul>
             
-            <h2><strong>Cómo utiliza <strong>En La Nube</strong> su información personal</strong></h2>
+            <h2 className='h2Politicas'><strong>Cómo utiliza <strong>En La Nube</strong> su información personal</strong></h2>
             <strong>En La Nube</strong> puede usar su información personal para:
            
             <ul>
@@ -76,11 +76,11 @@ export default function PoliticasDePrivacidad() {
             <p><strong>En La Nube</strong> puede anonimizar o agregar cualquier información recogida y usarla para cualquier fin, como, por ejemplo, investigar y desarrollar nuevos productos. Esta información no servirá para identificarle personalmente.</p>
 
         <p>
-            <h2><strong>Preguntas acerca de esta Política o de nuestras Declaraciones de Privacidad</strong></h2>
+            <h2 className='h2Politicas'><strong>Preguntas acerca de esta Política o de nuestras Declaraciones de Privacidad</strong></h2>
             Si tiene alguna pregunta acerca de esta Política, de una Declaración de Privacidad Específica o del uso que hacemos de su información personal, puede ponerse contacto a travez del e-mail de la empresa <span><strong>enlanube@gmail.com</strong></span>. 
         </p>
         <p>
-            <h2><strong>Cambios en esta Política y nuestras Declaraciones de Privacidad</strong></h2>
+            <h2 className='h2Politicas'><strong>Cambios en esta Política y nuestras Declaraciones de Privacidad</strong></h2>
             Los cambios en esta Política de Privacidad se publicarán en esta página web, junto con información sobre cualquier cambio material. 3M se reserva el derecho de actualizar o modificar esta Política y las Declaraciones de Privacidad Específicas en cualquier momento y sin previo aviso. Las modificaciones se aplicarán solo a la información personal que recojamos tras la publicación.
             <br/><span>Esta Política se revisó por última vez en junio de 2023.</span>
         </p>

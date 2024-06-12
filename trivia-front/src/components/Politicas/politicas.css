@@ -10,7 +10,10 @@
 ul li p{
     color: rgba(32, 59, 59, 0.589);
 }
-h2{color: var(--bs-heading-color);}
+
+.h2Politicas{
+    color: var(--bs-heading-color);}
+
 span{
     color: rgba(32, 59, 59, 0.589)
 }

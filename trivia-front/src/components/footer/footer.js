@@ -1,5 +1,4 @@
 import CheckReverseExample from './reseña'
-import PoliticasDePrivacidad from '../Politicas/PoliticasDePrivacidad'
 import './footer.css'
 import facebook from './facebook.png'
 import instagram from './instagram.png'
