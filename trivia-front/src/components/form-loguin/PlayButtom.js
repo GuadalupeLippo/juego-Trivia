@@ -2,7 +2,9 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
+import './PlayButtom.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function PlayButton() {
   const loguin = useNavigate();
@@ -13,8 +15,8 @@ function PlayButton() {
 
 
   return (
-    <button className="btn btn-primary btn-lg" onClick={handleNavigate}>
-      <FontAwesomeIcon icon={faPlay} /> Jugar
+    <button className="btn btn-grad btn-lg" onClick={handleNavigate}>
+      <FontAwesomeIcon icon={faPlay} />
     </button>
   );
 }

@@ -1,0 +1,24 @@
+.btn-grad {
+    background-image: linear-gradient(to right,#5fbaff,#7be4fe); 
+    border: none; 
+    color: white; 
+    padding: 20px 20px;
+    font-size: 16px; 
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+.btn-grad:hover {
+    background-image: linear-gradient(to right, #7be4fe, #5fbaff); 
+}
+.btn-log{
+    background-image: linear-gradient(to right,#5cbb66 , rgb(221, 58, 43),#3753e1,#e1e947); 
+    border: none; 
+    color: white; 
+    padding: 20px 20px;
+    font-size: 16px; 
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+.btn-log:hover {
+    background-image: linear-gradient(to right, #7be4fe, #5fbaff); }
