@@ -1,5 +1,5 @@
 .navbar{
-    background-color:#8BFDF5;
+    background-image: linear-gradient(to right, #72d5f3, #a3f1fa);
 }
 .logoNav:hover{
     transform: scale(1.1);

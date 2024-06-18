@@ -105,6 +105,14 @@
     transform: perspective(600px) rotateY(360deg);
 }
 
+.m-h{
+    background-image: linear-gradient(to right, #97e8f1, #80d6f0) ;
+    text-align: center;
+}
+.m-b{
+    background-color: #eff9fbc3;
+}
+
 @media (max-width: 768px) {
     .cardContainer{
         flex-direction: column;

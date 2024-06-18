@@ -39,7 +39,7 @@ export function FormRegistration() {
             <FloatingLabel controlId="floatingPassword" label="Contraseña" className='mb-3'>
                 <Form.Control type="password" placeholder="Contraseña" required/>
             </FloatingLabel>
-            <Button className='btn btn-danger' type='submit' onClick={handleShow}> REGISTRARSE </Button>
+            <Button className='btn btn-form' type='submit' onClick={handleShow}> REGISTRARSE </Button>
             <ModalRegistrer show={show} handleClose={handleClose}/>
         </form>
     </div>

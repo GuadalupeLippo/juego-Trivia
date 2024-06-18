@@ -2,9 +2,15 @@ import React from 'react';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import PlayButton from './PlayButtom';
+import { useNavigate } from 'react-router-dom';
 
 export function ModalLoguin({ showLoguin, handleCloseLoguin }) {
 
+  const loguin = useNavigate();
+
+  const handleNavigate = () => {
+    loguin('/loguin');
+  };
 
 
 
@@ -14,7 +20,7 @@ export function ModalLoguin({ showLoguin, handleCloseLoguin }) {
         <Modal.Header closeButton className='modal-loguin'>
           <Modal.Title>Iniciar Sesión</Modal.Title>
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body className='m-b'>
           <Form>
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput">
               <Form.Label>Usuario</Form.Label>
@@ -40,8 +46,8 @@ export function ModalLoguin({ showLoguin, handleCloseLoguin }) {
             </Form.Group>
           </Form>
         </Modal.Body>
-        <Modal.Footer>
-          <PlayButton/>
+        <Modal.Footer className='m-b'>
+          <PlayButton onClick={handleNavigate}/>
         </Modal.Footer>
       </Modal>
     </>

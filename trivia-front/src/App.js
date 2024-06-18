@@ -2,6 +2,7 @@ import './App.css';
 import { Home } from './pages/home';
 import {BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import {Loguin} from '../src/pages/loguin.js'
+import Trivia from './pages/trivia.js';
 import PoliticasDePrivacidad from './components/Politicas/PoliticasDePrivacidad.js';
 <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet"></link>
 
@@ -15,8 +16,10 @@ function App() {
         <Route path="/" element={<Home/>} /> 
         <Route path="/loguin" element={<Loguin/>} />
         <Route path="/politicas" element={<PoliticasDePrivacidad/>} />
+        <Route path='/Trivia' element={<Trivia/>}/>
         </Routes>
     </Router>
+
   
    
 
