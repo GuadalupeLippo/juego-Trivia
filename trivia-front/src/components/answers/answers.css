@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Jaro:opsz@6..72&family=Jersey+10&family=Luckiest+Guy&family=Permanent+Marker&display=swap');
+
+.answersContainer{
+    margin: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.answers{ 
+    text-align: center;
+    background-color: #5DB1FF;
+    margin: 10px;
+    flex: 1 1 calc(40% - 10px);
+    padding: 10px;
+   
+}
+
+.answersContainer p{
+    margin: 30px;
+    font-family: "Permanent Marker";
+    color: #FFFFFF;
+
+}
+@media (max-width: 768px) {
+    .answersContainer{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center; 
+    }
+    
+}
