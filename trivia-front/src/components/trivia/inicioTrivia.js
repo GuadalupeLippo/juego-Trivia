@@ -6,7 +6,7 @@ function InicioTrivia (){
         <>
         <div className="inicioTrivia">
         <Reloj />
-       <img alt='logoGeografia' src={geografia} className="geografia"/>
+       <img alt='logoGeografia' src={geografia} className="geografia" width='100px'/>
         </div>
         </>
     )

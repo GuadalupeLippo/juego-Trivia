@@ -1,10 +1,9 @@
 .inicioTrivia{
     display: flex;
     justify-content: space-between;
-    margin: 30px;
+   
     
 }
 .geografia{
     margin: 60px;
-    padding: 50px;
 }
