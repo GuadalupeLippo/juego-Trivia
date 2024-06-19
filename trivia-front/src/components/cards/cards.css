@@ -74,7 +74,6 @@
     display: inline-block;
     color: #000;
     background: #fff;
-    mix-blend-mode: multiply;
     position: relative;
     font-family: 'Permanent Marker', cursive;
     filter: drop-shadow(
