@@ -38,17 +38,31 @@
     align-items: center;
 }
 .Modal{
-    font-family: "Itim", cursive;;
+    font-family: "Itim", cursive;
 }
 .modal-registrer{
-    background-color:  #f4e096dd;
+    background-image: linear-gradient(to right, #7bf1fe, #80d6f0) ;
     text-align: center;
     
     
 }
 .modal-loguin{
-    background-color:#8BFDF5;
+    background-image: linear-gradient(to right, #7bf1fe, #42cef8) ;
 }
+.btn-form{
+    background-image: linear-gradient(to right, rgb(238, 83, 56), #e52a2a); 
+    border: none; 
+    color: white; 
+    padding: 20px 20px;
+    font-size: 16px; 
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+.btn-form:hover {
+    background-image: linear-gradient(to right,#e52a2a ,  rgb(248, 112, 88)); 
+}
+
 
 @keyframes rotar {
     from{
