@@ -1,0 +1,12 @@
+img{
+    /* transform: rotateX(150deg) ; */
+    /* transition-duration: 4ms; */
+    transform:rotate(360deg);
+    -ms-transform:rotate(360deg);
+    -moz-transform:rotate(360deg);
+    -webkit-transform:rotate(360deg);
+    -o-transform:rotate(360deg);
+    /* animation-direction: alternate linear initial ; */
+    /* animation: girar 8s linear infinite; */
+   
+}
