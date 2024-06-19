@@ -1,8 +1,11 @@
+import React from 'react';
 import iconoreloj from './iconoreloj.png';
+
 import './reloj.css'
 function Reloj() {
+    
  return(
-<img src={iconoreloj} alt='reloj' />
+<img alt='reloj' src={iconoreloj}  className='rotate-infinitely' w='20px' />
 
  )
 

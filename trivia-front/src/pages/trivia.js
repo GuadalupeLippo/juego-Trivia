@@ -1,7 +1,8 @@
-import Reloj from "../components/trivia/reloj";
+import InicioTrivia from "../components/trivia/inicioTrivia";
+
 
 export function Trivia (){
     return (
-        <Reloj />
+        <InicioTrivia />
     )
 }
