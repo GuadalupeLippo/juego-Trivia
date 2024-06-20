@@ -1,9 +1,22 @@
 .inicioTrivia{
     display: flex;
-    justify-content: space-between;
+    justify-content:space-around;
    
     
 }
 .geografia{
-    margin: 60px;
+    margin: 20px;
+}
+
+.container-trivia{
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .inicioTrivia {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center; 
+   
+    }
 }

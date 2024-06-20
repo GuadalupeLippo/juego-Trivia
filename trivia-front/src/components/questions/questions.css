@@ -9,13 +9,14 @@
     
 
 .question{ 
+    display: flex;
     text-align: center;
     background-color: #338de294;
     border-radius: 10px;
     border-width: 3px;
     border-style: solid;
     border-color: #1035F9;
-    width:70% ;
+    width:100% ;
 }
 
 .question p {
@@ -26,10 +27,12 @@
 }
 
 @media (max-width: 768px) {
-    .questionContainer{
+    .questionContainer {
+        max-width: 100%;
         flex-direction: column;
         justify-content: center;
         align-items: center; 
+        word-wrap: break-word;
     }
     
 }

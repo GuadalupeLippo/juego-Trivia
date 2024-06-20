@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Jaro:opsz@6..72&family=Jersey+10&family=Luckiest+Guy&family=Permanent+Marker&display=swap');
 
 .answersContainer{
-    margin: 50px;
+    margin: 0px 50px ;
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
@@ -17,13 +17,14 @@
 }
 
 .answersContainer p{
-    margin: 30px;
+    margin: 50px;
     font-family: "Permanent Marker";
     color: #FFFFFF;
 
 }
-@media (max-width: 768px) {
+@media (max-width: 968px) {
     .answersContainer{
+        max-width: 100%;
         flex-direction: column;
         justify-content: center;
         align-items: center; 

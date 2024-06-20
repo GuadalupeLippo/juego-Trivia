@@ -5,7 +5,7 @@ import './reloj.css'
 function Reloj() {
     
  return(
-<img alt='reloj' src={iconoreloj}  className='rotate-infinitely' width='100px' />
+<img alt='reloj' src={iconoreloj}  className='rotate-infinitely' width='100px' height='100px'/>
 
  )
 

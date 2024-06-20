@@ -4,7 +4,7 @@ export function Question (){
     return (
         <div className='questionContainer'>
             <div className='question'>
-                <p>PREGUNTA</p>
+                <p>PREGUNTA jddhgfkfuyuykgygggggggggggaaaaaaaaaaaaaaaaaa</p>
             </div>
         </div>
     )
