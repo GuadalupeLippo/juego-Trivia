@@ -1,25 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Jaro:opsz@6..72&family=Jersey+10&family=Luckiest+Guy&family=Permanent+Marker&display=swap');
 
-.allAvatars{
-    display: flex;
-    align-content: space-between;
-    justify-content: center ;
-    text-align: center;
-
-}
-
 .avatar_container {
-    display: grid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-inline: 1.5rem;
     padding-block: 5rem;
 }
 
 .card_container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(230px, 348px));
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 2rem;
-    
 }
 
 .card_article {
@@ -27,16 +20,19 @@
     background-color: #90f9a7f5;
     border-radius: 5px;
     padding: 3rem 1.5rem 1.5rem;
-    display: grid;
-    row-gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
     overflow: hidden;
     transition: background-color 0.6s;
     z-index: 1; /* Ensures content is always above background */
+    flex: 1 1 230px; /* Flexible basis for cards */
+    max-width: 348px; /* Maximum width for cards */
 }
 
 .card_img {
     width: 200px;
-    justify-self: center;
+    align-self: center;
     filter: drop-shadow(0 8px 24px hsla(170, 12%, 8%, 0.1));
     transition: transform 0.4s;
     z-index: 2; /* Ensures image is above background */
@@ -53,7 +49,7 @@
 
 .card_precio {
     display: flex;
-    font-family:Permanent Marker, cursive;
+    font-family: 'Permanent Marker', cursive;
     margin: 20px 70px;
 }
 
@@ -79,10 +75,12 @@
     color: white;
     display: flex;
     align-items: center;
-    column-gap: 0.5rem;
-    justify-self: center;
+    gap: 0.5rem;
+    justify-content: center; /* Center button content */
     position: absolute;
     bottom: -1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
     opacity: 0;
     pointer-events: none;
     transition: transform 0.4s, opacity 0.4s;
@@ -90,7 +88,7 @@
 }
 
 .avatar_container .card_button:hover {
-    transform: translateX(0.5rem);
+    transform: translateX(-50%) translateY(0.5rem);
     background-color: #01a659f5;
 }
 
@@ -109,8 +107,18 @@
 }
 
 .card_article:hover .card_button {
-    transform: translateY(-3.75rem);
+    transform: translateX(-50%) translateY(-3.75rem);
     opacity: 1;
     pointer-events: initial;
 }
 
+@media screen and (max-width: 300px) {
+    .avatar_container {
+        margin-inline: 1rem;
+        display: flex;
+    } 
+    .card_container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
