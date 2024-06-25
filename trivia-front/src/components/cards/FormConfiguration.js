@@ -5,18 +5,19 @@ export function FormConfiguration() {
 
   return (
     <>
-        <FloatingLabel controlId="floatingSelect" label="Selecciona la cantidad de preguntas a responder">
-            <Form.Select aria-label="Selecciona la cantidad de preguntas a responder" className='mb-3'>
-                <option value="10">10 preguntas</option>
-                <option value="15">15 preguntas</option>
-                <option value="20">20 preguntas</option>
+        <FloatingLabel controlId="floatingSelect" label="preguntas">
+            <Form.Select aria-label="preguntas" className='mb-3'>
+                
+                <option value="10">10 </option>
+                <option value="15">15 </option>
+                <option value="20">20 </option>
             </Form.Select>
         </FloatingLabel>
-        <FloatingLabel controlId="floatingSelect2" label="selecciona el tiempo para responderlas">
-            <Form.Select aria-label="selecciona el tiempo para responderlas" className='mb-3'>
-                <option value="15s">15"</option>
-                <option value="20s">20"</option>
-                <option value="30s">30"</option>
+        <FloatingLabel controlId="floatingSelect2" label="tiempo de respuesta para cada una">
+            <Form.Select aria-label="tiempo de respuesta para cada una" className='mb-3'>
+                <option value="15s">15 segundos</option>
+                <option value="20s">20 segundos</option>
+                <option value="30s">30 segundos</option>
             </Form.Select>
         </FloatingLabel>
    </>
