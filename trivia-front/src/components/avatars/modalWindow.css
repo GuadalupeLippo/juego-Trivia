@@ -1,0 +1,16 @@
+.header_modal{
+    background-color: #90f9a7f5;
+    font-family: 'Permanent Marker', cursive;
+}
+
+.button_accept{
+    background-color: #050605f5;
+}
+
+.button_accept:hover{
+    background-color: #01a659f5;
+}
+
+.body_modal{
+    font-family: "Itim", cursive;
+}

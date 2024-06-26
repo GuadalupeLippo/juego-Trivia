@@ -2,7 +2,7 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:800);
 
 .animated-title-container {
-    position: relative;
+
     width: 100%;
     height: 120px;
     background-size: .2em 100%;
@@ -12,7 +12,6 @@
     overflow: hidden; 
     display: flex; 
     justify-content: center;
-    align-items: center;
 }
 
 .text {
@@ -23,6 +22,7 @@
     stroke-dashoffset: 0;
     -webkit-animation: stroke 6s infinite linear;
     animation: stroke 6s infinite linear;
+    
 }
 
 .text:nth-child(5n + 1) {
@@ -67,7 +67,10 @@
     }
 }
 
-svg {
-    width: 100%;
+.svg_title {
+    width: 40%;
     height: 100%;
+    background-color: rgba(11, 11, 11, 0.899);
+    justify-content: center;
+    border-radius: 20px;
 }
