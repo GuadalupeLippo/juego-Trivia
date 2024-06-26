@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Timer.css';
-
+import sonido from './sonido.mp3';
 
 
 const Timer = ({ seconds }) => {
@@ -10,7 +10,10 @@ const Timer = ({ seconds }) => {
     if (timeLeft > 0) {
       const timerId = setTimeout(() => setTimeLeft(timeLeft - 1), 1000);
       return () => clearTimeout(timerId);
-    } 
+    } else {
+      const audio = new Audio(sonido); 
+      audio.play();
+    }
   }, [timeLeft]);
 
    
