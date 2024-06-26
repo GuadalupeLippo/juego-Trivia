@@ -1,12 +1,12 @@
 import React from 'react';
-// import { Avatars } from '../components/avatars/avatars';
+import { NavLoguin } from '../components/nav-home/NavLoguin';
 import { AnimatedTitle } from '../components/animatedTitle/title';
 import { CarrouselAvatars } from '../components/avatars/carrouselAvatars';
 export default function Store() {
   return (
     <div>
+       <NavLoguin/>
       <AnimatedTitle/>
-      {/* <Avatars/> */}
       <CarrouselAvatars/>
     </div>
   )
