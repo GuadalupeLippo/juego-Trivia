@@ -21,3 +21,6 @@ box-shadow: none;
 .puntos{
     color: rgb(237, 73, 73);
 }
+.ul-games{
+    list-style: none;
+}

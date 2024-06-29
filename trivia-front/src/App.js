@@ -4,8 +4,8 @@ import {BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import {Loguin} from '../src/pages/loguin.js'
 import Trivia from './pages/trivia.js';
 import PoliticasDePrivacidad from './components/Politicas/PoliticasDePrivacidad.js';
-import User from './pages/user.js';
 import Store from './pages/store.js';
+import Avatars from './pages/mis-avatars.js';
 <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet"></link>
 
 
@@ -21,7 +21,7 @@ function App() {
         <Route path="/trivia" element={<Trivia/>} /> 
         <Route path="/politicas" element={<PoliticasDePrivacidad/>} />
         <Route path='/Trivia' element={<Trivia/>}/>
-        <Route path='/user' element={<User/>}/>
+        <Route path='/avatars' element={<Avatars/>}/>
         <Route path='/store' element={<Store/>}/>
 
         </Routes>
