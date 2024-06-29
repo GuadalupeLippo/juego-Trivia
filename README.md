@@ -1,11 +1,12 @@
-Nombre del proyecto: Atriviate.
-Empresa: en la nube.
+*Nombre del proyecto: Atriviate.*
+
+*Empresa: en la nube.*
 
 Nuestro proyecto tiene como objetivo realizar un juego de preguntas y respuestas de interés general a modo de entretenimiento, donde el usuario puede registrarse para poder jugar y así guardar sus puntuaciones,partidas y recompensas.
 
 **Indicaciones para descargar e inicializar el proyecto:**
 1. Asegurate de tener instalado Node js y Npm. (https://nodejs.org/en/download/)
-2. Clona el repositorio a tu maquina local 'git clone https://github.com/usuario/nombre-del-repositorio.git'
+2. Clona el repositorio a tu maquina local desde bash 'https://github.com/GuadalupeLippo/juego-Trivia.git'
 3. Accede al repositorio del proyecto.
 4. Desde la consola, corre el comando 'npm i' para descargar dependecias con las que se trabajaron durante el desarrollo.
 5. Para inicializar el proyecto, utiliza el comando 'npm start'.
