@@ -5,7 +5,7 @@ import PlayButton from './PlayButtom';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-export function ModalLoguin({ showLoguin, handleCloseLoguin }) {
+export  function ModalLoguin({ showLoguin, handleCloseLoguin }) {
 
   const loguin = useNavigate();
 
