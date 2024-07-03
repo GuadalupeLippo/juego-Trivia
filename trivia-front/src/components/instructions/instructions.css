@@ -1,4 +1,4 @@
-.carousel_and_title{
+.carousel_gifs{
     display:flex ;
     flex-direction: column;
     width: 100%;
@@ -27,7 +27,7 @@
  }
  @media (max-width: 1024px){
  .carousel,
- .carousel_and_title{
+ .carousel_gifs{
    width: 100%;
    align-items: center;
    

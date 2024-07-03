@@ -6,8 +6,8 @@ import Carousel from 'react-bootstrap/Carousel';
 
 export function CarrouselGifs() {
   return (
-<div className='carousel_and_title'>
-    <h1 className='title_instructions'>¿Comó jugar?</h1>
+<div className='carousel_gifs'>
+    
 
     <Carousel data-bs-theme="dark" ride="false">
       <Carousel.Item >
