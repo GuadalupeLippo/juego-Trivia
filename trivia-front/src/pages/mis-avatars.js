@@ -1,8 +1,5 @@
-import React from 'react'
+import React from "react";
 
 export default function Avatars() {
-  return (
-    <div>avatars</div>
-  )
+  return <div>avatars</div>;
 }
-

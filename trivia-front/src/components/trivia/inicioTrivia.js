@@ -5,7 +5,6 @@ import "./trivia.css";
 import Timer from "../cards/Timer";
 import { useLocation } from "react-router-dom";
 
-
 function InicioTrivia() {
   const location = useLocation();
   const selectedTime = location.state?.selectedTime || 15;
@@ -24,8 +23,6 @@ function InicioTrivia() {
           className="geografia"
           width="100px"
         />
- 
-       
       </div>
     </>
   );
