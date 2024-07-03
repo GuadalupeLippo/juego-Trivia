@@ -6,7 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function PlayButton({ onClick }) {
   return (
-    <button className="btn-grad" onClick={onClick}>
+    <button className="btn-grad btnfos-5" onClick={onClick}>
       <FontAwesomeIcon icon={faPlay} size="xl" />
     </button>
   );
