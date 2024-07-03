@@ -77,7 +77,7 @@ export function FormRegistration() {
   return (
     <div className="col-sm col-md col-lg col-xl" >
      <form  onSubmit={handleSubmit}>
-            <h3 className='mb-5'><strong>¡COMIENZA A JUGAR!</strong></h3>
+            <h3 className='mb-4'><strong>¡COMIENZA A JUGAR!</strong></h3>
             <FloatingLabel controlId="floatingName" label="Nombre de usuario" className="mb-3">
                 <Form.Control 
                 type="text" 
@@ -104,7 +104,7 @@ export function FormRegistration() {
             
             </FloatingLabel>
       
-            <FloatingLabel controlId="floatingPassword" label="Contraseña" className='mb-3'>
+            <FloatingLabel controlId="floatingPassword" label="Contraseña" className='mb-5'>
                 <Form.Control type="password" 
                 placeholder="Contraseña"
                 value={form.floatingPassword}
@@ -116,7 +116,7 @@ export function FormRegistration() {
                 </Form.Control.Feedback>
             
             </FloatingLabel>
-            <Button className='btn btn-form' type='submit' onClick={handleSubmit} > REGISTRARSE </Button>
+            <Button className='btnfos btnfos-5' type='submit' onClick={handleSubmit} > REGISTRARSE </Button>
             <ModalRegistrer show={show} handleClose={handleClose}/>
         </form>
     </div>

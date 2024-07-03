@@ -25,7 +25,7 @@ function DropDownProfiles() {
         <Dropdown.Item href="/avatars">Mis avatars</Dropdown.Item>
         <Dropdown.Item onClick={handleOpenGames}>Partidas</Dropdown.Item>
         
-        <Dropdown.Item href="#/action-5">Cerrar sesión</Dropdown.Item>
+        <Dropdown.Item href="/">Cerrar sesión</Dropdown.Item>
       </Dropdown.Menu>
       <ModalGames openGames={openGames} handleCloseGames={handleCloseGames} />
     </Dropdown>

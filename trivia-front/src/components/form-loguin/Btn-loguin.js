@@ -12,7 +12,7 @@ export function BtnLoguin () {
 
   return (
     <>
-     <Button className='btn btn-primary' type='submit' onClick={handleShowLoguin}> Iniciar sesión </Button>
+     <Button className='btn btn-primary btnfos-5' type='submit' onClick={handleShowLoguin}> Iniciar sesión </Button>
       <ModalLoguin showLoguin={showLoguin} handleCloseLoguin={handleCloseLoguin}/>
 
     </> 
