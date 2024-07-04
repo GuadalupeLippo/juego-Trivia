@@ -74,66 +74,69 @@ export function FormRegistration() {
         <h3 className="mb-4">
           <strong>¡COMIENZA A JUGAR!</strong>
         </h3>
-        <FloatingLabel
-          controlId="floatingName"
-          label="Nombre de usuario"
-          className="mb-3"
-        >
-          <Form.Control
-            type="text"
-            placeholder="Nombre de usuario"
-            value={form.floatingName}
-            onChange={(e) => SetField("floatingName", e.target.value)}
-            isInvalid={!!errors.floatingName}
-            required
-          />
-          <Form.Control.Feedback type="invalid">
-            {errors.floatingName}
-          </Form.Control.Feedback>
-        </FloatingLabel>
-        <FloatingLabel
-          controlId="floatingInput"
-          label="E-mail"
-          className="mb-3"
-        >
-          <Form.Control
-            type="email"
-            placeholder="E-mail"
-            value={form.floatingInput}
-            onChange={(e) => SetField("floatingInput", e.target.value)}
-            isInvalid={!!errors.floatingInput}
-            required
-          />
-          <Form.Control.Feedback type="invalid">
-            {errors.floatingInput}
-          </Form.Control.Feedback>
-        </FloatingLabel>
-
-        <FloatingLabel
-          controlId="floatingPassword"
-          label="Contraseña"
-          className="mb-5"
-        >
-          <Form.Control
-            type="password"
-            placeholder="Contraseña"
-            value={form.floatingPassword}
-            onChange={(e) => SetField("floatingPassword", e.target.value)}
-            isInvalid={!!errors.floatingPassword}
-            required
-          />
-          <Form.Control.Feedback type="invalid">
-            {errors.floatingPassword}
-          </Form.Control.Feedback>
-        </FloatingLabel>
+        <div className="form-group position-relative mb-4">
+          <FloatingLabel
+            controlId="floatingName"
+            label="Nombre de usuario"
+          >
+            <Form.Control
+              type="text"
+              placeholder="Nombre de usuario"
+              value={form.floatingName}
+              onChange={(e) => SetField("floatingName", e.target.value)}
+              isInvalid={!!errors.floatingName}
+              required
+            />
+          </FloatingLabel>
+          {errors.floatingName && (
+            <div className="error-message">{errors.floatingName}</div>
+          )}
+        </div>
+        <div className="form-group position-relative mb-4">
+          <FloatingLabel
+            controlId="floatingInput"
+            label="E-mail"
+          >
+            <Form.Control
+              type="email"
+              placeholder="E-mail"
+              value={form.floatingInput}
+              onChange={(e) => SetField("floatingInput", e.target.value)}
+              isInvalid={!!errors.floatingInput}
+              required
+            />
+          </FloatingLabel>
+          {errors.floatingInput && (
+            <div className="error-message">{errors.floatingInput}</div>
+          )}
+        </div>
+        <div className="form-group position-relative mb-5">
+          <FloatingLabel
+            controlId="floatingPassword"
+            label="Contraseña"
+          >
+            <Form.Control
+              type="password"
+              placeholder="Contraseña"
+              value={form.floatingPassword}
+              onChange={(e) => SetField("floatingPassword", e.target.value)}
+              isInvalid={!!errors.floatingPassword}
+              required
+            />
+          </FloatingLabel>
+          {errors.floatingPassword && (
+            <div className="error-message">{errors.floatingPassword}</div>
+          )}
+        </div>
+       
         <Button
           className="btnfos btnfos-5"
           type="submit"
           onClick={handleSubmit}
         >
-          {" "}
-          REGISTRARSE{" "}
+          REGISTRARSE
         </Button>
+        
         <ModalRegistrer show={show} handleClose={handleClose} />
       </form>
     </div>
