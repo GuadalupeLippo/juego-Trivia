@@ -7,7 +7,6 @@ import { Invitation } from "../components/registration-form/invitation-play";
 
 import './home.css';
 
-
 export function Home (){
  return (
  <div>

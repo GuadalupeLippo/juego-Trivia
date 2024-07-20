@@ -16,6 +16,15 @@ export function ModalLoguin({ showLoguin, handleCloseLoguin }) {
         </Modal.Header>
         <Modal.Body>
           <Form>
+          <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+              <Form.Label>Usuario</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Usuario"
+                autoFocus
+                required
+              />
+            </Form.Group>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Label>E-mail</Form.Label>
               <Form.Control

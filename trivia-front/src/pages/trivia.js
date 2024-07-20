@@ -1,7 +1,11 @@
 import React from 'react'
-
-export default function Trivia() {
+import { Navhome } from '../components/nav-home/nav-home'
+import Cards from '../components/cards/cards'
+export function Trivia () {
   return (
-    <div>trivia</div>
+    <div>
+        <Navhome/>
+        <Cards/>
+    </div>
   )
 }
