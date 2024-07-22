@@ -2,10 +2,11 @@
     background-color: #F9F477;
     float: left;
     text-align: center;
-    padding: 5px;
+    /* padding: 5px; */
     align-items: center;
     filter: drop-shadow(5px 5px 21px  #F9F477);
-    width: 100%; /* Asegurar que use todo el ancho disponible */
+    width: 100%; 
+    height: 100%;
     margin: 75px auto;
 }
 

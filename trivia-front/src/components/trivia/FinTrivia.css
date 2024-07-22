@@ -1,0 +1,47 @@
+#tituloFin{
+    
+   color: rgb(94, 183, 241);
+   text-align: center;
+    justify-content: center;
+}
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+body{
+ background:url('http://subtlepatterns.subtlepatterns.netdna-cdn.com/patterns/noisy_net.png') repeat;
+  font-family: "Open Sans",  Impact;
+}
+.area{
+    display: flex;
+  text-align:center;
+  font-size:2.5em;
+  color:#ec994b;
+  letter-spacing: -3px;
+  font-weight:700;
+  text-transform:uppercase;
+  animation:blur .95s ease-out infinite;
+  animation:blur .60s ease-out infinite;
+  text-shadow:0px 0px 5px #fffdfd,
+      0px 0px 7px #fff;
+}
+
+@keyframes blur{
+  from{
+      text-shadow:0px 0px 10px #fff,
+      0px 0px 10px #f73b3b, 
+      0px 0px 25px #9eec1f,
+      0px 0px 25px #fff,
+      0px 0px 25px #4711c4,
+      0px 0px 25px #e9872c,
+      0px 0px 25px #52ece5,
+      0px 0px 25px #fff,
+      0px 0px 50px #fff,
+      0px 0px 50px #e8f71a,
+      0px 0px 50px #7B96B8,
+      0px 0px 150px #7B96B8,
+      0px 10px 100px #7B96B8,
+      0px 10px 100px #7B96B8,
+      0px 10px 100px #7B96B8,
+      0px 10px 100px #7B96B8,
+      0px -10px 100px #7B96B8,
+      0px -10px 100px #7B96B8;}
+}

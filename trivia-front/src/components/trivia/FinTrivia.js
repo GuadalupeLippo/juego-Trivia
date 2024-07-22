@@ -1,41 +1,55 @@
-import { useState } from 'react';
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
-import Logo from '../images/logocerebritotrivia.png'
-
-
+import "./FinTrivia.css";
+import { useState } from "react";
+import Button from "react-bootstrap/Button";
+import Modal from "react-bootstrap/Modal";
+import { useNavigate } from "react-router-dom";
+import Logo from "../images/logocerebritotrivia.png";
 
 function FinTrivia() {
   const [show, setShow] = useState(false);
+  const loguin = useNavigate();
+  const store = useNavigate();
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
+  const handleNavigate = () => {
+    loguin("/loguin");
+  };
+  const handleNavigateStore = () => {
+    store("/Store");
+  };
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
-        Launch static backdrop modal
+      <Button variant="primary" onClick={() => setShow(true)}>
+        Custom Width Modal
       </Button>
 
       <Modal
         show={show}
-        onHide={handleClose}
-        backdrop="static"
-        keyboard={false}
+        onHide={() => setShow(false)}
+        dialogClassName="modal-90w"
+        aria-labelledby="example-custom-modal-styling-title"
       >
         <Modal.Header closeButton>
-          <Modal.Title>¡¡¡FELICITACIONES!!!</Modal.Title>
+          <div class="area">
+            ¡¡¡Felicitaciones!!!
+            <Modal.Title id="tituloFin"></Modal.Title>
+          </div>
         </Modal.Header>
         <Modal.Body>
-          HAZ TERMINADO LA TRIVIA!
-            {Logo}
+          <h1>Ganaste la partida de Trivia</h1>
+          <h2>Respuestas correctas:</h2>
+          <h2>Respuestas Incorrectas:</h2>
+          <h3>Puntaje total obtenido: </h3>
+          <img className="logoNav" src={Logo} alt="logo pagina" width="180" />
         </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary">Understood</Button>
-        </Modal.Footer>
+        <Button variant="secondary" onClick={handleNavigate}>
+          Volver Jugar!
+        </Button>
+        <Button variant="primary" onClick={handleNavigate}>
+          Otra categoria
+        </Button>
+        <Button variant="primary" onClick={handleNavigateStore}>
+          Canjear puntos
+        </Button>
       </Modal>
     </>
   );
