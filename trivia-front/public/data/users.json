@@ -1,0 +1,35 @@
+
+[
+
+    {
+      "id": 1,
+      "name": "John Doe",
+      "email": "john.doe@example.com",
+      "password": "password123",
+      "score": "150",
+      "games" : "5",
+      "correct_answers" : "38",
+      "incorrect_answers" : "12"
+    },
+    {
+      "id": 2,
+      "name": "Jane Smith",
+      "email": "jane.smith@example.com",
+      "password": "password456",
+      "score": "50",
+      "games" : "15",
+      "correct_answers" : "50",
+      "incorrect_answers" : "22"
+    },
+    {
+      "id": 3,
+      "name": "Bob Johnson",
+      "email": "bob.johnson@example.com",
+      "password": "password789",
+      "score": "340",
+      "games" : "7",
+      "correct_answers" : "78",
+      "incorrect_answers" : "7"
+    }
+  ]
+  
