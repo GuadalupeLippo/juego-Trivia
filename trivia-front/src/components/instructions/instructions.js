@@ -1,4 +1,5 @@
 import timer from './images/timer.gif';
+import register from './images/register.gif';
 import store from './images/store.gif';
 import categories from './images/categories.gif';
 import './instructions.css';
@@ -10,6 +11,14 @@ export function CarrouselGifs() {
     <h1 className='title_instructions'>¿Comó jugar?</h1>
 
     <Carousel data-bs-theme="dark" ride="false">
+    <Carousel.Item>
+        <img 
+          className="d-block w-100"
+          src={register}
+          alt="Third slide"
+        /> 
+      </Carousel.Item>
+      
       <Carousel.Item >
         <img  
           className="d-block w-100"
