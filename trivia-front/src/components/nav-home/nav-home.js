@@ -11,7 +11,7 @@ export function Navhome() {
       <nav className="navbar fixed-botom">
         <div className="container-fluid">
           <Link to="/">
-            <img className="logoNav" src={Logo} alt="logo pagina" width="180" />
+            <img className="logoNav" src={Logo} alt="logo pagina" width="150" />
           </Link>
           <BtnLoguin />
         </div>

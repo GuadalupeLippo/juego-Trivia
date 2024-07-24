@@ -1,6 +1,4 @@
 import Dropdown from "react-bootstrap/Dropdown";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleUser } from "@fortawesome/free-solid-svg-icons";
 import { ModalGames } from "./Modal-games";
 import { useState } from "react";
 import EditProfileModal from "./ModalEditProfile";
@@ -27,7 +25,7 @@ function DropDownProfiles() {
   return (
     <Dropdown>
       <Dropdown.Toggle as="button" className="btn btn-lg no-style-btn">
-        <FontAwesomeIcon icon={faCircleUser} size="2xl" />
+       <img src={authUser?.avatar} alt="avatar" width="60"/>
       </Dropdown.Toggle>
 
       <Dropdown.Menu className="dropdown-menu-custom">

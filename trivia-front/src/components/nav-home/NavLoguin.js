@@ -17,7 +17,7 @@ export function NavLoguin() {
           </Link>
           <div className="d-flex">
             <Link to="/store">
-              <button className="btn btn-lg store-btn">
+              <button className="btn btn-lg store-btn me-2">
                 <FontAwesomeIcon icon={faStore} size="2xl" />
               </button>
             </Link>

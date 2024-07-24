@@ -3,7 +3,13 @@
   outline: none;
   box-shadow: none;
 }
-
+.no-style-btn::after {
+  display: none !important;
+}
+.no-style-btn{
+  padding: 0px;
+  border: none;
+}
 .store-btn:hover,
 .no-style-btn:active,
 .no-style-btn:focus{
