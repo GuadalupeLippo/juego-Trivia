@@ -4,18 +4,32 @@ import Form from "react-bootstrap/Form";
 import PlayButton from "./PlayButtom";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../form-loguin/UserAuth";
+import { useEffect } from "react";
 
-export function ModalLoguin({ showLoguin, handleCloseLoguin }) {
+export function ModalLoguin({ showLoguin, handleCloseLoguin}) {
   const loguin = useNavigate();
+  const { setAuthUser } = useAuth();
+  const [users, setUsers] = useState([]);
+  const [errorMessage, setErrorMessage] = useState("");
+  
+  useEffect(() => {
+    // Cargar datos del archivo JSON
+    fetch('/data/users.json')
+      .then((response) => response.json())
+      .then((data) => setUsers(data));
+  }, []);
 
   const handleNavigate = () => {
     loguin("/loguin");
   };
+
   const initialForm = {
     controlUser: "",
     controlEmail: "",
     controlPassword: "",
   };
+
   const [formLoguin, setFormLoguin] = useState(initialForm);
   const [errorsLoguin, setErrorsLoguin] = useState({});
 
@@ -59,17 +73,38 @@ export function ModalLoguin({ showLoguin, handleCloseLoguin }) {
 
     if (Object.keys(formErrorsLoguin).length > 0) {
       setErrorsLoguin(formErrorsLoguin);
+      
     } else {
-      handleNavigate();
-      setFormLoguin(initialForm);
+      const authenticatedUser = users.find(
+        (user) =>
+          user.name === formLoguin.controlUser &&
+          user.email === formLoguin.controlEmail &&
+          user.password === formLoguin.controlPassword
+      );
+      if (authenticatedUser) {
+        setAuthUser(authenticatedUser);
+        handleNavigate(); 
+        setFormLoguin(initialForm);
+       
+      } else {
+        setErrorMessage("Este usuario no se encuentra registrado. Por favor, verifica que los datos ingresados sean correctos.");
+       
+      }
+      
     }
-  };
+    }
 
+    const handleClearForm = () => {
+      handleCloseLoguin();
+      setFormLoguin(initialForm);
+      setErrorMessage("");
+    };
+  
   return (
     <>
       <Modal
         show={showLoguin}
-        onHide={handleCloseLoguin}
+        onHide={handleClearForm}
         backdrop="static"
         size="lg"
         className="Modal"
@@ -146,9 +181,13 @@ export function ModalLoguin({ showLoguin, handleCloseLoguin }) {
                 </Form.Control.Feedback>
               </div>
             </Form.Group>
+          
           </Form>
+            <div className="error-message">
+          {errorMessage && <p className="text-danger">{errorMessage}</p>}
+          </div>
         </Modal.Body>
-        <Modal.Footer className="m-b">
+        <Modal.Footer className="modal-footer">
           <PlayButton onClick={HandlesubmitLoguin} />
         </Modal.Footer>
       </Modal>

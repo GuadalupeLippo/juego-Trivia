@@ -16,7 +16,7 @@ export function ModalRegistrer({ show, handleClose }) {
         <Modal.Body className="m-b">
           Inicia sesión para comenzar a jugar.
         </Modal.Body>
-        <Modal.Footer className="m-b">
+        <Modal.Footer className="modal-footer">
           <BtnLoguin />
         </Modal.Footer>
       </Modal>

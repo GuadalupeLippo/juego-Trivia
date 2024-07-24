@@ -5,6 +5,9 @@ import { ModalLoguin } from "./Modal-Loguin";
 
 export function BtnLoguin() {
   const [showLoguin, setShowLoguin] = useState(false);
+  
+
+
 
   const handleCloseLoguin = () => setShowLoguin(false);
   const handleShowLoguin = () => setShowLoguin(true);
@@ -19,6 +22,7 @@ export function BtnLoguin() {
         {" "}
         Iniciar sesión{" "}
       </Button>
+  
       <ModalLoguin
         showLoguin={showLoguin}
         handleCloseLoguin={handleCloseLoguin}
