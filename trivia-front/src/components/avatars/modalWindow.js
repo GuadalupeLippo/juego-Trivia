@@ -1,27 +1,33 @@
 import React from 'react';
 import { Modal, Button } from 'react-bootstrap';
-import './modalWindow.css'
+import './modalWindow.css';
+import { useAuth } from '../form-loguin/UserAuth.js'
 
-export function BuyAvatarModal({ show, handleClose }) {
+export function BuyAvatarModal({ show, handleClose, handleConfirmPurchase, selectedAvatar }) {
+  const { authUser } = useAuth();
   return (
     <Modal show={show} onHide={handleClose} centered>
       <Modal.Header className='header_modal' closeButton>
-        <Modal.Title >Confirmar canje</Modal.Title>
+        <Modal.Title>Confirmar canje</Modal.Title>
       </Modal.Header>
       <Modal.Body className='body_modal'>
-        ¿Quieres canjear xxx puntos por este avatar?
-        Tus puntos actuales son de xxx.
+      {selectedAvatar ? (
+          <>
+            ¿Quieres canjear {selectedAvatar.points} puntos por este avatar?
+            Tus puntos actuales son de {authUser?.score}
+          </>
+        ) : (
+          <p>Cargando...</p>
+        )}
       </Modal.Body>
       <Modal.Footer>
         <Button variant="secondary" onClick={handleClose}>
           Cancelar
         </Button>
-        <Button className='button_accept' variant="primary" onClick={handleClose}>
+        <Button className='button_accept' variant="primary" onClick={handleConfirmPurchase}>
           Aceptar
         </Button>
       </Modal.Footer>
     </Modal>
   );
 }
-
-

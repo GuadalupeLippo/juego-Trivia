@@ -3,7 +3,13 @@
   outline: none;
   box-shadow: none;
 }
-
+.no-style-btn::after {
+  display: none !important;
+}
+.no-style-btn{
+  padding: 0px;
+  border: none;
+}
 .store-btn:hover,
 .no-style-btn:active,
 .no-style-btn:focus{
@@ -15,11 +21,29 @@ box-shadow: none;
     min-width: auto;
     padding: 0;
     margin: 0;
-    border-radius: 0;
+   
   }
-
+  .dropdown-menu-custom :hover{
+   color: rgb(67, 100, 100);
+  }
+.name-user{
+  color: rgb(30, 158, 178);
+  font-size: 18px;
+}
+.name-user :hover{
+color: none;
+}
 .puntos{
-    color: rgb(237, 73, 73);
+    color: rgb(22, 115, 130);
+}
+.partidas {
+  color: rgb(38, 73, 89);
+}
+.resp-correctas{
+  color: rgb(45, 138, 78);
+}
+.resp-incorrectas{
+  color: rgb(195, 80, 57);
 }
 .ul-games{
     list-style: none;
