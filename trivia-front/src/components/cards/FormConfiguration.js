@@ -1,18 +1,21 @@
 import FloatingLabel from "react-bootstrap/FloatingLabel";
 import Form from "react-bootstrap/Form";
 
-export function FormConfiguration({ setSelectedTime }) {
+export function FormConfiguration({ setSelectedTime , setSelectedQuestions}) {
+
   const handleTimeChange = (event) => {
     setSelectedTime(parseInt(event.target.value, 10));
   };
-
+  const handleAswersChange = (event) => {
+    setSelectedQuestions(parseInt(event.target.value));
+  };
   return (
     <>
       <FloatingLabel controlId="floatingSelect" label="preguntas">
-        <Form.Select aria-label="preguntas" className="mb-3">
-          <option value="10">10 </option>
-          <option value="15">15 </option>
-          <option value="20">20 </option>
+        <Form.Select aria-label="preguntas" className="mb-3" onChange={handleAswersChange}>
+          <option value="1">1 </option>
+          <option value="2">2 </option>
+          <option value="3">3 </option>
         </Form.Select>
       </FloatingLabel>
       <FloatingLabel

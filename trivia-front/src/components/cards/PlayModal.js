@@ -10,10 +10,13 @@ export default function ModalConfig({ showConfig, handleCloseConfig }) {
 
   const [selectedTime, setSelectedTime] = useState(15);
   const [startTimer, setStartTimer] = useState(false);
+  const [selectedQuestions, setSelectedQuestions] = useState(1);
+
 
   const handlePlayButtonClick = () => {
     setStartTimer(true);
-    navigate("/Trivia", { state: { selectedTime } });
+ 
+    navigate("/Trivia");
   };
 
   return (
@@ -28,7 +31,7 @@ export default function ModalConfig({ showConfig, handleCloseConfig }) {
       </Modal.Header>
       <Modal.Body className="m-b">
         {!startTimer ? (
-          <FormConfiguration setSelectedTime={setSelectedTime} />
+          <FormConfiguration setSelectedQuestions={setSelectedQuestions} setSelectedTime={setSelectedTime}/>
         ) : (
           <Timer seconds={selectedTime} />
         )}

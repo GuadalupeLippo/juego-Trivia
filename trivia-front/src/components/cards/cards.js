@@ -16,6 +16,7 @@ export default function Cards() {
   const handleCloseConfig = () => setShowConfig(false);
   const handleShowConfig = () => setShowConfig(true);
 
+  
   return (
     <>
       <div className="cardContainer">

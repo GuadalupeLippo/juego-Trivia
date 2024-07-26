@@ -4,7 +4,7 @@
     margin: 0px 50px ;
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    /* gap: 10px; */
 }
 
 .answers{ 
@@ -13,6 +13,7 @@
     margin: 10px;
     flex: 1 1 calc(40% - 10px);
     padding: 10px;
+    margin: 30px;
    
 }
 
@@ -22,12 +23,79 @@
     color: #FFFFFF;
 
 }
-@media (max-width: 968px) {
+/* @media (max-width: 968px) {
     .answersContainer{
         max-width: 100%;
         flex-direction: column;
         justify-content: center;
-        align-items: center; 
-    }
+        align-items: center;  */
     
-}
+    .opciones{
+        font-size: 40px;
+        display: inline-block;
+        flex: 2;
+        margin: 13px;
+        padding: 10px;
+        background-color: antiquewhite;
+        width: 50%;
+    }
+
+    .pregunta{
+      display: flex;
+       /* text-align: center; */
+        color: #549ae9;
+       padding-inline-start: 20%;
+       
+        border-radius: 15px;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        font-size:50px;
+       align-items: center;
+       /* background-color: rgba(0, 0, 0, 0.062); */
+      
+      
+       
+             
+    }
+    .botonContainer {
+        display: ruby;
+        justify-content: space-around;
+       align-items: stretch;
+        flex-wrap: wrap;
+        justify-content: center;
+        box-shadow: 0 15px 10px;
+        gap: 10px;
+        background-color: rgba(0, 0, 0, 0.062);
+     padding: 40px;
+
+        
+      }
+    .correct{
+        color: aliceblue;
+        background-color: green;
+    }
+    .incorrect{
+        color: aliceblue;
+        background-color: rgb(252, 63, 6);
+    }
+    .botonAswer{
+        min-width: 450px;
+        text-align:center;
+         flex: 1;
+        
+        display: block;
+        align-items: center;
+        line-height: 30px;
+        padding:30px;
+        margin: 30px;
+        font-size: 45px;
+        cursor: pointer;
+        border: none;
+        border-radius: 15px;
+        transition: background-color 0.3s;
+        box-shadow: 0 15px 10px;
+        /* max-width: 200px;
+        max-height: 150px; */
+       
+
+    }
+   
