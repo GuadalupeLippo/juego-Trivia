@@ -279,7 +279,15 @@ aleatoria: [
     }
   ]
 }
-
+const imagenes = {
+arte,
+historia,
+geografia,
+deportes,
+entretenimiento,
+ciencias,
+aleatoria
+}
 
 
 export default function Cards() {
@@ -289,7 +297,7 @@ export default function Cards() {
   const handleShowConfig = () => setShowConfig(true);
 
     const HadelCards = (category) => {
-      navigate("/trivia", { state: { questions: triviaQuestions[category]} });
+      navigate("/trivia", { state: { questions: triviaQuestions[category], imagen: imagenes[category]} });
       
     }
   

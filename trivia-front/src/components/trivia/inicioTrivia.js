@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Reloj from "./reloj";
-import geografia from "./geografia 1.png";
+
 
 import "./trivia.css";
 import Timer from "../cards/Timer";
@@ -15,6 +15,7 @@ function InicioTrivia() {
   const location = useLocation();
   const selectedTime = location.state?.selectedTime || 15;
   const question = location.state?.questions || [];
+  const logo = location.state?.imagen; 
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [timeRemaining, setTimeRemaining] = useState(selectedTime);
   const [isFinish, setFinishTrivia] = useState(false);
@@ -56,9 +57,9 @@ if (isFinish) {
 
        
         <img
-          alt="logoGeografia"
-          src={geografia}
-          className="geografia"
+          alt="logo"
+          src={logo}
+          className="categoria"
           width="100px"
         />
       </div> 
