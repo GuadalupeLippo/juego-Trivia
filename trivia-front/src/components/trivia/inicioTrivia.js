@@ -66,13 +66,16 @@ useEffect(() => {
 
   return () => clearInterval(timer);
 }, []);
+
+
+
 const handleAnswerClick = (answer) => {
   if (timeRemaining > 0) {
     setTimeout(() => {
       if (currentQuestionIndex === triviaQuestions.length - 1) {
         setFinishTrivia(true);
       } else {
-        setCurrentQuestionIndex((answer) => answer+ 1);
+        setCurrentQuestionIndex((currentQuestion) => currentQuestion + 1);
         setTimeRemaining(selectedTime); 
       }
     }, 1000); 
@@ -80,7 +83,7 @@ const handleAnswerClick = (answer) => {
 };
 
 if (isFinish) {
-  return <div>Game Over</div>;
+  return <div>Finalizaste la Trivia</div>
 }
  
   return (
@@ -98,7 +101,7 @@ if (isFinish) {
           width="100px"
         />
       </div> 
-      <Answers questionData={triviaQuestions[currentQuestionIndex]} onAnswerClick={handleAnswerClick} />
+      <Answers questionData={triviaQuestions[currentQuestionIndex]} onAnswerClick={handleAnswerClick}   />
       
     </>
   );

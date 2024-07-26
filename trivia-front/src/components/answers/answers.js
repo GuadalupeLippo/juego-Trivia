@@ -1,10 +1,13 @@
-import {React, useState} from "react";
+import {React, useEffect, useState} from "react";
 import "./answers.css";
 
 export function Answers({ questionData, onAnswerClick }) {
   const [botonColor, setbotonColor] = useState(null);
-  // const [currentQuestion, setCurrentQuestion] = useState(0);
-  // const [isFinish, setFinishTrivia] = useState(false);
+
+  useEffect(()   => {
+    setbotonColor(null)
+  }, [questionData])
+
   if (!questionData) {
     return <div>Loading...</div>;
   }
@@ -12,11 +15,7 @@ export function Answers({ questionData, onAnswerClick }) {
   const handleClick = (answer) => {
     setbotonColor(answer);
     onAnswerClick(answer);
-  //   if (currentQuestion === questionData.length - 1) {
-  //     setFinishTrivia(true);
-  //   } else {
-  //     setCurrentQuestion(currentQuestion + 1);
-  //   }
+ 
   };
 
   return (
