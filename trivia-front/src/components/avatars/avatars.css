@@ -29,7 +29,7 @@
 .card_img {
     width: 200px;
     align-self: center;
-    
+    margin: 0px 30px;
 }
 
 .card_data {
@@ -43,6 +43,7 @@
     font-family: 'Permanent Marker', cursive;
     margin: 5px 70px;
     padding-bottom: 15px;
+    color: #08c120;
 }
 
 .avatar_container .card_button {

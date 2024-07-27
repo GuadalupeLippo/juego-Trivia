@@ -32,19 +32,20 @@ export function CarrouselAvatars() {
     handleCloseModal();
   };
 
+
  const avatars = [
-    { id: 'George', src: "https://api.dicebear.com/9.x/bottts/svg?seed=George", points:200},
-    { id: 'Loki', src: "https://api.dicebear.com/9.x/bottts/svg?seed=Loki" , points:200},
-    { id: 'Charlie', src: "https://api.dicebear.com/9.x/bottts/svg?seed=Charlie", points:200 },
-    { id: 'Bandit', src: "https://api.dicebear.com/9.x/bottts/svg?seed=Bandit" , points:200},
-    { id: 'Lucky', src: "https://api.dicebear.com/9.x/bottts/svg?seed=Lucky" , points:200},
-    { id: 'Jasmine', src: "https://api.dicebear.com/9.x/bottts/svg?seed=Jasmine" , points:200},
-    { id: 'Chester', src: "https://api.dicebear.com/9.x/bottts/svg?seed=Chester", points:200 },
-    { id: 'Boo', src: "https://api.dicebear.com/9.x/bottts/svg?seed=Boo" , points:200},
-    { id: 'Fluffy', src: "https://api.dicebear.com/9.x/bottts/svg?seed=Fluffy", points:200 },
-    { id: 'Bella', src: "https://api.dicebear.com/9.x/bottts/svg?seed=Bella" , points:200},
-    { id: 'Luna', src: "https://api.dicebear.com/9.x/bottts/svg?seed=Luna" , points:200},
-    { id: 'Baby', src: "https://api.dicebear.com/9.x/bottts/svg?seed=Baby", points:200 },
+    { id: 'George', src: "https://api.dicebear.com/9.x/bottts/svg?seed=George", pointsNeeded:20},
+    { id: 'Loki', src: "https://api.dicebear.com/9.x/bottts/svg?seed=Loki" , pointsNeeded:100},
+    { id: 'Charlie', src: "https://api.dicebear.com/9.x/bottts/svg?seed=Charlie", pointsNeeded:200 },
+    { id: 'Bandit', src: "https://api.dicebear.com/9.x/bottts/svg?seed=Bandit" , pointsNeeded:200},
+    { id: 'Lucky', src: "https://api.dicebear.com/9.x/bottts/svg?seed=Lucky" , pointsNeeded:200},
+    { id: 'Jasmine', src: "https://api.dicebear.com/9.x/bottts/svg?seed=Jasmine" , pointsNeeded:200},
+    { id: 'Chester', src: "https://api.dicebear.com/9.x/bottts/svg?seed=Chester", pointsNeeded:200 },
+    { id: 'Boo', src: "https://api.dicebear.com/9.x/bottts/svg?seed=Boo" , pointsNeeded:200},
+    { id: 'Fluffy', src: "https://api.dicebear.com/9.x/bottts/svg?seed=Fluffy", pointsNeeded:200 },
+    { id: 'Bella', src: "https://api.dicebear.com/9.x/bottts/svg?seed=Bella" , pointsNeeded:200},
+    { id: 'Luna', src: "https://api.dicebear.com/9.x/bottts/svg?seed=Luna" , pointsNeeded:200},
+    { id: 'Baby', src: "https://api.dicebear.com/9.x/bottts/svg?seed=Baby", pointsNeeded:200 },
   ];
 
   const settings = {
@@ -93,7 +94,7 @@ export function CarrouselAvatars() {
                   <img src={avatar.src} alt="avatar" className='card_img'/>
                   <div className='card_data'>
                     <h3 className='card_precio'>
-                      {purchasedAvatars[avatar.id] ? 'Canjeado' : [avatar.points]}
+                      {purchasedAvatars[avatar.id] ? 'Canjeado' : [avatar.pointsNeeded]}
                     </h3>
                     {!purchasedAvatars[avatar.id] && (
                       <button className='card_button' onClick={() => handleShowModal(avatar)}>
