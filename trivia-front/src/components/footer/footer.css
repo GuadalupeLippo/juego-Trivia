@@ -32,8 +32,10 @@
 
 .reseña {
   color: rgba(255, 255, 255, 0.89);
-  margin-left: 80px;
+  margin-left: 14px;
   margin-top: 14px;
+  display: flex;
+  justify-content: flex-start;
 }
 
 h4 {
@@ -80,4 +82,14 @@ ul h2{
   filter: drop-shadow(
     0 0 10px rgb(29, 28, 28)
   );
+}
+.footer-loguin{
+  background: linear-gradient(rgba(49, 48, 24, 0.719), rgba(94, 207, 168, 0.712));
+}
+.footer-col {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end; 
+  flex: 1; 
+  text-align: right; 
 }

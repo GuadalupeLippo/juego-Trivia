@@ -1,29 +1,27 @@
 import Form from "react-bootstrap/Form";
 import "./reseña.css";
 
-function CheckReverseExample() {
+function Reseña() {
   return (
-    <Form className="Reseña">
-      <h3>¿Ya jugaste?</h3>
+    <Form className="reseña-conteiner">
+      <h3>¡Tu opinion nos importa!</h3>
       <h2>Califica el juego</h2>
       {["radio"].map((type) => (
-        <div key={`reverse-${type}`} className="mb-3">
+        <div key={`reverse-${type}`}>
           <Form.Check
-            reverse
             label="⭐"
             name="group1"
             type={type}
             id={`reverse-${type}-1`}
           />
           <Form.Check
-            reverse
             label="⭐ ⭐"
             name="group1"
             type={type}
             id={`reverse-${type}-1`}
           />
           <Form.Check
-            reverse
+           
             label="⭐ ⭐ ⭐"
             name="group1"
             type={type}
@@ -35,4 +33,4 @@ function CheckReverseExample() {
   );
 }
 
-export default CheckReverseExample;
+export default Reseña;
