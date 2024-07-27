@@ -108,6 +108,7 @@ export function ModalLoguin({ showLoguin, handleCloseLoguin}) {
         backdrop="static"
         size="lg"
         className="Modal"
+        centered
       >
         <Modal.Header closeButton className="modal-loguin">
           <Modal.Title>Iniciar Sesión</Modal.Title>

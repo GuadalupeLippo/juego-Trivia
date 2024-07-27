@@ -28,6 +28,7 @@ box-shadow: none;
 .name-user{
   color: rgb(31, 102, 114);
   font-size: 18px;
+  font-family: 'Permanent Marker', cursive;
 }
 .name-user :hover{
 color: none;

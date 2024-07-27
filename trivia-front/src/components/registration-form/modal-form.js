@@ -9,6 +9,7 @@ export function ModalRegistrer({ show, handleClose }) {
         onHide={handleClose}
         backdrop="static"
         className="Modal"
+        centered
       >
         <Modal.Header className="modal-registrer" closeButton>
           <Modal.Title>¡TE HAS REGISTRADO CON ÉXITO!</Modal.Title>
