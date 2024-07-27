@@ -2,6 +2,7 @@ import timer from './images/timer.gif';
 import register from './images/register.gif';
 import store from './images/store.gif';
 import categories from './images/categories.gif';
+import trivia from './images/trivia.gif';
 import './instructions.css';
 import Carousel from 'react-bootstrap/Carousel';
 
@@ -35,6 +36,15 @@ export function CarrouselGifs() {
         />
     
       </Carousel.Item>
+
+      <Carousel.Item>
+        <img 
+          className="d-block w-100"
+          src={trivia}
+          alt="Third slide"
+        /> 
+      </Carousel.Item>
+
       <Carousel.Item>
         <img 
           className="d-block w-100"
