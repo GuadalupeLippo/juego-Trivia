@@ -40,11 +40,11 @@ function DropDownProfiles() {
 
       <Dropdown.Menu className="dropdown-menu-custom">
         <Dropdown.Header>
-          Puntuación: <strong className="puntos">{authUser?.score}</strong>
+          Puntos: <strong className="puntos">{authUser?.score}</strong>
         </Dropdown.Header>
-        <Dropdown.Item  onClick={handleEditProfileClick}>Editar perfil</Dropdown.Item>
-        <Dropdown.Item onClick={handleMisAvatarsClick}>Mis avatars</Dropdown.Item>
-        <Dropdown.Item onClick={handleOpenGames}>Partidas</Dropdown.Item>
+        <Dropdown.Item  className="dropdown-meni-item " onClick={handleEditProfileClick}>Editar perfil</Dropdown.Item>
+        <Dropdown.Item className="dropdown-meni-item " onClick={handleMisAvatarsClick}>Mis avatars</Dropdown.Item>
+        <Dropdown.Item className="dropdown-meni-item " onClick={handleOpenGames}>Partidas</Dropdown.Item>
 
         <Dropdown.Item href="/">Cerrar sesión</Dropdown.Item>
       </Dropdown.Menu>

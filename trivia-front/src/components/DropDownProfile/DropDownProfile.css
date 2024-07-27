@@ -22,8 +22,8 @@ box-shadow: none;
     margin: 0;
    
   }
-  .dropdown-menu-custom :hover{
-   color: rgb(67, 100, 100);
+  .dropdown-meni-item :hover{
+   color: rgb(74, 88, 88);
   }
 .name-user{
   color: rgb(31, 102, 114);
@@ -34,7 +34,8 @@ box-shadow: none;
 color: none;
 }
 .puntos{
-    color: rgb(22, 115, 130);
+    color: rgb(6, 167, 192);
+    font-size: 18px;
 }
 .partidas {
   color: rgb(38, 73, 89);

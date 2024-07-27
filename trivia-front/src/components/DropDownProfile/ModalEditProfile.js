@@ -25,7 +25,7 @@ const EditProfileModal = ({ show, handleClose, user, onSave }) => {
       </Modal.Header>
       <Modal.Body className='m-b'>
         <Form>
-          <Form.Group controlId="formName">
+          <Form.Group controlId="formName" className="mb-3">
             <Form.Label>Nombre</Form.Label>
             <Form.Control
               type="text"
@@ -34,7 +34,7 @@ const EditProfileModal = ({ show, handleClose, user, onSave }) => {
               onChange={handleInputChange}
             />
           </Form.Group>
-          <Form.Group controlId="formEmail">
+          <Form.Group controlId="formEmail" className="mb-3">
             <Form.Label>Email</Form.Label>
             <Form.Control
               type="email"
@@ -43,7 +43,7 @@ const EditProfileModal = ({ show, handleClose, user, onSave }) => {
               onChange={handleInputChange}
             />
           </Form.Group>
-          <Form.Group controlId="formPassword">
+          <Form.Group controlId="formPassword" className="mb-3">
             <Form.Label>Contraseña</Form.Label>
             <Form.Control
               type="password"
