@@ -19,7 +19,7 @@ const EditProfileModal = ({ show, handleClose, user, onSave }) => {
   };
 
   return (
-    <Modal show={show} onHide={handleClose} className='Modal'>
+    <Modal show={show} onHide={handleClose} className='Modal' backdrop='static' centered>
       <Modal.Header className="modal-registrer">
         <Modal.Title>Editar Perfil</Modal.Title>
       </Modal.Header>
@@ -58,7 +58,7 @@ const EditProfileModal = ({ show, handleClose, user, onSave }) => {
         <Button variant="secondary" onClick={handleClose}>
           Cancelar
         </Button>
-        <Button variant="primary" onClick={handleSaveClick}>
+        <Button className='btn-grad' onClick={handleSaveClick}>
           Guardar
         </Button>
       </Modal.Footer>

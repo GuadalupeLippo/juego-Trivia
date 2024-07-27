@@ -2,6 +2,7 @@ import Dropdown from "react-bootstrap/Dropdown";
 import { ModalGames } from "./Modal-games";
 import { useState } from "react";
 import EditProfileModal from "./ModalEditProfile";
+import { useNavigate } from "react-router-dom";
 import { useAuth } from "../form-loguin/UserAuth";
 import "./DropDownProfile.css";
 
@@ -9,6 +10,7 @@ function DropDownProfiles() {
   const [openGames, setOpenGames] = useState(false);
   const [showEditProfile, setShowEditProfile] = useState(false);
   const { authUser, setAuthUser } = useAuth();
+  const navigate = useNavigate();
 
   const handleEditProfileClick = () => setShowEditProfile(true);
   const handleCloseEditProfile = () => setShowEditProfile(false);
@@ -18,25 +20,30 @@ function DropDownProfiles() {
     console.log('Datos guardados:', user);
   };
 
+  const handleMisAvatarsClick = () => {
+    navigate('/avatars');
+  };
+
+
 
   const handleOpenGames = () => setOpenGames(true);
   const handleCloseGames = () => setOpenGames(false);
 
   return (
     <Dropdown>
-      <Dropdown.Toggle as="button" className="btn btn-lg no-style-btn">
-       <img src={authUser?.avatar} alt="avatar" width="60"/>
+      <Dropdown.Toggle as="button" className="btn btn-lg no-style-btn me-2">
+       <img src={authUser?.avatar} alt="avatar" width="80"/>
+       <div className="name-user">
+          <strong>{authUser?.name}</strong>
+        </div>
       </Dropdown.Toggle>
 
       <Dropdown.Menu className="dropdown-menu-custom">
-        <Dropdown.Header className="name-user">
-          <strong>{authUser?.name}</strong>
-        </Dropdown.Header>
         <Dropdown.Header>
           Puntuación: <strong className="puntos">{authUser?.score}</strong>
         </Dropdown.Header>
         <Dropdown.Item  onClick={handleEditProfileClick}>Editar perfil</Dropdown.Item>
-        <Dropdown.Item href="/avatars">Mis avatars</Dropdown.Item>
+        <Dropdown.Item onClick={handleMisAvatarsClick}>Mis avatars</Dropdown.Item>
         <Dropdown.Item onClick={handleOpenGames}>Partidas</Dropdown.Item>
 
         <Dropdown.Item href="/">Cerrar sesión</Dropdown.Item>

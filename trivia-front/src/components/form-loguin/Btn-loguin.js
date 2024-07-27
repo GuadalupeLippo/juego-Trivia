@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import { ModalLoguin } from "./Modal-Loguin";
+import './PlayButtom.css'
 
 export function BtnLoguin() {
   const [showLoguin, setShowLoguin] = useState(false);
@@ -15,7 +16,7 @@ export function BtnLoguin() {
   return (
     <>
       <Button
-        className="btn btn-primary btnfos-5"
+        className="btn-grad btnfos-5"
         type="submit"
         onClick={handleShowLoguin}
       >

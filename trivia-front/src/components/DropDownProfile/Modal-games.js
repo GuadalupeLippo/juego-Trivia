@@ -7,7 +7,7 @@ export function ModalGames({ openGames, handleCloseGames }) {
 
   const {authUser} = useAuth()
   return (
-    <Modal show={openGames} onHide={handleCloseGames} className="Modal">
+    <Modal show={openGames} onHide={handleCloseGames} className="Modal" backdrop='static' centered>
       <Modal.Header className="modal-registrer" closeButton>
         <Modal.Title>Registro de partidas</Modal.Title>
       </Modal.Header>

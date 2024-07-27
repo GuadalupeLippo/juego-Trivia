@@ -48,6 +48,7 @@
 }
 .Modal{
     font-family: "Itim", cursive;
+    background-color: #eff9fb5c;
 }
 .modal-registrer{
     background-image: linear-gradient(to right, #7bf1fe, #80d6f0) ;
@@ -69,17 +70,8 @@
   bottom: -1.2rem;
   left: 0;
   width: 100%;
-  font-size: 0.60rem;
+  font-size: 0.85rem;
   color: #DC3545;
-}
-.btn-form{
-   
-    border:none; 
-    color: white; 
-    padding: 20px 20px;
-    font-size: 16px; 
-    cursor: pointer;
-    transition: background 0.3s ease-in-out;
 }
 
 
@@ -92,7 +84,7 @@
     font-weight: 400;
     line-height: 45px;
     max-width: 160px;
-    margin: 0 auto 2em;
+    margin: 0 auto;
     position: relative;
     text-transform: uppercase;
     width: 100%;

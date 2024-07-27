@@ -1,0 +1,50 @@
+.mis-avatar-title{
+  font-family: 'Foo', sans-serif;
+  text-align: center;
+  margin: 1.8rem;
+  color: rgb(238, 171, 71);
+  text-shadow: 6px 6px 8px rgba(147, 80, 33, 0.936);
+  background-color: rgba(250, 235, 215, 0.951);
+  padding: 0.5rem;
+  letter-spacing: 4px;
+}
+.card-avatar {
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 1rem;
+    padding: 0.5rem;
+    padding-top: 1rem;
+    box-shadow: 0 5px 10px #513131;
+  }
+ 
+.card-img-custom {
+    width: 150px; 
+    height: 150px; 
+    object-fit: cover; 
+  }
+
+  .button-avatar {
+    margin-top: 10px;
+  }
+
+.title-id{
+  font-family: 'Foo', sans-serif;
+  color: rgb(98, 75, 75);
+}
+
+.modal-body-avatar{
+  text-align: center;
+  background-color: #eff9fbc3;
+}
+.btn-modal-avatar{
+  background-image: linear-gradient(to right, rgb(238, 83, 56), #e52a2a);
+  border:none; 
+  color: white; 
+  cursor: pointer;
+}
+.btn-modal-avatar :hover {
+  background-image: linear-gradient(to right, #e52a2a ,rgb(238, 83, 56)); }
