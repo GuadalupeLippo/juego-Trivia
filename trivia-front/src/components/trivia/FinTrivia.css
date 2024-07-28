@@ -1,47 +1,111 @@
-#tituloFin{
-    
-   color: rgb(94, 183, 241);
-   text-align: center;
-    justify-content: center;
+.top_modal {
+  background-color:#F9F477;
+  font-family: 'Permanent Marker', cursive;
 }
-@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+.title_modal{
+  
+  padding-left: 40px;
+  text-align: center;
+ 
+}
+ .title_shine{
+  background: linear-gradient(to right, hsl(44, 99%, 67%) 0, hsl(46, 90%, 76%) 10%, hsl(44, 99%, 50%) 20%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 3s infinite linear;
+  text-transform: uppercase;
+  background-clip:text;
+ }
+  
+@keyframes shine {
+  0% {
+    background-position: 0;
+  }
+  60% {
+    background-position: 600px;
+  }
+  100% {
+    background-position: 600px;
+  }
+}
+.all_results {
+  display: flex;
+  justify-content: space-around;
 
-body{
- background:url('http://subtlepatterns.subtlepatterns.netdna-cdn.com/patterns/noisy_net.png') repeat;
-  font-family: "Open Sans",  Impact;
-}
-.area{
-    display: flex;
-  text-align:center;
-  font-size:2.5em;
-  color:#ec994b;
-  letter-spacing: -3px;
-  font-weight:700;
-  text-transform:uppercase;
-  animation:blur .95s ease-out infinite;
-  animation:blur .60s ease-out infinite;
-  text-shadow:0px 0px 5px #fffdfd,
-      0px 0px 7px #fff;
 }
 
-@keyframes blur{
-  from{
-      text-shadow:0px 0px 10px #fff,
-      0px 0px 10px #f73b3b, 
-      0px 0px 25px #9eec1f,
-      0px 0px 25px #fff,
-      0px 0px 25px #4711c4,
-      0px 0px 25px #e9872c,
-      0px 0px 25px #52ece5,
-      0px 0px 25px #fff,
-      0px 0px 50px #fff,
-      0px 0px 50px #e8f71a,
-      0px 0px 50px #7B96B8,
-      0px 0px 150px #7B96B8,
-      0px 10px 100px #7B96B8,
-      0px 10px 100px #7B96B8,
-      0px 10px 100px #7B96B8,
-      0px 10px 100px #7B96B8,
-      0px -10px 100px #7B96B8,
-      0px -10px 100px #7B96B8;}
+.result_container {
+  
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+.trivia_results {
+  position: absolute;
+  font-size: smaller;
+  text-align: center;
+  font-family: "Itim", cursive;
+  color:rgb(250, 249, 246);
+}
+
+.circle {
+  width: 100%;
+  height: 100%;
+ 
+}
+
+.principal_button{ 
+  display: flex;
+  justify-content: center;
+  height: 80px;
+  font-family: 'Foo', sans-serif;
+}
+.other_buttons{
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 20px;
+  font-family: 'Foo', sans-serif;
+}
+
+.correctas{
+  color:rgb(14, 238, 32)
+}
+
+.incorrectas{
+  color: rgb(238, 8, 8);
+}
+
+.puntos{
+  color: rgb(251, 255, 3);
+}
+
+.winner{
+  font-family: 'Permanent Marker', cursive;
+  text-align: center;
+  font-size: 30px;
+  color:rgb(180, 112, 243);
+}
+
+.logoNav{
+  align-self: center;
+}
+.btn1{
+ background-color:#86CD82;
+ border-color: #64cc5e;
+}
+.btn1:hover{
+  background-color: #53d74c;;
+}
+
+.btn2{
+  background-color: rgb(180, 112, 243);
+  border-color: rgb(158, 19, 245);
+}
+.btn2:hover{
+  background-color: rgb(158, 19, 245);
+}
+
