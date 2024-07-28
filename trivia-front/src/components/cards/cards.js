@@ -1,12 +1,18 @@
 import "./cards.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import arteLogo from "./iconos/iconoarte.png";
+import historiaLogo from "./iconos/historia.png";
+import cienciasLogo from "./iconos/ciencias.png";
+import deportesLogo from "./iconos/deportes.png";
+import entretenimientoLogo from "./iconos/entretenimientoa.png";
+import geografiaLogo from "./iconos/geografia 1.png";
+import geografia from "../carrousel/imagenes/geografia.jpg";
 import arte from "../carrousel/imagenes/arte.jpg";
-import historia from "../carrousel/imagenes/historia.jpeg";
 import ciencias from "../carrousel/imagenes/ciencias.jpg";
 import deportes from "../carrousel/imagenes/deportes3.png";
 import entretenimiento from "../carrousel/imagenes/entretenimiento.jpg";
-import geografia from "../carrousel/imagenes/geografia.jpg";
+import historia from "../carrousel/imagenes/historia.jpeg";
 import aleatoria from "../imagenes/aleatoria.png";
 import PlayButton from "../form-loguin/PlayButtom";
 import ModalConfig from "./PlayModal";
@@ -279,15 +285,24 @@ aleatoria: [
     }
   ]
 }
-const imagenes = {
-arte,
-historia,
-geografia,
-deportes,
-entretenimiento,
-ciencias,
+const imagenesLogo = {
+arteLogo,
+historiaLogo,
+geografiaLogo,
+deportesLogo,
+entretenimientoLogo,
+cienciasLogo,
 aleatoria
 }
+// const imagenes = {
+//   arte,
+//   historia,
+//   geografia,
+//   deportes,
+//   entretenimiento,
+//   ciencias,
+//   aleatoria
+//   }
 
 
 export default function Cards() {
@@ -297,7 +312,7 @@ export default function Cards() {
   const handleShowConfig = () => setShowConfig(true);
 
     const HadelCards = (category) => {
-      navigate("/trivia", { state: { questions: triviaQuestions[category], imagen: imagenes[category]} });
+      navigate("/trivia", { state: { questions: triviaQuestions[category], imagenesLogo: imagenesLogo[category]} });
       
     }
   
@@ -306,7 +321,7 @@ export default function Cards() {
       <div className="cardContainer">
         <div className="cards" onClick={() => HadelCards("arte")}>
           <div className="face front">
-            <img src={arte} alt="logo arte" />
+            <img src={arte} alt="arte" />
           </div>
           <div className="face back">
             <h3>Arte</h3>
@@ -320,7 +335,7 @@ export default function Cards() {
 
         <div className="cards"   onClick={() => HadelCards("historia")}>
           <div className="face front">
-            <img src={historia} alt="logo historia"  />
+            <img src={historia} alt=" historia"  />
           </div>
           <div className="face back">
             <h3>Historia</h3>
@@ -331,7 +346,7 @@ export default function Cards() {
 
         <div className="cards"   onClick={() => HadelCards("ciencia")}>
           <div className="face front">
-            <img src={ciencias} alt="logo ciencias" />
+            <img src={ciencias} alt="ciencias" />
           </div>
           <div className="face back">
             <h3>Ciencias</h3>
@@ -345,7 +360,7 @@ export default function Cards() {
 
         <div className="cards"   onClick={() => HadelCards("deportes")}>
           <div className="face front">
-            <img src={deportes} alt="logo deportes" />
+            <img src={deportes} alt="deportes" />
           </div>
           <div className="face back">
             <h3>Deportes</h3>
@@ -360,7 +375,7 @@ export default function Cards() {
 
         <div className="cards"  onClick={() => HadelCards("entretenimiento")} >
           <div className="face front">
-            <img src={entretenimiento} alt="logo entretenimiento" />
+            <img src={entretenimiento} alt="entretenimiento" />
           </div>
           <div className="face back">
             <h3>Entretenimiento</h3>
@@ -375,7 +390,7 @@ export default function Cards() {
 
         <div className="cards"   onClick={() => HadelCards("geografia")}>
           <div className="face front">
-            <img src={geografia} alt="logo geografia" />
+            <img src={geografia} alt="geografia" />
           </div>
           <div className="face back">
             <h3>Geografia</h3>

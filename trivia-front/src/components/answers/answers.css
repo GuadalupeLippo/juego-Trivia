@@ -21,7 +21,7 @@
     margin: 50px;
     font-family: "Permanent Marker";
     color: #FFFFFF;
-
+display: flex;
 }
 /* @media (max-width: 968px) {
     .answersContainer{
@@ -38,6 +38,7 @@
         padding: 10px;
         background-color: antiquewhite;
         width: 50%;
+        display: flex;
     }
 
     .pregunta{
@@ -45,11 +46,11 @@
        /* text-align: center; */
         color: #549ae9;
        padding-inline-start: 20%;
-       
-        border-radius: 15px;
+       border-radius: 15px;
         font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
         font-size:50px;
        align-items: center;
+       text-align: center;
        /* background-color: rgba(0, 0, 0, 0.062); */
       
       
@@ -65,7 +66,7 @@
         box-shadow: 0 15px 10px;
         gap: 10px;
         background-color: rgba(0, 0, 0, 0.062);
-     padding: 40px;
+        padding: 40px;
 
         
       }
