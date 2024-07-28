@@ -29,24 +29,28 @@
    
 }
 .footer-timeUp{
+    display: flex;
+  flex-direction: column;
     justify-content: center;
+
 }
 
 .btn-reset{
     background-color: rgb(220, 103, 19);
   color: white;
   border: none;
+  margin-bottom: 12px;
 }
 
 .btn-reset:hover{
-    background-color:rgb(203, 133, 107) 
+    background-color:rgb(216, 130, 99) 
 }
 .btn-category{
-    background-color: rgb(195, 169, 66);
+    background-color: rgb(215, 183, 55);
   color: white;
   border: none;
 }
 
 .btn-category:hover{
-    background-color:rgb(203, 195, 107) 
+    background-color:rgb(231, 219, 93) 
 }
