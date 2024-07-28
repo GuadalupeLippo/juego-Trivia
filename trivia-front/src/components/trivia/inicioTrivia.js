@@ -6,6 +6,7 @@ import "./trivia.css";
 import Timer from "../cards/Timer";
 import { useLocation } from "react-router-dom";
 import { Answers } from "../answers/answers";
+import TimeUpModal from "../cards/TimeUpModal";
 
 
 
@@ -19,16 +20,22 @@ function InicioTrivia() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [timeRemaining, setTimeRemaining] = useState(selectedTime);
   const [isFinish, setFinishTrivia] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const [reset, setReset] = useState(false);
  
 
-useEffect(() => {
-  const timer = setInterval(() => {
-    setTimeRemaining((prevTime) => Math.max(prevTime - 1, 0));
-  }, 1000);
-
-  return () => clearInterval(timer);
-}, []);
-
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTimeRemaining((prevTime) => {
+        if (prevTime === 1) {
+          clearInterval(timer);
+          setShowModal(true);
+        }
+        return Math.max(prevTime - 1, 0);
+      });
+    }, 1000);
+    return () => clearInterval(timer);
+  }, []);
 
 
 const handleAnswerClick = (answer) => {
@@ -44,6 +51,19 @@ const handleAnswerClick = (answer) => {
   }
 };
 
+const handleRestart = () => {
+  setShowModal(false);
+  setCurrentQuestionIndex(0);
+  setTimeRemaining(selectedTime);
+  setFinishTrivia(false);
+  setReset(prev => !prev);
+};
+
+const handleTimeUp = () => {
+  setShowModal(true); // Mostrar el modal cuando el tiempo se agote
+};
+
+
 if (isFinish) {
   return <div>Finalizaste la Trivia</div>
 }
@@ -53,7 +73,7 @@ if (isFinish) {
       <div className="inicioTrivia">
         <Reloj />
 
-        <Timer seconds={timeRemaining} />
+        <Timer seconds={timeRemaining} onTimeUp={handleTimeUp} reset={reset}/>
 
        
         <img
@@ -64,6 +84,7 @@ if (isFinish) {
         />
       </div> 
       <Answers questionData={question[currentQuestionIndex]} onAnswerClick={handleAnswerClick}   />
+      <TimeUpModal show={showModal} onHide={handleRestart} onRestart={handleRestart} handl />
       
     </>
   );
