@@ -39,6 +39,8 @@
     background-color: rgb(220, 103, 19);
   color: white;
   border: none;
+  padding: 12px;
+  border-radius: 50px;
   margin-bottom: 12px;
 }
 
@@ -47,8 +49,10 @@
 }
 .btn-category{
     background-color: rgb(215, 183, 55);
+    padding: 12px;
   color: white;
   border: none;
+  border-radius: 50px;
 }
 
 .btn-category:hover{
