@@ -24,8 +24,7 @@
 }
 .body-timeup{
     background-color: #eff9fbc3;
-    padding: 3rem;
-    font-size: 20px;
+     font-size: 20px;
    
 }
 .footer-timeUp{
@@ -36,11 +35,13 @@
 }
 
 .btn-reset{
+    font-family: 'Foo', sans-serif;
+
     background-color: rgb(220, 103, 19);
   color: white;
   border: none;
-  padding: 12px;
-  border-radius: 50px;
+  padding: 15px;
+  border-radius: 20px;
   margin-bottom: 12px;
 }
 
@@ -48,11 +49,12 @@
     background-color:rgb(216, 130, 99) 
 }
 .btn-category{
+    font-family: 'Foo', sans-serif;
     background-color: rgb(215, 183, 55);
-    padding: 12px;
+    padding: 15px;
   color: white;
   border: none;
-  border-radius: 50px;
+  border-radius: 20px;
 }
 
 .btn-category:hover{
