@@ -110,7 +110,7 @@ export function ModalLoguin({ showLoguin, handleCloseLoguin}) {
         className="Modal"
         centered
       >
-        <Modal.Header closeButton className="modal-loguin">
+        <Modal.Header closeButton className="modal-registrer">
           <Modal.Title>Iniciar Sesión</Modal.Title>
         </Modal.Header>
         <Modal.Body className="m-b">

@@ -40,7 +40,7 @@ function DropDownProfiles() {
 
       <Dropdown.Menu className="dropdown-menu-custom">
         <Dropdown.Header>
-          Puntos: <strong className="puntos">{authUser?.score}</strong>
+          Puntos: <strong className="puntos-drop">{authUser?.score}</strong>
         </Dropdown.Header>
         <Dropdown.Item className="dropdown-item-custom"  onClick={handleEditProfileClick}>Editar perfil</Dropdown.Item>
         <Dropdown.Item className="dropdown-item-custom" onClick={handleMisAvatarsClick}>Mis avatars</Dropdown.Item>

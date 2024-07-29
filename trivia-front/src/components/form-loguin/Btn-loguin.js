@@ -16,7 +16,7 @@ export function BtnLoguin() {
   return (
     <>
       <Button
-        className="btn-grad btnfos-5"
+        className="btn btn-grad btnfos-5"
         type="submit"
         onClick={handleShowLoguin}
       >

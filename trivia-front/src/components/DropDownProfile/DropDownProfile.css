@@ -39,12 +39,19 @@ box-shadow: none;
 .name-user :hover{
 color: none;
 }
-.puntos{
+.title-games{
+  font-family: 'Foo', sans-serif;
+  font-size: 25px;
+  letter-spacing: 2px;
+  color: aliceblue;
+  justify-content: center;
+}
+.puntos-drop{
     color: rgb(6, 167, 192);
     font-size: 18px;
 }
 .partidas {
-  color: rgb(38, 73, 89);
+  color: rgb(17, 155, 219);
 }
 .resp-correctas{
   color: rgb(45, 138, 78);
@@ -54,4 +61,8 @@ color: none;
 }
 .ul-games{
     list-style: none;
+}
+.li-games{
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
