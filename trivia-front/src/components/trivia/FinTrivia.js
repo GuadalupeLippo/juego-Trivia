@@ -1,5 +1,5 @@
 import "./FinTrivia.css";
-import { useState } from "react";
+
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { useNavigate } from "react-router-dom";
@@ -8,8 +8,8 @@ import circle from "./images/circle2.jpg";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleCheck, faCircleXmark, faStar } from '@fortawesome/free-solid-svg-icons';
 
-export function FinTrivia() {
-  const [show, setShow] = useState(false);
+export function FinTrivia({show, onHide, onRestart}) {
+  
   const loguin = useNavigate();
   const store = useNavigate();
 
@@ -22,13 +22,11 @@ export function FinTrivia() {
 
   return (
     <>
-      <Button variant="primary" onClick={() => setShow(true)}>
-        Custom Width Modal
-      </Button>
+      
 
       <Modal
         show={show}
-        onHide={() => setShow(false)}
+        onHide={onHide}
         dialogClassName="modal-90w"
         aria-labelledby="example-custom-modal-styling-title"
         className="color_bg"
@@ -36,7 +34,7 @@ export function FinTrivia() {
         <Modal.Header className="top_modal">
           <div className="title_modal">
             <h3 className="title_shine"> ¡¡¡Felicitaciones!!!</h3>
-            <h3 className="winner">Ganaste la partida</h3>
+            <h3 className="winner">Terminaste la partida</h3>
           </div>
         </Modal.Header>
         <Modal.Body>
@@ -60,7 +58,7 @@ export function FinTrivia() {
         <img className="logoNav" src={Logo} alt="logo pagina" width="200" />
 
         <div className="principal_button">
-        <Button className="btn1" variant="secondary" onClick={handleNavigate}>
+        <Button className="btn1" variant="secondary" onClick={onRestart}>
           Volver a Jugar!
         </Button>
         </div>

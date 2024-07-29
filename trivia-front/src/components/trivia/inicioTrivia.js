@@ -5,6 +5,7 @@ import Timer from "../cards/Timer";
 import { useLocation } from "react-router-dom";
 import { Answers } from "../answers/answers";
 import TimeUpModal from "../cards/TimeUpModal";
+import FinTrivia from "./FinTrivia";
 
 function InicioTrivia() {
   const location = useLocation();
@@ -13,9 +14,10 @@ function InicioTrivia() {
   const logo = location.state?.imagenesLogo;
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [timeRemaining, setTimeRemaining] = useState(selectedTime);
-  const [isFinish, setFinishTrivia] = useState(false);
+  
   const [showModalTimeUp, setShowModalTimeUp] = useState(false);
   const [reset, setReset] = useState(false);
+  const [showFin, setShowFin] = useState(false);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -34,7 +36,8 @@ function InicioTrivia() {
     if (timeRemaining > 0) {
       setTimeout(() => {
         if (currentQuestionIndex === question.length - 1) {
-          setFinishTrivia(true);
+         setShowFin(true)
+
         } else {
           setCurrentQuestionIndex((currentQuestion) => currentQuestion + 1);
           setTimeRemaining(selectedTime);
@@ -47,7 +50,7 @@ function InicioTrivia() {
     setShowModalTimeUp(false);
     setCurrentQuestionIndex(0);
     setTimeRemaining(selectedTime);
-    setFinishTrivia(false);
+    setShowFin(false);
     setReset((prev) => !prev);
   };
 
@@ -55,9 +58,7 @@ function InicioTrivia() {
     setShowModalTimeUp(true); // Mostrar el modal cuando el tiempo se agote
   };
 
-  if (isFinish) {
-    return <div>Finalizaste la Trivia</div>;
-  }
+ 
 
   return (
     <>
@@ -76,6 +77,7 @@ function InicioTrivia() {
       </div> 
       <Answers questionData={question[currentQuestionIndex]} onAnswerClick={handleAnswerClick}   />
       <TimeUpModal show={showModalTimeUp} onHide={handleRestart} onRestart={handleRestart}  /> 
+      <FinTrivia show={showFin} onHide={handleRestart} onRestart={handleRestart} />
     </>
   );
 }
