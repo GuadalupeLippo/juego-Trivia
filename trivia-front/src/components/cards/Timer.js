@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./Timer.css";
-import sonido from "./sonido.mp3";
+import sonido from "./game-over.mp3";
 
 const Timer = ({ seconds,onTimeUp, reset }) => {
   const [timeLeft, setTimeLeft] = useState(seconds);

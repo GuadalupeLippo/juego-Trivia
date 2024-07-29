@@ -1,6 +1,7 @@
 import React from "react";
 import { Modal, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import Logo from "../images/logocerebritotrivia.png";
 import './TimeUpModal.css'
 
 const TimeUpModal = ({ show, onHide, onRestart }) => {
@@ -21,6 +22,7 @@ const TimeUpModal = ({ show, onHide, onRestart }) => {
         <br/> <span className="sum-puntos">¡Recuerda que lo importante es seguir sumando puntos!</span>
       </Modal.Body>
       <Modal.Footer className="footer-timeUp">
+      <img className="logoNav" src={Logo} alt="logo pagina" width="200" />
         <Button variant="secondary" className="btn-reset" onClick={onRestart}>
           Volver a Jugar
         </Button>

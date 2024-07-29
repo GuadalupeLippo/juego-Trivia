@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import Reloj from "./reloj";
-
 import "./trivia.css";
 import Timer from "../cards/Timer";
 import { useLocation } from "react-router-dom";
@@ -15,7 +14,7 @@ function InicioTrivia() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [timeRemaining, setTimeRemaining] = useState(selectedTime);
   const [isFinish, setFinishTrivia] = useState(false);
-  const [showModal, setShowModal] = useState(false);
+  const [showModalTimeUp, setShowModalTimeUp] = useState(false);
   const [reset, setReset] = useState(false);
 
   useEffect(() => {
@@ -23,7 +22,7 @@ function InicioTrivia() {
       setTimeRemaining((prevTime) => {
         if (prevTime === 1) {
           clearInterval(timer);
-          setShowModal(true);
+          setShowModalTimeUp(true);
         }
         return Math.max(prevTime - 1, 0);
       });
@@ -65,20 +64,18 @@ function InicioTrivia() {
       <div className="inicioTrivia">
         <Reloj />
 
-        <Timer seconds={timeRemaining} onTimeUp={handleTimeUp} reset={reset} />
+        <Timer seconds={timeRemaining} onTimeUp={handleTimeUp} reset={reset}/>
 
-        <img alt="logo" src={logo} className="categoria" width="100px" />
-      </div>
-      <Answers
-        questionData={question[currentQuestionIndex]}
-        onAnswerClick={handleAnswerClick}
-      />
-      <TimeUpModal
-        show={showModal}
-        onHide={handleRestart}
-        onRestart={handleRestart}
-        handl
-      />
+       
+        <img
+          alt="logo"
+          src={logo}
+          className="categoria"
+          width="100px"
+        />
+      </div> 
+      <Answers questionData={question[currentQuestionIndex]} onAnswerClick={handleAnswerClick}   />
+      <TimeUpModal show={showModalTimeUp} onHide={handleRestart} onRestart={handleRestart}  /> 
     </>
   );
 }
