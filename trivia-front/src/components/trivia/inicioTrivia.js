@@ -6,7 +6,7 @@ import { useLocation } from "react-router-dom";
 import { Answers } from "../answers/answers";
 import TimeUpModal from "../cards/TimeUpModal";
 import FinTrivia from "./FinTrivia";
-
+import sonidoFin from "../cards/sonido.mp3"
 function InicioTrivia() {
   const location = useLocation();
   const selectedTime = location.state?.selectedTime || 15;
@@ -37,7 +37,8 @@ function InicioTrivia() {
       setTimeout(() => {
         if (currentQuestionIndex === question.length - 1) {
          setShowFin(true)
-
+         const audio = new Audio(sonidoFin);
+         audio.play();
         } else {
           setCurrentQuestionIndex((currentQuestion) => currentQuestion + 1);
           setTimeRemaining(selectedTime);
