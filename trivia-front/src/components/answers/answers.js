@@ -9,7 +9,7 @@ export function Answers({ questionData, onAnswerClick }) {
   }, [questionData])
 
   if (!questionData) {
-    return <div>Loading...</div>;
+    return ;
   }
 
   const handleClick = (answer) => {
