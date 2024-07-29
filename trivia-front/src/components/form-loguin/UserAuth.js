@@ -11,9 +11,15 @@ export const AuthProvider = ({ children }) => {
       avatar: newAvatar
     }));
   };
+  const updateScore = (newScore) => {
+    setAuthUser((prevUser) => ({
+      ...prevUser,
+      score: newScore
+    }));
+  };
 
   return (
-    <AuthContext.Provider value={{ authUser, setAuthUser,updateAvatar }}>
+    <AuthContext.Provider value={{ authUser, setAuthUser,updateAvatar,updateScore }}>
       {children}
     </AuthContext.Provider>
   );

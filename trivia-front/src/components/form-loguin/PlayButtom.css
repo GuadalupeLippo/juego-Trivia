@@ -1,5 +1,5 @@
 .btn{
-    border: none;
+    border: none !important;
 }
 .btn-grad {
     background-image: linear-gradient(to right, #276e90, #21385a) ;
@@ -14,7 +14,7 @@
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
-}
+} 
 
 .btn-grad:hover {
     background-image: linear-gradient(to right,#21385a ,  #276e90 );

@@ -53,12 +53,17 @@
 .modal-registrer{
     background-image: linear-gradient(to right, #7bf1fe, #80d6f0) ;
     text-align: center;
+    font-family: 'Foo', sans-serif;
+    font-size: 25px;
+    letter-spacing: 1.5px;
+    color: rgb(244, 247, 248);
+    text-shadow: 2px 2px 4px rgba(39, 91, 151, 0.936);
+    justify-content: center;
+  
     
     
 }
-.modal-loguin{
-    background-image: linear-gradient(to right, #7bf1fe, #42cef8) ;
-}
+
 .modal-footer{
   border-top: none;
   background-color: #eff9fbc3;

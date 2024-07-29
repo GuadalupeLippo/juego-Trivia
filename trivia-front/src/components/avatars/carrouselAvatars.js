@@ -4,6 +4,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import './avatars.css';
 import { BuyAvatarModal } from './modalWindow.js';
+import { useAuth } from '../form-loguin/UserAuth.js'
 
 
 export function CarrouselAvatars() {
@@ -11,6 +12,7 @@ export function CarrouselAvatars() {
   const [showModal, setShowModal] = useState(false);
   const [selectedAvatar, setSelectedAvatar] = useState(null);
   const [purchasedAvatars, setPurchasedAvatars] = useState({});
+  const { authUser,updateScore } = useAuth();
  
 
   const handleShowModal = (avatar) => {
@@ -29,6 +31,10 @@ export function CarrouselAvatars() {
       ...prev,
       [selectedAvatar.id]: true,
     }));
+    const newScore = authUser?.score - selectedAvatar.pointsNeeded
+    updateScore(
+      newScore
+    )
     handleCloseModal();
   };
 
