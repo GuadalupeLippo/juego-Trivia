@@ -286,12 +286,12 @@ aleatoria: [
   ]
 }
 const imagenesLogo = {
-arteLogo,
-historiaLogo,
-geografiaLogo,
-deportesLogo,
-entretenimientoLogo,
-cienciasLogo,
+arte: arteLogo,
+historia: historiaLogo,
+geografia: geografiaLogo,
+deportes: deportesLogo,
+entretenimiento: entretenimientoLogo,
+ciencia: cienciasLogo,
 aleatoria
 }
 // const imagenes = {

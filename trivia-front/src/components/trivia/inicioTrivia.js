@@ -11,7 +11,7 @@ function InicioTrivia() {
   const location = useLocation();
   const selectedTime = location.state?.selectedTime || 15;
   const question = location.state?.questions || [];
-  const logo = location.state?.imagen;
+  const logo = location.state?.imagenesLogo;
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [timeRemaining, setTimeRemaining] = useState(selectedTime);
   const [isFinish, setFinishTrivia] = useState(false);
