@@ -31,14 +31,15 @@ export function FinTrivia() {
         onHide={() => setShow(false)}
         dialogClassName="modal-90w"
         aria-labelledby="example-custom-modal-styling-title"
+        className="color_bg"
       >
-        <Modal.Header closeButton className="top_modal">
+        <Modal.Header className="top_modal">
           <div className="title_modal">
             <h3 className="title_shine"> ¡¡¡Felicitaciones!!!</h3>
+            <h3 className="winner">Ganaste la partida</h3>
           </div>
         </Modal.Header>
         <Modal.Body>
-       <h3 className="winner">Ganaste la partida</h3>
           <div className="all_results"> 
             <div className="result_container">
               <img className="circle" src={circle} alt="circulo"/>

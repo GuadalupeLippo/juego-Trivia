@@ -1,22 +1,26 @@
 .top_modal {
-  background-color:#F9F477;
+  background-color: #F9F477;
   font-family: 'Permanent Marker', cursive;
 }
-.title_modal{
-  
+
+.title_modal {
   padding-left: 40px;
   text-align: center;
- 
 }
- .title_shine{
+
+.color_bg{
+  background-color: #f9d0776b;
+}
+
+.title_shine {
   background: linear-gradient(to right, hsl(44, 99%, 67%) 0, hsl(46, 90%, 76%) 10%, hsl(44, 99%, 50%) 20%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: shine 3s infinite linear;
   text-transform: uppercase;
-  background-clip:text;
- }
-  
+  background-clip: text;
+}
+
 @keyframes shine {
   0% {
     background-position: 0;
@@ -28,20 +32,21 @@
     background-position: 600px;
   }
 }
+
 .all_results {
   display: flex;
   justify-content: space-around;
-
+  
 }
 
 .result_container {
-  
   position: relative;
   width: 100%;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  
 }
 
 .trivia_results {
@@ -49,63 +54,100 @@
   font-size: smaller;
   text-align: center;
   font-family: "Itim", cursive;
-  color:rgb(250, 249, 246);
+  color: rgb(250, 249, 246);
 }
 
 .circle {
   width: 100%;
   height: 100%;
- 
 }
 
-.principal_button{ 
+.principal_button {
   display: flex;
   justify-content: center;
   height: 80px;
   font-family: 'Foo', sans-serif;
 }
-.other_buttons{
+
+.other_buttons {
   display: flex;
   justify-content: space-around;
   margin: 20px 20px;
   font-family: 'Foo', sans-serif;
 }
 
-.correctas{
-  color:rgb(14, 238, 32)
+.correctas {
+  color: rgb(14, 238, 32);
 }
 
-.incorrectas{
+.incorrectas {
   color: rgb(238, 8, 8);
 }
 
-.puntos{
+.puntos {
   color: rgb(251, 255, 3);
 }
 
-.winner{
+.winner {
   font-family: 'Permanent Marker', cursive;
   text-align: center;
   font-size: 30px;
-  color:rgb(180, 112, 243);
+  color: #86CD82;
 }
 
-.logoNav{
+.logoNav {
   align-self: center;
-}
-.btn1{
- background-color:#86CD82;
- border-color: #64cc5e;
-}
-.btn1:hover{
-  background-color: #53d74c;;
+  max-width: 100%; 
 }
 
-.btn2{
+.btn1 {
+  background-color: #86CD82;
+  border-color: #64cc5e;
+}
+
+.btn1:hover {
+  background-color: #53d74c;
+}
+
+.btn2 {
   background-color: rgb(180, 112, 243);
   border-color: rgb(158, 19, 245);
 }
-.btn2:hover{
+
+.btn2:hover {
   background-color: rgb(158, 19, 245);
 }
 
+@media (max-width: 768px) {
+  .circle{
+    max-width: 30%;
+  }
+  
+  .title_shine {
+    font-size: 24px; 
+    
+  }
+
+  .winner {
+    font-size: 24px; 
+  }
+
+  .all_results {
+    flex-direction: column; 
+    align-items: center; 
+  }
+
+  .result_container {
+    width: 80%; 
+    margin-bottom: 20px; 
+  }
+
+  .other_buttons {
+    flex-direction: column;
+    align-items: center; 
+  }
+
+  .btn2 {
+    margin-top: 10px; 
+}
+}
