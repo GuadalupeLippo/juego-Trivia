@@ -44,7 +44,7 @@ function InicioTrivia() {
   };
 
   const handleRestart = () => {
-    setShowModal(false);
+    setShowModalTimeUp(false);
     setCurrentQuestionIndex(0);
     setTimeRemaining(selectedTime);
     setFinishTrivia(false);
@@ -52,7 +52,7 @@ function InicioTrivia() {
   };
 
   const handleTimeUp = () => {
-    setShowModal(true); // Mostrar el modal cuando el tiempo se agote
+    setShowModalTimeUp(true); // Mostrar el modal cuando el tiempo se agote
   };
 
   if (isFinish) {
