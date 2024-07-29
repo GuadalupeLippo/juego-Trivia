@@ -1,0 +1,60 @@
+.modal-timeup{
+    background-color: rgba(231, 130, 130, 0.541);
+    text-align: center;
+    font-family: "Itim", cursive;
+   
+}
+
+.modal-content-red-border {
+    box-shadow: 0 0 10px red;
+  }
+
+.sum-puntos{
+    color: rgb(231, 115, 33);
+    font-size: x-large;
+}
+
+.title-timeup{
+    font-family: 'Foo', sans-serif;
+    font-size: 25px;
+    letter-spacing: 2px;
+    color: aliceblue;
+    justify-content: center;
+    background-color: rgb(239, 86, 86);
+}
+.body-timeup{
+    background-color: #eff9fbc3;
+    padding: 3rem;
+    font-size: 20px;
+   
+}
+.footer-timeUp{
+    display: flex;
+  flex-direction: column;
+    justify-content: center;
+
+}
+
+.btn-reset{
+    background-color: rgb(220, 103, 19);
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 50px;
+  margin-bottom: 12px;
+}
+
+.btn-reset:hover{
+    background-color:rgb(216, 130, 99) 
+}
+.btn-category{
+    background-color: rgb(215, 183, 55);
+    padding: 12px;
+  color: white;
+  border: none;
+  border-radius: 50px;
+}
+
+.btn-category:hover{
+    background-color:rgb(231, 219, 93) 
+}

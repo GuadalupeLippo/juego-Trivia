@@ -22,9 +22,15 @@ box-shadow: none;
     margin: 0;
    
   }
-  .dropdown-meni-item :hover{
-   color: rgb(74, 88, 88);
+  .dropdown-menu-custom :hover{
+   color: rgb(55, 84, 84);
   }
+
+  .dropdown-item-custom:focus {
+    background-color: transparent !important;
+    color: inherit;
+}
+
 .name-user{
   color: rgb(31, 102, 114);
   font-size: 18px;
