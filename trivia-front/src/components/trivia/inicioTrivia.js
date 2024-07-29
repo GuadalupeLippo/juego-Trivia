@@ -20,7 +20,7 @@ function InicioTrivia() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [timeRemaining, setTimeRemaining] = useState(selectedTime);
   const [isFinish, setFinishTrivia] = useState(false);
-  const [showModal, setShowModal] = useState(false);
+  const [showModalTimeUp, setShowModalTimeUp] = useState(false);
   const [reset, setReset] = useState(false);
  
 
@@ -29,7 +29,7 @@ function InicioTrivia() {
       setTimeRemaining((prevTime) => {
         if (prevTime === 1) {
           clearInterval(timer);
-          setShowModal(true);
+          setShowModalTimeUp(true);
         }
         return Math.max(prevTime - 1, 0);
       });
@@ -52,7 +52,7 @@ const handleAnswerClick = (answer) => {
 };
 
 const handleRestart = () => {
-  setShowModal(false);
+  setShowModalTimeUp(false);
   setCurrentQuestionIndex(0);
   setTimeRemaining(selectedTime);
   setFinishTrivia(false);
@@ -60,7 +60,7 @@ const handleRestart = () => {
 };
 
 const handleTimeUp = () => {
-  setShowModal(true); // Mostrar el modal cuando el tiempo se agote
+  setShowModalTimeUp(true); //esta funcion resetea el tiempo
 };
 
 
@@ -84,7 +84,7 @@ if (isFinish) {
         />
       </div> 
       <Answers questionData={question[currentQuestionIndex]} onAnswerClick={handleAnswerClick}   />
-      <TimeUpModal show={showModal} onHide={handleRestart} onRestart={handleRestart} handl />
+      <TimeUpModal show={showModalTimeUp} onHide={handleRestart} onRestart={handleRestart}  /> 
       
     </>
   );
