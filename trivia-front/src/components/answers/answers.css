@@ -21,7 +21,10 @@
     margin: 50px;
     font-family: "Permanent Marker";
     color: #FFFFFF;
-display: flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh
 }
 /* @media (max-width: 968px) {
     .answersContainer{
@@ -41,18 +44,30 @@ display: flex;
         display: flex;
     }
 
+    .questionContainer{
+   
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  align-items: center;
+ 
+  
+}
+
     .pregunta{
+        margin-top: 3px;
       display: flex;
-       /* text-align: center; */
-        color: #549ae9;
-       padding-inline-start: 20%;
-       border-radius: 15px;
+        color: #273f57;
         font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
         font-size:50px;
-       align-items: center;
        text-align: center;
-       /* background-color: rgba(0, 0, 0, 0.062); */
+       text-shadow: 6px 6px 8px rgba(142, 155, 180, 0.936);
+      background-color: rgba(0, 0, 0, 0.062);
+      padding: 1.2rem;
+    
       
+       
       
        
              

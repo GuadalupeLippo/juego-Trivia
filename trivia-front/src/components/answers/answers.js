@@ -20,7 +20,9 @@ export function Answers({ questionData, onAnswerClick }) {
 
   return (
     <div className="answersContainer">
+      <div className="questionContainer">
       <h3 className="pregunta">{questionData.question}</h3>
+      </div>
       <div className="botonContainer">
         {questionData.answers.map((answer, index) => (
           <button
