@@ -7,15 +7,17 @@
 
 .title1 {
     padding-bottom: 10px; 
-    background-color: rgba(250, 235, 215, 0.951);
+    
+    
 }
 
 .title3 {
-    color: #2f2e2e;
+    color: #494949;
     font-size: large;
     padding-left: 20px;
     margin-top: 25px;
     font-family: 'Permanent Marker', cursive;
+    background-color: rgba(250, 235, 215, 0.705);
 }
 
 /* Media Queries para pantallas más pequeñas */

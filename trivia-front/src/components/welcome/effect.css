@@ -15,17 +15,17 @@
 
 @keyframes fluidcolors {
     0%{color:#ae63fa;
-        text-shadow:  4px 4px 5px rgb(138, 2, 183);}
+        text-shadow:  4px 4px 5px rgb(4, 4, 4);}
     20%{color:#567fb5;
-        text-shadow: 4px 4px 5px rgb(3, 78, 177);}
+        text-shadow:  4px 4px 5px rgb(4, 4, 4);}
     40%{color:#fb4b3a;        
-        text-shadow: 4px 4px 5px rgb(245, 20, 0)}
+        text-shadow:  4px 4px 5px rgb(4, 4, 4);}
     60%{color:#92ba7f;
-        text-shadow: 4px 4px 5px rgb(111, 179, 79);}
+        text-shadow:  4px 4px 5px rgb(4, 4, 4);}
     80%{color:#f9d85d;
-        text-shadow: 4px 4px 5px rgb(250, 198, 10);}
+        text-shadow:  4px 4px 5px rgb(4, 4, 4);}
     100%{color:#f8bdbd;
-        text-shadow: 4px 4px 5px rgb(255, 148, 148);}
+        text-shadow:  4px 4px 5px rgb(4, 4, 4);}
     
 }
 
