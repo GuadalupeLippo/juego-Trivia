@@ -13,6 +13,7 @@
 }
 
 .title_shine {
+  font-size: 40px;
   background: linear-gradient(to right, hsl(44, 99%, 67%) 0, hsl(46, 90%, 76%) 10%, hsl(44, 99%, 50%) 20%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -91,8 +92,8 @@
 .winner {
   font-family: 'Permanent Marker', cursive;
   text-align: center;
-  font-size: 30px;
-  color: #86CD82;
+  font-size: 35px;
+  color: #5ec958;
 }
 
 .logoNav {
@@ -101,21 +102,21 @@
 }
 
 .btn1 {
-  background-color: #86CD82;
+  background-color: #5ec958;
   border-color: #64cc5e;
 }
 
 .btn1:hover {
-  background-color: #53d74c;
+  background-color:  #4dc347
 }
 
 .btn2 {
-  background-color: rgb(180, 112, 243);
-  border-color: rgb(158, 19, 245);
+  background-color: rgb(220, 103, 19);
+  border-color: rgb(221, 87, 3)
 }
 
 .btn2:hover {
-  background-color: rgb(158, 19, 245);
+  background-color: rgb(221, 87, 3)
 }
 
 @media (max-width: 768px) {
