@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Jaro:opsz@6..72&family=Jersey+10&family=Luckiest+Guy&family=Permanent+Marker&display=swap');
 
-.answersContainer{
+    .answersContainer{
     margin: 0px 50px ;
     display: flex;
     flex-wrap: wrap;
+    
     /* gap: 10px; */
 }
 
@@ -39,7 +40,7 @@
         flex: 2;
         margin: 13px;
         padding: 10px;
-        background-color: antiquewhite;
+        background-color :#aabfd3b4;
         width: 50%;
         display: flex;
     }
@@ -51,8 +52,8 @@
   align-items: center;
   width: 100%;
   align-items: center;
- 
-  
+  border-radius: 15px;
+  padding-top: 12px;
 }
 
     .pregunta{
@@ -62,11 +63,11 @@
         font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
         font-size:50px;
        text-align: center;
-       text-shadow: 6px 6px 8px rgba(142, 155, 180, 0.936);
-      background-color: rgba(0, 0, 0, 0.062);
+       text-shadow: 6px 6px 8px rgba(241, 242, 245, 0.936);
+      background-color: rgba(3, 94, 97, 0.062);
       padding: 1.2rem;
-    
-      
+        border-radius: 13px;
+        background-color: rgba(63, 211, 203, 0.041);
        
       
        
@@ -80,15 +81,23 @@
         justify-content: center;
         box-shadow: 0 15px 10px;
         gap: 10px;
-        background-color: rgba(0, 0, 0, 0.062);
+        background-color: rgba(91, 129, 127, 0.048);
         padding: 40px;
-
-        
+        text-shadow: 6px 6px 8px rgb(171, 193, 233);
+        border-radius: 20px;
+        display: flex;
       }
+
+
+    
     .correct{
         color: aliceblue;
         background-color: green;
+        transition: all 0.2s ease;
     }
+    
+
+      
     .incorrect{
         color: aliceblue;
         background-color: rgb(252, 63, 6);
@@ -108,10 +117,35 @@
         border: none;
         border-radius: 15px;
         transition: background-color 0.3s;
-        box-shadow: 0 15px 10px;
+        box-shadow: 0 15px 10px 7px;
         /* max-width: 200px;
         max-height: 150px; */
        
 
     }
+    .botonAswer:hover {
+        color: #ffffff;
+        transform: scale(1.1);
+        outline: 2px solid #253b3f8e;
+        box-shadow: 1px 1px 7px  #268391;
+        border-radius: 10px;
+      }
+      
+      .botonAswer::before {
+        color: #FFFFFF;
+        content: "";
+        position: absolute;
+        left: -2px;
+        top: 0;
+        width: 0;
+        height: 100%;
+        background-color:#0dcaf059;
+        transform: skewX(1deg);
+        z-index: -3;
+        transition: width 1000ms;
+      }
+      
+      .botonAswer:hover::before {
+        width: 100%;
+      }
    
