@@ -2,6 +2,8 @@ import React from 'react'
 import Reseña from "./reseña";
 import { Col } from 'react-bootstrap';
 
+
+
 export default function FooterLoguin() {
   return (
     

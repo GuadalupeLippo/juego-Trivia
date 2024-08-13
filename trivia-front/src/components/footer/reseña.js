@@ -4,7 +4,7 @@ import "./reseña.css";
 function Reseña() {
   return (
     <Form className="reseña-conteiner">
-      <h3>¡Tu opinion nos importa!</h3>
+      <h3 className="opinion">¡Tu opinion nos importa!</h3>
       <h2>Califica el juego</h2>
       {["radio"].map((type) => (
         <div key={`reverse-${type}`}>
