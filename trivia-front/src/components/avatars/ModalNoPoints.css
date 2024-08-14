@@ -1,0 +1,25 @@
+.no_points_head{
+    background-color: rgb(255, 4, 0);
+    color: aliceblue;
+    text-align: center;
+    font-family: 'Foo', sans-serif;
+    padding: 10px;
+}
+
+.no_points_text{
+    font-family: "Itim", cursive;
+    padding-top:10px;
+}
+
+.no_points_body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+text-align: center;
+}
+
+.sad_brain{
+    height: 100%;
+    width: 50%;
+    
+}
