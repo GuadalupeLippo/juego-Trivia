@@ -66,3 +66,10 @@ color: none;
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
+
+.more_points_button{
+  margin-top: 5px;
+  margin-left: 5px;
+  color:rgb(5, 119, 119);
+ border-radius: none;
+}

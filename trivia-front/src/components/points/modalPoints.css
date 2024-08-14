@@ -1,0 +1,21 @@
+.confirm_buy_points{
+    font-family: 'Permanent Marker', cursive;
+    background-color: #07b8a6;
+    justify-content: center;
+    color: azure;
+   
+}
+
+.data_card{
+    font-family: "Itim", cursive;
+}
+
+.button_accept_points{
+    background-color:#32b9ac; 
+    
+}
+
+.button_accept_points:hover{
+    background-color: #079284;
+    
+}

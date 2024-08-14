@@ -5,6 +5,8 @@ import EditProfileModal from "./ModalEditProfile";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../form-loguin/UserAuth";
 import "./DropDownProfile.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCirclePlus } from '@fortawesome/free-solid-svg-icons';
 
 function DropDownProfiles() {
   const [openGames, setOpenGames] = useState(false);
@@ -24,7 +26,9 @@ function DropDownProfiles() {
     navigate('/avatars');
   };
 
-
+  const handleStoreClick = () => {
+    navigate('/store');
+  };
 
   const handleOpenGames = () => setOpenGames(true);
   const handleCloseGames = () => setOpenGames(false);
@@ -41,6 +45,8 @@ function DropDownProfiles() {
       <Dropdown.Menu className="dropdown-menu-custom">
         <Dropdown.Header>
           Puntos: <strong className="puntos-drop">{authUser?.score}</strong>
+         <FontAwesomeIcon onClick={handleStoreClick} className="more_points_button" icon={faCirclePlus}/>
+          
         </Dropdown.Header>
         <Dropdown.Item className="dropdown-item-custom"  onClick={handleEditProfileClick}>Editar perfil</Dropdown.Item>
         <Dropdown.Item className="dropdown-item-custom" onClick={handleMisAvatarsClick}>Mis avatars</Dropdown.Item>
