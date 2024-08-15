@@ -1,10 +1,9 @@
 import { Navhome } from "../components/nav-home/nav-home";
 import Welcome from "../components/welcome/welcome";
-// import Rules from "../components/rules/rules";
-// import Carrousel from "../components/carrousel/carrousel";
 import FooterHome from "../components/footer/footer";
-import { Invitation } from "../components/registration-form/invitation-play";
 import { CarrouselGifs } from "../components/instructions/instructions";
+import { Invitation } from "../components/registration-form/invitation-play";
+import Demohome from "../components/demo/Demohome";
 import "./home.css";
 
 export function Home() {
@@ -17,6 +16,7 @@ export function Home() {
         <CarrouselGifs />
       </div>
       <Invitation />
+      <Demohome/>
       <FooterHome />
     </div>
   );

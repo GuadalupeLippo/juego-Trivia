@@ -1,8 +1,28 @@
 .btn{
     border: none !important;
+    
 }
 .btn-grad {
-    background-image: linear-gradient(to right, #276e90, #21385a) ;
+    background-image: linear-gradient(to right, #0c7398, #125068) ;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    color: white;
+    padding: 15px 25px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 4px;
+    cursor: pointer;
+} 
+
+.btn-grad:hover {
+    background-image: linear-gradient(to right,#1bb1dc ,  #276e90 );
+    border: none; 
+}
+
+.btn-reg{
+    background-image: linear-gradient(to right, #0c7398, #0e90bb);
     border: none;
     outline: none;
     border-radius: 10px;
@@ -12,11 +32,6 @@
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    margin: 4px 2px;
+    margin: 4px 4px;
     cursor: pointer;
-} 
-
-.btn-grad:hover {
-    background-image: linear-gradient(to right,#21385a ,  #276e90 );
-    border: none; 
 }

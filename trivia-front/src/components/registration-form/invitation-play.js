@@ -1,6 +1,6 @@
 import React from "react";
 import Logo from "../images/logocerebritotrivia.png";
-import { FormRegistration } from "./Registration-form";
+
 import "./Invitation.css";
 
 export function Invitation() {
@@ -9,8 +9,8 @@ export function Invitation() {
       <div className="invitation">
         <img src={Logo} alt="logo pagina" className="logo" />
       </div>
-      <div className="form">
-        <FormRegistration />
+      <div className="container-title">
+        <h3>¿Estas preparado? <br/>Te desafiamos a responder algunas de nuestras preguntas...</h3>
       </div>
     </div>
   );
