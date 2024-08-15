@@ -1,34 +1,41 @@
 .container-invitation{
-    padding:3rem 3rem;
+  background-color: #f3b48d9f;
     display: flex;
-    justify-content:space-between;
-    margin: 75px 10px;
-    background-color: #f6ba60fa;
-    filter: drop-shadow(5px 5px 21px #fa5b3b);
+    align-items: center;
+    margin: 75px 75px;
+    margin-bottom: 0px;
     border-radius: 10px; 
+    filter: drop-shadow(5px 5px 21px #9a6b14);
+  
+}
+.container-title{
+  display: flex;
+  align-items: center;
+  font-family: 'Permanent Marker';
+  color: #302f2e;
+  justify-content:center;
+  border-radius: 10px; 
+  text-align: center;
+  flex-grow: 1;
+
 }
 
 .invitation {
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   justify-content: center;
+  flex: 0 0 25%; /* Mantén el 25% del ancho, pero permite que crezca si es necesario */
+  min-width: 350px; /* Tamaño mínimo para el logo */
+  text-align: center; /* Centra la imagen dentro del contenedor */
+}
  
 
-}
+
 .logo{
-    width: 100%;
+  width: 100%;
+  height: auto;
+  max-width: 350px;
     animation: rotar 8s linear infinite;
     
 }
-.form{
-    width: 100%;
-    display: flex;
-    flex-direction: column; 
-    text-align: center;
-    justify-content: center; 
-    color:#626060;
-}
+
 .form h3{
     color: rgb(245, 244, 244);
     font-family: 'Foo', sans-serif;
@@ -57,11 +64,18 @@
     font-size: 25px;
     letter-spacing: 1.5px;
     color: rgb(244, 247, 248);
-    text-shadow: 2px 2px 4px rgba(39, 91, 151, 0.936);
+    text-shadow: 2px 2px 4px rgba(15, 61, 113, 0.936);
     justify-content: center;
-  
-    
-    
+}
+.modal-registrer-exit{
+  background-image: linear-gradient(to right, #0e617e, #0c3345) ;
+  text-align: center;
+  font-family: 'Foo', sans-serif;
+  font-size: 25px;
+  letter-spacing: 1.5px;
+  color: rgb(244, 247, 248);
+  text-shadow: 2px 2px 4px rgba(124, 177, 237, 0.936);
+  justify-content: center;
 }
 
 .modal-footer{
@@ -81,17 +95,18 @@
 
 
 .btnfos {
-    background-image: linear-gradient(to right, rgb(238, 83, 56), #e52a2a); 
+    background-image: linear-gradient(to right, #ff8168, #c33012); 
     border: none;
-    cursor: pointer;
+    outline: none;
+    border-radius: 10px;
     display: block;
+    color: white;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
     font-size: 16px;
-    font-weight: 400;
-    line-height: 45px;
-    max-width: 160px;
-    margin: 0 auto;
-    position: relative;
-    text-transform: uppercase;
+    margin: 4px 2px;
+    cursor: pointer;
     width: 100%;
   }
   @media (min-width: 400px) {

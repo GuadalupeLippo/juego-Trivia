@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Jaro:opsz@6..72&family=Jersey+10&family=Luckiest+Guy&family=Permanent+Marker&display=swap');
+
+    .answersContainerDemo{
+    margin: 50px 20px ;
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: rgba(246, 255, 196, 0.912);
+    filter: drop-shadow(5px 5px 21px #9a8f14);
+    border-radius: 10px;
+    padding: 20px;
+    
+    /* gap: 10px; */
+}
+
+.answers{ 
+    text-align: center;
+    background-color: #262830;
+    margin: 10px;
+    flex: 1 1 calc(40% - 10px);
+    padding: 10px;
+    margin: 30px;
+   
+}
+
+.answersContainer p{
+    margin: 50px;
+    font-family: "Permanent Marker";
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh
+}
+ @media (max-width: 968px) {
+    .answersContainer{
+        max-width: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;  }
+    }
+    
+    .opciones{
+        font-size: 40px;
+        display: inline-block;
+        flex: 2;
+        margin: 13px;
+        padding: 10px;
+        background-color :#aabfd3b4;
+        width: 50%;
+        display: flex;
+    }
+
+    .questionContainerDemo{
+   
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  align-items: center;
+  border-radius: 15px;
+  padding-top: 12px;
+}
+
+    .preguntaDemo{
+        margin-top: 3px;
+      display: flex;
+        color: #222422;
+        font-size:50px;
+       text-align: center;
+       text-shadow: 6px 6px 8px rgba(231, 182, 96, 0.936);
+      
+      padding: 1.2rem;
+        border-radius: 13px;
+       
+       
+      
+       
+             
+    }
+    .botonContainerDemo {
+        display: ruby;
+        justify-content: space-around;
+       align-items: stretch;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+       
+        border-radius: 20px;
+        display: flex;
+      }
+
+
+    
+    .correctDemo{
+        color: white;
+        background-color: green;
+        transition: all 0.2s ease;
+    }
+    
+
+      
+    .incorrectDemo{
+        color: white;
+        background-color: rgb(252, 63, 6);
+        transition: all 0.2s ease;
+    }
+
+    .botonAswerDemo{
+        min-width: 450px;
+        text-align:center;
+         flex: 1;
+        display: block;
+        align-items: center;
+        line-height: 30px;
+        padding:30px;
+        margin: 30px;
+        font-size: 45px;
+        cursor: pointer;
+        border: none;
+        border-radius: 15px;
+        transition: background-color 0.3s;
+        box-shadow: 0 5px 2px 1px;
+        /* max-width: 200px;
+        max-height: 150px; */
+       
+
+    }
+    .botonAswerDemo:hover {
+      transform: scale(1.1);
+      outline: 2px solid #c46b118e;
+      box-shadow: 1px 1px 7px  #917526c0;
+      border-radius: 10px;
+      }
+      
+      .botonAswerDemo::before {
+        color: #FFFFFF;
+        content: "";
+        position: absolute;
+        left: -2px;
+        top: 0;
+        width: 0;
+        height: 100%;
+        background-color:#0dcaf0;
+        transform: skewX(1deg);
+        z-index: -3;
+        transition: width 1000ms;
+      }
+      
+      .botonAswer:hover::before {
+        width: 100%;
+      }
+   

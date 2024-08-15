@@ -1,33 +1,24 @@
 import React from "react";
-import { useState } from "react";
 import Button from "react-bootstrap/Button";
-import { ModalLoguin } from "./Modal-Loguin";
-import './PlayButtom.css'
+import './PlayButtom.css';
 
-export function BtnLoguin() {
-  const [showLoguin, setShowLoguin] = useState(false);
-  
-
-
-
-  const handleCloseLoguin = () => setShowLoguin(false);
-  const handleShowLoguin = () => setShowLoguin(true);
+export function BtnLoguin({ handleCloseExit, handleShowLoguin }) {
+  const handleLoguinClick = () => {
+    if (handleCloseExit) {
+      handleCloseExit(); 
+      handleShowLoguin();
+    }
+  };
 
   return (
     <>
       <Button
         className="btn btn-grad btnfos-5"
-        type="submit"
-        onClick={handleShowLoguin}
+        type="button"
+        onClick={handleLoguinClick}
       >
-        {" "}
-        Iniciar sesión{" "}
+        Iniciar sesión
       </Button>
-  
-      <ModalLoguin
-        showLoguin={showLoguin}
-        handleCloseLoguin={handleCloseLoguin}
-      />
     </>
   );
 }

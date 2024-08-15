@@ -3,9 +3,9 @@ import FloatingLabel from "react-bootstrap/FloatingLabel";
 import Form from "react-bootstrap/Form";
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
-import { ModalRegistrer } from "./modal-form";
 
-export function FormRegistration() {
+
+export function FormRegistration({handleCloseForm, handleShowExit}) {
   const initialData = {
     floatingName: "",
     floatingInput: "",
@@ -30,12 +30,7 @@ export function FormRegistration() {
     }
   }
 
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => {
-    setShow(true);
-  };
-
+  
   function validateForm() {
     const { floatingName, floatingInput, floatingPassword } = form;
     const newErrors = {};
@@ -63,7 +58,9 @@ export function FormRegistration() {
     if (Object.keys(formErrors).length > 0) {
       setErrors(formErrors);
     } else {
-      handleShow();
+       handleCloseForm()
+      handleShowExit();
+     
       setForm(initialData);
     }
   };
@@ -71,9 +68,6 @@ export function FormRegistration() {
   return (
     <div className="col-sm col-md col-lg col-xl">
       <form onSubmit={handleSubmit}>
-        <h3 className="mb-4">
-          <strong>¡COMIENZA A JUGAR!</strong>
-        </h3>
         <div className="form-group position-relative mb-4">
           <FloatingLabel
             controlId="floatingName"
@@ -130,14 +124,13 @@ export function FormRegistration() {
         </div>
        
         <Button
-          className="btnfos btnfos-5"
+          className="btn-grad btnfos-5"
           type="submit"
           onClick={handleSubmit}
         >
-          REGISTRARSE
+          Confirmar
         </Button>
         
-        <ModalRegistrer show={show} handleClose={handleClose} />
       </form>
     </div>
   );
