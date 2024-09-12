@@ -6,6 +6,7 @@
     margin-bottom: 0px;
     border-radius: 10px; 
     filter: drop-shadow(5px 5px 21px #9a6b14);
+    padding: 20px;
   
 }
 .container-title{
@@ -21,9 +22,9 @@
 }
 
 .invitation {
-  flex: 0 0 25%; /* Mantén el 25% del ancho, pero permite que crezca si es necesario */
-  min-width: 350px; /* Tamaño mínimo para el logo */
-  text-align: center; /* Centra la imagen dentro del contenedor */
+  flex: 0 0 25%; 
+  min-width: 350px; 
+  text-align: center; 
 }
  
 
@@ -52,6 +53,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 20px;
 }
 .Modal{
     font-family: "Itim", cursive;
@@ -66,9 +68,11 @@
     color: rgb(244, 247, 248);
     text-shadow: 2px 2px 4px rgba(15, 61, 113, 0.936);
     justify-content: center;
+    align-items: center;
+  
 }
 .modal-registrer-exit{
-  background-image: linear-gradient(to right, #0e617e, #0c3345) ;
+  background-image: linear-gradient(to right,#1bb1dc ,  #276e90 );
   text-align: center;
   font-family: 'Foo', sans-serif;
   font-size: 25px;
@@ -78,18 +82,37 @@
   justify-content: center;
 }
 
+.body-registrer{
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 10px;
+}
+ .p-registrer{
+  margin: 0px;
+  text-align: center;
+  color: #427388;
+  padding: 0px 10px;
+ }
+
+ .footer-registrer{
+  justify-content: center;
+  padding: 10px;
+ }
+
 .modal-footer{
   border-top: none;
-  background-color: #eff9fbc3;
 }
 
 .error-message {
   position: absolute;
   text-align: center;
-  bottom: -1.2rem;
+  bottom: -1.5rem;
   left: 0;
   width: 100%;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   color: #DC3545;
 }
 

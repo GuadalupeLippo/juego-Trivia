@@ -56,7 +56,7 @@ export default function AnswerDemo() {
       if (currentQuestionIndex + 1 < QuestionDemo.length) {
         setCurrentQuestionIndex(currentQuestionIndex + 1);
       } else {
-        setShowRegisterModal(true); // Mostrar el modal de registro
+        setShowRegisterModal(true); 
       }
     }, 1000);
   };
@@ -68,7 +68,7 @@ export default function AnswerDemo() {
 
   const handleCloseSuccess = () => {
     setShowSuccessModal(false);
-    // Aquí puedes redirigir al usuario a la página de inicio de sesión o abrir un modal de inicio de sesión
+   
   };
   const handleShowSucces = () => {
     setShowSuccessModal(true);

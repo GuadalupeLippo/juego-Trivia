@@ -23,14 +23,18 @@
     background-color: rgb(239, 86, 86);
 }
 .body-timeup{
-    background-color: #eff9fbc3;
      font-size: 20px;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     flex-direction: column;
    
 }
 .footer-timeUp{
     display: flex;
-  flex-direction: column;
+    flex-direction: column;
     justify-content: center;
+    background-color: white;
 
 }
 

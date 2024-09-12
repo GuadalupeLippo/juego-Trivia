@@ -42,7 +42,7 @@ export function FormRegistration({handleCloseForm, handleShowExit}) {
     }
     if (!emailRegex.test(floatingInput) || floatingInput === "") {
       newErrors.floatingInput =
-        "por favor completa este campo correctamente: name@example.com";
+        "este campo debe contener: name@example.com";
     }
     if (!floatingPassword || floatingPassword === "") {
       newErrors.floatingPassword = "por favor completa este campo";
@@ -68,7 +68,7 @@ export function FormRegistration({handleCloseForm, handleShowExit}) {
   return (
     <div className="col-sm col-md col-lg col-xl">
       <form onSubmit={handleSubmit}>
-        <div className="form-group position-relative mb-4">
+        <div className="form-group position-relative mb-5">
           <FloatingLabel
             controlId="floatingName"
             label="Nombre de usuario"
@@ -86,7 +86,7 @@ export function FormRegistration({handleCloseForm, handleShowExit}) {
             <div className="error-message">{errors.floatingName}</div>
           )}
         </div>
-        <div className="form-group position-relative mb-4">
+        <div className="form-group position-relative mb-5">
           <FloatingLabel
             controlId="floatingInput"
             label="E-mail"
@@ -122,16 +122,17 @@ export function FormRegistration({handleCloseForm, handleShowExit}) {
             <div className="error-message">{errors.floatingPassword}</div>
           )}
         </div>
+
+        
        
-        <Button
-          className="btn-grad btnfos-5"
+      </form>
+      <Button
+          className="btn-reg btnfos-5 "
           type="submit"
           onClick={handleSubmit}
         >
           Confirmar
         </Button>
-        
-      </form>
     </div>
   );
 }
