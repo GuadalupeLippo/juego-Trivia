@@ -21,6 +21,18 @@ export function BuyAvatarModal({ show, handleClose, handleConfirmPurchase, selec
     setShowNoPointsModal(false);
   };
 
+  // Función para desplazarse a la sección de "comprar puntos"
+  const scrollToBuyPointsSection = () => {
+    const buyPointsSection = document.getElementById('buy-points-section');
+    if (buyPointsSection) {
+      window.scrollTo({
+        top: buyPointsSection.offsetTop,
+        behavior: 'smooth'
+      });
+      handleClose(); // Cierra la modal antes de hacer scroll
+    }
+  };
+
   return (
     <>
       <Modal show={show} onHide={handleClose} centered>
@@ -30,16 +42,17 @@ export function BuyAvatarModal({ show, handleClose, handleConfirmPurchase, selec
         <Modal.Body className='body_modal'>
           {selectedAvatar ? (
             <>
-              ¿Quieres canjear {selectedAvatar.pointsNeeded} puntos por este avatar?
-              Tus puntos actuales son de {authUser?.score}
+              <p>Tus puntos actuales son de {authUser?.score}.</p>
+              <p>¿Quieres canjear {selectedAvatar.pointsNeeded} puntos por este avatar?</p> 
             </>
           ) : (
             <p>Cargando...</p>
           )}
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Cancelar
+          {/* Botón que lleva a la sección de "Comprar Puntos" */}
+          <Button variant="secondary" onClick={scrollToBuyPointsSection}>
+            Comprar Puntos
           </Button>
           <Button className='button_accept' variant="primary" onClick={handleConfirmPoints}>
             Aceptar

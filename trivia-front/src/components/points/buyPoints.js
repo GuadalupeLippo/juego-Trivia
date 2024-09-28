@@ -21,6 +21,7 @@ export function CardPoints() {
 
   return (
     <>
+    <div id="buy-points-section">
     <h1 className='points_title'><span style={{color:"#5faab1"}}>¿Necesitas</span><span style={{color:"#3b757f"}}> más </span><span style={{color:"#356169"}}>puntos?</span></h1>
   
     <div className='card_points_container'>
@@ -55,6 +56,8 @@ export function CardPoints() {
       
       <ModalPoints show={showModal} handleClose={handleCloseModal} points={selectedPoints} />
     </div>
+    </div>
     </>
+
   );
 }

@@ -23,3 +23,13 @@ text-align: center;
     width: 50%;
     
 }
+
+.no_points_button{
+    background-color: black;
+    color:white
+}
+
+.no_points_button:hover{
+    background-color:rgb(190, 189, 189) ;
+    color: black;
+}

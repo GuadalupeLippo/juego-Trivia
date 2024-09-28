@@ -4,14 +4,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-inline: 1rem;
+    
     padding-block: 30px;
 }
 
 .card_container {
     display: flex;
     justify-content: center;
-    gap: 2rem;
+    
     box-shadow: 5px 5px 10px #07f427;
 }
 
@@ -29,7 +29,7 @@
 .card_img {
     width: 200px;
     align-self: center;
-    margin: 0px 30px;
+    margin: 0px 20px;
 }
 
 .card_data {
