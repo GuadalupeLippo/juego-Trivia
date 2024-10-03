@@ -1,4 +1,4 @@
-export const DATABASE = 'http://localhost:3000'
+export const APITRIVIA  = 'http://localhost:3000'
 
-export const getDataBase = () => fetch (`${DATABASE}`) 
-export const getAvatars = () => fetch (`${DATABASE}/avatars`) 
+export const getDataBase = () => fetch (`${APITRIVIA}`) 
+export const getAvatars = () => fetch (`${APITRIVIA}/avatars`) 
