@@ -10,7 +10,8 @@ export function Invitation() {
         <img src={Logo} alt="logo pagina" width="300" />
       </div>
       <div className="container-title">
-        <h3>¿Estas preparado? <br/>Te desafiamos a responder algunas de nuestras preguntas...</h3>
+        <h3>¿Estas preparado? </h3>
+        <h2 className="title2">Te desafiamos a responder algunas de nuestras preguntas...</h2>
       </div>
     </div>
   );

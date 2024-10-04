@@ -1,6 +1,6 @@
 .container2 {
     text-align: center;
-    border-radius: 5px;
+    border-radius: 15px;
 
 }
 
@@ -12,12 +12,12 @@
 }
 
 .title3 {
-    color: #494949;
-    font-size: large;
+    color: #043f5aef;
+    font-size: 35px;
     padding-left: 20px;
     margin-top: 25px;
     font-family: 'Permanent Marker', cursive;
-    background-color: rgba(250, 235, 215, 0.705);
+    background-color: rgba(250, 235, 215, 0.103);
 }
 
 /* Media Queries para pantallas más pequeñas */

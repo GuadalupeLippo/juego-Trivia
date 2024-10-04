@@ -17,8 +17,7 @@ export default function Welcome() {
       </div>
 
       <p className="title3">
-        Corre contra el reloj y pon a prueba tus conocimientos con este dinámico
-        y educativo juego de preguntas y respuestas.
+       Jugá y aprendé con esta espectacular trivia
       </p>
     </div>
   );

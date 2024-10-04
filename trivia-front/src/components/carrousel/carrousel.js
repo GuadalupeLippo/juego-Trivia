@@ -1,10 +1,10 @@
+import "./carrousel.css";
 import arte from "./imagenes/arte.jpg";
 import ciencias from "./imagenes/ciencias.jpg";
 import deportes3 from "./imagenes/deportes3.png";
 import entretenimiento from "./imagenes/entretenimiento.jpg";
 import geografia from "./imagenes/geografia.jpg";
 import historia from "./imagenes/historia.jpeg";
-import "./carrousel.css";
 
 import Carousel from "react-bootstrap/Carousel";
 

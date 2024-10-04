@@ -1,9 +1,23 @@
+.home{
+    /* background-color:rgba(245, 245, 245, 0.694); */
+    background: linear-gradient(
+      to bottom, 
+      rgba(80, 79, 79, 0.2),  /* Gris al 20% */
+      rgba(68, 68, 68, 0.4),  /* Gris al 40% */
+      rgba(223, 165, 165, 0.6),  /* Gris al 60% */
+      rgba(128, 128, 128, 0.575),  /* Gris al 80% */
+      rgb(78, 77, 77)     /* Gris completo */
+    );
+}
+
 .combinacion {
     display: flex;
     flex-direction: column;
     gap: 10px; 
     margin: 20px auto;
     padding: 5px;
+    border-radius: 30px;
+    filter: drop-shadow(0 0 10px rgba(56, 131, 228, 0.911));
 }
 
 @media (min-width: 1024px) {
