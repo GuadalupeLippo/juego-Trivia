@@ -1,9 +1,10 @@
-import timer from './images/timer.gif';
-import register from './images/register.gif';
-import store from './images/store.gif';
-import categories from './images/categories.gif';
-import trivia from './images/trivia.gif';
-import avatares from './images/avatares.gif';
+// import timer from './images/timer.gif';
+// import register from './images/register.gif';
+
+// import categories from './images/categories.gif';
+import trivia from './images/ezgif-trivia.gif';
+import avatares from './images/ezgif-avatars.gif';
+import store from './images/ezgif-store.gif';
 import './instructions.css';
 import Carousel from 'react-bootstrap/Carousel';
 
@@ -12,30 +13,30 @@ export function CarrouselGifs() {
 <div className='carousel_and_title'>
 
     <Carousel data-bs-theme="dark" ride="false">
-    <Carousel.Item>
+    {/* <Carousel.Item>
         <img 
           className="d-block w-100"
           src={register}
           alt="Third slide"
         /> 
-      </Carousel.Item>
+      </Carousel.Item> */}
       
-      <Carousel.Item >
+      {/* <Carousel.Item >
         <img  
           className="d-block w-100"
           src={categories}
           alt="First slide"
         />
         
-      </Carousel.Item>
-      <Carousel.Item>
+      </Carousel.Item> */}
+      {/* <Carousel.Item>
         <img 
           className="d-block w-100"
           src={timer}
           alt="Second slide"
         />
     
-      </Carousel.Item>
+      </Carousel.Item> */}
 
       <Carousel.Item>
         <img 
