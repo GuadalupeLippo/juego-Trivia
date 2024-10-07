@@ -1,29 +1,26 @@
 .card_premium_container{
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    height: 100%;
-    padding:20px 40px;
-    margin-top: 20px;
-    margin-bottom: 20px;
+height: 100%;
+width: 100%;
+padding: 20px;
+margin: 20px;
+
 }
 
-
-
-.card_premium{
+.card_premium {
+    max-width: 250px;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    align-items: center; 
     background-color: #e8f372;
-    margin: 0px 30px;
     box-shadow: 5px 5px 10px #b8b507;
     border-radius: 10px;
+    
 }
-
 .premium_img{
-    width: 100%;
-    height: 100%;
-    padding: 15px;
-
+width: 100%;
+height: 100%;
+    
 }
 
 .premium_title{
@@ -46,13 +43,14 @@
 
 .button_premium{
     border-radius: 10px;
-    align-self: center;
-    height: 100%;
-    width: 50%;
     margin-bottom: 15px;
     color: rgb(255, 252, 252);
     background-color: black;
-}
+    padding: 10px;
+    align-self: center;
+    margin-left: 75px;
+} 
+
 
 .button_premium:hover{
     background-color: #b8b507;
@@ -61,10 +59,14 @@
 }
 
 @media (max-width: 768px) {
-    .card_points_container{
+    .card_premium_container{
         flex-direction: column;
         justify-content: center;
         align-items: center; 
+        
     }
-    
 }
+  
+
+
+
