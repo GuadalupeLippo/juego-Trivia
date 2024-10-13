@@ -1,14 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './buyPoints.css';
-import coin1 from '../images/coin1.jpg';
-import coin2 from '../images/coin2.jpg';
-import coin3 from '../images/coin3.jpg';
-import coin4 from '../images/coin4.jpg';
-import {ModalPoints} from './modalPoints';
+import { ModalPoints } from './modalPoints';
 
 export function CardPoints() {
   const [showModal, setShowModal] = useState(false);
   const [selectedPoints, setSelectedPoints] = useState(null);
+  const [pointsData, setPointsData] = useState([]);
+
+  useEffect(() => {
+    const fetchPointsData = async () => {
+      try {
+        const response = await fetch('http://localhost:3000/score');
+        const data = await response.json();
+        setPointsData(data); 
+      } catch (error) {
+        console.error('Error al obtener los datos de puntos:', error);
+      }
+    };
+
+    fetchPointsData();
+  }, []);
 
   const handleOpenModal = (points) => {
     setSelectedPoints(points);
@@ -21,43 +32,24 @@ export function CardPoints() {
 
   return (
     <>
-    <div id="buy-points-section">
-    <h1 className='points_title'><span style={{color:"#5faab1"}}>¿Necesitas</span><span style={{color:"#3b757f"}}> más </span><span style={{color:"#356169"}}>puntos?</span></h1>
-  
-    <div className='card_points_container'>
-      <div className='card_points'>
-        <h1 className='points_price'>Precio</h1>
-        <img className='points_img' src={coin1} alt="500 Puntos"/>
-        <h1 className='points_amount'>500 Puntos</h1>
-        <button className='button_points' onClick={() => handleOpenModal(500)}>Comprar</button>
-      </div>
+      <div id="buy-points-section">
+        <h1 className='points_title'>
+          <span style={{color:"#5faab1"}}>¿Necesitas</span><span style={{color:"#3b757f"}}> más </span><span style={{color:"#356169"}}>puntos?</span>
+        </h1>
 
-      <div className='card_points'>
-        <h1 className='points_price'>Precio</h1>
-        <img className='points_img' src={coin2} alt="1000 Puntos"/>
-        <h1 className='points_amount'>1000 Puntos</h1>
-        <button className='button_points' onClick={() => handleOpenModal(1000)}>Comprar</button>
+        <div className='card_points_container'>
+          {pointsData.map((point) => (
+            <div className='card_points' key={point.id}>
+              <h1 className='points_price'>Precio: {point.price}</h1>
+              <img className='points_img' src={point.image} alt={`${point.points} Puntos`} />
+              <h1 className='points_amount'>{point.points} Puntos</h1>
+              <button className='button_points' onClick={() => handleOpenModal(point.points)}>Comprar</button>
+            </div>
+          ))}
+          
+          <ModalPoints show={showModal} handleClose={handleCloseModal} points={selectedPoints} />
+        </div>
       </div>
-
-      <div className='card_points'>
-        <h1 className='points_price'>Precio</h1>
-        <img className='points_img' src={coin3} alt="1500 Puntos"/>
-        <h1 className='points_amount'>1500 Puntos</h1>
-        <button className='button_points' onClick={() => handleOpenModal(1500)}>Comprar</button>
-      </div>
-
-      <div className='card_points'>
-        <h1 className='points_price'>Precio</h1>
-        <img className='points_img' src={coin4} alt="2000 Puntos"/>
-        <h1 className='points_amount'>2000 Puntos</h1>
-        <button className='button_points' onClick={() => handleOpenModal(2000)}>Comprar</button>
-      </div>
-
-      
-      <ModalPoints show={showModal} handleClose={handleCloseModal} points={selectedPoints} />
-    </div>
-    </div>
     </>
-
   );
 }
