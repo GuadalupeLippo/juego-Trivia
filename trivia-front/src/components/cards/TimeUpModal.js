@@ -8,7 +8,7 @@ const TimeUpModal = ({ show, onHide, onRestart }) => {
     const categorias = useNavigate()
 
    const handleNavigateCategorias = () =>{
-        categorias("/loguin");
+        categorias("/login");
 
     }
   return (

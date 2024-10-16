@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./cardPremium.css";
 import { TitlePremium } from "./titlePremium";
 import { BuyAvatarModal } from '../avatars/modalWindow.js';
-import { useAuth } from '../form-loguin/UserAuth.js';
+import { useAuth } from '../auth/UserAuth.js';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";

@@ -4,10 +4,10 @@ import { Col } from 'react-bootstrap';
 
 
 
-export default function FooterLoguin() {
+export default function Footerlogin() {
   return (
     
-        <footer className="footer-loguin ">
+        <footer className="footer-login ">
         <div className="reseña">
           <Reseña />
           <Col className="footer-col text-end ">

@@ -4,7 +4,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import './avatars.css';
 import { BuyAvatarModal } from './modalWindow.js';
-import { useAuth } from '../form-loguin/UserAuth.js'
+import { useAuth } from '../auth/UserAuth.js'
 
 
 export function CarrouselAvatars({ avatar }) {

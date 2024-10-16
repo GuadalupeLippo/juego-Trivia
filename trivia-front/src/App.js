@@ -1,7 +1,7 @@
 import "./App.css";
 import { Home } from "./pages/home";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { Loguin } from "../src/pages/loguin.js";
+import { Login } from "../src/pages/login.js";
 import Trivia from "./pages/trivia.js";
 import PoliticasDePrivacidad from "./components/Politicas/PoliticasDePrivacidad.js";
 import Store from "./pages/store.js";
@@ -18,7 +18,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
 
-          <Route path="/loguin" element={<Loguin />} />
+          <Route path="/login/:id" element={<  Login />} />
           <Route path="/trivia" element={<Trivia />} />
           <Route path="/politicas" element={<PoliticasDePrivacidad />} />
           <Route path="/Trivia" element={<Trivia />} />
