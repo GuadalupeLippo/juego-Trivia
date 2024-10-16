@@ -1,7 +1,7 @@
 import {React,useState,
   useEffect
 } from "react";
-import { NavLoguin } from "../components/nav-home/NavLoguin";
+import { NavLogin } from "../components/nav-home/NavLogin";
 import { AnimatedTitle } from "../components/animatedTitle/title";
 import { CarrouselAvatars } from "../components/avatars/carrouselAvatars";
 import { CardPoints } from "../components/points/buyPoints";
@@ -23,7 +23,7 @@ export default function Store() {
 
   return (
     <div>
-      <NavLoguin />
+      <NavLogin />
       <AnimatedTitle />
       <CardPremium/>
       <CarrouselAvatars avatar={avatar} key={avatar.id}/>

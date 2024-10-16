@@ -2,11 +2,11 @@ import React from "react";
 import Button from "react-bootstrap/Button";
 import './PlayButtom.css';
 
-export function BtnLoguin({ handleCloseExit, handleShowLoguin }) {
-  const handleLoguinClick = () => {
+export function BtnLogin({ handleCloseExit, handleShowLogin }) {
+  const handleLoginClick = () => {
     if (handleCloseExit) {
       handleCloseExit(); 
-      handleShowLoguin();
+      handleShowLogin();
     }
   };
 
@@ -15,7 +15,7 @@ export function BtnLoguin({ handleCloseExit, handleShowLoguin }) {
       <Button
         className="btn btn-grad btnfos-5"
         type="button"
-        onClick={handleLoguinClick}
+        onClick={handleLoginClick}
       >
         Iniciar sesión
       </Button>

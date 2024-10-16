@@ -49,6 +49,7 @@ h4 {
 
 .redesSociales img {
   display: inline-block;
+  justify-content: flex-end;
   width: 45px;
   height: 45px;
   line-height: 35px;
@@ -57,11 +58,9 @@ h4 {
   margin-top: 30px;
  border-radius: 25px;
   background-color: rgba(192, 116, 2, 0.712);
+  align-items: flex-end;
 }
-.ul{
-  
-  float: right;
-}
+
 img:hover{
   transform: translateY(-8px);
 }
@@ -79,12 +78,12 @@ ul h2{
   padding: 5px;
   font-size: 15px;
   align-items: flex-end;
-  color: rgb(248, 246, 244);
+  color: rgb(210, 206, 203);
   filter: drop-shadow(
     0 0 10px rgb(29, 28, 28)
   );
 }
-.footer-loguin{
+.footer-login{
   background: linear-gradient(rgba(253, 241, 14, 0.822), rgba(86, 185, 150, 0.863));
 }
 .footer-col {

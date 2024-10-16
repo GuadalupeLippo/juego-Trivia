@@ -3,11 +3,15 @@ import Logo from "../images/logocerebritotrivia.png";
 import Category from  '../images/signo-de-interrogacion.png';
 import Tienda from '../images/tienda.png'
 import { Link } from "react-router-dom";
+import { useAuth } from '../auth/UserAuth';
 import Dropdownprofile from "../DropDownProfile/Dropdownprofile";
 import "../nav-home/nav-home.css";
 import "../Politicas/politicas.css";
 import "../DropDownProfile/DropDownProfile.css";
-export function NavLoguin() {
+
+
+export function NavLogin() {
+  const { authUser } = useAuth(); 
   return (
     <div>
       <nav className="navbar fixed-botom">
@@ -16,7 +20,7 @@ export function NavLoguin() {
             <img className="logoNav" src={Logo} alt="logo pagina" width="180" />
           </Link>
           <div className="d-flex justify-content-end align-items-center">
-          <Link to="/loguin">
+          <Link to={`/login/${authUser?.id}`}>
               <button className="btn btn-lg no-style-btn me-2">
                 <img src={Category} alt="categoria" width="40" />
               </button>
