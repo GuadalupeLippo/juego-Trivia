@@ -8,6 +8,7 @@ import TimeUpModal from "../cards/TimeUpModal";
 import FinTrivia from "./FinTrivia";
 import sonidoFin from "../cards/sonido.mp3";
 
+
 function InicioTrivia() {
   const location = useLocation();
   const selectedTime = location.state?.selectedTime || 15;
@@ -18,67 +19,51 @@ function InicioTrivia() {
   const [showModalTimeUp, setShowModalTimeUp] = useState(false);
   const [reset, setReset] = useState(false);
   const [showFin, setShowFin] = useState(false);
-  const [intervalId, setIntervalId] = useState(null);
+  
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setTimeRemaining((prevTime) => {
-        if (prevTime === 1) {
-          clearInterval(timer);
-          setShowModalTimeUp(true);
-        }
-        return Math.max(prevTime - 1, 0);
-      });
-    }, 1000);
-    setIntervalId(timer);
-    return () => clearInterval(timer);
-  }, []);
+    setTimeRemaining(selectedTime);
+    setReset((prev) =>!prev)
+  }, [currentQuestionIndex, selectedTime]);
+
+  useEffect(() => {
+    if (timeRemaining > 0) {
+      const timer = setTimeout(() => {
+        setTimeRemaining((prevTime) => prevTime - 1);
+      }, 1000);
+      return () => clearTimeout(timer);
+    } else {
+      setShowModalTimeUp(true); 
+    }
+  }, [timeRemaining]);
 
   const handleAnswerClick = (answer) => {
     if (timeRemaining > 0) {
       setTimeout(() => {
         if (currentQuestionIndex === question.length - 1) {
-          clearInterval(intervalId);
-          setShowFin(true);
+          setShowFin(true); 
           const audio = new Audio(sonidoFin);
           audio.play();
         } else {
-          setCurrentQuestionIndex((currentQuestion) => currentQuestion + 1);
-          setTimeRemaining(selectedTime);
+          setCurrentQuestionIndex((prevIndex) => prevIndex + 1); 
         }
       }, 1000);
     }
   };
 
   const handleRestart = () => {
-    setShowModalTimeUp(false);
-    setCurrentQuestionIndex(0);
-    setTimeRemaining(selectedTime);
-    setShowFin(false);
-    setReset((prev) => !prev);
-
-    const newTimer = setInterval(() => {
-      setTimeRemaining((prevTime) => {
-        if (prevTime === 1) {
-          clearInterval(newTimer);
-          setShowModalTimeUp(true);
-        }
-        return Math.max(prevTime - 1, 0);
-      });
-    }, 1000);
-    setIntervalId(newTimer);
-  };
-
-  const handleTimeUp = () => {
-    clearInterval(intervalId);
-    setShowModalTimeUp(true); // Mostrar el modal cuando el tiempo se agote
+    setShowModalTimeUp(false); // Cerrar modal cuando se reinicia
+    setCurrentQuestionIndex(0); // Reiniciar la trivia
+    setTimeRemaining(selectedTime); // Reiniciar el tiempo
+    setReset((prev) => !prev); // Reiniciar el temporizador
+    setShowFin(false); // Cerrar pantalla final
   };
 
   return (
     <>
       <div className="inicioTrivia">
         <Reloj />
-        <Timer seconds={timeRemaining} onTimeUp={handleTimeUp} reset={reset} />
+        <Timer seconds={selectedTime} timeLeft={timeRemaining} onTimeUp={() => setShowModalTimeUp(true)} reset={reset} />
         <img alt="logo" src={logo} className="categoria" width="100px" />
       </div>
       <Answers questionData={question[currentQuestionIndex]} onAnswerClick={handleAnswerClick} />

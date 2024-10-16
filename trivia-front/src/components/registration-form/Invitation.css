@@ -31,7 +31,7 @@
   text-align: center;
   flex-grow: 1;
   font-size: 30px;
-  filter: drop-shadow(0 0 10px rgba(163, 161, 161, 0.911));
+  /* filter: drop-shadow(0 0 10px rgba(163, 161, 161, 0.911)); */
 }
 
 .invitation {
@@ -132,7 +132,7 @@
 
 
 .btnfos {
-    background-image: linear-gradient(to right, #ff8168, #c33012); 
+    background-image: linear-gradient(to right, #fc755a, #c33012); 
     border: none;
     outline: none;
     border-radius: 10px;
