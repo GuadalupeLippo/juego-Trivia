@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import Modal from "react-bootstrap/Modal";
 import { FormConfiguration } from "./FormConfiguration";
-import PlayButton from "../form-loguin/PlayButtom";
+import PlayButton from "../form-login/PlayButtom";
 import { useState } from "react";
 import Timer from "./Timer";
 

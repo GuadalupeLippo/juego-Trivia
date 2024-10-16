@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { ModalFormRegister } from "../nav-home/ModalRegistration";
-import { ModalRegistrerExit } from "../registration-form/modal-form";
+import { ModalRegistrerExit } from "../registration-form/modalRegistrerExit";
 import './AnswerDemo.css';
 
 export default function AnswerDemo() {
@@ -47,6 +47,7 @@ export default function AnswerDemo() {
   const [botonColor, setBotonColor] = useState(null);
   const [showRegisterModal, setShowRegisterModal] = useState(false);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const [userName, setUserName] = useState("");
 
   const handleClick = (answer) => {
     setBotonColor(answer);
@@ -70,8 +71,12 @@ export default function AnswerDemo() {
     setShowSuccessModal(false);
    
   };
-  const handleShowSucces = () => {
-    setShowSuccessModal(true);
+  
+
+  const handleSuccessfulRegistration = (name) => {
+    setUserName(name); // Actualiza el estado con el nombre del usuario
+    setShowRegisterModal(false); // Cierra el modal de registro
+    setShowSuccessModal(true); // Abre el modal de éxito
   };
 
 
@@ -97,8 +102,8 @@ export default function AnswerDemo() {
         ))}
       </div>
 
-      <ModalFormRegister show={showRegisterModal} handleCloseForm={handleOnlyCloseForm}  handleShowExit={handleShowSucces}  />
-      <ModalRegistrerExit show={showSuccessModal} handleCloseExit={handleCloseSuccess} />
+      <ModalFormRegister show={showRegisterModal} handleCloseForm={handleOnlyCloseForm}   handleShowExit={handleSuccessfulRegistration} />
+      <ModalRegistrerExit show={showSuccessModal} handleCloseExit={handleCloseSuccess} userName={userName} />
     </div>
   );
 }

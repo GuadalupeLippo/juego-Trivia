@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import '../registration-form/Invitation.css';
 import { ModalFormRegister } from "../nav-home/ModalRegistration";
-import { ModalRegistrerExit } from "../registration-form/modal-form";
+import { ModalRegistrerExit } from "../registration-form/modalRegistrerExit";
 
 export function ButtonRegistration() {
     const [show, setShow] = useState(false);
     const [showExit, setShowExit] = useState(false);
+    const [userName, setUserName] = useState("");
 
     const handleCloseForm = () => setShow(false);
     const handleShowForm = () => setShow(true);
@@ -14,6 +15,11 @@ export function ButtonRegistration() {
     const handleCloseExit = () => setShowExit(false);
     const handleShowExit = () => setShowExit(true);
 
+    const handleSuccessfulRegistration = (name) => {
+        setUserName(name);
+        handleShowExit();
+        handleCloseForm(); // Cierra el formulario
+    };
   
 
     return (
@@ -28,11 +34,12 @@ export function ButtonRegistration() {
             <ModalFormRegister
                 show={show}
                 handleCloseForm={handleCloseForm} 
-                handleShowExit={handleShowExit}
+                handleShowExit={handleSuccessfulRegistration}
             />
             <ModalRegistrerExit
                 show={showExit}
                 handleCloseExit={handleCloseExit}
+                userName = {userName}
             />
         </>
     );

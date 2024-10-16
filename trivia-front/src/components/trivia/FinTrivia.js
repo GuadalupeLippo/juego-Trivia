@@ -10,11 +10,11 @@ import { faCircleCheck, faCircleXmark, faStar } from '@fortawesome/free-solid-sv
 
 export function FinTrivia({show, onHide, onRestart}) {
   
-  const loguin = useNavigate();
+  const login = useNavigate();
   const store = useNavigate();
 
   const handleNavigate = () => {
-    loguin("/loguin");
+    login("/login");
   };
   const handleNavigateStore = () => {
     store("/Store");

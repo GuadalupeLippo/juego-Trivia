@@ -14,8 +14,8 @@ export function ModalFormRegister({ show, handleCloseForm, handleShowExit}) {
             centered
             size="xl"
           >
-            <Modal.Header className="modal-registrer" closeButton>
-              <Modal.Title>
+            <Modal.Header className="modal-registrer-exit" closeButton>
+              <Modal.Title className="modal-title-exit">
                 <strong>¡REGISTRATE Y COMIENZA A JUGAR!</strong>
               </Modal.Title>
             </Modal.Header>

@@ -14,7 +14,7 @@ import deportes from "../carrousel/imagenes/deportes3.png";
 import entretenimiento from "../carrousel/imagenes/entretenimiento.jpg";
 import historia from "../carrousel/imagenes/historia.jpeg";
 import aleatoria from "../imagenes/aleatoria.png";
-import PlayButton from "../form-loguin/PlayButtom";
+import PlayButton from "../form-login/PlayButtom";
 import ModalConfig from "./PlayModal";
 
 const triviaQuestions ={

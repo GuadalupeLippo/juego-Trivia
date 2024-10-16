@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Modal, Button } from 'react-bootstrap';
 import './modalWindow.css';
-import { useAuth } from '../form-loguin/UserAuth.js';
+import { useAuth } from '../auth/UserAuth.js';
 import { ModalNoPoints } from './ModalNoPoints.js';
 
 export function BuyAvatarModal({ show, handleClose, handleConfirmPurchase, selectedAvatar }) {

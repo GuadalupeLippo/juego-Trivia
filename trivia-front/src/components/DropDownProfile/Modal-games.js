@@ -1,6 +1,6 @@
 import React from "react";
 import { Modal } from "react-bootstrap";
-import { useAuth } from "../form-loguin/UserAuth";
+import { useAuth } from "../auth/UserAuth";
 
 export function ModalGames({ openGames, handleCloseGames }) {
 
