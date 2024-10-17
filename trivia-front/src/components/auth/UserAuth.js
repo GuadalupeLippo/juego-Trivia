@@ -91,6 +91,7 @@ export const AuthProvider = ({ children }) => {
         logout,
         updateAvatar,
         updateScore,
+        fetchPlayerData
       }}
     >
       {children}

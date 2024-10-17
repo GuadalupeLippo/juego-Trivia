@@ -16,7 +16,7 @@ export function FormRegistration({handleCloseForm, handleShowExit,}) {
 
   const [form, setForm] = useState(initialData);
   const [errors, setErrors] = useState({});
-  const { setAuthUser } = useAuth();
+  const { setAuthUser, fetchPlayerData } = useAuth();
 
   function SetField(field, value) {
     setForm({
@@ -77,30 +77,28 @@ export function FormRegistration({handleCloseForm, handleShowExit,}) {
         const data = await response.json();
 
         console.log("Token recibido:", data.access_token);
-        if (response.ok) {
-          // Guardar el token en localStorage
-          localStorage.setItem('token', data.access_token);
-          localStorage.setItem('authUser', JSON.stringify(data.player));
-
-          setAuthUser(data.player)
-          console.log("Datos del jugador establecidos:", data.player);
-    
-         handleCloseForm();
-        handleShowExit(form.name, data.access_token);
         
-        setForm(initialData)
-        } else {
-          console.error("Error en la respuesta:", data);
-          setErrors(data.message || 'Error al registrar jugador');
-        } 
-       
-      } 
-         catch (error) {
-            console.error('Error:', error);
-          }
+        if (response.ok) {
+        // Si el registro es exitoso, guardar token y datos del usuario
+        localStorage.setItem('token', data.access_token);
+        
+        const playerData = await fetchPlayerData(data.access_token);
+        setAuthUser(playerData);
+        handleCloseForm();
+        handleShowExit(form.name, data.access_token);
+        setForm(initialData);
+      } else if (response.status === 404) {
+        // Si el email ya está registrado, mostrar el error
+        setErrors({ email: "Este email ya está en uso" });
+      } else {
+        setErrors({ general: 'Error al registrar jugador' });
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      setErrors({ general: 'Error al registrar jugador' });
     }
-  };
-  
+  }
+}
 
   return (
     <div className="col-sm col-md col-lg col-xl">
@@ -158,18 +156,22 @@ export function FormRegistration({handleCloseForm, handleShowExit,}) {
           {errors.password && (
             <div className="error-message">{errors.password}</div>
           )}
+          {errors.general && (
+        <div className="error-message">{errors.general}</div>
+        )}
         </div>
 
-        
-       
-      </form>
-      <Button
+         <Button
           className="btn-reg btnfos-5 "
           type="submit"
           onClick={handleSubmit}
         >
           Confirmar
         </Button>
+
+       
+      </form>
+     
     </div>
   );
 }
