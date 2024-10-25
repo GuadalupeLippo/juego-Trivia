@@ -67,6 +67,7 @@ function InicioTrivia() {
         <img alt="logo" src={logo} className="categoria" width="100px" />
       </div>
       <Answers questionData={question[currentQuestionIndex]} onAnswerClick={handleAnswerClick} />
+      
       <TimeUpModal show={showModalTimeUp} onHide={handleRestart} onRestart={handleRestart} />
       <FinTrivia show={showFin} onHide={handleRestart} onRestart={handleRestart} />
     </>

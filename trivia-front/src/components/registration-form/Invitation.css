@@ -1,5 +1,6 @@
 .container-invitation{
-  background-color: #f3b48d9f;
+  /* background-color: #f18d4e9f; */
+  background-color: #1E58EB;
     display: flex;
     align-items: center;
     margin: 75px 75px;
@@ -25,12 +26,12 @@
   display: flex;
   align-items:end;
   font-family: 'Permanent Marker';
-  color: #1d1c1ad3;
+  color: #fdfdfdf5;
   justify-content:center;
   border-radius: 10px; 
   text-align: center;
   flex-grow: 1;
-  font-size: 30px;
+  font-size: 40px;
   /* filter: drop-shadow(0 0 10px rgba(163, 161, 161, 0.911)); */
 }
 
@@ -50,14 +51,14 @@
     
 }
 
-.form h3{
+.container-title{
     color: rgb(245, 244, 244);
     font-family: 'Foo', sans-serif;
-                                                 
-    font-size: 43px;
-    font-weight: 50;
+    display: flex;                                             
+    font-size: 63px;
+    font-weight: 50px;
     -webkit-text-stroke-width: 1px ;
-    -webkit-text-stroke-color:#e52a2a;
+    -webkit-text-stroke-color:#e52a2ab6;
    
                                                 
 }
@@ -89,7 +90,7 @@
   background-image: linear-gradient(to right,#48d0f6 ,  #2285b3 );
   letter-spacing: 1.5px;
   color: rgb(244, 247, 248);
-  text-shadow: 2px 2px 4px rgba(26, 51, 80, 0.986);
+  /* text-shadow: 2px 2px 4px rgba(26, 51, 80, 0.986); */
  
 }
 .modal-title-exit{
@@ -189,4 +190,35 @@ text-align: center;
         align-items: center;
         
     }
+}
+.btn btn-reg btnfos-5{
+  background-color: aliceblue;
+}
+.sol{
+  position: relative;
+   overflow: hidden;
+}  
+.sol::before, .sol::after{
+
+  content: '';
+  position: absolute;
+  left: -2px;
+  top: -2px;
+  background: linear-gradient(45deg, #e5fb8444, #ff660062, #0dcaf04f, #1a0a1a1f, #ff00993a, #6f0dd833, #ff310825 );
+  background-size: 400%;
+  width: calc(100% + 5px);
+  height: calc(100% + 5px);
+  z-index: -5;
+  animation: animate 40s linear infinite;
+}
+@keyframes animate{
+  0%{
+    background-position: 0 0;
+  }
+  50%{
+    background-position: 400% 0;
+  }
+  100%{
+    background-position: 0 0;
+  }
 }

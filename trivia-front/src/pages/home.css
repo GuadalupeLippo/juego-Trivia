@@ -1,13 +1,15 @@
 .home{
     /* background-color:rgba(245, 245, 245, 0.694); */
-    background: linear-gradient(
+    /* background: linear-gradient(
       to bottom, 
-      rgba(22, 22, 22, 0.356),  /* Gris al 20% */
-      rgba(27, 27, 27, 0.4),  /* Gris al 40% */
-      rgba(66, 48, 48, 0.219),  /* Gris al 60% */
-      rgba(29, 27, 27, 0.575),  /* Gris al 80% */
-      rgb(34, 34, 34)     /* Gris completo */
-    );
+      rgba(94, 126, 172, 0.356),  /* Gris al 20% */
+      /* rgba(6, 96, 170, 0.4),  Gris al 40% */
+      /* rgba(148, 165, 241, 0.219),  Gris al 60% */
+      /* rgba(12, 18, 99, 0.575),  Gris al 80% */
+      /* rgb(119, 117, 245)     Gris completo */
+    /* ); * */
+    /* / */
+    background-color:  #1e77eb65;
 }
 
 .combinacion {

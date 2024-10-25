@@ -1,7 +1,11 @@
 .navbar{
-    background-image: linear-gradient(to right, #72d5f3, #a3f1fa);
+    background-color: #0b9dff;
     padding: 0px;
 }
 .logoNav:hover{
     transform: scale(1.1);
+}
+.botonNav{
+    background-color: #105ae4;
+   border: black 20px;
 }

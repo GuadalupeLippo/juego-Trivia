@@ -16,9 +16,7 @@ export default function Welcome() {
         />
       </div>
 
-      <p className="title3">
-       Jugá y aprendé con esta espectacular trivia
-      </p>
+     
     </div>
   );
 }

@@ -83,8 +83,8 @@ export default function AnswerDemo() {
   const currentQuestion = QuestionDemo[currentQuestionIndex];
 
   return (
-    <div className="answersContainerDemo">
-      <div className="questionContainerDemo">
+    <div className="answersContainerDemo ">
+      <div className="questionContainerDemo ">
         <h3 className="preguntaDemo">{currentQuestion.question}</h3>
       </div>
       <div className="botonContainerDemo">
