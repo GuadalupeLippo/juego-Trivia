@@ -16,10 +16,10 @@
     display: flex;
     flex-direction: column;
     gap: 10px; 
-    margin: 20px auto;
-    padding: 5px;
+    margin: 40px auto;
+    padding: 15px;
     border-radius: 30px;
-    filter: drop-shadow(0 0 10px rgba(56, 131, 228, 0.911));
+    filter: drop-shadow(0 0 10px rgba(47, 73, 107, 0.911));
 }
 
 @media (min-width: 1024px) {

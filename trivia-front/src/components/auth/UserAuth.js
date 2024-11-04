@@ -12,7 +12,7 @@ export const AuthProvider = ({ children }) => {
 
    
   // Función para obtener los datos del jugador autenticado
-  const fetchPlayerData = async (accessToken) => {
+ const fetchPlayerData = async (accessToken) => {
    
     const response = await fetch(`${APITRIVIA}/player/profile`, {
       method: 'GET',

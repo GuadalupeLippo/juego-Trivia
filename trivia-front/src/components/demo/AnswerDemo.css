@@ -6,8 +6,9 @@
     margin-top: 30px;
     padding-left: 20px;
     flex-wrap: wrap;
-    background-color: rgba(75, 167, 243, 0.912);
-   
+    background: linear-gradient( rgba(212, 253, 65, 0.342),rgba(187, 207, 6, 0.342));
+   text-align: center;
+   justify-content: center;
     filter: drop-shadow(5px 5px 21px #9a8f14);
     border-radius: 10px;
     padding: 40px;

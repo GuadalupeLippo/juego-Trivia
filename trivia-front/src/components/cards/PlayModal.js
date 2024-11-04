@@ -1,28 +1,35 @@
-import { useNavigate } from "react-router-dom";
-import Modal from "react-bootstrap/Modal";
-import { FormConfiguration } from "./FormConfiguration";
-import PlayButton from "../form-login/PlayButtom";
+
 import { useState } from "react";
-import Timer from "./Timer";
+import Modal from "react-bootstrap/Modal";
+import PlayButton from "../form-login/PlayButtom";
+import { FormConfiguration } from "./FormConfiguration";
 
-export default function ModalConfig({ showConfig, handleCloseConfig }) {
-  const navigate = useNavigate();
 
-  const [selectedTime, setSelectedTime] = useState(15);
-  const [startTimer, setStartTimer] = useState(false);
-  const [selectedQuestions, setSelectedQuestions] = useState(1);
+export default function ModalConfig({ show, handleCloseDifficulty, onPlay }) {
+
+  const [selectedQuestions, setSelectedQuestions] = useState(null);
+  const [selectedTime, setSelectedTime] = useState(null);
+  // const [selectedTime, setSelectedTime] = useState(15);
+
+ 
+
+
 
 
   const handlePlayButtonClick = () => {
-    setStartTimer(true);
- 
-    navigate("/Trivia");
+    if(selectedQuestions && selectedTime){
+      onPlay(selectedQuestions, selectedTime);
+    }else {
+      console.log("los select no estan definidos")
+    }
+
+    // navigate("/Trivia");
   };
 
   return (
     <Modal
-      show={showConfig}
-      onHide={handleCloseConfig}
+      show={show}
+      onHide={handleCloseDifficulty}
       backdrop="static"
       className="Modal"
     >
@@ -30,11 +37,10 @@ export default function ModalConfig({ showConfig, handleCloseConfig }) {
         <Modal.Title>¿Estás listo para el desafío?</Modal.Title>
       </Modal.Header>
       <Modal.Body className="m-b">
-        {!startTimer ? (
-          <FormConfiguration setSelectedQuestions={setSelectedQuestions} setSelectedTime={setSelectedTime}/>
-        ) : (
-          <Timer seconds={selectedTime} />
-        )}
+     <FormConfiguration 
+     setSelectedQuestions={setSelectedQuestions}
+     setSelectedTime={setSelectedTime}
+     />
       </Modal.Body>
       <Modal.Footer className="m-b">
         <PlayButton onClick={handlePlayButtonClick} />

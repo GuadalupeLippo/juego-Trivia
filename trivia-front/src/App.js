@@ -12,6 +12,7 @@ import Avatars from "./pages/mis-avatars.js";
   href="https://fonts.googleapis.com/css2?family=Itim&display=swap"
   rel="stylesheet"
 ></link>;
+<link  rel="stylesheet"></link>;
 
 function App() {
   return (
@@ -23,7 +24,7 @@ function App() {
           <Route path="/login/:id" element={<  Login />} />
           <Route path="/trivia" element={<Trivia />} />
           <Route path="/politicas" element={<PoliticasDePrivacidad />} />
-          <Route path="/Trivia" element={<Trivia />} />
+         
           <Route path="/avatars" element={<Avatars />} />
           <Route path="/store" element={<Store />} />
         </Routes>
