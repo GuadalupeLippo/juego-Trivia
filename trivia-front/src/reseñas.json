@@ -1,0 +1,13 @@
+[
+    {
+       "usuario": "Juan",
+       "comentario": "Excelente trivia, muy entretenida!",
+       "puntuación": 5
+    },
+    {
+       "usuario": "María",
+       "comentario": "Me encantó, aunque algunas preguntas fueron difíciles.",
+       "puntuación": 4
+    }
+ ]
+ 
