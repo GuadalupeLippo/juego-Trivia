@@ -6,6 +6,8 @@ import Trivia from "./pages/trivia.js";
 import PoliticasDePrivacidad from "./components/Politicas/PoliticasDePrivacidad.js";
 import Store from "./pages/store.js";
 import Avatars from "./pages/mis-avatars.js";
+
+
 <link
   href="https://fonts.googleapis.com/css2?family=Itim&display=swap"
   rel="stylesheet"
