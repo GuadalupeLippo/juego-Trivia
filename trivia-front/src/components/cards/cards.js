@@ -16,17 +16,17 @@ import historia from "../carrousel/imagenes/historia.jpeg";
 import aleatoria from "../imagenes/aleatoria.png";
 import PlayButton from "../form-login/PlayButtom";
 import ModalConfig from "./PlayModal";
-import { getGames } from "../../API/getDataBase";
+import { getCategory, getGames } from "../../API/getDataBase";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../auth/UserAuth";
 
 const imagenesLogo = {
-arte: {logo: arteLogo , id:1},
-historia:{logo: historiaLogo,id:4} ,
-geografia: {logo: geografiaLogo, id:5},
-deportes:{logo: deportesLogo, id:3},
-entretenimiento:{logo: entretenimientoLogo , id:6},
-ciencia:{logo:cienciasLogo , id:2} ,
+arte: {logo: arteLogo },
+historia:{logo: historiaLogo} ,
+geografia: {logo: geografiaLogo},
+deportes:{logo: deportesLogo},
+entretenimiento:{logo: entretenimientoLogo},
+ciencia:{logo:cienciasLogo } ,
 aleatoria:{logo:aleatoria}
 }
  
@@ -38,6 +38,8 @@ export default  function Cards() {
   const navigate = useNavigate();
 const [gameData, setGameData]= useState(null);
 const {autUser} = useAuth();
+const [categoryData, setCategoryData] = useState(null);
+const playerId = autUser?.id;
 
 
  useEffect(() => {
@@ -54,19 +56,35 @@ fetchData();
 }, [])
 
  
-const handleCloseDifficulty = () => setShowDifficulty(false);
-const playerId = autUser?.id;
 
-  const handleShowDifficulty =(category) => {
-setSelectedCategory(category);
+useEffect(() => {
+  if (selectedCategory) {
+    async function fetchCategory() {
+      try {
+        const response = await getCategory(selectedCategory);
+        const data = response.json();
+        setCategoryData(data); // Guardar los datos de la categoría y preguntas
+      } catch (error) {
+        console.error("Error fetching category:", error);
+      }
+    }
+    fetchCategory();
+  }
+}, [selectedCategory]);
+
+const handleCloseDifficulty = () => setShowDifficulty(false);
+
+
+  const handleShowDifficulty =(categoryId) => {
+setSelectedCategory(categoryId);
 setShowDifficulty(true);
-  } 
+  };
 
   
-const HadelCards = () => {
-    if(selectedCategory && playerId){
-    const{logo, id}= imagenesLogo[selectedCategory];
-    navigate("/trivia", { state:{ imagenesLogo: logo, categoryId: id, playerId: id} });
+const HadelCards = (selectTime) => {
+    if(selectedCategory && playerId && categoryData){
+    const{logo}= imagenesLogo[selectedCategory];
+    navigate("/trivia", { state:{ logo, categoryId: selectedCategory, playerId, selectTime , questions: categoryData.questions} });
     }
   }
 
@@ -178,7 +196,7 @@ const HadelCards = () => {
           <ModalConfig
             show={showDifficulty}
             handleCloseDifficulty={handleCloseDifficulty}
-            onPlay={HadelCards}
+            onPlay={(selectTime) => HadelCards(selectTime)}
           />
         </div>
       </div>

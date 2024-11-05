@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import { createGame } from "../../API/getDataBase";
+
 import { Answers } from "../answers/answers";
 import sonidoFin from "../cards/sonido.mp3";
 import Timer from "../cards/Timer";
@@ -11,61 +11,73 @@ import "./trivia.css";
 
 function InicioTrivia() {
   const location = useLocation();
-  const selectedTime = location.state?.selectedTime || 15;
-  const difficultyId = location.state?.difficultyId;
-  const logo = location.state?.imagenesLogo;
+  
+ 
+  const logo = location.state?.logo;
   const categoryId = location.state?.categoryId;
   const playerId = location.state?.playerId;
-  const [questions, setQuestions] = useState([]);
+  const questions = location.state?.questions || [];
+  const selectedTime = location.state?.selectedTime;
+  
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [timeRemaining, setTimeRemaining] = useState(selectedTime);
   const [showModalTimeUp, setShowModalTimeUp] = useState(false);
   const [reset, setReset] = useState(false);
   const [showFin, setShowFin] = useState(false);
   const [loading, setLoading] = useState(true);
-  // const [questions, setQuestions] = useState([]);
+
+
+
 
   useEffect(() => {
-    setTimeRemaining(selectedTime);
-    setReset((prev) =>!prev)
-  }, [currentQuestionIndex, selectedTime]);
-
-  useEffect(() => {
-    const gameData = {
-      playerId,       // ID del jugador
-      categoryId,     // ID de la categoría
-      difficultyId,
-    }
-  
-  console.log(gameData)
-  console.log("playerId:", playerId);
-    console.log("categoryId:", categoryId);
-    console.log("difficultyId:", difficultyId);
-
-
-  if (!playerId || !categoryId || !difficultyId) {
+  if (!playerId || !categoryId ) {
     console.error("Error: Uno o más valores de gameData están vacíos o son inválidos.");
     return; // Salir del useEffect si hay datos inválidos
   }
-  const fetchData = async () => {
-    setLoading(true)
-    try {
-      const response = await createGame(gameData);
-      if (!response.ok) {
-        throw new Error('Error al crear la partida');
-      }
-      const data = await response.json();
-      setQuestions(data.questions); // Guarda las preguntas de la partida en el estado
-    } catch (error) {
-      console.error("Error creating game:", error);
-    } finally {
-      setLoading(false);
-    }
-  };
+}, [playerId, categoryId]);
+   
+  
+  console.log("playerId:", playerId);
+    console.log("categoryId:", categoryId);
+ 
 
-  fetchData();
-}, [categoryId, difficultyId, playerId]);
+  // const fetchData = async () => {
+  //   setLoading(true)
+  //   try {
+  //     const response = await createGame(gameData);
+  //     if (!response.ok) {
+  //       throw new Error('Error al crear la partida');
+  //     }
+  //     const data = await response.json();
+  //     setQuestions(data.questions);// Guarda las preguntas de la partida en el estado
+  //     setTimeRemaining(data.time) 
+  //   } catch (error) {
+  //     console.error("Error creating game:", error);
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
 
+//   fetchData();
+// }, [categoryId, difficultyId, playerId]);
+
+
+// useEffect(() => {
+//   const fetchCategoryData = async () => {
+//     try {
+//       const response = await getCategory();
+//       if (!response.ok) {
+//         throw new Error("Error al obtener la categoría");
+//       }
+//       const data = await response.json();
+//       setCategoryData(data); // Guarda los datos de la categoría
+//     } catch (error) {
+//       console.error("Error fetching category:", error);
+//     }
+//   };
+
+//   fetchCategoryData();
+// }, []);
 
   useEffect(() => {
     if (timeRemaining > 0) {
@@ -87,6 +99,7 @@ function InicioTrivia() {
           audio.play();
         } else {
           setCurrentQuestionIndex((prevIndex) => prevIndex + 1); 
+         
         }
       }, 1000);
     }
@@ -99,12 +112,14 @@ function InicioTrivia() {
     setReset((prev) => !prev); // Reiniciar el temporizador
     setShowFin(false); // Cerrar pantalla final
   };
-  
+  if (loading) {
+    return <div>Cargando...</div>;
+  }
   return (
     <>
       <div className="inicioTrivia">
         <Reloj />
-        <Timer seconds={selectedTime} timeLeft={timeRemaining} onTimeUp={() => setShowModalTimeUp(true)} reset={reset} />
+        <Timer seconds={timeRemaining} timeLeft={timeRemaining} onTimeUp={() => setShowModalTimeUp(true)} reset={reset} />
         <img alt="logo" src={logo} className="categoria" width="100px" />
       </div>
       <Answers questionData={questions[currentQuestionIndex]} onAnswerClick={handleAnswerClick} />

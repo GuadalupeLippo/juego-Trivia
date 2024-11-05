@@ -13,7 +13,7 @@ const [difficultys, setDifficulty] = useState([]);
   try {
 const response = await getDifficulty();
 const difficultyData = await response.json();
-  console.log(difficultyData)
+
   setDifficulty(difficultyData)
 } catch (error) {
   console.error("Error al obtener las dificultades:", error);
@@ -23,11 +23,11 @@ const difficultyData = await response.json();
  }, []);
 
   const handleDifficultyChange = (event) => {
-    const selectedDifficulty = event.target.value;
-    const difficulty = difficultys.find((d) => d.nivel === selectedDifficulty);
-       if(difficulty){
+    const selectedDifficultyId = parseInt(event.target.value);
+    const selectedDifficulty = difficultys.find((d) => d.id === selectedDifficultyId);
+       if(selectedDifficulty){
 
-  setSelectedTime(difficulty.duracion);
+  setSelectedTime(selectedDifficulty.duracion);
 }
       };
 
@@ -35,8 +35,8 @@ const difficultyData = await response.json();
 
   return (
     <>
-      <FloatingLabel controlId="floatingSelect" label="preguntas">
-        <Form.Select aria-label="preguntas" className="mb-3" onChange={handleDifficultyChange}>
+      <FloatingLabel controlId="floatingSelect" label="selecciona la dificultad">
+        <Form.Select aria-label="dificultad" className="mb-3" onChange={handleDifficultyChange}>
         { difficultys.map((difficulty) => (
           <option key={difficulty.id} value={difficulty.id}>
             {difficulty.nivel}

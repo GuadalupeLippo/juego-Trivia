@@ -6,10 +6,8 @@ import { FormConfiguration } from "./FormConfiguration";
 
 
 export default function ModalConfig({ show, handleCloseDifficulty, onPlay }) {
-
-  const [selectedQuestions, setSelectedQuestions] = useState(null);
-  const [selectedTime, setSelectedTime] = useState(null);
-  // const [selectedTime, setSelectedTime] = useState(15);
+const [selectedTime, setSelectedTime] =  useState(null)
+  
 
  
 
@@ -17,11 +15,11 @@ export default function ModalConfig({ show, handleCloseDifficulty, onPlay }) {
 
 
   const handlePlayButtonClick = () => {
-    if(selectedQuestions && selectedTime){
-      onPlay(selectedQuestions, selectedTime);
-    }else {
-      console.log("los select no estan definidos")
-    }
+   if(selectedTime != null){
+      onPlay(selectedTime);
+   }else{
+    alert("Selecciona una dificultad")
+   }
 
     // navigate("/Trivia");
   };
@@ -37,10 +35,7 @@ export default function ModalConfig({ show, handleCloseDifficulty, onPlay }) {
         <Modal.Title>¿Estás listo para el desafío?</Modal.Title>
       </Modal.Header>
       <Modal.Body className="m-b">
-     <FormConfiguration 
-     setSelectedQuestions={setSelectedQuestions}
-     setSelectedTime={setSelectedTime}
-     />
+     <FormConfiguration setSelectedTime={setSelectedTime}/>
       </Modal.Body>
       <Modal.Footer className="m-b">
         <PlayButton onClick={handlePlayButtonClick} />
