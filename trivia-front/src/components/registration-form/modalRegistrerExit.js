@@ -6,25 +6,28 @@ import { useNavigate } from "react-router-dom";
  import { APITRIVIA } from "../../API/getDataBase";
 
 
-export function ModalRegistrerExit({ show, handleCloseExit, userName, access_token }) {
+ export function ModalRegistrerExit({ show, handleCloseExit, userName, access_token }) {
   
   const { setAuthUser } = useAuth();
   const navigate = useNavigate(); // Usar useNavigate para redirigir
 
   const handleFirstLogin = async () => {
-    const access_token = localStorage.getItem('token'); // Recuperar token del localStorage
+    
+    const access_token = localStorage.getItem('authATRV'); // Recuperar token del localStorage
 
     if (!access_token) {
       console.error('No se encontró el token en localStorage');
       return;
     }
   
+    const { token } = JSON.parse(access_token);
+    console.log("Token recuperado:", token);
 
     try {
       const response = await fetch(`${APITRIVIA}/player/profile`, {
         method: 'GET',
         headers: {
-          'Authorization': `Bearer ${access_token}`,
+          'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'
         }
       });
@@ -34,10 +37,8 @@ export function ModalRegistrerExit({ show, handleCloseExit, userName, access_tok
       }
 
       const playerData = await response.json(); 
-       console.log(playerData)// Suponiendo que la respuesta es un JSON con los datos del usuario
+      console.log(playerData); // Suponiendo que la respuesta es un JSON con los datos del usuario
       setAuthUser(playerData);
-
-     
 
       // Redirigir al perfil del usuario
       navigate(`/login/${playerData.id}`); // Asegúrate de que la ruta sea correcta
@@ -47,8 +48,6 @@ export function ModalRegistrerExit({ show, handleCloseExit, userName, access_tok
       // Manejo de errores, como mostrar un mensaje de error al usuario
     }
   };
-
- 
 
   return (
     <>
@@ -64,10 +63,9 @@ export function ModalRegistrerExit({ show, handleCloseExit, userName, access_tok
         <Modal.Body className="body-registrer">
           <p className="p-registrer">Te registraste con éxito.</p>
           <img src={Exit} alt="registro exitoso" width='180px' />
-          
         </Modal.Body>
         <Modal.Footer className="footer-registrer">
-          <button onClick={handleFirstLogin} className=" btn-grad btnfos-5">
+          <button onClick={handleFirstLogin} className="btn-grad btnfos-5">
             Ir a mi perfil
           </button>
         </Modal.Footer>
