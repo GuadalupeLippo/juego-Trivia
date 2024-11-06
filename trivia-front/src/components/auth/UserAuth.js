@@ -1,14 +1,17 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect} from 'react';
 import { APITRIVIA } from '../../API/getDataBase';
+
 
 
 // Crear el contexto
 const AuthContext = createContext();
 
+
 // Proveedor del contexto
 export const AuthProvider = ({ children }) => {
   const [authUser, setAuthUser] = useState(null);
   const [token, setToken] = useState(null);
+  const [sessionExpired, setSessionExpired] = useState(false);
 
    
   // Función para obtener los datos del jugador autenticado
@@ -26,28 +29,25 @@ export const AuthProvider = ({ children }) => {
     }
 
     const playerData = await response.json();
-    setAuthUser(playerData); // Guardar los datos del jugador en el estado global
+    setAuthUser(playerData); 
   };
 
   // Función para manejar el inicio de sesión
   const login = async (player, token) => {
     try {
-      setAuthUser(player); 
-      localStorage.setItem('token', token); 
-      
-      
+      setAuthUser(player);
+      localStorage.setItem('authATRV', JSON.stringify({ token })); 
       await fetchPlayerData(token);
-
     } catch (error) {
-      console.error("Error al iniciar sesión:", error); 
-      
+      console.error("Error al iniciar sesión:", error);
     }
   };
-  
+
   // Función para manejar el cierre de sesión
   const logout = () => {
-    setToken(null); 
-    localStorage.removeItem('token'); 
+    setToken(null);
+    localStorage.removeItem('authATRV');
+    setSessionExpired(false);
   };
 
   // Actualiza el avatar del jugador
@@ -68,18 +68,36 @@ export const AuthProvider = ({ children }) => {
 
  // Efecto para cargar los datos del jugador desde localStorage al iniciar la aplicación
  useEffect(() => {
- 
-  const savedToken = localStorage.getItem('token');
+  const savedData = localStorage.getItem('authATRV');
 
-  if (savedToken) {
-    setToken(savedToken);
-    // Hacer fetch para obtener los datos completos del jugador usando el token
-    fetchPlayerData(savedToken).catch((error) => {
-      console.error("Error al cargar datos del jugador:", error.message);
-    });
+  if (savedData) {
+    try {
+      const { token } = JSON.parse(savedData);
+      setToken(token);
+      fetchPlayerData(token).catch((error) => {
+       
+        if (error.message === 'Error al obtener los datos del jugador') {
+          console.error("Token expirado o no válido:", error.message);
+          alert('Tu sesión ha caducado, vuelve a iniciarla');
+          setSessionExpired(true); 
+
+          
+          setTimeout(() => {
+            logout(); 
+          }, 2000); 
+        } else {
+          console.error("Error al cargar datos del jugador:", error.message);
+        }
+      });
+    } catch (error) {
+      console.error("Error al parsear el token:", error);
+      logout();
+    }
+  } else {
+    console.log("No hay token guardado en localStorage");
   }
 }, []);
-  
+
 
   return (
     <AuthContext.Provider
@@ -95,6 +113,10 @@ export const AuthProvider = ({ children }) => {
       }}
     >
       {children}
+      {sessionExpired &&
+       <div className="alert">
+        Tu sesión ha caducado, vuelve a iniciarla
+        </div>}
     </AuthContext.Provider>
   );
 };

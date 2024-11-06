@@ -69,6 +69,7 @@ const EditProfileModal = ({ show, handleClose, user, onSave }) => {
               name="email"
               value={editedUserData.email} 
               onChange={handleInputChange}
+              disabled
             />
            
           </Form.Group>
