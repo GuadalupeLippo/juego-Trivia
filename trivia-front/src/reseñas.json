@@ -1,13 +1,15 @@
 [
-    {
-       "usuario": "Juan",
-       "comentario": "Excelente trivia, muy entretenida!",
-       "puntuación": 5
-    },
-    {
-       "usuario": "María",
-       "comentario": "Me encantó, aunque algunas preguntas fueron difíciles.",
-       "puntuación": 4
-    }
+   {
+     "id": 1,
+     "nombre": "Usuario1",
+     "reseña": "¡Me encanta este juego! Muy divertido.",
+     "calificacion": 5
+   },
+   {
+     "id": 2,
+     "nombre": "Usuario2",
+     "reseña": "Una gran manera de aprender mientras juego.",
+     "calificacion": 4
+   }
  ]
  
