@@ -8,32 +8,27 @@ const Reseñas = () => {
   useEffect(() => {
     const obtenerReseñas = () => {
       const reseñasGuardadas = JSON.parse(localStorage.getItem('reseñas')) || [];
-      // Filtramos reseñas vacías o incompletas
-      const reseñasValidas = reseñasGuardadas.filter(
-        (reseña) => reseña.nombre && reseña.reseña && reseña.calificacion
-      );
-      setReseñas(reseñasValidas);
+      setReseñas(reseñasGuardadas);
     };
     obtenerReseñas();
   }, []);
 
-  // Función para guardar la nueva reseña en el Local Storage y mostrar el modal
   const guardarReseña = () => {
     const nuevasReseñas = [...reseñas, { ...nuevaReseña, id: reseñas.length + 1 }];
     localStorage.setItem('reseñas', JSON.stringify(nuevasReseñas));
     setReseñas(nuevasReseñas);
     setMostrarModal(true);
-    setNuevaReseña({ nombre: "", reseña: "", calificacion: 0 }); // Limpiar el formulario
+    setNuevaReseña({ nombre: "", reseña: "", calificacion: 0 });
   };
 
   return (
-    <div>
-      <h2>Reseñas</h2>
-      <ul style={{ listStyleType: "none", padding: 0 }}>
+    <div style={{ padding: '20px', fontFamily: 'Itim, sans-serif', color: '#333' }}>
+      <h2 style={{ marginBottom: '10px' }}>Reseñas</h2>
+      <ul style={{ listStyle: 'none', paddingLeft: 0 }}>
         {reseñas.map((reseña) => (
-          <li key={reseña.id} style={{ marginBottom: "10px" }}>
+          <li key={reseña.id} style={{ marginBottom: '15px', padding: '10px', borderBottom: '1px solid #ddd' }}>
             <strong>{reseña.nombre}:</strong> {reseña.reseña}
-            <div>
+            <div style={{ fontSize: '18px', color: '#FFD700' }}>
               {"★".repeat(reseña.calificacion)}{"☆".repeat(5 - reseña.calificacion)}
             </div>
           </li>
@@ -41,67 +36,77 @@ const Reseñas = () => {
       </ul>
 
       {/* Formulario para nueva reseña */}
-      <div>
-        <h3>Dejar una Reseña</h3>
+      <div style={{ marginTop: '20px', padding: '15px', border: '1px solid #ddd', borderRadius: '5px' }}>
+        <h3 style={{ marginBottom: '10px' }}>Dejar una Reseña</h3>
         <input
           type="text"
           placeholder="Tu nombre"
           value={nuevaReseña.nombre}
           onChange={(e) => setNuevaReseña({ ...nuevaReseña, nombre: e.target.value })}
-          style={{ marginRight: "5px" }}
+          style={{ padding: '5px', marginBottom: '10px', width: '100%', boxSizing: 'border-box' }}
         />
         <textarea
           placeholder="Tu reseña"
           value={nuevaReseña.reseña}
           onChange={(e) => setNuevaReseña({ ...nuevaReseña, reseña: e.target.value })}
-          style={{ marginRight: "5px" }}
+          style={{ padding: '5px', marginBottom: '10px', width: '100%', height: '60px', boxSizing: 'border-box' }}
         />
         <select
           value={nuevaReseña.calificacion}
           onChange={(e) => setNuevaReseña({ ...nuevaReseña, calificacion: Number(e.target.value) })}
-          style={{ marginRight: "5px" }}
+          style={{ padding: '5px', marginBottom: '10px', width: '100%' }}
         >
           <option value={0}>Elige tu calificación</option>
-          {[1, 2, 3, 4, 5].map((star) => (
+          {[1, 2, 3, 4, 5].map(star => (
             <option key={star} value={star}>{star} estrellas</option>
           ))}
         </select>
-        <button onClick={guardarReseña}>Enviar Reseña</button>
+        <button
+          onClick={guardarReseña}
+          style={{
+            backgroundColor: '#4CAF50',
+            color: 'white',
+            padding: '10px 20px',
+            border: 'none',
+            borderRadius: '5px',
+            cursor: 'pointer',
+            width: '100%'
+          }}
+        >
+          Enviar Reseña
+        </button>
       </div>
 
       {/* Modal de agradecimiento */}
       {mostrarModal && (
         <div style={{
-          position: "fixed",
+          position: 'fixed',
           top: 0,
           left: 0,
-          width: "100%",
-          height: "100%",
-          backgroundColor: "rgba(0, 0, 0, 0.5)",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          zIndex: 1000
+          width: '100%',
+          height: '100%',
+          backgroundColor: 'rgba(0, 0, 0, 0.5)',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center'
         }}>
           <div style={{
-            backgroundColor: "white",
-            padding: "20px",
-            borderRadius: "8px",
-            textAlign: "center",
-            boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)"
+            backgroundColor: '#fff',
+            padding: '20px',
+            borderRadius: '5px',
+            textAlign: 'center',
+            width: '80%',
+            maxWidth: '400px'
           }}>
             <p>¡Gracias por tu opinión!</p>
             <button onClick={() => setMostrarModal(false)} style={{
-              marginTop: "10px",
-              padding: "8px 12px",
-              backgroundColor: "#007bff",
-              color: "white",
-              border: "none",
-              borderRadius: "4px",
-              cursor: "pointer"
-            }}>
-              Cerrar
-            </button>
+              backgroundColor: '#4CAF50',
+              color: 'white',
+              padding: '10px 20px',
+              border: 'none',
+              borderRadius: '5px',
+              cursor: 'pointer'
+            }}>Cerrar</button>
           </div>
         </div>
       )}
