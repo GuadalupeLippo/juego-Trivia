@@ -107,10 +107,14 @@ text-align: center;
   padding: 10px;
 }
  .p-registrer{
-  margin: 0px;
+  margin: 5px;
   text-align: center;
   color: #427388;
   padding: 0px 10px;
+ }
+
+ .bonus{
+  color: #159ad8;
  }
 
  .footer-registrer{
@@ -125,11 +129,15 @@ text-align: center;
 .error-message {
   position: absolute;
   text-align: center;
-  bottom: -1.5rem;
   left: 0;
   width: 100%;
   font-size: 0.8rem;
   color: #DC3545;
+}
+@media (max-width: 1078px) {
+.error-message{
+  font-size: 0.8rem;
+}
 }
 
 

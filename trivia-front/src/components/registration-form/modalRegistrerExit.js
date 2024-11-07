@@ -1,12 +1,20 @@
-import React from "react";
+import {React, useEffect} from "react";
 import Modal from "react-bootstrap/Modal";
 import Exit from '../images/cerebrito-festejo.jpg';
 import { useAuth } from "../auth/UserAuth";
 import { useNavigate } from "react-router-dom";
  import { APITRIVIA } from "../../API/getDataBase";
+ import festejo from './festejo.mp3'
 
 
  export function ModalRegistrerExit({ show, handleCloseExit, userName, access_token }) {
+
+  useEffect(() => {
+    if (show) {
+      const audio = new Audio(festejo);
+      audio.play();
+    }
+  }, [show]);
   
   const { setAuthUser } = useAuth();
   const navigate = useNavigate(); // Usar useNavigate para redirigir
@@ -37,11 +45,29 @@ import { useNavigate } from "react-router-dom";
       }
 
       const playerData = await response.json(); 
-      console.log(playerData); // Suponiendo que la respuesta es un JSON con los datos del usuario
+   
       setAuthUser(playerData);
 
+      const bonusResponse = await fetch(`${APITRIVIA}/player/bonus`, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ bonusPoints: 500 })
+      });
+
+      if (!bonusResponse.ok) {
+        throw new Error('Error al otorgar puntos de bonificación');
+      }
+
+      const updatedPlayer = await bonusResponse.json();
+      console.log("Puntaje actualizado:", updatedPlayer.score);
+
+      setAuthUser(updatedPlayer);
+      console.log(updatedPlayer)
       // Redirigir al perfil del usuario
-      navigate(`/login/${playerData.id}`); // Asegúrate de que la ruta sea correcta
+      navigate(`/login/${updatedPlayer.id}`); // Asegúrate de que la ruta sea correcta
 
     } catch (error) {
       console.error(error);
@@ -61,7 +87,7 @@ import { useNavigate } from "react-router-dom";
           <Modal.Title className="modal-title-exit">¡Felicidades {userName}!</Modal.Title>
         </Modal.Header>
         <Modal.Body className="body-registrer">
-          <p className="p-registrer">Te registraste con éxito.</p>
+          <p className="p-registrer">Te registraste con éxito y has recibido <spam className="bonus"><strong>500 puntos</strong></spam> de bonificación.</p>
           <img src={Exit} alt="registro exitoso" width='180px' />
         </Modal.Body>
         <Modal.Footer className="footer-registrer">
@@ -73,3 +99,4 @@ import { useNavigate } from "react-router-dom";
     </>
   );
 }
+
