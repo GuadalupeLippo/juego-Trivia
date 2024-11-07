@@ -46,7 +46,7 @@
     width: 100%;
   }
   
-  .modal {
+  .modal-reseña {
     position: fixed;
     top: 0;
     left: 0;
@@ -58,7 +58,7 @@
     align-items: center;
   }
   
-  .modal-content {
+  .modal-content-reseña {
     background-color: #fff;
     padding: 20px;
     border-radius: 5px;
@@ -67,7 +67,7 @@
     max-width: 400px;
   }
   
-  .modal-content button {
+  .modal-content-reseña button {
     background-color: #4CAF50;
     color: white;
     padding: 10px 20px;

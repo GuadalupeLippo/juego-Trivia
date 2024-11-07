@@ -95,8 +95,8 @@ const Reseñas = () => {
       )}
 
       {mostrarModal && (
-        <div className="modal">
-          <div className="modal-content">
+        <div className="modal-reseña">
+          <div className="modal-content-reseña">
             <p>¡Gracias por tu opinión!</p>
             <button onClick={() => setMostrarModal(false)}>Cerrar</button>
           </div>
