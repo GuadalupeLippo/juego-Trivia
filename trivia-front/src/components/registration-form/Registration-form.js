@@ -79,9 +79,10 @@ export function FormRegistration({handleCloseForm, handleShowExit,}) {
         console.log("Token recibido:", data.access_token);
         
         if (response.ok) {
-        // Si el registro es exitoso, guardar token y datos del usuario
-        localStorage.setItem('token', data.access_token);
-        
+          // Guardar el token y cualquier otro dato relevante en localStorage
+          localStorage.setItem('authATRV', JSON.stringify({token: data.access_token}));
+          console.log("Token guardado:", localStorage.getItem('authATRV')); // Verifica lo que se guarda
+
         const playerData = await fetchPlayerData(data.access_token);
         setAuthUser(playerData);
         handleCloseForm();

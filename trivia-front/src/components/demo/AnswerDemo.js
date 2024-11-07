@@ -74,9 +74,9 @@ export default function AnswerDemo() {
   
 
   const handleSuccessfulRegistration = (name) => {
-    setUserName(name); // Actualiza el estado con el nombre del usuario
-    setShowRegisterModal(false); // Cierra el modal de registro
-    setShowSuccessModal(true); // Abre el modal de éxito
+    setUserName(name); 
+    setShowRegisterModal(false);
+    setShowSuccessModal(true); 
   };
 
 
