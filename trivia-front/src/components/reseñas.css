@@ -1,0 +1,78 @@
+.reseñas-container {
+    padding: 20px;
+    font-family: 'Itim', sans-serif;
+    color: #333;
+  }
+  
+  .reseñas-lista {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  .reseña-item {
+    margin-bottom: 15px;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .reseña-calificacion {
+    font-size: 18px;
+    color: #FFD700;
+  }
+  
+  .reseña-formulario {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .reseña-formulario input,
+  .reseña-formulario textarea,
+  .reseña-formulario select {
+    padding: 5px;
+    margin-bottom: 10px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .reseña-formulario button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  .modal-reseña {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal-content-reseña {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    width: 80%;
+    max-width: 400px;
+  }
+  
+  .modal-content-reseña button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  

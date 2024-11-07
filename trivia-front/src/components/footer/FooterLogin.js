@@ -1,5 +1,5 @@
 import React from 'react'
-import Reseña from "./reseña";
+import Reseña from "../Reseñas";
 import { Col } from 'react-bootstrap';
 
 

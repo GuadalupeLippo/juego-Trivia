@@ -1,112 +1,104 @@
 import React, { useEffect, useState } from 'react';
+import './reseñas.css';
+
+const agregarFuente = () => {
+  const link = document.createElement('link');
+  link.href = 'https://fonts.googleapis.com/css2?family=Itim&display=swap';
+  link.rel = 'stylesheet';
+  document.head.appendChild(link);
+};
 
 const Reseñas = () => {
   const [reseñas, setReseñas] = useState([]);
   const [mostrarModal, setMostrarModal] = useState(false);
   const [nuevaReseña, setNuevaReseña] = useState({ nombre: "", reseña: "", calificacion: 0 });
+  const [mostrarFormulario, setMostrarFormulario] = useState(true);
 
   useEffect(() => {
+    agregarFuente();
     const obtenerReseñas = () => {
-      const reseñasGuardadas = JSON.parse(localStorage.getItem('reseñas')) || [];
+      const reseñasGuardadas = JSON.parse(localStorage.getItem('reseñas')) || [
+        { id: 1, nombre: "Juan", reseña: "Excelente experiencia", calificacion: 5 },
+        { id: 2, nombre: "Ana", reseña: "Muy buen servicio", calificacion: 4 }
+      ];
       setReseñas(reseñasGuardadas);
     };
     obtenerReseñas();
   }, []);
 
   const guardarReseña = () => {
+    if (!nuevaReseña.nombre || !nuevaReseña.reseña || nuevaReseña.calificacion === 0) {
+      alert("Por favor, completa todos los campos antes de enviar tu reseña.");
+      return;
+    }
+
     const nuevasReseñas = [...reseñas, { ...nuevaReseña, id: reseñas.length + 1 }];
     localStorage.setItem('reseñas', JSON.stringify(nuevasReseñas));
     setReseñas(nuevasReseñas);
     setMostrarModal(true);
     setNuevaReseña({ nombre: "", reseña: "", calificacion: 0 });
+    setMostrarFormulario(false); // Oculta el formulario y el botón de borrar
+  };
+
+  const borrarReseñas = () => {
+    localStorage.removeItem('reseñas'); // Borra las reseñas de localStorage
+    setReseñas([]); // Borra las reseñas del estado
+    setMostrarFormulario(true); // Muestra el formulario y el botón de nuevo
   };
 
   return (
-    <div style={{ padding: '20px', fontFamily: 'Itim, sans-serif', color: '#333' }}>
-      <h2 style={{ marginBottom: '10px' }}>Reseñas</h2>
-      <ul style={{ listStyle: 'none', paddingLeft: 0 }}>
+    <div className="reseñas-container" style={{ fontFamily: "'Itim', cursive" }}>
+      <h5>RESEÑAS</h5>
+
+      {/* Renderiza el botón solo si hay reseñas y si el formulario está visible */}
+      {reseñas.length > 0 && mostrarFormulario && (
+        <button onClick={borrarReseñas}>Borrar todas las reseñas</button>
+      )}
+
+      <ul className="reseñas-lista">
         {reseñas.map((reseña) => (
-          <li key={reseña.id} style={{ marginBottom: '15px', padding: '10px', borderBottom: '1px solid #ddd' }}>
+          <li key={reseña.id} className="reseña-item">
             <strong>{reseña.nombre}:</strong> {reseña.reseña}
-            <div style={{ fontSize: '18px', color: '#FFD700' }}>
+            <div className="reseña-calificacion">
               {"★".repeat(reseña.calificacion)}{"☆".repeat(5 - reseña.calificacion)}
             </div>
           </li>
         ))}
       </ul>
 
-      {/* Formulario para nueva reseña */}
-      <div style={{ marginTop: '20px', padding: '15px', border: '1px solid #ddd', borderRadius: '5px' }}>
-        <h3 style={{ marginBottom: '10px' }}>Dejar una Reseña</h3>
-        <input
-          type="text"
-          placeholder="Tu nombre"
-          value={nuevaReseña.nombre}
-          onChange={(e) => setNuevaReseña({ ...nuevaReseña, nombre: e.target.value })}
-          style={{ padding: '5px', marginBottom: '10px', width: '100%', boxSizing: 'border-box' }}
-        />
-        <textarea
-          placeholder="Tu reseña"
-          value={nuevaReseña.reseña}
-          onChange={(e) => setNuevaReseña({ ...nuevaReseña, reseña: e.target.value })}
-          style={{ padding: '5px', marginBottom: '10px', width: '100%', height: '60px', boxSizing: 'border-box' }}
-        />
-        <select
-          value={nuevaReseña.calificacion}
-          onChange={(e) => setNuevaReseña({ ...nuevaReseña, calificacion: Number(e.target.value) })}
-          style={{ padding: '5px', marginBottom: '10px', width: '100%' }}
-        >
-          <option value={0}>Elige tu calificación</option>
-          {[1, 2, 3, 4, 5].map(star => (
-            <option key={star} value={star}>{star} estrellas</option>
-          ))}
-        </select>
-        <button
-          onClick={guardarReseña}
-          style={{
-            backgroundColor: '#4CAF50',
-            color: 'white',
-            padding: '10px 20px',
-            border: 'none',
-            borderRadius: '5px',
-            cursor: 'pointer',
-            width: '100%'
-          }}
-        >
-          Enviar Reseña
-        </button>
-      </div>
+      {/* Renderiza el formulario solo si mostrarFormulario es true */}
+      {mostrarFormulario && (
+        <div className="reseña-formulario">
+          <h3>DEJAR UNA RESEÑA</h3>
+          <input
+            type="text"
+            placeholder="Tu nombre"
+            value={nuevaReseña.nombre}
+            onChange={(e) => setNuevaReseña({ ...nuevaReseña, nombre: e.target.value })}
+          />
+          <textarea
+            placeholder="Tu reseña"
+            value={nuevaReseña.reseña}
+            onChange={(e) => setNuevaReseña({ ...nuevaReseña, reseña: e.target.value })}
+          />
+          <select
+            value={nuevaReseña.calificacion}
+            onChange={(e) => setNuevaReseña({ ...nuevaReseña, calificacion: Number(e.target.value) })}
+          >
+            <option value={0}>Elige tu calificación</option>
+            {[1, 2, 3, 4, 5].map(star => (
+              <option key={star} value={star}>{star} estrellas</option>
+            ))}
+          </select>
+          <button onClick={guardarReseña}>Enviar Reseña</button>
+        </div>
+      )}
 
-      {/* Modal de agradecimiento */}
       {mostrarModal && (
-        <div style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          width: '100%',
-          height: '100%',
-          backgroundColor: 'rgba(0, 0, 0, 0.5)',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center'
-        }}>
-          <div style={{
-            backgroundColor: '#fff',
-            padding: '20px',
-            borderRadius: '5px',
-            textAlign: 'center',
-            width: '80%',
-            maxWidth: '400px'
-          }}>
+        <div className="modal-reseña">
+          <div className="modal-content-reseña">
             <p>¡Gracias por tu opinión!</p>
-            <button onClick={() => setMostrarModal(false)} style={{
-              backgroundColor: '#4CAF50',
-              color: 'white',
-              padding: '10px 20px',
-              border: 'none',
-              borderRadius: '5px',
-              cursor: 'pointer'
-            }}>Cerrar</button>
+            <button onClick={() => setMostrarModal(false)}>Cerrar</button>
           </div>
         </div>
       )}
