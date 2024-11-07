@@ -9,19 +9,15 @@ export default function ModalConfig({ show, handleCloseDifficulty, onPlay }) {
 const [selectedTime, setSelectedTime] =  useState(null)
   
 
- 
-
-
-
-
   const handlePlayButtonClick = () => {
    if(selectedTime != null){
       onPlay(selectedTime);
+      console.log(selectedTime)
    }else{
     alert("Selecciona una dificultad")
    }
 
-    // navigate("/Trivia");
+   
   };
 
   return (

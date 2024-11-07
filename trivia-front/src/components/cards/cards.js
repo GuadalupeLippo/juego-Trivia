@@ -1,6 +1,5 @@
 import "./cards.css";
 import { useEffect, useState } from "react";
-
 import arteLogo from "./iconos/iconoarte.png";
 import historiaLogo from "./iconos/historia.png";
 import cienciasLogo from "./iconos/ciencias.png";
@@ -27,7 +26,7 @@ geografia: {logo: geografiaLogo},
 deportes:{logo: deportesLogo},
 entretenimiento:{logo: entretenimientoLogo},
 ciencia:{logo:cienciasLogo } ,
-aleatoria:{logo:aleatoria}
+aleatoria:{logo:aleatoria, id:7}
 }
  
 
@@ -37,16 +36,16 @@ export default  function Cards() {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const navigate = useNavigate();
 const [gameData, setGameData]= useState(null);
-const {autUser} = useAuth();
+const {authUser} = useAuth();
 const [categoryData, setCategoryData] = useState(null);
-const playerId = autUser?.id;
+const playerId = authUser?.id;
 
 
  useEffect(() => {
 async function fetchData() {
 try {
   const response = await getGames();
-   const gameData = await response.json();
+  const  gameData = await response.json();
    setGameData(gameData);
 } catch (error) {
   console.error("Error al obtener los datos:", error);
@@ -58,12 +57,14 @@ fetchData();
  
 
 useEffect(() => {
-  if (selectedCategory) {
+  if(selectedCategory ) {
     async function fetchCategory() {
       try {
         const response = await getCategory(selectedCategory);
-        const data = response.json();
+        if(!response.ok) throw new Error("Error al obtener la categoría");
+        const data = await response.json();
         setCategoryData(data); // Guardar los datos de la categoría y preguntas
+      console.log(data)
       } catch (error) {
         console.error("Error fetching category:", error);
       }
@@ -72,20 +73,25 @@ useEffect(() => {
   }
 }, [selectedCategory]);
 
+
 const handleCloseDifficulty = () => setShowDifficulty(false);
-
-
-  const handleShowDifficulty =(categoryId) => {
-setSelectedCategory(categoryId);
+const handleShowDifficulty = (category) => {
+   
+setSelectedCategory(category);
+ console.log("la categoria es:", category)
 setShowDifficulty(true);
   };
 
   
 const HadelCards = (selectTime) => {
-    if(selectedCategory && playerId && categoryData){
-    const{logo}= imagenesLogo[selectedCategory];
-    navigate("/trivia", { state:{ logo, categoryId: selectedCategory, playerId, selectTime , questions: categoryData.questions} });
-    }
+    if(categoryData && playerId ){
+    const logo = imagenesLogo[selectedCategory];
+    navigate("/trivia", {state:{logo, categoryId: selectedCategory, playerId, selectTime , questions: categoryData.question}});
+     } else{
+      alert('selecciona una categoria y dificultad')
+    } console.log(selectTime)
+    console.log(playerId)
+    console.log(categoryData.question)
   }
 
   
@@ -95,7 +101,7 @@ const HadelCards = (selectTime) => {
   return (
     <>
     <div className="cardContainer">
-      <div className="cards" onClick={() => handleShowDifficulty("arte")}>
+      <div className="cards" onClick={() => handleShowDifficulty(1)}>
         <div className="face front">
           <img src={arte} alt="arte" />
         </div>
@@ -105,22 +111,22 @@ const HadelCards = (selectTime) => {
             Intenta demostrar todo lo que sabes sobre pintura, escultura,
             arquitectura y algo mas!
           </p>
-          <PlayButton onClick={() => handleShowDifficulty("arte")} />
+          <PlayButton onClick={() => handleShowDifficulty(1)} />
         </div>
       </div>
 
-      <div className="cards"   onClick={() => handleShowDifficulty("historia")}>
+      <div className="cards"   onClick={() => handleShowDifficulty(4)}>
         <div className="face front">
           <img src={historia} alt=" historia"  />
         </div>
         <div className="face back">
           <h3>Historia</h3>
           <p>Responde a las siguientes preguntas sobre historia universal.</p>
-          <PlayButton onClick={() => handleShowDifficulty("historia")} />
+          <PlayButton onClick={() => handleShowDifficulty(4)} />
         </div>
       </div>
 
-      <div className="cards"   onClick={() => handleShowDifficulty("ciencias")}>
+      <div className="cards"   onClick={() => handleShowDifficulty(2)}>
         <div className="face front">
           <img src={ciencias} alt="ciencias" />
         </div>
@@ -130,11 +136,11 @@ const HadelCards = (selectTime) => {
             Pon a prueba tu conocimiento de los hechos científicos y las
             aplicaciones de los principios científicos.
           </p>
-          <PlayButton onClick={() => handleShowDifficulty("ciencias")} />
+          <PlayButton onClick={() => handleShowDifficulty(2)} />
         </div>
       </div>
 
-      <div className="cards"   onClick={() => handleShowDifficulty("deportes")}>
+      <div className="cards"   onClick={() => handleShowDifficulty(3)}>
         <div className="face front">
           <img src={deportes} alt="deportes" />
         </div>
@@ -145,11 +151,11 @@ const HadelCards = (selectTime) => {
             Los deportes llevan milenios con nosotros, pero ¿Cuánto realmente
             sabes de ellos?
           </p>
-          <PlayButton onClick={() => handleShowDifficulty("deportes")} />
+          <PlayButton onClick={() => handleShowDifficulty(3)} />
         </div>
       </div>
 
-      <div className="cards"  onClick={() => handleShowDifficulty("entretenimiento")} >
+      <div className="cards"  onClick={() => handleShowDifficulty(6)} >
         <div className="face front">
           <img src={entretenimiento} alt="entretenimiento" />
         </div>
@@ -160,11 +166,11 @@ const HadelCards = (selectTime) => {
             relacionado con el ocio y el entretenimiento? Esta es la categoría
             para lucirte.
           </p>
-          <PlayButton onClick={() => handleShowDifficulty("entretenimiento")} />
+          <PlayButton onClick={() => handleShowDifficulty(6)} />
         </div>
       </div>
 
-      <div className="cards"   onClick={() => handleShowDifficulty("geografia")}>
+      <div className="cards"   onClick={() => handleShowDifficulty(5)}>
         <div className="face front">
           <img src={geografia} alt="geografia" />
         </div>
@@ -175,14 +181,14 @@ const HadelCards = (selectTime) => {
             Evalúa tus conocimientos sobre cosas tan variadas como las
             capitales del mundo y otro tipo de preguntas.
           </p>
-          <PlayButton onClick={() => handleShowDifficulty("geografia")} />
+          <PlayButton onClick={() => handleShowDifficulty(5)} />
         </div>
       </div>
     </div>
 
     <div className="cardContainer1">
       <h1>Esta categoría suma más puntos!!!</h1>
-      <div className="cards"   onClick={() => handleShowDifficulty("aleatoria")}>
+      <div className="cards"   onClick={() => handleShowDifficulty(7)}>
         <div className="face front">
           <img src={aleatoria} alt="logo aleatoria" />
         </div>
@@ -192,15 +198,16 @@ const HadelCards = (selectTime) => {
             Descubre si eres lo suficientemente astuto para superar este
             desafio.
           </p>
-          <PlayButton onClick={() => handleShowDifficulty("aleatoria")} />
+          <PlayButton onClick={() => handleShowDifficulty(7)} />
+             </div>
+      </div>
+    </div>
           <ModalConfig
             show={showDifficulty}
             handleCloseDifficulty={handleCloseDifficulty}
             onPlay={(selectTime) => HadelCards(selectTime)}
           />
-        </div>
-      </div>
-    </div>
+       
     </>
 );
 }

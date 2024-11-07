@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { useLocation } from "react-router-dom";
 
 import { Answers } from "../answers/answers";
@@ -16,9 +16,10 @@ function InicioTrivia() {
   const logo = location.state?.logo;
   const categoryId = location.state?.categoryId;
   const playerId = location.state?.playerId;
-  const questions = location.state?.questions || [];
-  const selectedTime = location.state?.selectedTime;
-  
+const selectedTime = location.state?.selectedTime;
+const questions = useMemo(() => {
+  return location.state?.questions || [];
+}, [location.state?.questions]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [timeRemaining, setTimeRemaining] = useState(selectedTime);
   const [showModalTimeUp, setShowModalTimeUp] = useState(false);
@@ -30,11 +31,13 @@ function InicioTrivia() {
 
 
   useEffect(() => {
-  if (!playerId || !categoryId ) {
-    console.error("Error: Uno o más valores de gameData están vacíos o son inválidos.");
-    return; // Salir del useEffect si hay datos inválidos
+   
+  if (playerId && categoryId && questions.length > 0 && selectedTime ) {
+     setLoading(false)
+  }else {
+    console.log("Hay un error al traer datos")
   }
-}, [playerId, categoryId]);
+}, [playerId, categoryId, questions,selectedTime ]);
    
   
   console.log("playerId:", playerId);
@@ -91,19 +94,19 @@ function InicioTrivia() {
   }, [timeRemaining]);
 
   const handleAnswerClick = (answer) => {
-    if (timeRemaining > 0) {
-      setTimeout(() => {
+   
+     
         if (currentQuestionIndex === questions.length - 1) {
           setShowFin(true); 
           const audio = new Audio(sonidoFin);
           audio.play();
         } else {
           setCurrentQuestionIndex((prevIndex) => prevIndex + 1); 
-         
+         setTimeRemaining(selectedTime)
         }
-      }, 1000);
-    }
-  };
+      }
+    
+ 
 
   const handleRestart = () => {
     setShowModalTimeUp(false); // Cerrar modal cuando se reinicia
@@ -122,7 +125,7 @@ function InicioTrivia() {
         <Timer seconds={timeRemaining} timeLeft={timeRemaining} onTimeUp={() => setShowModalTimeUp(true)} reset={reset} />
         <img alt="logo" src={logo} className="categoria" width="100px" />
       </div>
-      <Answers questionData={questions[currentQuestionIndex]} onAnswerClick={handleAnswerClick} />
+      <Answers categoryData={questions[currentQuestionIndex]} onAnswerClick={handleAnswerClick} />
       
       <TimeUpModal show={showModalTimeUp} onHide={handleRestart} onRestart={handleRestart} />
       <FinTrivia show={showFin} onHide={handleRestart} onRestart={handleRestart} />
