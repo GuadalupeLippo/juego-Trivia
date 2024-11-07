@@ -54,7 +54,7 @@ export const AuthProvider = ({ children }) => {
   const updateAvatar = (newAvatar) => {
     setAuthUser((prevUser) => ({
       ...prevUser,
-      avatar: newAvatar,
+      defaultAvatar: newAvatar,
     }));
   };
 

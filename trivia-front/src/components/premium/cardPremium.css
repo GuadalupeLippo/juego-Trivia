@@ -58,6 +58,17 @@ height: 100%;
     border:none
 }
 
+.card_premium.purchased {
+    padding-bottom: 40px;
+  }
+
+  .avatar_obtenido {
+    color:  black;
+    background-color: #e8f372;
+    margin-top: 40px;
+   
+  }
+
 @media (max-width: 768px) {
     .card_premium_container{
         flex-direction: column;
