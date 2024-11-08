@@ -63,7 +63,7 @@ function CardsMisAvatars({ updateAvatar }) {
     if (selectedAvatar) {
       const buyData = localStorage.getItem('authATRV');
      
-      // Decodificar el token para obtener el ID del usuario
+     
       if (buyData) {
         try { 
           const { token } = JSON.parse(buyData);
