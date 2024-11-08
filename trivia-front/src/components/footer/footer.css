@@ -1,13 +1,14 @@
 
 .footer {
   display: flex;
-  background-color: #423c222f;
+  /* background-color: #423c222f; */
+ background-color:  #13727a49;
   margin: 8px 0;
   padding: 10px;
   width: 100%;
   justify-content: space-between;
   height: 160px;
-  background: linear-gradient(rgba(253, 241, 14, 0.473), rgba(86, 185, 151, 0.712));
+  background: linear-gradient(#691eeb80);
   position: relative;
   overflow: hidden; /* Asegura que la curva se muestre correctamente */
   border-radius: 5%;

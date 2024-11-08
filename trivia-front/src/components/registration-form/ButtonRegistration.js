@@ -25,7 +25,7 @@ export function ButtonRegistration() {
     return (
         <>
             <Button
-                className="btn btn-reg btnfos-5"
+                className="btn btn-grad btnfos-5"
                 type="button" 
                 onClick={handleShowForm}
             >
