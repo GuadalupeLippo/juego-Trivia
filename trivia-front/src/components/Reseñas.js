@@ -37,23 +37,12 @@ const Reseñas = () => {
     setReseñas(nuevasReseñas);
     setMostrarModal(true);
     setNuevaReseña({ nombre: "", reseña: "", calificacion: 0 });
-    setMostrarFormulario(false); // Oculta el formulario y el botón de borrar
-  };
-
-  const borrarReseñas = () => {
-    localStorage.removeItem('reseñas'); // Borra las reseñas de localStorage
-    setReseñas([]); // Borra las reseñas del estado
-    setMostrarFormulario(true); // Muestra el formulario y el botón de nuevo
+    setMostrarFormulario(false); // Oculta el formulario
   };
 
   return (
     <div className="reseñas-container" style={{ fontFamily: "'Itim', cursive" }}>
       <h5>RESEÑAS</h5>
-
-      {/* Renderiza el botón solo si hay reseñas y si el formulario está visible */}
-      {reseñas.length > 0 && mostrarFormulario && (
-        <button onClick={borrarReseñas}>Borrar todas las reseñas</button>
-      )}
 
       <ul className="reseñas-lista">
         {reseñas.map((reseña) => (
