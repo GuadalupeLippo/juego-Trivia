@@ -40,7 +40,7 @@
         flex: 2;
         margin: 13px;
         padding: 10px;
-        background-color :#9fc6ebb4;
+        background-color :#233444b4;
         width: 50%;
         display: flex;
     }
@@ -59,15 +59,16 @@
     .pregunta{
         margin-top: 3px;
       display: flex;
-        color: #273f57;
+        color: #121416;
         font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
         font-size:50px;
        text-align: center;
-       text-shadow: 6px 6px 8px rgba(241, 242, 245, 0.936);
-      background-color: rgba(3, 94, 97, 0.062);
+       border:rgba(6, 29, 44, 0.164) solid 3px;
+       /* text-shadow: 6px 6px 8px rgba(241, 242, 245, 0.936); */
+      background-color: rgba(201, 202, 202, 0.39);
       padding: 1.2rem;
         border-radius: 13px;
-        background-color: rgba(63, 211, 203, 0.041);
+        background-color: rgba(4, 37, 36, 0.041);
        
       
        
@@ -81,7 +82,7 @@
         justify-content: center;
         box-shadow: 0 15px 10px;
         gap: 10px;
-        background-color: rgba(48, 247, 237, 0.048);
+        background-color: rgba(6, 29, 44, 0.164);
         padding: 40px;
         text-shadow: 6px 6px 8px rgb(171, 193, 233);
         border-radius: 20px;

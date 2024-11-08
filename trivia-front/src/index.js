@@ -23,7 +23,7 @@ const cargarReseñas = () => {
   if (!localStorage.getItem('reseñas')) {
      localStorage.setItem('reseñas', JSON.stringify(reseñas));
   }
-};
+}
 
 
 

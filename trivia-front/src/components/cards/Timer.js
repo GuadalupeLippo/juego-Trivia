@@ -35,11 +35,7 @@ const Timer = ({ seconds,onTimeUp, reset, timeLeft }) => {
   };
 
   return (
-    // <div className="timer">
-    //   <h1>
-    //     <strong> {timeLeft}</strong>
-    //   </h1>
-    // </div>
+ 
     <div className="timer-bar-container">
     <div
       className={`timer-bar ${aplicarClase()} `}

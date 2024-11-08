@@ -62,7 +62,7 @@ export default function EfectoDesencriptarTexto({
           marginTop: "20px",
           marginLeft: `${marginLeft}px`,
           transition: `margin ${transitionTime}s`,
-          fontSize: "45px",
+          fontSize: "60px",
           color: "#ae63fa",
           fontFamily: `'Permanent Marker', cursive`,
           textShadow: "4px 4px 5px rgb(138, 2, 183)",

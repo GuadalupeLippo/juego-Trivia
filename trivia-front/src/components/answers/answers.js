@@ -1,19 +1,24 @@
-import {React, useEffect, useState} from "react";
+import {React, useEffect, useMemo, useState} from "react";
 import "./answers.css";
 
-export function Answers({ questionData, onAnswerClick }) {
-  const [botonColor, setbotonColor] = useState(null);
+export function Answers({ categoryData, onAnswerClick }) {
+  const [selectedAnswer, setSelectedAnswer] = useState(null);
+
+
+  const memoizedAnswers = useMemo(() => {
+    return categoryData?.answers || [];
+  }, [categoryData]);
 
   useEffect(()   => {
-    setbotonColor(null)
-  }, [questionData])
+    setSelectedAnswer(null)
+  }, [categoryData])
 
-  if (!questionData) {
+  if (!categoryData) {
     return ;
   }
 
   const handleClick = (answer) => {
-    setbotonColor(answer);
+    setSelectedAnswer(answer);
     onAnswerClick(answer);
  
   };
@@ -21,17 +26,17 @@ export function Answers({ questionData, onAnswerClick }) {
   return (
     <div className="answersContainer">
       <div className="questionContainer">
-      <h3 className="pregunta">{questionData.question}</h3>
+      <h3 className="pregunta">{categoryData.description}</h3>
       </div>
       <div className="botonContainer">
-        {questionData.answers.map((answer, index) => (
+        {memoizedAnswers.map((answer, index) => (
           <button
             key={index}
             className={`botonAswer ${
-              botonColor ? (answer.correct ? "correct" : "incorrect") : ""
+              selectedAnswer ? (answer.correct ? "correct" : "incorrect") : ""
             }`}
             onClick={() => handleClick(answer)}
-            disabled={!!botonColor}
+            disabled={!!selectedAnswer}
           >
             {answer.text}
           </button>

@@ -1,0 +1,18 @@
+.header_modal{
+    background-color: #72d5f3;
+    font-family: 'Permanent Marker', cursive;
+}
+
+.btn-secondary{
+    background-color: #050605f5;
+}
+
+.btn-secondary:hover{
+    background-color: #72d8f8;
+}
+
+.body_canje_exitoso{
+    text-align: center;
+    font-family: "Itim", cursive;
+
+}
