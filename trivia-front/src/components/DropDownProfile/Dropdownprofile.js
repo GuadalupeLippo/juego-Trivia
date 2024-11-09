@@ -89,7 +89,7 @@ function DropDownProfiles() {
       <Dropdown.Toggle as="button" className="btn btn-lg no-style-btn me-2">
         <img src={authUser?.defaultAvatar} alt="avatar" width="80"/>
         <div className="name-user">
-          <strong>{authUser?.user?.name}</strong>
+         {authUser?.user?.name}
         </div>
       </Dropdown.Toggle>
 
@@ -101,7 +101,7 @@ function DropDownProfiles() {
         <Dropdown.Item className="dropdown-item-custom" onClick={handleEditProfileClick}>Editar perfil</Dropdown.Item>
         <Dropdown.Item className="dropdown-item-custom" onClick={handleMisAvatarsClick}>Mis avatars</Dropdown.Item>
         <Dropdown.Item className="dropdown-item-custom" onClick={handleOpenGames}>Partidas</Dropdown.Item>
-        <Dropdown.Item onClick={handleLogoutClick}>Cerrar sesión</Dropdown.Item>
+        <Dropdown.Item className="logout" onClick={handleLogoutClick}>Cerrar sesión</Dropdown.Item>
       </Dropdown.Menu>
       <ModalGames openGames={openGames} handleCloseGames={handleCloseGames} />
       {authUser && (

@@ -5,7 +5,44 @@
 .logoNav:hover{
     transform: scale(1.1);
 }
-.botonNav{
-    background-color: #105ae4;
-   border: black 20px;
-}
+
+
+.menu-items {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    z-index: 1050;
+  }
+  
+  .navbar-toggler {
+    background: none;
+    border: none;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+    display: none;
+  }
+  
+  @media (max-width: 590px) {
+    .menu-items {
+      display: none; 
+      flex-direction: column;
+      position: absolute;
+      top: 60px; 
+      right: 10px;
+      background-color: #add3ecaf;
+      padding: 10px;
+      border-radius: 5px;
+      z-index: 1050;
+    }
+  
+    
+    .navbar-toggler {
+      display: block;
+    }
+  
+   
+    .menu-items.show {
+      display: flex;
+    }
+  }
