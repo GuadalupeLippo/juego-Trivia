@@ -9,7 +9,7 @@ import "./DropDownProfile.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCirclePlus } from '@fortawesome/free-solid-svg-icons';
 
-function DropDownProfiles() {
+function DropDownProfiles({ avatarRef, nameRef } ) {
   const [openGames, setOpenGames] = useState(false);
   const [showEditProfile, setShowEditProfile] = useState(false);
   const [errorMessage, setErrorMessage] = useState(''); 
@@ -87,8 +87,8 @@ function DropDownProfiles() {
   return (
     <Dropdown>
       <Dropdown.Toggle as="button" className="btn btn-lg no-style-btn me-2">
-        <img src={authUser?.defaultAvatar} alt="avatar" width="80"/>
-        <div className="name-user">
+        <img ref={avatarRef} src={authUser?.defaultAvatar} alt="avatar" width="80" className="profile-icon"/>
+        <div  ref={nameRef} className="profile-name">
          {authUser?.user?.name}
         </div>
       </Dropdown.Toggle>

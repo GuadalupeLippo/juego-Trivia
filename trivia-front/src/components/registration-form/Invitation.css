@@ -59,6 +59,7 @@
     font-weight: 50px;
     -webkit-text-stroke-width: 1px ;
     -webkit-text-stroke-color:#e52a2ab6;
+    text-align: center;
    
                                                 
 }
@@ -191,13 +192,37 @@ text-align: center;
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
     .container-invitation{
         flex-direction: column;
-        justify-content: center;
+        justify-content: space-around;
         align-items: center;
-        
+        padding: 20px;    
     }
+    .container-title{
+   padding: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+  .container-invitation{
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      margin: 0 20px 20px;
+  }
+  .logo-invitation{
+    width: 150px;
+  }
+  .container-title{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .title2{
+    text-align: center;
+  }
 }
 .btn btn-reg btnfos-5{
   background-color: aliceblue;
