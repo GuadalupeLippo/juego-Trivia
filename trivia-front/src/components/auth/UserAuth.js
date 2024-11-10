@@ -47,6 +47,7 @@ export const AuthProvider = ({ children }) => {
   const logout = () => {
     setToken(null);
     localStorage.removeItem('authATRV');
+    localStorage.removeItem('firstLoginNotified')
     setSessionExpired(false);
   };
 

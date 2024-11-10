@@ -31,9 +31,13 @@ box-shadow: none;
     color: inherit;
 }
 
-.name-user{
-  color: rgb(31, 102, 114);
-  font-size: 18px;
+ .logout{
+color: rgb(100, 116, 116) !important;
+}
+
+.profile-name{
+  color: rgb(252, 252, 252);
+  font-size: 25px;
  
 }
 .name-user :hover{

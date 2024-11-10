@@ -11,10 +11,11 @@ function CardsMisAvatars({ updateAvatar }) {
 
   useEffect(() => {
     console.log("useEffect ejecutado"); // Mensaje para verificar ejecución
-    const token = localStorage.getItem('token'); // Asegúrate de que el nombre coincida con el almacenamiento
+    const DataUser = localStorage.getItem('authATRV'); // Asegúrate de que el nombre coincida con el almacenamiento
 
-    if (token) {
+    if (DataUser) {
       try {
+        const { token } = JSON.parse(DataUser);
         const decodedToken = jwtDecode(token);
         console.log("Token decodificado:", decodedToken);
 
@@ -60,11 +61,12 @@ function CardsMisAvatars({ updateAvatar }) {
 
   const handleConfirmChangeAvatar = async () => {
     if (selectedAvatar) {
-      const token = localStorage.getItem('token');
-      
-      // Decodificar el token para obtener el ID del usuario
-      if (token) {
-        try {
+      const buyData = localStorage.getItem('authATRV');
+     
+     
+      if (buyData) {
+        try { 
+          const { token } = JSON.parse(buyData);
           const decodedToken = jwtDecode(token);
           const userId = decodedToken.sub;
   

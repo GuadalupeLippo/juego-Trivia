@@ -1,13 +1,13 @@
 .modal-content-wrapper {
     display: flex;
-    align-items: center; /* Alinea verticalmente el logo y el formulario */
-    justify-content: space-between; /* Puedes ajustar esto según tus necesidades */
+    align-items: center; 
+    justify-content: space-between; 
     margin: 20px;
   }
   
   .modal-content-wrapper .logo {
-    margin-right: 20px; /* Ajusta el espacio entre el logo y el formulario */
-    max-width: 350px; /* Ajusta el tamaño del logo */
+    margin-right: 20px; 
+    max-width: 350px;
   }
   .title-form{
     justify-content: center;
@@ -17,13 +17,13 @@
   @media (max-width: 992px) {
 
     .modal-content-wrapper {
-      flex-direction: column; /* Para pantallas más pequeñas, apila el logo y el formulario */
+      flex-direction: column; 
       align-items: center;
       justify-content: space-between;
     }
   
     .modal-content-wrapper .logo {
-      margin-bottom: 20px; /* Espacio debajo del logo cuando está apilado */
+      margin-bottom: 20px; 
       margin-right: 0;
     }
   }
