@@ -1,9 +1,9 @@
 .card_premium_container{
-height: 100%;
-width: 100%;
-padding: 20px;
-margin: 20px;
-
+display: flex;
+align-items: center;
+justify-items: center;
+padding-bottom: 20px;
+margin-top: 50px;
 }
 
 .card_premium {
