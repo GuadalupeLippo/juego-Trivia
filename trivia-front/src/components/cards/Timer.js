@@ -1,24 +1,26 @@
-import React, {  useEffect } from "react";
+import React, {  useEffect, useState } from "react";
 import "./Timer.css";
 import sonido from "./game-over.mp3";
 
-const Timer = ({ seconds,onTimeUp, reset, timeLeft }) => {
-  // const [timeLeft, setTimeLeft] = useState(seconds);
-  const porcentaje = (timeLeft / seconds) * 100;
 
-  // useEffect(() => {
-  //   setTimeLeft(seconds);
-  // }, [seconds, reset]);
+const Timer = ({selectedTime ,onTimeUp, reset }) => {
+  const [timeLeft, setTimeLeft] = useState(selectedTime);
+  const porcentaje = (timeLeft / selectedTime) * 100;
+
+  useEffect(() => {
+    setTimeLeft(selectedTime);
+    console.log(selectedTime)
+  }, [selectedTime, reset]);
 
   useEffect(() => {
     if (timeLeft > 0) {
-      const timerId = setTimeout(() => {}, 1000);
+      const timerId = setTimeout(() => setTimeLeft((prev) => prev - 1 ), 1000);
 
       return () => clearTimeout(timerId);
     } else {
       const audio = new Audio(sonido);
       audio.play();
-      onTimeUp(); 
+      
     }
   }, [timeLeft, onTimeUp]);
 
@@ -42,7 +44,7 @@ const Timer = ({ seconds,onTimeUp, reset, timeLeft }) => {
       style={{
         width: `${porcentaje}%`, 
         
-        transition: "width 1s linear", // Animación suave de la barra
+        transition: "width 1s linear", 
       }}
     ></div>
   </div>

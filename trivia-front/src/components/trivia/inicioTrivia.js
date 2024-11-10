@@ -8,95 +8,94 @@ import TimeUpModal from "../cards/TimeUpModal";
 import FinTrivia from "./FinTrivia";
 import Reloj from "./reloj";
 import "./trivia.css";
+import { createGame } from "../../API/getDataBase";
 
 function InicioTrivia() {
   const location = useLocation();
   
- 
+
   const logo = location.state?.logo;
   const categoryId = location.state?.categoryId;
   const playerId = location.state?.playerId;
 const selectedTime = location.state?.selectedTime;
-const questions = useMemo(() => {
-  return location.state?.questions || [];
-}, [location.state?.questions]);
+const question = useMemo(() => {
+  return location.state?.question || [];
+}, [location.state?.question]);
+const difficultyId = location.state?.difficultyId;
+// console.log(difficultyId);
+// console.log("Selected Time:", selectedTime);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [timeRemaining, setTimeRemaining] = useState(selectedTime);
   const [showModalTimeUp, setShowModalTimeUp] = useState(false);
   const [reset, setReset] = useState(false);
   const [showFin, setShowFin] = useState(false);
   const [loading, setLoading] = useState(true);
-
+  // const [question, setQuestion] = useState([]);
 
 
 
   useEffect(() => {
    
-  if (playerId && categoryId && questions.length > 0 && selectedTime ) {
+  if (playerId && categoryId   && selectedTime  && question.length > 0) {
      setLoading(false)
   }else {
-    console.log("Hay un error al traer datos")
+    console.log("Hay un error al traer datos", {playerId, categoryId,  selectedTime, question })
   }
-}, [playerId, categoryId, questions,selectedTime ]);
+}, [playerId, categoryId, selectedTime, question]);
    
   
-  console.log("playerId:", playerId);
-    console.log("categoryId:", categoryId);
+
  
+useEffect(() => {
+  const fetchGame = async () => {
+    try {
+      const gameData = {playerId, categoryId, difficultyId}
+      const response = await createGame(gameData);
+      if (!response.ok) {
+        const errorMessage = await response.text();
+        throw new Error(`Error en la respuesta: ${errorMessage}`);
+      }
+      const data = await response.json();
+      // setQuestion(data.question)
+      setTimeRemaining(selectedTime);
+       setLoading(false);
+    
+    } catch (error) {
+      console.error("Error creating game:", error);
+    } 
+  };
 
-  // const fetchData = async () => {
-  //   setLoading(true)
-  //   try {
-  //     const response = await createGame(gameData);
-  //     if (!response.ok) {
-  //       throw new Error('Error al crear la partida');
-  //     }
-  //     const data = await response.json();
-  //     setQuestions(data.questions);// Guarda las preguntas de la partida en el estado
-  //     setTimeRemaining(data.time) 
-  //   } catch (error) {
-  //     console.error("Error creating game:", error);
-  //   } finally {
-  //     setLoading(false);
-  //   }
-  // };
+  fetchGame();
 
-//   fetchData();
-// }, [categoryId, difficultyId, playerId]);
-
+}, [playerId, categoryId, difficultyId, selectedTime]);
 
 // useEffect(() => {
-//   const fetchCategoryData = async () => {
-//     try {
-//       const response = await getCategory();
-//       if (!response.ok) {
-//         throw new Error("Error al obtener la categoría");
-//       }
-//       const data = await response.json();
-//       setCategoryData(data); // Guarda los datos de la categoría
-//     } catch (error) {
-//       console.error("Error fetching category:", error);
-//     }
-//   };
+//   if (selectedTime && selectedTime > 0) {
+//       const timer = setTimeout(() => {
+//           setShowModalTimeUp(true);
+//       }, selectedTime); // convertir segundos a milisegundos
 
-//   fetchCategoryData();
-// }, []);
+//       return () => clearTimeout(timer);
+//   } else {
+//       console.log("Tiempo no configurado o igual a cero");
+//   }
+// }, [selectedTime]);
 
-  useEffect(() => {
-    if (timeRemaining > 0) {
-      const timer = setTimeout(() => {
-        setTimeRemaining((prevTime) => prevTime - 1);
-      }, 1000);
-      return () => clearTimeout(timer);
-    } else {
-      setShowModalTimeUp(true); 
-    }
-  }, [timeRemaining]);
+
+
+  // useEffect(() => {
+  //   if (timeRemaining <= 0) { 
+  //   setShowModalTimeUp(true);
+  //   return;
+  //   } 
+        
+  //     const timer = setTimeout(() => setTimeRemaining((prevTime) => prevTime - 1), 1000);
+  //     return () => clearTimeout(timer);
+    
+  // }, [timeRemaining]);
 
   const handleAnswerClick = (answer) => {
-   
-     
-        if (currentQuestionIndex === questions.length - 1) {
+   if (currentQuestionIndex === question.length - 1) {
           setShowFin(true); 
           const audio = new Audio(sonidoFin);
           audio.play();
@@ -122,12 +121,12 @@ const questions = useMemo(() => {
     <>
       <div className="inicioTrivia">
         <Reloj />
-        <Timer seconds={timeRemaining} timeLeft={timeRemaining} onTimeUp={() => setShowModalTimeUp(true)} reset={reset} />
+        <Timer selectedTime={timeRemaining}  onTimeUp={() => setShowModalTimeUp(true)} reset={reset} />
         <img alt="logo" src={logo} className="categoria" width="100px" />
       </div>
-      <Answers categoryData={questions[currentQuestionIndex]} onAnswerClick={handleAnswerClick} />
+      <Answers categoryData={question[currentQuestionIndex]} onAnswerClick={handleAnswerClick} />
       
-      <TimeUpModal show={showModalTimeUp} onHide={handleRestart} onRestart={handleRestart} />
+      <TimeUpModal show={showModalTimeUp} onHide={handleRestart}  />
       <FinTrivia show={showFin} onHide={handleRestart} onRestart={handleRestart} />
     </>
   );
