@@ -7,7 +7,7 @@ import { AuthProvider } from "./components/auth/UserAuth";
 import { BrowserRouter } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle';
-import reseñas from '../src/reseñas.json';
+import reseñas from '../src/reviews.json';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'))

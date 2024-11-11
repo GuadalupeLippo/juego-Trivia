@@ -1,4 +1,4 @@
-.reseñas-container {
+.reviews-container {
   font-family: 'Itim', sans-serif;
   color: #333;
   display: flex;
@@ -11,33 +11,33 @@
   box-shadow: 0 5px 10px #000;
 }
 
-.reseñas-lista {
+.reviews-list {
   list-style: none;
   padding-left: 0;
   margin-bottom: 20px;
   width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center; /* Centra los ítems dentro de la lista */
+  align-items: center;
 }
 
-.reseña-item {
+.review-item {
   margin-bottom: 15px;
   padding: 10px;
   background-color: #e8e8e8;
   border-radius: 10px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  width: 80%; /* Reduce el ancho de cada reseña */
-  max-width: 400px; /* Limita el ancho máximo de las reseñas */
+  width: 80%;
+  max-width: 400px;
   text-align: center;
 }
 
-.reseña-calificacion {
+.review-rating {
   font-size: 16px;
   color: #ffdb0c;
 }
 
-.reseña-formulario {
+.review-form {
   margin-top: 20px;
   padding: 15px;
   border: 1px solid #1379f5;
@@ -49,7 +49,7 @@
   text-align: center;
 }
 
-.reseña-formulario button {
+.review-form button {
   background-color: #44a5d3;
   color: rgb(159, 170, 245);
   padding: 10px 20px;
@@ -61,11 +61,11 @@
   transition: background-color 0.3s ease;
 }
 
-.reseña-formulario button:hover {
+.review-form button:hover {
   background-color: #3f9bd0;
 }
 
-.modal-reseña {
+.modal-review {
   position: fixed;
   top: 0;
   left: 0;
@@ -78,7 +78,7 @@
   z-index: 1000;
 }
 
-.modal-content-reseña {
+.modal-content-review {
   background-color: #a0f78a;
   padding: 20px;
   border-radius: 10px;
@@ -87,7 +87,7 @@
   max-width: 300px;
 }
 
-.modal-content-reseña button {
+.modal-content-review button {
   background-color: #7bc5e7;
   color: white;
   padding: 10px 20px;
@@ -96,7 +96,8 @@
   cursor: pointer;
   margin-top: 10px;
 }
-.dejar-reseña-btn {
+
+.leave-review-btn {
   background-color: #4da6ff;
   color: white;
   padding: 10px 20px;
@@ -107,26 +108,27 @@
   transition: background-color 0.3s ease;
 }
 
-.dejar-reseña-btn:hover {
+.leave-review-btn:hover {
   background-color: #3a8ad3;
 }
 
-.modal-content-reseña input,
-.modal-content-reseña textarea,
-.modal-content-reseña select {
-  margin-bottom: 10px; /* Agrega un margen inferior para separar los campos */
-  width: 100%;         /* Asegura que ocupen todo el ancho del contenedor */
-  padding: 8px;        /* Agrega un poco de padding para mejor apariencia */
+.modal-content-review input,
+.modal-content-review textarea,
+.modal-content-review select {
+  margin-bottom: 10px;
+  width: 100%;
+  padding: 8px;
   border-radius: 5px;
   border: 1px solid #ccc;
 }
-.botones-contenedor {
+
+.buttons-container {
   display: flex;
   justify-content: space-between;
   margin-top: 10px; 
 }
 
-.botones-contenedor button {
+.buttons-container button {
   width: 48%;
   padding: 8px;
   font-size: 16px;
@@ -135,29 +137,29 @@
   cursor: pointer;
 }
 
-.botones-contenedor button:first-child {
+.buttons-container button:first-child {
   background-color: #4CAF50; 
   color: white;
 }
 
-.botones-contenedor button:last-child {
+.buttons-container button:last-child {
   background-color: #f44336; 
   color: white;
 }
-.botones-reseña {
+
+.review-buttons {
   display: flex;
   justify-content: space-between;
   gap: 10px;
   margin-top: 15px;
 }
 
-
-.enviar-reseña-btn {
+.submit-review-btn {
   background-color: #4CAF50 !important; 
   color: white;
 }
 
-.cancelar-reseña-btn {
+.cancel-review-btn {
   background-color: #f44336 !important;
   color: white;
 }
