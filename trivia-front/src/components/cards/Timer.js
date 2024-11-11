@@ -3,27 +3,29 @@ import "./Timer.css";
 import sonido from "./game-over.mp3";
 
 
-const Timer = ({selectedTime ,onTimeUp, reset }) => {
+const Timer = ({selectedTime ,onTimeUp }) => {
   const [timeLeft, setTimeLeft] = useState(selectedTime);
-  const porcentaje = (timeLeft / selectedTime) * 100;
+  
 
   useEffect(() => {
     setTimeLeft(selectedTime);
-    console.log(selectedTime)
-  }, [selectedTime, reset]);
+    console.log("selectime en timer:" , selectedTime)
+  }, [selectedTime]);
 
   useEffect(() => {
     if (timeLeft > 0) {
-      const timerId = setTimeout(() => setTimeLeft((prev) => prev - 1 ), 1000);
+      const timerId = setTimeout(() => setTimeLeft((prev) => prev - 1), 1000);
 
       return () => clearTimeout(timerId);
     } else {
       const audio = new Audio(sonido);
       audio.play();
-      
+      if(onTimeUp) onTimeUp();
     }
   }, [timeLeft, onTimeUp]);
 
+  const porcentaje = (timeLeft / selectedTime) * 100;
+  
   const aplicarClase = () => {
     if(porcentaje > 50){
       return "buenTiempo";

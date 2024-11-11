@@ -1,6 +1,7 @@
-import { useEffect, useState, useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useLocation } from "react-router-dom";
 
+import { createGame } from "../../API/getDataBase";
 import { Answers } from "../answers/answers";
 import sonidoFin from "../cards/sonido.mp3";
 import Timer from "../cards/Timer";
@@ -8,12 +9,9 @@ import TimeUpModal from "../cards/TimeUpModal";
 import FinTrivia from "./FinTrivia";
 import Reloj from "./reloj";
 import "./trivia.css";
-import { createGame } from "../../API/getDataBase";
 
 function InicioTrivia() {
   const location = useLocation();
-  
-
   const logo = location.state?.logo;
   const categoryId = location.state?.categoryId;
   const playerId = location.state?.playerId;
@@ -25,9 +23,9 @@ const difficultyId = location.state?.difficultyId;
 // console.log(difficultyId);
 // console.log("Selected Time:", selectedTime);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [timeRemaining, setTimeRemaining] = useState(selectedTime);
+  // const [timeRemaining, setTimeRemaining] = useState(selectedTime);
   const [showModalTimeUp, setShowModalTimeUp] = useState(false);
-  const [reset, setReset] = useState(false);
+
   const [showFin, setShowFin] = useState(false);
   const [loading, setLoading] = useState(true);
   // const [question, setQuestion] = useState([]);
@@ -57,11 +55,11 @@ useEffect(() => {
       }
       const data = await response.json();
       // setQuestion(data.question)
-      setTimeRemaining(selectedTime);
+      // setTimeRemaining(selectedTime);
        setLoading(false);
     
     } catch (error) {
-      console.error("Error creating game:", error);
+      console.error("Error al crear game:", error);
     } 
   };
 
@@ -101,7 +99,7 @@ useEffect(() => {
           audio.play();
         } else {
           setCurrentQuestionIndex((prevIndex) => prevIndex + 1); 
-         setTimeRemaining(selectedTime)
+        
         }
       }
     
@@ -110,8 +108,7 @@ useEffect(() => {
   const handleRestart = () => {
     setShowModalTimeUp(false); // Cerrar modal cuando se reinicia
     setCurrentQuestionIndex(0); // Reiniciar la trivia
-    setTimeRemaining(selectedTime); // Reiniciar el tiempo
-    setReset((prev) => !prev); // Reiniciar el temporizador
+   
     setShowFin(false); // Cerrar pantalla final
   };
   if (loading) {
@@ -121,7 +118,7 @@ useEffect(() => {
     <>
       <div className="inicioTrivia">
         <Reloj />
-        <Timer selectedTime={timeRemaining}  onTimeUp={() => setShowModalTimeUp(true)} reset={reset} />
+        <Timer selectedTime={selectedTime}  onTimeUp={() => setShowModalTimeUp(true)} />
         <img alt="logo" src={logo} className="categoria" width="100px" />
       </div>
       <Answers categoryData={question[currentQuestionIndex]} onAnswerClick={handleAnswerClick} />
