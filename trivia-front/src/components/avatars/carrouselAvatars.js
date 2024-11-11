@@ -79,7 +79,7 @@ export function CarrouselAvatars({ avatar }) {
   const normalAvatars = avatar.filter((av) => av.type === "normal");
 
   const settings = {
-    dots: true,
+    dots:true,
     infinite: false,
     speed: 500,
     slidesToShow: 4,
@@ -89,10 +89,10 @@ export function CarrouselAvatars({ avatar }) {
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 4,
-          slidesToScroll: 4,
+          slidesToShow: 3,
+          slidesToScroll: 3,
           infinite: true,
-          dots: true,
+          dots: false,
         },
       },
       {
@@ -101,6 +101,7 @@ export function CarrouselAvatars({ avatar }) {
           slidesToShow: 2,
           slidesToScroll: 2,
           initialSlide: 2,
+          dots: false,
         },
       },
       {
@@ -108,26 +109,25 @@ export function CarrouselAvatars({ avatar }) {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
+          dots: false,
         },
       },
     ],
   };
 
   return (
-    <div className="slider-container">
+   <>
       <Slider {...settings}>
         {normalAvatars.map((avatar) => (
-          <div key={avatar.id}>
+          <div className="slider-container">
+             <div key={avatar.id}>
             <div className="avatar_container">
               <div className="card_container">
                 <article className="card_article">
                   <img src={avatar.image} alt="avatar" className="card_img" />
                   <div className="card_data">
-                  {!purchasedAvatars.includes(avatar.id) && (
-    <h3 className="card_precio">{avatar.price}</h3>
-  )}
-
-                    {purchasedAvatars.includes(avatar.id) ? (
+                  {!purchasedAvatars.includes(avatar.id) && (<h3 className="card_precio">{avatar.price}</h3>)}   
+                     {purchasedAvatars.includes(avatar.id) ? (
                       <p className="card_obtenido">Avatar obtenido</p>
                     ) : (
                       <button className="card_button" onClick={() => handleShowModal(avatar)}>
@@ -139,6 +139,7 @@ export function CarrouselAvatars({ avatar }) {
               </div>
             </div>
           </div>
+          </div>
         ))}
       </Slider>
       <BuyAvatarModal
@@ -147,6 +148,6 @@ export function CarrouselAvatars({ avatar }) {
         handleConfirmPurchase={handleConfirmPurchase}
         selectedAvatar={selectedAvatar}
       />
-    </div>
+   </>
   );
 }

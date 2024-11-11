@@ -117,6 +117,7 @@ export function CardPremium() {
         settings: {
           slidesToShow: 3,
           slidesToScroll: 1,
+          dots: false,
         },
       },
       {
@@ -124,6 +125,7 @@ export function CardPremium() {
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
+          dots: false,
         },
       },
       {
@@ -131,17 +133,19 @@ export function CardPremium() {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
+          dots: false,
         },
       },
     ],
   };
 
   return (
-    <div className='card_premium_container'>
-      {premiumAvatars.length > 0 ? (
+    <>
+      
         <Slider {...settings}>
           {premiumAvatars.map((avatar) => (
-            <div key={avatar.id} className={`card_premium ${purchasedAvatars[avatar.id] ? 'purchased' : ''}`}>
+           <div className='card_premium_container'>
+             <div key={avatar.id} className={`card_premium ${purchasedAvatars[avatar.id] ? 'purchased' : ''}`}>
               <h1 className='premium_title'><TitlePremium /></h1>
               <img className='premium_img' src={avatar.image} alt={`${avatar.price} Puntos`} />
               <h1 className={`premium_price ${purchasedAvatars[avatar.id] ? 'avatar_obtenido' : ''}`}>
@@ -153,11 +157,10 @@ export function CardPremium() {
                 </button>
               )}
             </div>
+            </div>
           ))}
         </Slider>
-      ) : (
-        <p>No hay avatares premium disponibles.</p>
-      )}
+     
       <BuyAvatarModal
         show={showModal}
         handleClose={handleCloseModal}
@@ -168,6 +171,6 @@ export function CardPremium() {
         show={showNoPointsModal}
         handleClose={handleCloseNoPointsModal}
       />
-    </div>
+   </>
   );
 }
