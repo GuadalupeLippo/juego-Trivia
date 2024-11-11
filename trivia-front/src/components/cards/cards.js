@@ -1,31 +1,32 @@
-import "./cards.css";
 import { useEffect, useState } from "react";
-import arteLogo from "./iconos/iconoarte.png";
-import historiaLogo from "./iconos/historia.png";
-import cienciasLogo from "./iconos/ciencias.png";
-import deportesLogo from "./iconos/deportes.png";
-import entretenimientoLogo from "./iconos/entretenimientoa.png";
-import geografiaLogo from "./iconos/geografia 1.png";
-import geografia from "../carrousel/imagenes/geografia.jpg";
+import { useNavigate } from "react-router-dom";
+import { getCategory, getGames } from "../../API/getDataBase";
+import { useAuth } from "../auth/UserAuth";
 import arte from "../carrousel/imagenes/arte.jpg";
 import ciencias from "../carrousel/imagenes/ciencias.jpg";
 import deportes from "../carrousel/imagenes/deportes3.png";
 import entretenimiento from "../carrousel/imagenes/entretenimiento.jpg";
+import geografia from "../carrousel/imagenes/geografia.jpg";
 import historia from "../carrousel/imagenes/historia.jpeg";
-import aleatoria from "../imagenes/aleatoria.png";
 import PlayButton from "../form-login/PlayButtom";
+import aleatoria from "../imagenes/aleatoria.png";
+import "./cards.css";
+import cienciasLogo from "./iconos/ciencias.png";
+import deportesLogo from "./iconos/deportes.png";
+import entretenimientoLogo from "./iconos/entretenimientoa.png";
+import geografiaLogo from "./iconos/geografia 1.png";
+import historiaLogo from "./iconos/historia.png";
+import arteLogo from "./iconos/iconoarte.png";
 import ModalConfig from "./PlayModal";
-import { getCategory, getGames } from "../../API/getDataBase";
-import { useNavigate } from "react-router-dom";
-import { useAuth } from "../auth/UserAuth";
+
 
 const imagenesLogo = {
-arte: {logo: arteLogo },
-historia:{logo: historiaLogo} ,
-geografia: {logo: geografiaLogo},
-deportes:{logo: deportesLogo},
-entretenimiento:{logo: entretenimientoLogo},
-ciencia:{logo:cienciasLogo } ,
+1: {logo: arteLogo },
+4:{logo: historiaLogo} ,
+5: {logo: geografiaLogo},
+3:{logo: deportesLogo},
+6:{logo: entretenimientoLogo},
+2:{logo:cienciasLogo } ,
 aleatoria:{logo:aleatoria, id:7}
 }
  
@@ -41,6 +42,7 @@ const [categoryData, setCategoryData] = useState(null);
 const playerId = authUser?.id;
 
 
+
  useEffect(() => {
 async function fetchData() {
 try {
@@ -52,7 +54,7 @@ try {
 }
 }
 fetchData();
-}, [])
+}, [gameData])
 
  
 
@@ -83,15 +85,16 @@ setShowDifficulty(true);
   };
 
   
-const HadelCards = (selectTime) => {
+const HadelCards = (selectedTime, selectedDifficultyId) => {
     if(categoryData && playerId ){
-    const logo = imagenesLogo[selectedCategory];
-    navigate("/trivia", {state:{logo, categoryId: selectedCategory, playerId, selectTime , questions: categoryData.question}});
+    const logo = imagenesLogo[selectedCategory]?.logo;
+    navigate("/trivia", {state:{logo, categoryId: selectedCategory, playerId, selectedTime ,difficultyId: selectedDifficultyId, question: categoryData.question}});
      } else{
       alert('selecciona una categoria y dificultad')
-    } console.log(selectTime)
+    } console.log(selectedTime)
     console.log(playerId)
-    console.log(categoryData.question)
+    console.log(categoryData?.question)
+    console.log(selectedDifficultyId)
   }
 
   
@@ -205,7 +208,7 @@ const HadelCards = (selectTime) => {
           <ModalConfig
             show={showDifficulty}
             handleCloseDifficulty={handleCloseDifficulty}
-            onPlay={(selectTime) => HadelCards(selectTime)}
+            onPlay={(selectedTime, selectedDifficultyId) => HadelCards(selectedTime, selectedDifficultyId)}
           />
        
     </>

@@ -1,27 +1,32 @@
-import React, {  useEffect } from "react";
+import React, {  useEffect, useState } from "react";
 import "./Timer.css";
 import sonido from "./game-over.mp3";
 
-const Timer = ({ seconds,onTimeUp, reset, timeLeft }) => {
-  // const [timeLeft, setTimeLeft] = useState(seconds);
-  const porcentaje = (timeLeft / seconds) * 100;
+const Timer = ({selectedTime }) => {
+  const [timeLeft, setTimeLeft] = useState(Math.floor(selectedTime / 1000));
+  const porcentaje = (timeLeft / Math.floor(selectedTime/ 1000)) * 100;
+console.log(porcentaje)
 
-  // useEffect(() => {
-  //   setTimeLeft(seconds);
-  // }, [seconds, reset]);
+
+useEffect(() => {
+    setTimeLeft(Math.floor(selectedTime / 1000));
+    console.log("selectime en timer:" , selectedTime)
+  }, [selectedTime]);
 
   useEffect(() => {
     if (timeLeft > 0) {
-      const timerId = setTimeout(() => {}, 1000);
+      const timerId = setTimeout(() => setTimeLeft((prev) => prev - 1), 1000);
 
       return () => clearTimeout(timerId);
     } else {
       const audio = new Audio(sonido);
       audio.play();
-      onTimeUp(); 
+    
     }
-  }, [timeLeft, onTimeUp]);
+  }, [timeLeft]);
 
+  
+ 
   const aplicarClase = () => {
     if(porcentaje > 50){
       return "buenTiempo";
@@ -41,8 +46,7 @@ const Timer = ({ seconds,onTimeUp, reset, timeLeft }) => {
       className={`timer-bar ${aplicarClase()} `}
       style={{
         width: `${porcentaje}%`, 
-        
-        transition: "width 1s linear", // Animación suave de la barra
+        transition: "width 1s linear", 
       }}
     ></div>
   </div>
