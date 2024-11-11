@@ -8,11 +8,14 @@ import PoliticasDePrivacidad from "./components/Politicas/PoliticasDePrivacidad.
 import Store from "./pages/store.js";
 import Avatars from "./pages/mis-avatars.js";
 import { useAuth } from "./components/auth/UserAuth.js";
+import Reseñas from "./components/reseñas/Reseñas";
 
 function App() {
   const navigate = useNavigate();
   const { token, authUser } = useAuth();
   const location = useLocation(); 
+
+
   useEffect(() => {
     // Verificar si hay un token y si el usuario no está en la página de perfil
     if (token && location.pathname === '/') {
@@ -24,22 +27,21 @@ function App() {
   }, [token, location.pathname, authUser, navigate]);
 
 
-  return (
-    <div className="traslucido">
-     
-        <Routes>
-          <Route path="/" element={<Home />} />
-
-          <Route path="/login/:id" element={<  Login />} />
-          <Route path="/trivia" element={<Trivia />} />
-          <Route path="/politicas" element={<PoliticasDePrivacidad />} />
-         <Route path="/store" element={<Store />} />
-          <Route path="/avatars" element={<Avatars />} />
-          
-        </Routes>
+return (
+  <div className="traslucido">
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/login/:id" element={<Login />} />
+      <Route path="/trivia" element={<Trivia />} />
+      <Route path="/politicas" element={<PoliticasDePrivacidad />} />
+      <Route path="/store" element={<Store />} />
+      <Route path="/avatars" element={<Avatars />} />
       
-    </div>
-  );
-}
+      {/* Ruta para las reseñas solo si el usuario está logueado */}
+      {token && <Route path="/reseñas" element={<Reseñas />} />}
+    </Routes>
+  </div>
+);
 
 export default App;
+
