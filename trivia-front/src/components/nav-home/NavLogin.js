@@ -57,7 +57,7 @@ import "../DropDownProfile/DropDownProfile.css";
         storeImageRef.current.classList.remove('zoom', 'highlight', 'opacity');
       }
       if (categoryImageRef.current) {
-        categoryImageRef.current.classList.remove('opacity'); // Restaurar el ícono de la categoría
+        categoryImageRef.current.classList.remove('opacity'); 
       }
       if (avatarRef.current) {
         avatarRef.current.classList.remove('opacity');

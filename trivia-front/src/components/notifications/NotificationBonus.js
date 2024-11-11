@@ -1,23 +1,34 @@
 import React, { useState, useEffect } from 'react';
 import './NotificationBonus.css';
 import cerebroNot from '../images/cerebro-idea.jpg'
-
+import dingIdea from './ding-idea.mp3'
 
 const NotificationBonus = ({ onClose, navLoginRef }) => {
   const [showAnimation, setShowAnimation] = useState(false);
-
+  
 
   useEffect(() => {
-
+    const navRef = navLoginRef.current;
     const timer = setTimeout(() => {
       setShowAnimation(true);
-      navLoginRef.current?.highlightStoreIcon();
-    }, 6000);
+      navRef?.highlightStoreIcon();
+     
+    const playAudio = () => {
+        const audio = new Audio(dingIdea);
+        audio.play().catch(error => {
+          console.error("Error al reproducir el sonido:", error);
+        });
+      };
+  
+      if (document.hasFocus()) {
+        playAudio();
+      } 
+    }, 5000);
 
     // Limpia el timer y el zoom cuando el modal se cierre
     return () => {
       clearTimeout(timer);
-      navLoginRef.current?.resetStoreIcon();
+      navRef?.resetStoreIcon();
     };
   }, [navLoginRef]);
 
