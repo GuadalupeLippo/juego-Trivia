@@ -1,0 +1,161 @@
+.reseñas-container {
+  font-family: 'Itim', sans-serif;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  max-width: 60%; 
+  margin: 0 auto;
+}
+
+.reseñas-lista {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra los ítems dentro de la lista */
+}
+
+.reseña-item {
+  margin-bottom: 15px;
+  padding: 10px;
+  background-color: #a2dce4;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  width: 80%; /* Reduce el ancho de cada reseña */
+  max-width: 400px; /* Limita el ancho máximo de las reseñas */
+  text-align: center;
+}
+
+.reseña-calificacion {
+  font-size: 16px;
+  color: #ffdb0c;
+}
+
+.reseña-formulario {
+  margin-top: 20px;
+  padding: 15px;
+  border: 1px solid #1379f5;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 400px;
+  background-color: #fbfd5f;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.reseña-formulario button {
+  background-color: #44a5d3;
+  color: rgb(159, 170, 245);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 100%;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.reseña-formulario button:hover {
+  background-color: #3f9bd0;
+}
+
+.modal-reseña {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content-reseña {
+  background-color: #a0f78a;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  width: 80%;
+  max-width: 300px;
+}
+
+.modal-content-reseña button {
+  background-color: #7bc5e7;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+.dejar-reseña-btn {
+  background-color: #4da6ff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.dejar-reseña-btn:hover {
+  background-color: #3a8ad3;
+}
+
+.modal-content-reseña input,
+.modal-content-reseña textarea,
+.modal-content-reseña select {
+  margin-bottom: 10px; /* Agrega un margen inferior para separar los campos */
+  width: 100%;         /* Asegura que ocupen todo el ancho del contenedor */
+  padding: 8px;        /* Agrega un poco de padding para mejor apariencia */
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+.botones-contenedor {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px; 
+}
+
+.botones-contenedor button {
+  width: 48%;
+  padding: 8px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.botones-contenedor button:first-child {
+  background-color: #4CAF50; 
+  color: white;
+}
+
+.botones-contenedor button:last-child {
+  background-color: #f44336; 
+  color: white;
+}
+.botones-reseña {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+
+.enviar-reseña-btn {
+  background-color: #4CAF50 !important; 
+  color: white;
+}
+
+.cancelar-reseña-btn {
+  background-color: #f44336 !important;
+  color: white;
+}
