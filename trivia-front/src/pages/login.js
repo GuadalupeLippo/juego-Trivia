@@ -5,7 +5,7 @@ import FooterLogin from "../components/footer/FooterLogin";
 import NotificationBonus from "../components/notifications/NotificationBonus";
 import './login.css';
 import { useAuth } from "../components/auth/UserAuth"; 
-import Reseñas from "../components/reseñas/Reseñas"; 
+import Reviews from "../components/reviews/reviews";
 
 
 
@@ -24,7 +24,7 @@ export function Login() {
       <NavLogin ref={navLoginRef} />
       <Cards />
       {/* Pasamos isLoggedIn como prop a Reseñas */}
-      <Reseñas isLoggedIn={!!token} />
+      <Reviews isLoggedIn={!!token} />
       <FooterLogin />
       
       {/* Lógica de notificación */}
