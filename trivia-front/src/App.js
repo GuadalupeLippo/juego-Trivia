@@ -42,6 +42,6 @@ return (
     </Routes>
   </div>
 );
-
+}
 export default App;
 
