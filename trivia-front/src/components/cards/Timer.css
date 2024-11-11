@@ -17,11 +17,11 @@ h1{
     /* text-shadow: 6px 6px 8px rgba(241, 242, 245, 0.936); */
     
 }
-.timer-bar-container {
+ .timer-bar-container {
     width: 40%;
     height: 30px;
     background-color: #ddd; /* Fondo gris de la barra */
-    border-radius: 15px;
+     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 0 4px aquamarine;
   }
@@ -47,4 +47,4 @@ background-color: red;
   }
   .tiempoMedio{
     background-color: rgba(105, 236, 105, 0.685);
-  }
+  } 
