@@ -2,13 +2,14 @@ import React, {  useEffect, useState } from "react";
 import "./Timer.css";
 import sonido from "./game-over.mp3";
 
+const Timer = ({selectedTime }) => {
+  const [timeLeft, setTimeLeft] = useState(Math.floor(selectedTime / 1000));
+  const porcentaje = (timeLeft / Math.floor(selectedTime/ 1000)) * 100;
+console.log(porcentaje)
 
-const Timer = ({selectedTime ,onTimeUp }) => {
-  const [timeLeft, setTimeLeft] = useState(selectedTime);
-  
 
-  useEffect(() => {
-    setTimeLeft(selectedTime);
+useEffect(() => {
+    setTimeLeft(Math.floor(selectedTime / 1000));
     console.log("selectime en timer:" , selectedTime)
   }, [selectedTime]);
 
@@ -20,12 +21,12 @@ const Timer = ({selectedTime ,onTimeUp }) => {
     } else {
       const audio = new Audio(sonido);
       audio.play();
-      if(onTimeUp) onTimeUp();
+    
     }
-  }, [timeLeft, onTimeUp]);
+  }, [timeLeft]);
 
-  const porcentaje = (timeLeft / selectedTime) * 100;
   
+ 
   const aplicarClase = () => {
     if(porcentaje > 50){
       return "buenTiempo";
@@ -45,7 +46,6 @@ const Timer = ({selectedTime ,onTimeUp }) => {
       className={`timer-bar ${aplicarClase()} `}
       style={{
         width: `${porcentaje}%`, 
-        
         transition: "width 1s linear", 
       }}
     ></div>

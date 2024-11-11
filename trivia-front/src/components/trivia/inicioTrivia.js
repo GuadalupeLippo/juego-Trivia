@@ -67,34 +67,11 @@ useEffect(() => {
 
 }, [playerId, categoryId, difficultyId, selectedTime]);
 
-// useEffect(() => {
-//   if (selectedTime && selectedTime > 0) {
-//       const timer = setTimeout(() => {
-//           setShowModalTimeUp(true);
-//       }, selectedTime); // convertir segundos a milisegundos
 
-//       return () => clearTimeout(timer);
-//   } else {
-//       console.log("Tiempo no configurado o igual a cero");
-//   }
-// }, [selectedTime]);
-
-
-
-  // useEffect(() => {
-  //   if (timeRemaining <= 0) { 
-  //   setShowModalTimeUp(true);
-  //   return;
-  //   } 
-        
-  //     const timer = setTimeout(() => setTimeRemaining((prevTime) => prevTime - 1), 1000);
-  //     return () => clearTimeout(timer);
-    
-  // }, [timeRemaining]);
 
   const handleAnswerClick = (answer) => {
    if (currentQuestionIndex === question.length - 1) {
-          setShowFin(true); 
+          setShowModalTimeUp(true); 
           const audio = new Audio(sonidoFin);
           audio.play();
         } else {

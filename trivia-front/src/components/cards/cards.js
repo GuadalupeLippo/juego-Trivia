@@ -21,12 +21,12 @@ import ModalConfig from "./PlayModal";
 
 
 const imagenesLogo = {
-arte: {logo: arteLogo },
-historia:{logo: historiaLogo} ,
-geografia: {logo: geografiaLogo},
-deportes:{logo: deportesLogo},
-entretenimiento:{logo: entretenimientoLogo},
-ciencia:{logo:cienciasLogo } ,
+1: {logo: arteLogo },
+4:{logo: historiaLogo} ,
+5: {logo: geografiaLogo},
+3:{logo: deportesLogo},
+6:{logo: entretenimientoLogo},
+2:{logo:cienciasLogo } ,
 aleatoria:{logo:aleatoria, id:7}
 }
  
