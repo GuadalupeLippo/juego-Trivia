@@ -10,20 +10,20 @@ import 'bootstrap/dist/js/bootstrap.bundle';
 import reseñas from '../src/reseñas.json';
 
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
   <BrowserRouter>
   <AuthProvider>
     <App />
   </AuthProvider>
   </BrowserRouter>
-);
+)
 
 const cargarReseñas = () => {
   if (!localStorage.getItem('reseñas')) {
      localStorage.setItem('reseñas', JSON.stringify(reseñas));
   }
-};
+}
 
 
 

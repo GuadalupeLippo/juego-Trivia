@@ -5,13 +5,13 @@ import "./Invitation.css";
 
 export function Invitation() {
   return (
-    <div className="container-invitation">
+    <div className="container-invitation sol">
       <div className="invitation">
-        <img src={Logo} alt="logo pagina" width="300" />
+        <img src={Logo} alt="logo pagina" width="300" className="logo-invitation" />
       </div>
       <div className="container-title">
-        <h3>¿Estas preparado? </h3>
-        <h2 className="title2">Te desafiamos a responder algunas de nuestras preguntas...</h2>
+        <h3 className="title2">¿Estas preparado? </h3>
+        <h2 className="title2">ponte a prueba con algunas preguntas</h2>
       </div>
     </div>
   );

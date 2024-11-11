@@ -81,8 +81,9 @@ export function ModalLogin({ showLogin, handleCloseLogin}) {
         }
 
         const playerData = await response.json();
+        localStorage.setItem('defaultAvatar', "https://api.dicebear.com/9.x/bottts/svg?seed=Lilly");
+       console.log(localStorage.getItem('defaultAvatar'))
 
-       
         login(playerData.player, playerData.access_token);
         navigate(`/login/${playerData.player.id}`);
         setFormLogin(initialForm);

@@ -15,7 +15,7 @@ export const AuthProvider = ({ children }) => {
 
    
   // Función para obtener los datos del jugador autenticado
-  const fetchPlayerData = async (accessToken) => {
+ const fetchPlayerData = async (accessToken) => {
    
     const response = await fetch(`${APITRIVIA}/player/profile`, {
       method: 'GET',
@@ -47,6 +47,7 @@ export const AuthProvider = ({ children }) => {
   const logout = () => {
     setToken(null);
     localStorage.removeItem('authATRV');
+    localStorage.removeItem('firstLoginNotified')
     setSessionExpired(false);
   };
 
@@ -54,7 +55,7 @@ export const AuthProvider = ({ children }) => {
   const updateAvatar = (newAvatar) => {
     setAuthUser((prevUser) => ({
       ...prevUser,
-      avatar: newAvatar,
+      defaultAvatar: newAvatar,
     }));
   };
 

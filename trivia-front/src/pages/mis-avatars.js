@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLogin } from "../components/nav-home/NavLogin.js";
+import  NavLogin  from "../components/nav-home/NavLogin.js";
 import { useAuth } from "../components/auth/UserAuth.js";
 import CardsMisAvatars from "../components/avatars/CardsMisAvatars.js";
 import '../components/avatars/misAvatars.css'

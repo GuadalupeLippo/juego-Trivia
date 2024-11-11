@@ -1,7 +1,7 @@
 import InicioTrivia from "../components/trivia/inicioTrivia";
 import React from "react";
 import { Answers } from "../components/answers/answers";
-import { NavLogin } from "../components/nav-home/NavLogin";
+import  NavLogin  from "../components/nav-home/NavLogin";
 import './trivia.css'
 
 
