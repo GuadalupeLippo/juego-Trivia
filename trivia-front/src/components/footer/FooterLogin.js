@@ -7,10 +7,13 @@ export default function Footerlogin() {
   return (
     
         <footer className="footer-login ">
-      
-          <Col className="footer-col text-end ">
-            <p>&copy; {new Date().getFullYear()} <strong>En la nube</strong>. Todos los derechos reservados.</p>
-          </Col>
+
+      <Col className="footer-col">
+
+  <p>&copy; {new Date().getFullYear()} <strong>En la nube</strong>. Todos los derechos reservados.</p>
+  
+</Col>
+
         
     
         </footer>

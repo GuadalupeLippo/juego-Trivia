@@ -7,13 +7,7 @@ import './login.css';
 import { useAuth } from "../components/auth/UserAuth"; 
 import Reseñas from "../components/reseñas/Reseñas"; 
 
-import { useState, useRef } from "react";
-import { useAuth } from "../context/AuthContext"; // Suponiendo que useAuth es el hook que devuelve el token
-import NavLogin from "../components/NavLogin";
-import Cards from "../components/Cards";
-import Reseñas from "../components/Reseñas";
-import FooterLogin from "../components/FooterLogin";
-import NotificationBonus from "../components/NotificationBonus"; // Asegúrate de que el componente NotificationBonus esté importado
+
 
 export function Login() {
   const { token } = useAuth(); // Obtenemos el token de la autenticación
