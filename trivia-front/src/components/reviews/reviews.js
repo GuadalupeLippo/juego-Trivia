@@ -17,8 +17,8 @@ const Reviews = () => {
     addFont();
     const fetchReviews = () => {
       const savedReviews = JSON.parse(localStorage.getItem('reviews')) || [
-        { id: 1, name: "Juan", review: "Excellent experience", rating: 5 },
-        { id: 2, name: "Ana", review: "Very good service", rating: 4 }
+        { id: 1, name: "Juan", review: "Excelente experiencia", rating: 5 },
+        { id: 2, name: "Ana", review: "Muy buen juego", rating: 4 }
       ];
       setReviews(savedReviews.slice(0, 2));
     };
@@ -27,7 +27,7 @@ const Reviews = () => {
 
   const saveReview = () => {
     if (!newReview.name || !newReview.review || newReview.rating === 0) {
-      alert("Please fill out all fields before submitting your review.");
+      alert("Por favor, rellene todos los campos antes de enviar su reseña.");
       return;
     }
 
@@ -57,19 +57,19 @@ const Reviews = () => {
         ))}
       </ul>
 
-      <button className="leave-review-btn" onClick={() => setShowModal(true)}>LEAVE A REVIEW</button>
+      <button className="leave-review-btn" onClick={() => setShowModal(true)}>DEJAR RESEÑA</button>
 
       {showModal && (
         <div className="modal-review" onClick={() => setShowModal(false)}>
           <div className="modal-content-review" onClick={e => e.stopPropagation()}>
             <input
               type="text"
-              placeholder="Your name"
+              placeholder="Su nombre"
               value={newReview.name}
               onChange={(e) => setNewReview({ ...newReview, name: e.target.value })}
             />
             <textarea
-              placeholder="Your review"
+              placeholder="Su reseña"
               value={newReview.review}
               onChange={(e) => setNewReview({ ...newReview, review: e.target.value })}
             />
@@ -77,14 +77,14 @@ const Reviews = () => {
               value={newReview.rating}
               onChange={(e) => setNewReview({ ...newReview, rating: Number(e.target.value) })}
             >
-              <option value={0}>Choose your rating</option>
+              <option value={0}>Elija su puntuación</option>
               {[1, 2, 3, 4, 5].map(star => (
                 <option key={star} value={star}>{star} stars</option>
               ))}
             </select>
             <div className="review-buttons">
-              <button className="submit-review-btn" onClick={saveReview}>Submit Review</button>
-              <button className="cancel-review-btn" onClick={() => setShowModal(false)}>Cancel</button>
+              <button className="submit-review-btn" onClick={saveReview}>Compartir reseñas</button>
+              <button className="cancel-review-btn" onClick={() => setShowModal(false)}>Cancelar</button>
             </div>
           </div>
         </div>
