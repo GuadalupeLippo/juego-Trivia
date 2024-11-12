@@ -11,17 +11,19 @@ export function CarrouselAvatars({ avatar }) {
   const [selectedAvatar, setSelectedAvatar] = useState(null);
   const [purchasedAvatars, setPurchasedAvatars] = useState([]);
   const { authUser, updateScore } = useAuth();
+  const [loading, setLoading] = useState(true); // Estado de carga
 
   useEffect(() => {
     // Función para obtener los avatares comprados
     const fetchCompradosAvatars = async () => {
+      if (!authUser || !authUser.id) return;
+
       try {
         const response = await fetch(`http://localhost:3000/buy-avatar/user/${authUser.id}`);
         const data = await response.json();
         console.log("Datos recibidos:", data); // Verifica la estructura de data aquí
         
         if (Array.isArray(data)) {
-          // Si data es un array, entonces procede con map
           const purchasedAvatarIds = data.map(item => item.purchasedAvatar.id);
           setPurchasedAvatars(purchasedAvatarIds);
         } else {
@@ -29,11 +31,20 @@ export function CarrouselAvatars({ avatar }) {
         }
       } catch (error) {
         console.error("Error al obtener avatares comprados:", error);
+      } finally {
+        setLoading(false); // Finaliza la carga
       }
     };
-    
-    fetchCompradosAvatars();
-  }, [authUser.id]);
+
+    // Ejecutar la función solo si authUser está disponible
+    if (authUser && authUser.id) {
+      fetchCompradosAvatars();
+    } else {
+      setLoading(false);
+    }
+  }, [authUser]);
+
+  if (loading) return <div className='chargin_data_avatar'></div>;
 
   const handleShowModal = (avatar) => {
     setSelectedAvatar(avatar);
@@ -79,11 +90,11 @@ export function CarrouselAvatars({ avatar }) {
   const normalAvatars = avatar.filter((av) => av.type === "normal");
 
   const settings = {
-    dots:true,
+    dots: true,
     infinite: false,
     speed: 500,
-    slidesToShow: 4,
-    slidesToScroll: 4,
+    slidesToShow: 3,
+    slidesToScroll: 3,
     initialSlide: 0,
     responsive: [
       {
@@ -91,12 +102,12 @@ export function CarrouselAvatars({ avatar }) {
         settings: {
           slidesToShow: 3,
           slidesToScroll: 3,
-          infinite: true,
-          dots: false,
+          infinite: false,
+          dots: true,
         },
       },
       {
-        breakpoint: 600,
+        breakpoint: 768,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
@@ -115,19 +126,21 @@ export function CarrouselAvatars({ avatar }) {
     ],
   };
 
+ 
   return (
-   <>
+    <>
       <Slider {...settings}>
         {normalAvatars.map((avatar) => (
-          <div className="slider-container">
-             <div key={avatar.id}>
+          <div key={avatar.id} className="slider-container">
             <div className="avatar_container">
               <div className="card_container">
                 <article className="card_article">
                   <img src={avatar.image} alt="avatar" className="card_img" />
                   <div className="card_data">
-                  {!purchasedAvatars.includes(avatar.id) && (<h3 className="card_precio">{avatar.price}</h3>)}   
-                     {purchasedAvatars.includes(avatar.id) ? (
+                    {!purchasedAvatars.includes(avatar.id) && (
+                      <h3 className="card_precio">{avatar.price}</h3>
+                    )}
+                    {purchasedAvatars.includes(avatar.id) ? (
                       <p className="card_obtenido">Avatar obtenido</p>
                     ) : (
                       <button className="card_button" onClick={() => handleShowModal(avatar)}>
@@ -139,7 +152,6 @@ export function CarrouselAvatars({ avatar }) {
               </div>
             </div>
           </div>
-          </div>
         ))}
       </Slider>
       <BuyAvatarModal
@@ -148,6 +160,6 @@ export function CarrouselAvatars({ avatar }) {
         handleConfirmPurchase={handleConfirmPurchase}
         selectedAvatar={selectedAvatar}
       />
-   </>
+    </>
   );
 }

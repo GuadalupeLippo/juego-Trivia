@@ -85,7 +85,7 @@ import "../DropDownProfile/DropDownProfile.css";
                 <img src={Category} alt="categoria" width="40" ref={categoryImageRef} className="category-icon"/>
               </button>
             </Link>
-            <Link to="/store" onClick={handleNotificationStore}>
+            <Link to={`/store/${authUser?.id}`} onClick={handleNotificationStore}>
               <button className="btn btn-lg no-style-btn me-2">
               <img src={Tienda} ref={storeImageRef} alt="tienda" width="40" className="store-icon"  />
               </button>

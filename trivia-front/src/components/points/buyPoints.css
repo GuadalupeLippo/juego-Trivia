@@ -1,6 +1,7 @@
 .card_points_container{
     margin-top: 20px;
    margin-bottom: 20px;
+  
 }
 
 
@@ -15,10 +16,12 @@
 .card_points{
     display: flex;
     flex-direction: column;
+    justify-self: center;
     background-color: #72D5F3;
     margin: 0px 40px;
     box-shadow: 5px 5px 10px #07b8a6;
     border-radius: 10px;
+    width: 250px;
 }
 
 .points_img{
@@ -59,8 +62,8 @@
 /* @media (max-width: 768px) {
     .card_points_container{
         flex-direction: column;
-        justify-content: center;
+        justify-content: space-around;
         align-items: center; 
-    }
-    
-} */
+
+        
+    }} */
