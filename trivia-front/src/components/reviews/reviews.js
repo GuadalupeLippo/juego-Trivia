@@ -24,6 +24,7 @@ const Reviews = () => {
     };
     fetchReviews();
   }, []);
+  
 
   const saveReview = () => {
     if (!newReview.name || !newReview.review || newReview.rating === 0) {
