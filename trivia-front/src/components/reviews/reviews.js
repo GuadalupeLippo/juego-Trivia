@@ -57,6 +57,7 @@ const Reviews = () => {
           </li>
         ))}
       </ul>
+      
 
       <button className="leave-review-btn" onClick={() => setShowModal(true)}>DEJAR RESEÑA</button>
 
@@ -81,7 +82,8 @@ const Reviews = () => {
               <option value={0}>Elija su puntuación</option>
               {[1, 2, 3, 4, 5].map(star => (
                 <option key={star} value={star}>{star} stars</option>
-              ))}
+
+            ))}
             </select>
             <div className="review-buttons">
               <button className="submit-review-btn" onClick={saveReview}>Compartir reseñas</button>
