@@ -21,6 +21,7 @@ export function Answers({ categoryData, onAnswerClick }) {
     setSelectedAnswer(answer);
     onAnswerClick(answer);
  
+ 
   };
 
   return (
@@ -38,7 +39,7 @@ export function Answers({ categoryData, onAnswerClick }) {
             onClick={() => handleClick(answer)}
             disabled={!!selectedAnswer}
           >
-            {answer.text}
+            {answer.description}
           </button>
         ))}
       </div>

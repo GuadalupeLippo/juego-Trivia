@@ -3,7 +3,7 @@ import Form from "react-bootstrap/Form";
 import { getDifficulty } from "../../API/getDataBase";
 import { useEffect, useState } from "react";
 
-export  function FormConfiguration({setSelectedTime}) {
+export  function FormConfiguration({setSelectedTime, setDifficultyId}) {
 const [difficultys, setDifficulty] = useState([]);
 
 
@@ -24,10 +24,13 @@ const difficultyData = await response.json();
 
   const handleDifficultyChange = (event) => {
     const selectedDifficultyId = parseInt(event.target.value);
+    console.log(selectedDifficultyId)
     const selectedDifficulty = difficultys.find((d) => d.id === selectedDifficultyId);
        if(selectedDifficulty){
 
   setSelectedTime(selectedDifficulty.duracion);
+  setDifficultyId(selectedDifficulty.id)
+  console.log("dificulta id", selectedDifficulty, selectedDifficultyId)
 }
       };
 
@@ -37,7 +40,7 @@ const difficultyData = await response.json();
     <>
       <FloatingLabel controlId="floatingSelect" label="selecciona la dificultad">
         <Form.Select aria-label="dificultad" className="mb-3" onChange={handleDifficultyChange}>
-        { difficultys.map((difficulty) => (
+        {difficultys.map((difficulty) => (
           <option key={difficulty.id} value={difficulty.id}>
             {difficulty.nivel}
           </option>
