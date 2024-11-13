@@ -23,7 +23,7 @@
     border-radius: 5px;
     padding: 2rem 0.5rem 0.5rem;
     gap: 1rem;
-    max-width: 348px; 
+    width: 250px; 
 }
 
 .card_img {
@@ -85,13 +85,40 @@
     font-family: 'Permanent Marker', cursive;
   }
 
-/* @media (max-width: 768px) {
-    .card_container{
-        padding:20px  20px;
+  /* animacion de logo de cargando */
+
+  @keyframes loading {
+    0% {
+      transform: rotate(0deg);
     }
-} */
+  
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .chargin_data_avatar{
+    justify-self: center;
+    margin: 30px;
+    border: 6px solid #9ff372; 
+    border-radius: 100%;
+    border-top-color: #39b807; 
+    border-bottom-color: #39b807; 
+    width: 50px;
+    height: 50px;
+    animation: loading 1.5s infinite linear;
+}
 
 
+@media (max-width: 768px) {
+    .avatar_container{
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center; 
+
+        
+    }
+}
 
       
      

@@ -15,6 +15,7 @@ export function CardPoints() {
       try {
         const response = await fetch('http://localhost:3000/score');
         const data = await response.json();
+        console.log('Datos recibidos de puntos:', data);
         setPointsData(data); 
       } catch (error) {
         console.error('Error al obtener los datos de puntos:', error);
@@ -34,24 +35,24 @@ export function CardPoints() {
   };
 
   const settings = {
-    dots: false,
+    dots: true,
     infinite: false,
     speed: 500,
-    slidesToShow: 4,
-    slidesToScroll: 4,
+    slidesToShow: 3,
+    slidesToScroll: 1,
     initialSlide: 0,
     responsive: [
       {
         breakpoint: 1024,
         settings: {
           slidesToShow: 3,
-          slidesToScroll: 3,
-          infinite: true,
+          slidesToScroll: 1,
+          infinite: false,
           dots: true,
         },
       },
       {
-        breakpoint: 600,
+        breakpoint: 768,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
@@ -78,9 +79,9 @@ export function CardPoints() {
         <Slider {...settings}>
           
           {pointsData.map((point) => (
-          <div className='card_points_container'>
+          <div key={point.id} className='card_points_container'>
             
-             <div className='card_points' key={point.id}>
+             <div className='card_points' >
               <h1 className='points_price'>Precio: {point.price}</h1>
               <img className='points_img' src={point.image} alt={`${point.points} Puntos`} />
               <h1 className='points_amount'>{point.points} Puntos</h1>

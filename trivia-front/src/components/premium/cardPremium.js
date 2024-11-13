@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react"; 
 import "./cardPremium.css";
 import { TitlePremium } from "./titlePremium";
 import { ModalNoPoints } from "../avatars/ModalNoPoints.js";
@@ -10,11 +10,12 @@ import "slick-carousel/slick/slick-theme.css";
 
 export function CardPremium() {
   const [showModal, setShowModal] = useState(false);
-  const [showNoPointsModal, setShowNoPointsModal] = useState(false); // Estado para el modal de puntos insuficientes
+  const [showNoPointsModal, setShowNoPointsModal] = useState(false);
   const [selectedAvatar, setSelectedAvatar] = useState(null);
   const [purchasedAvatars, setPurchasedAvatars] = useState({});
   const [premiumAvatars, setPremiumAvatars] = useState([]);
   const { authUser, updateScore } = useAuth();
+  const [loading, setLoading] = useState(true); // Estado de carga
 
   useEffect(() => {
     fetchPremiumAvatars();
@@ -33,36 +34,42 @@ export function CardPremium() {
 
   useEffect(() => {
     const fetchCompradosAvatars = async () => {
+      // Solo procede si authUser está disponible
+      if (!authUser || !authUser.id) return;
+
       try {
         const response = await fetch(`http://localhost:3000/buy-avatar/user/${authUser.id}`);
         const data = await response.json();
-        console.log("Datos recibidos:", data); // Verifica la estructura de data aquí
+        console.log("Datos recibidos:", data);
         
         if (Array.isArray(data)) {
-          // Si data es un array, entonces procede con map
           const purchasedAvatarIds = data.reduce((acc, item) => {
             acc[item.purchasedAvatar.id] = true;
             return acc;
           }, {});
-          setPurchasedAvatars(purchasedAvatarIds); // Setea el objeto con los avatares comprados
+          setPurchasedAvatars(purchasedAvatarIds);
         } else {
           console.error("Error: los datos recibidos no son un array.", data);
         }
       } catch (error) {
         console.error("Error al obtener avatares comprados:", error);
+      } finally {
+        setLoading(false); // Finaliza la carga al completar
       }
     };
-    
+
     fetchCompradosAvatars();
-  }, [authUser.id]);
-  
+  }, [authUser]);
+
+  // Mientras carga, muestra un mensaje de carga o un spinner
+  if (loading) return <div className='chargin_data_premium'></div>;
 
   const handleShowModal = (avatar) => {
     if (authUser?.score >= avatar.price) {
       setSelectedAvatar(avatar);
       setShowModal(true);
     } else {
-      setShowNoPointsModal(true); // Abre el modal de "puntos insuficientes"
+      setShowNoPointsModal(true);
     }
   };
 
@@ -109,15 +116,18 @@ export function CardPremium() {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 4,
+    slidesToShow: 3,
     slidesToScroll: 1,
+    initialSlide: 0,
+    swipeToSlide: true, 
     responsive: [
       {
         breakpoint: 1024,
         settings: {
           slidesToShow: 3,
           slidesToScroll: 1,
-          dots: false,
+          infinite: true,
+          dots: true,
         },
       },
       {
@@ -125,6 +135,7 @@ export function CardPremium() {
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
+          initialSlide: 2,
           dots: false,
         },
       },
@@ -141,26 +152,24 @@ export function CardPremium() {
 
   return (
     <>
-      
-        <Slider {...settings}>
-          {premiumAvatars.map((avatar) => (
-           <div className='card_premium_container'>
-             <div key={avatar.id} className={`card_premium ${purchasedAvatars[avatar.id] ? 'purchased' : ''}`}>
+      <Slider {...settings}>
+        {premiumAvatars.map((avatar) => (
+          <div key={avatar.id} className='card_premium_container'>
+            <div className={`card_premium ${purchasedAvatars[avatar.id] ? 'purchased' : ''}`}>
               <h1 className='premium_title'><TitlePremium /></h1>
               <img className='premium_img' src={avatar.image} alt={`${avatar.price} Puntos`} />
               <h1 className={`premium_price ${purchasedAvatars[avatar.id] ? 'avatar_obtenido' : ''}`}>
-            {purchasedAvatars[avatar.id] ? 'Avatar obtenido' : `${avatar.price} Puntos`}
-          </h1>
+                {purchasedAvatars[avatar.id] ? 'Avatar obtenido' : `${avatar.price} Puntos`}
+              </h1>
               {!purchasedAvatars[avatar.id] && (
                 <button className='button_premium' onClick={() => handleShowModal(avatar)}>
                   Canjear
                 </button>
               )}
             </div>
-            </div>
-          ))}
-        </Slider>
-     
+          </div>
+        ))}
+      </Slider>
       <BuyAvatarModal
         show={showModal}
         handleClose={handleCloseModal}
@@ -171,6 +180,6 @@ export function CardPremium() {
         show={showNoPointsModal}
         handleClose={handleCloseNoPointsModal}
       />
-   </>
+    </>
   );
 }

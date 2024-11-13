@@ -20,7 +20,7 @@ margin-top: 50px;
 .premium_img{
 width: 100%;
 height: 100%;
-    
+    padding: 10px;
 }
 
 .premium_title{
@@ -48,7 +48,7 @@ height: 100%;
     background-color: black;
     padding: 10px;
     align-self: center;
-    margin-left: 75px;
+
 } 
 
 
@@ -69,11 +69,47 @@ height: 100%;
    
   }
 
+  .slick-dots {
+    position: relative;
+    z-index: 10; 
+  }
+  
+  .slick-dots li button {
+    pointer-events: auto;
+    cursor: pointer;
+  }
+
+
+/* animacion de logo de cargando */
+
+  @keyframes loading {
+    0% {
+      transform: rotate(0deg);
+    }
+  
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .chargin_data_premium {
+    justify-self: center;
+    margin: 20px;
+    border: 6px solid #e8f372; 
+    border-radius: 100%;
+    border-top-color: #b8b507; 
+    border-bottom-color: #b8b507;
+    width: 50px;
+    height: 50px;
+    animation: loading 1.5s infinite linear;
+}
+
 @media (max-width: 768px) {
     .card_premium_container{
         flex-direction: column;
-        justify-content: center;
+        justify-content: space-around;
         align-items: center; 
+
         
     }
 }
