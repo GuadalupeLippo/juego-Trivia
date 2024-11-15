@@ -39,6 +39,7 @@ export default  function Cards() {
 const [gameData, setGameData]= useState(null);
 const {authUser} = useAuth();
 const [categoryData, setCategoryData] = useState(null);
+
 const playerId = authUser?.id;
 
 
@@ -86,11 +87,14 @@ setShowDifficulty(true);
 
   
 const HadelCards = (selectedTime, selectedDifficultyId) => {
-    if(categoryData && playerId ){
+
+    if(categoryData && categoryData.question && playerId ){
     const logo = imagenesLogo[selectedCategory]?.logo;
     navigate("/trivia", {state:{logo, categoryId: selectedCategory, playerId, selectedTime ,difficultyId: selectedDifficultyId, question: categoryData.question}});
-     } else{
+  
+  } else{
       alert('selecciona una categoria y dificultad')
+    
     } console.log(selectedTime)
     console.log(playerId)
     console.log(categoryData?.question)
@@ -98,8 +102,7 @@ const HadelCards = (selectedTime, selectedDifficultyId) => {
   }
 
   
- 
-   
+
   
   return (
     <>
