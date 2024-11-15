@@ -1,7 +1,7 @@
 import {React, useEffect, useMemo, useState} from "react";
 import "./answers.css";
 
-export function Answers({ categoryData, onAnswerClick }) {
+export function Answers({ categoryData, onAnswerClick, categoryDataForPoints }) {
   const [selectedAnswer, setSelectedAnswer] = useState(null);
 
 
@@ -18,11 +18,18 @@ export function Answers({ categoryData, onAnswerClick }) {
   }
 
   const handleClick = (answer) => {
+    console.log("Answer selected:", answer);
     setSelectedAnswer(answer);
-    onAnswerClick(answer);
- 
- 
-  };
+    console.log("categoryData:", categoryData);
+      if (answer.value ===true) {
+        const points= categoryDataForPoints?.puntos 
+        console.log("Respuesta correcta, puntos:", points);
+        onAnswerClick(points); 
+      } else {
+        console.log("Respuesta incorrecta, puntos: 0");
+        onAnswerClick(0); // Si la respuesta es incorrecta, no pasar puntos
+      }
+    }
 
   return (
     <div className="answersContainer">
@@ -34,7 +41,7 @@ export function Answers({ categoryData, onAnswerClick }) {
           <button
             key={index}
             className={`botonAswer ${
-              selectedAnswer ? (answer.correct ? "correct" : "incorrect") : ""
+              selectedAnswer ? (answer.value === true ? "correct" : "incorrect") : ""
             }`}
             onClick={() => handleClick(answer)}
             disabled={!!selectedAnswer}
