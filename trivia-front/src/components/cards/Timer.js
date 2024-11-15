@@ -1,11 +1,11 @@
 import React, {  useEffect, useState } from "react";
 import "./Timer.css";
-import sonido from "./game-over.mp3";
 
-const Timer = ({selectedTime }) => {
+
+const Timer = ({selectedTime, onTimeUp }) => {
   const [timeLeft, setTimeLeft] = useState(Math.floor(selectedTime / 1000));
   const porcentaje = (timeLeft / Math.floor(selectedTime/ 1000)) * 100;
-console.log(porcentaje)
+
 
 
 useEffect(() => {
@@ -19,11 +19,10 @@ useEffect(() => {
 
       return () => clearTimeout(timerId);
     } else {
-      const audio = new Audio(sonido);
-      audio.play();
+      onTimeUp(); 
     
     }
-  }, [timeLeft]);
+  }, [timeLeft,onTimeUp]);
 
   
  

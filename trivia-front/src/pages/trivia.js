@@ -9,7 +9,7 @@ export default function Trivia() {
   return (
     <div className="container-trivia">
       <NavLogin />
-      <InicioTrivia />
+      <InicioTrivia/>
       <Answers />
       
     </div>
