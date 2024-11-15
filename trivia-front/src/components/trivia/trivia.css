@@ -1,16 +1,23 @@
 .inicioTrivia{
     display: flex;
     justify-content:space-around;
-   margin-top: 20px;
+    align-items: center;
+   margin-top: 10px;
+   flex-wrap: wrap;
     
 }
 .geografia{
     margin: 20px;
+    text-align: center;
 }
 
-.container-trivia{
+/* .container-trivia{
     width: 100%;
-}
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 5px;
+    box-sizing: border-box;
+} */
 
 @media (max-width: 768px) {
     .inicioTrivia {
@@ -19,9 +26,9 @@
         align-items: center; 
    
     }
-}
-.categoria {
-    filter: drop-shadow(
-        0 0 10px rgba(212, 212, 212, 0.63)
-    );
+    .container-trivia{
+        padding: 5px;
+    }
+
+
 }

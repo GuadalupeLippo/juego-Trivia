@@ -1,152 +1,164 @@
 @import url('https://fonts.googleapis.com/css2?family=Jaro:opsz@6..72&family=Jersey+10&family=Luckiest+Guy&family=Permanent+Marker&display=swap');
 
-    .answersContainer{
-    margin: 0px 50px ;
-    display: flex;
-    flex-wrap: wrap;
-    
-    /* gap: 10px; */
+.answersContainer {
+  margin: 0px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center; /* Centrar contenido */
 }
 
-.answers{ 
-    text-align: center;
-    background-color: #5DB1FF;
-    margin: 10px;
-    flex: 1 1 calc(40% - 10px);
-    padding: 10px;
-    margin: 30px;
-   
+.answers {
+  text-align: center;
+  background-color: #5DB1FF;
+  margin: 10px;
+  flex: 1 1 calc(40% - 20px); /* Ajuste flexible según tamaño */
+  padding: 10px;
+  border-radius: 10px; /* Redondear bordes */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera */
 }
 
-.answersContainer p{
-    margin: 50px;
-    font-family: "Permanent Marker";
-    color: #FFFFFF;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh
+.answersContainer p {
+  margin: 20px;
+  font-family: "Permanent Marker";
+  color: #FFFFFF;
+  text-align: center;
 }
-/* @media (max-width: 968px) {
-    .answersContainer{
-        max-width: 100%;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;  */
-    
-    .opciones{
-        font-size: 40px;
-        display: inline-block;
-        flex: 2;
-        margin: 13px;
-        padding: 10px;
-        background-color :#233444b4;
-        width: 50%;
-        display: flex;
-    }
 
-    .questionContainer{
-   
+.opciones {
+  font-size: 1.2rem; /* Tamaño de fuente escalable */
+  flex: 2;
+  margin: 13px;
+  padding: 10px;
+  background-color: #233444b4;
+  width: 100%; /* Hacerlo flexible */
+  display: flex;
+  justify-content: center; /* Centrar texto */
+  align-items: center; /* Centrar verticalmente */
+  border-radius: 10px; /* Redondear bordes */
+}
+
+.questionContainer {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
-  align-items: center;
   border-radius: 15px;
   padding-top: 12px;
 }
 
-    .pregunta{
-        margin-top: 3px;
-      display: flex;
-        color: #121416;
-        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-        font-size:50px;
-       text-align: center;
-       border:rgba(6, 29, 44, 0.164) solid 3px;
-       /* text-shadow: 6px 6px 8px rgba(241, 242, 245, 0.936); */
-      background-color: rgba(201, 202, 202, 0.39);
-      padding: 1.2rem;
-        border-radius: 13px;
-        background-color: rgba(4, 37, 36, 0.041);
-       
-      
-       
-             
-    }
-    .botonContainer {
-        display: ruby;
-        justify-content: space-around;
-       align-items: stretch;
-        flex-wrap: wrap;
-        justify-content: center;
-        box-shadow: 0 15px 10px;
-        gap: 10px;
-        background-color: rgba(6, 29, 44, 0.164);
-        padding: 40px;
-        text-shadow: 6px 6px 8px rgb(171, 193, 233);
-        border-radius: 20px;
-        display: flex;
-      }
+.pregunta {
+  margin-top: 3px;
+  color: #121416;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 2.5rem; /* Tamaño más grande en general */
+  text-align: center;
+  border: rgba(6, 29, 44, 0.164) solid 3px;
+  background-color: rgba(7, 54, 53, 0.041);
+  padding: 1.1rem;
+  border-radius: 13px;
+}
+
+.botonContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  background-color: rgba(6, 29, 44, 0.164);
+  padding: 20px;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box; /* Incluye padding en el cálculo del ancho */
+}
+
+.correct {
+  color: aliceblue;
+  background-color: green;
+  transition: all 0.2s ease;
+}
+
+.incorrect {
+  color: aliceblue;
+  background-color: rgb(252, 63, 6);
+}
+
+.botonAswer {
+  flex: 1 1 calc(50% - 20px); /* Dos botones por fila */
+  text-align: center;
+  display: block;
+  align-items: center;
+  padding: 20px 30px; /* Mayor tamaño */
+  margin: 10px;
+  font-size: 2rem; /* Tamaño de fuente grande */
+  cursor: pointer;
+  border: none;
+  border-radius: 15px;
+  transition: background-color 0.3s, transform 0.2s;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.botonAswer:hover {
+  color: #ffffff;
+  transform: scale(1.1);
+  outline: 2px solid #253b3f8e;
+  box-shadow: 1px 1px 7px #268391;
+  border-radius: 10px;
+}
+
+.botonAswer::before {
+  color: #FFFFFF;
+  content: "";
+  position: absolute;
+  left: -2px;
+  top: 0;
+  width: 0;
+  height: 100%;
+  background-color: #0dcaf059;
+  transform: skewX(1deg);
+  z-index: -3;
+  transition: width 1000ms;
+}
+
+.botonAswer:hover::before {
+  width: 100%;
+}
 
 
-    
-    .correct{
-        color: aliceblue;
-        background-color: green;
-        transition: all 0.2s ease;
-    }
-    
+@media (min-width: 1024px) {
+  .botonAswer {
+      font-size: 3.1rem; /* Botones más grandes */
+      padding: 25px 40px; /* Más espacio dentro de los botones */
+      flex: 1 1 calc(45% - 20px); /* Mayor ancho */
+  }
 
-      
-    .incorrect{
-        color: aliceblue;
-        background-color: rgb(252, 63, 6);
-    }
-    .botonAswer{
-        min-width: 450px;
-        text-align:center;
-         flex: 1;
-        
-        display: block;
-        align-items: center;
-        line-height: 30px;
-        padding:30px;
-        margin: 30px;
-        font-size: 45px;
-        cursor: pointer;
-        border: none;
-        border-radius: 15px;
-        transition: background-color 0.3s;
-        box-shadow: 0 15px 10px 7px;
-        /* max-width: 200px;
-        max-height: 150px; */
-       
+  .pregunta {
+      font-size: 3rem; /* La pregunta la hacemos mas grande en pantalla grande */
+  }
+}
 
-    }
-    .botonAswer:hover {
-        color: #ffffff;
-        transform: scale(1.1);
-        outline: 2px solid #253b3f8e;
-        box-shadow: 1px 1px 7px  #268391;
-        border-radius: 10px;
-      }
-      
-      .botonAswer::before {
-        color: #FFFFFF;
-        content: "";
-        position: absolute;
-        left: -2px;
-        top: 0;
-        width: 0;
-        height: 100%;
-        background-color:#0dcaf059;
-        transform: skewX(1deg);
-        z-index: -3;
-        transition: width 1000ms;
-      }
-      
-      .botonAswer:hover::before {
-        width: 100%;
-      }
-   
+
+@media (max-width: 768px) {
+  .botonAswer {
+      font-size: 1.8rem;
+      padding: 15px 20px;
+      margin: 10px;
+  }
+
+  .pregunta {
+      font-size: 2rem; 
+  }
+}
+
+
+@media (max-width: 480px) {
+  .botonAswer {
+      font-size: 1.5rem; 
+      flex: 1 1 100%; 
+      padding: 10px;
+  }
+
+  .pregunta {
+      font-size: 1.8rem;
+  }
+}
