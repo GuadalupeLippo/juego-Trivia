@@ -10,7 +10,7 @@
     max-width: 20%;
     max-height: auto;
     margin-top: 20px;
-    
+    display: flex;
   }
   
   .rotate-infinitely {
