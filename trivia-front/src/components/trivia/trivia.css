@@ -10,7 +10,9 @@
     margin: 20px;
     text-align: center;
 }
-
+.logo{
+    display: flex;
+}
 /* .container-trivia{
     width: 100%;
     max-width: 1200px;
@@ -21,8 +23,8 @@
 
 @media (max-width: 768px) {
     .inicioTrivia {
-        flex-direction: row;
-        justify-content: center;
+        flex-direction:row;
+        /* justify-content: center; */
         align-items: center; 
    
     }
