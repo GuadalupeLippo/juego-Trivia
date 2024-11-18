@@ -1,0 +1,75 @@
+.ul-best-games {
+    list-style-type: none;
+    padding: 0;
+    text-align: center; 
+    /* font-family: 'Permanent Marker', cursive; */
+
+  }
+  
+  .li-best-games {
+    display: flex;
+    padding: 10px;
+    margin-bottom: 10px;
+    /* border: 1px solid #ddd; */
+    border-radius: 5px;
+    align-items: center;
+    justify-content: center; 
+    
+  }
+  
+  .game-rank {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center;
+    padding-left: 10px;
+    
+  }
+  
+  .game-rank img {
+    width: 50px; 
+    height: 50px;
+
+  }
+  
+  .score {
+    font-weight: bold;
+    margin-bottom: 5px; 
+    
+  }
+  
+  .category {
+    font-size: 14px;
+    color: #555;
+  }
+
+  .first-game {
+    border-top: 5px solid gold; 
+   color:gold
+  }
+  
+  .second-game {
+    border-top: 5px solid silver; 
+   color:silver
+  }
+  
+  .third-game {
+    border-top: 5px solid #cd7f32; 
+    color:#cd7f32
+  }
+  
+  .total-points-li{
+    color:  rgb(83, 82, 82)
+  }
+
+  .category-li{
+    color: rgb(83, 82, 82)
+  }
+
+  /* .title-games{
+    font-family: 'Foo', sans-serif;
+    font-size: 25px;
+    letter-spacing: 2px;
+    color: aliceblue;
+    justify-content: center;
+  } */
