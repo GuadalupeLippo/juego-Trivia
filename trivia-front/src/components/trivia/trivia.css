@@ -6,6 +6,19 @@
    flex-wrap: wrap;
     
 }
+.spiner{
+ display: "flex";
+ gap: "10px"
+}
+.loading{
+ display: flex;
+ justify-content: center;
+ flex-direction: column;
+ align-items: center; 
+ height: 100vh;
+ margin-top: 20px; 
+ 
+}
 .geografia{
     margin: 20px;
     text-align: center;

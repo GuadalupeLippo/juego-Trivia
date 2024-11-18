@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { getCategory, getGames } from "../../API/getDataBase";
+import { getCategory,getRandomQuestions } from "../../API/getDataBase";
 import { useAuth } from "../auth/UserAuth";
 import arte from "../../assets/login/arte.jpg";
 import ciencias from "../../assets/login/ciencias.jpg";
@@ -36,37 +36,41 @@ export default  function Cards() {
   const [showDifficulty, setShowDifficulty] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState(null);
   const navigate = useNavigate();
-const [gameData, setGameData]= useState(null);
 const {authUser} = useAuth();
 const [categoryData, setCategoryData] = useState(null);
+const [randomQuestions, setrandomQuestions] = useState(null);
 
 const playerId = authUser?.id;
 
 
-
- useEffect(() => {
-async function fetchData() {
-try {
-  const response = await getGames();
-  const  gameData = await response.json();
-   setGameData(gameData);
-} catch (error) {
-  console.error("Error al obtener los datos:", error);
-}
-}
-fetchData();
-}, [gameData])
-
- 
+useEffect(() => {
+  if(selectedCategory === 7) {
+    async function fetchRandomQestions() {
+      try {
+        const response = await getRandomQuestions();
+        if(!response.ok) throw new Error("Error al obtener las preguntas");
+        const questionRandomData = await response.json();
+        console.log("Respuesta de la API:", questionRandomData);
+        if (questionRandomData && questionRandomData.length > 0) {
+        setrandomQuestions(questionRandomData); }
+    else {
+      console.error("No se encontraron preguntas aleatorias");
+      } }catch (error) {
+        console.error("Error fetching qestions:", error);
+      }
+    }
+    fetchRandomQestions();
+  } 
+}, [selectedCategory]);
 
 useEffect(() => {
-  if(selectedCategory ) {
+  if(selectedCategory && selectedCategory !== 7 ) {
     async function fetchCategory() {
       try {
         const response = await getCategory(selectedCategory);
         if(!response.ok) throw new Error("Error al obtener la categoría");
         const data = await response.json();
-        setCategoryData(data); // Guardar los datos de la categoría y preguntas
+        setCategoryData(data);
       console.log(data)
       } catch (error) {
         console.error("Error fetching category:", error);
@@ -78,17 +82,29 @@ useEffect(() => {
 
 
 const handleCloseDifficulty = () => setShowDifficulty(false);
-const handleShowDifficulty = (category) => {
-   
+
+const handleShowDifficulty = (category) => {   
 setSelectedCategory(category);
  console.log("la categoria es:", category)
-setShowDifficulty(true);
+  setShowDifficulty(true);
+ 
   };
 
   
 const HadelCards = (selectedTime, selectedDifficultyId) => {
+  if (selectedCategory === 7 && randomQuestions && randomQuestions.length > 0) {
+    const logo = imagenesLogo["aleatoria"].logo;
+    navigate("/trivia", {
+      state: {
+        logo,
+        playerId,
+        selectedTime,
+        difficultyId: selectedDifficultyId,
+        question: randomQuestions
+      },
+    });
 
-    if(categoryData && categoryData.question && playerId ){
+  } else if (categoryData && categoryData.question && playerId ){
     const logo = imagenesLogo[selectedCategory]?.logo;
     navigate("/trivia", {state:{logo, categoryId: selectedCategory, playerId, selectedTime ,difficultyId: selectedDifficultyId, question: categoryData.question}});
   
@@ -98,6 +114,7 @@ const HadelCards = (selectedTime, selectedDifficultyId) => {
     } console.log(selectedTime)
     console.log(playerId)
     console.log(categoryData?.question)
+    console.log(randomQuestions)
     console.log(selectedDifficultyId)
   }
 
@@ -217,4 +234,3 @@ const HadelCards = (selectedTime, selectedDifficultyId) => {
     </>
 );
 }
-   
