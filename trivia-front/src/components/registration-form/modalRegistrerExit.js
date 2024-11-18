@@ -1,10 +1,10 @@
 import {React, useEffect} from "react";
 import Modal from "react-bootstrap/Modal";
-import Exit from '../images/cerebrito-festejo.jpg';
+import Exit from '../../assets/home/cerebrito-festejo.jpg';
 import { useAuth } from "../auth/UserAuth";
 import { useNavigate } from "react-router-dom";
  import { APITRIVIA } from "../../API/getDataBase";
- import festejo from './festejo.mp3'
+ import festejo from '../../assets/home/festejo.mp3'
 
 
  export function ModalRegistrerExit({ show, handleCloseExit, userName, access_token }) {

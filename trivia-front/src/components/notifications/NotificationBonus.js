@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './NotificationBonus.css';
-import cerebroNot from '../images/cerebro-idea.jpg'
-import dingIdea from './ding-idea.mp3'
+import cerebroNot from '../../assets/login/cerebro-idea.jpg'
+import dingIdea from '../../assets/login/ding-idea.mp3'
 
 const NotificationBonus = ({ onClose, navLoginRef }) => {
   const [showAnimation, setShowAnimation] = useState(false);
