@@ -1,7 +1,7 @@
 import {React,useState, useRef, useImperativeHandle, forwardRef} from "react";
-import Logo from "../images/logocerebritotrivia.png";
-import Category from  '../images/signo-de-interrogacion.png';
-import Tienda from '../images/tienda.png'
+import Logo from "../../assets/home/logocerebritotrivia.png";
+import Category from  "../../assets/home/signo-de-interrogacion.png";
+import Tienda from "../../assets/home/tienda.png";
 import { Link } from "react-router-dom";
 import { useAuth } from '../auth/UserAuth';
 import Dropdownprofile from "../DropDownProfile/Dropdownprofile";

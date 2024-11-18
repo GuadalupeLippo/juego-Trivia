@@ -2,8 +2,8 @@ import "./FinTrivia.css";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { useNavigate } from "react-router-dom";
-import cerebroGanador from "../images/cerebrito-ganador4.png";
-import circle from "./images/circle2.jpg";
+import cerebroGanador from "../../assets/trivia/cerebrito-ganador4.png";
+import circle from "../../assets/trivia/circle2.jpg";
 import { useAuth } from "../auth/UserAuth";
 import React, { useState, useEffect } from 'react';
 

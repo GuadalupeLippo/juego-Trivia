@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Logo from "../images/logocerebritotrivia.png";
+import Logo from "../../assets/home/logocerebritotrivia.png";
 import { Link } from "react-router-dom";
 import "../nav-home/nav-home.css";
 import ButtonLoginNav from "./ButtonLoginNav";

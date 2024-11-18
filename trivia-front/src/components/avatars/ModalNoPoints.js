@@ -2,7 +2,7 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import './ModalNoPoints.css';
-import sadBrain from '../images/sad.png';
+import sadBrain from '../../assets/store/sad.png';
 
 export function ModalNoPoints({ show, handleClose }) {
  
