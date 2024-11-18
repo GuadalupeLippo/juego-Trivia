@@ -5,13 +5,13 @@ import { useNavigate } from "react-router-dom";
 import cerebroGanador from "../../assets/trivia/cerebrito-ganador4.png";
 import circle from "../../assets/trivia/circle2.jpg";
 import { useAuth } from "../auth/UserAuth";
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
-export function FinTrivia({show, onHide, onRestart,  questionsAnswered, totalScore,  playerTotalScore }) {
+export function FinTrivia({show, onHide, onRestart,  questionsAnswered, totalScore,  playerTotalScore, loadingPoints }) {
   const { authUser } = useAuth();
   const login = useNavigate();
   const store = useNavigate();
-  const [loadingPoints, setLoadingPoints] = useState(true);
+
 
   const handleNavigate = () => {
     login(`/login/${authUser?.id}`);
@@ -19,17 +19,6 @@ export function FinTrivia({show, onHide, onRestart,  questionsAnswered, totalSco
   const handleNavigateStore = () => {
     store(`/Store/${authUser?.id}`);
   };
-
-  useEffect(() => {
-    if (show) {
-      const timeout = setTimeout(() => {
-        setLoadingPoints(false);
-      }, 1000); 
-      return () => clearTimeout(timeout);
-    } else {
-      setLoadingPoints(true); // Reinicia el estado al cerrar la modal
-    }
-  }, [show]);
 
   return (
     <>
@@ -69,12 +58,14 @@ export function FinTrivia({show, onHide, onRestart,  questionsAnswered, totalSco
         <img className="cerebrito-win" src={cerebroGanador} alt="logo pagina" width="190" />
         
             <h5 className="playertotalscore">
-          Puntaje actual <br />
-          {loadingPoints ? (
-            <span className="score">Cargando puntos...</span>
-          ) : (
-            <span className="score">{playerTotalScore} puntos</span>
-          )}
+            Puntaje actual <br />
+        {loadingPoints ? (
+          <div className="loading-point">
+            <span className="loading-text">Cargando tus puntos...</span>
+          </div>
+        ) : (
+          <span className="score">{playerTotalScore} puntos</span>
+        )}
         </h5>
 
         <div className="principal_button">

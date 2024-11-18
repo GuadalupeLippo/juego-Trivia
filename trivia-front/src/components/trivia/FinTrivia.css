@@ -13,6 +13,16 @@
   width: 100vw; /* Ocupa todo el ancho de la pantalla */
   max-width: none;
 }
+.loading-text {
+  font-size: 16px;
+  color: #a6a8ab;  /* El mismo color que el spinner o lo que prefieras */
+}
+.loading-point{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
 
 .color_bg{
   background-color: #f5d5926b;
@@ -116,7 +126,6 @@
   justify-content: center;
   height: 80px;
   font-family: 'Foo', sans-serif;
-  margin-top: 15px;
 }
 
 .other_buttons {
@@ -124,7 +133,18 @@
   justify-content: space-around;
   margin: 20px 20px;
   font-family: 'Foo', sans-serif;
-  
+}
+
+.correctas {
+  color: rgb(14, 238, 32);
+}
+
+.incorrectas {
+  color: rgb(238, 8, 8);
+}
+
+.puntos {
+  color: rgb(251, 255, 3);
 }
 
 /* .winner {

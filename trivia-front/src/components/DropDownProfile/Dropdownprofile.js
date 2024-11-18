@@ -29,12 +29,11 @@ function DropDownProfiles({ avatarRef, nameRef } ) {
 
       const userToSave = { ...editedUser };
 
-      // Si la contraseña está vacía, no la envíes
       if (!userToSave.password) {
         delete userToSave.password;
       }
 
-      // Si el email no ha cambiado, no lo envíes
+   
       if (userToSave.email === authUser.user.email) {
         delete userToSave.email;
       }
@@ -73,7 +72,7 @@ function DropDownProfiles({ avatarRef, nameRef } ) {
   };
 
   const handleStoreClick = () => {
-    navigate('/store');
+    navigate(`/store/${authUser?.id}`);
   };
 
   const handleLogoutClick = () => {
