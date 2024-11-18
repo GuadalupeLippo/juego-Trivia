@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import { Modal } from "react-bootstrap";
 import { useAuth } from "../auth/UserAuth";
 import "./modal-games.css";
-import primero from "../images/primerpuesto.png";
-import segundo from "../images/segundopuesto.png";
-import tercero from "../images/tercerpuesto.png";
+import primero from "../../assets/login/primerpuesto.png";
+import segundo from "../../assets/login/segundopuesto.png";
+import tercero from "../../assets/login/tercerpuesto.png";
 
 export function ModalGames({ openGames, handleCloseGames }) {
   const { authUser } = useAuth();

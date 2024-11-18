@@ -1,5 +1,5 @@
 import React from "react";
-import iconoreloj from "./iconoreloj.png";
+import iconoreloj from "../../assets/trivia/iconoreloj.png";
 
 import "./reloj.css";
 function Reloj() {

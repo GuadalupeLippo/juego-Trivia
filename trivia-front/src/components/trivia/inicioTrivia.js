@@ -6,7 +6,7 @@ import { createGame } from "../../API/getDataBase";
 import { getCategory } from "../../API/getDataBase";
 import { Answers } from "../answers/answers";
 import { useAuth } from "../auth/UserAuth";
-import sonidoFin from "../cards/sonido.mp3";
+import sonidoFin from "../../assets/trivia/sonido.mp3";
 import Timer from "../cards/Timer";
 import FinTrivia from "./FinTrivia";
 import Reloj from "./reloj";

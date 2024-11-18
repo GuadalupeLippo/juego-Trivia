@@ -1,5 +1,5 @@
 import React from "react";
-import Logo from "../images/registro-exitoso.png";
+import Logo from "../../assets/home/registro-exitoso.png";
 
 import "./Invitation.css";
 

@@ -1,6 +1,6 @@
 import Modal from "react-bootstrap/Modal";
 import { FormRegistration } from "../registration-form/Registration-form";
-import Logo from "../images/logocerebritotrivia.png";
+import Logo from "../../assets/home/logocerebritotrivia.png";
 import './ModalRegistrer.css'
 
 export function ModalFormRegister({ show, handleCloseForm, handleShowExit}) {
