@@ -1,6 +1,6 @@
 import {React,useState, useRef, useImperativeHandle, forwardRef} from "react";
 import Logo from "../../assets/home/logocerebritotrivia.png";
-import Category from  "../../assets/home/signo-de-interrogacion.png";
+import Category from  "../../assets/home/prueba.png";
 import Tienda from "../../assets/home/tienda.png";
 import { Link } from "react-router-dom";
 import { useAuth } from '../auth/UserAuth';
@@ -82,7 +82,7 @@ import "../DropDownProfile/DropDownProfile.css";
           <div className={`menu-items ${showMenu ? "show" : ""}`}>
           <Link to={`/login/${authUser?.id}`}>
               <button className="btn btn-lg no-style-btn me-2">
-                <img src={Category} alt="categoria" width="40" ref={categoryImageRef} className="category-icon"/>
+                <img src={Category} alt="categoria" width="43" ref={categoryImageRef} className="category-icon"/>
               </button>
             </Link>
             <Link to={`/store/${authUser?.id}`} onClick={handleNotificationStore}>
