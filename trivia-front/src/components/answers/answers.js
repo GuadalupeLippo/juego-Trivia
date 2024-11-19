@@ -4,7 +4,6 @@ import "./answers.css";
 export function Answers({ categoryData, onAnswerClick, categoryDataForPoints, randomGameData,isRandomGame, currentQuestionIndex }) {
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [isAnswersCorrect, setIsAnswersCorrect] = useState(null)
-  console.log ("gameDatarandom:",randomGameData)
 
  
   const memoizedAnswers = useMemo(() => {
@@ -24,14 +23,12 @@ export function Answers({ categoryData, onAnswerClick, categoryDataForPoints, ra
   
   const handleClick = (answer) => {
     const isCorrect = answer.value === true;
-    console.log("Answer selected:", answer);
     setSelectedAnswer(answer);
     setIsAnswersCorrect(isCorrect)
     let points = 0;
     if (isCorrect) {
       points = isRandomGame ? 10 : categoryDataForPoints?.puntos || 0;
     } 
-    console.log("Puntos calculados:", points);
     setTimeout(() => {
       onAnswerClick(points); 
     }, 1000)
