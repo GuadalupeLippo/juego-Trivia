@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import './buyPoints.css';
-import { ModalPoints } from './modalPoints';
+// import { ModalPoints } from './modalPoints';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css"; 
 
 export function CardPoints() {
-  const [showModal, setShowModal] = useState(false);
-  const [selectedPoints, setSelectedPoints] = useState(null);
   const [pointsData, setPointsData] = useState([]);
 
   useEffect(() => {
@@ -25,13 +23,37 @@ export function CardPoints() {
     fetchPointsData();
   }, []);
 
-  const handleOpenModal = (points) => {
-    setSelectedPoints(points);
-    setShowModal(true);
+  const createPreference = async (point) => {
+    try {
+      const res = await fetch('http://localhost:3000/mercadopago/create_preference', {
+        method: 'POST',
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          items: [
+            {
+              title: `${point.points} Puntos`,
+              quantity: 1,
+              currency_id: "ARS", // Moneda
+              unit_price: parseFloat(point.price)
+            }
+          ]
+        })
+      });
+      const parsed = await res.json();
+      return parsed; // Retorna el objeto completo
+    } catch (error) {
+      console.error('Error al crear la preferencia:', error);
+    }
   };
 
-  const handleCloseModal = () => {
-    setShowModal(false);
+  const handleBuyingProcess = async (point) => {
+    const response = await createPreference(point);
+    if (response && response.id) {
+      console.log('Redirigiendo a Mercado Pago con preference_id:', response.id);
+      window.open(`https://www.mercadopago.com.ar/checkout/v1/redirect?preference_id=${response.id}`, '_blank');
+    }
   };
 
   const settings = {
@@ -77,22 +99,23 @@ export function CardPoints() {
         </h1>
   
         <Slider {...settings}>
-          
           {pointsData.map((point) => (
-          <div key={point.id} className='card_points_container'>
-            
-             <div className='card_points' >
-              <h1 className='points_price'>Precio: {point.price}</h1>
-              <img className='points_img' src={point.image} alt={`${point.points} Puntos`} />
-              <h1 className='points_amount'>{point.points} Puntos</h1>
-              <button className='button_points' onClick={() => handleOpenModal(point.points)}>Comprar</button>
-            </div>
+            <div key={point.id} className='card_points_container'>
+              <div className='card_points'>
+                <h1 className='points_price'>Precio: {point.price}</h1>
+                <img className='points_img' src={point.image} alt={`${point.points} Puntos`} />
+                <h1 className='points_amount'>{point.points} Puntos</h1>
+                <button
+                  className='button_points'
+                  onClick={() => handleBuyingProcess(point)}
+                >
+                  Comprar
+                </button>
+              </div>
             </div>
           ))}
-           </Slider>
-          <ModalPoints show={showModal} handleClose={handleCloseModal} points={selectedPoints} />
-        </div>
-      
+        </Slider>
+      </div>
     </>
   );
 }
