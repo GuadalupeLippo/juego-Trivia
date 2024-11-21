@@ -5,9 +5,18 @@ export function Answers({ categoryData, onAnswerClick, categoryDataForPoints, ra
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [isAnswersCorrect, setIsAnswersCorrect] = useState(null)
 
+  const shuffleArray = (array) => {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  };
+
  
   const memoizedAnswers = useMemo(() => {
-    return isRandomGame ? randomGameData?.questions[currentQuestionIndex]?.answers || [] : categoryData?.answers || [];
+   const answers= isRandomGame ? randomGameData?.questions[currentQuestionIndex]?.answers || [] : categoryData?.answers || [];
+   return shuffleArray([...answers]);
   }, [categoryData, isRandomGame, randomGameData,  currentQuestionIndex]);
 
 
