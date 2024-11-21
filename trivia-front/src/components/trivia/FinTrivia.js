@@ -70,7 +70,7 @@ export function FinTrivia({show, onHide, onRestart,  questionsAnswered, totalSco
 
         <div className="principal_button">
         <Button className="btn1"  onClick={onRestart}>
-          ¡Volver a Jugar!
+          ¡Nueva partida!
         </Button>
         </div>
         <div className="other_buttons">

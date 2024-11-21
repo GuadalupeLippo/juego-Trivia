@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState,useRef } from "react";
+import { useEffect, useMemo, useState,useRef, useCallback } from "react";
 import { jwtDecode } from 'jwt-decode';
 import { useLocation } from "react-router-dom";
 import { APITRIVIA } from "../../API/getDataBase";
@@ -34,9 +34,9 @@ const [categoryDataForPoints, setCategoryDataForPoints] = useState(null);
 const [gameCount, setGameCount] = useState(0);
 const isGameEndedRef = useRef(false);
 const isRandomGame = useMemo(() => categoryId === undefined  , [categoryId]);
-console.log("isRandomGame calculado en InicioTrivia:", isRandomGame);
 const [randomGameData, setRandomGameData] = useState(null);
 const [loadingPoints, setLoadingPoints] = useState(true);
+const [answeredQuestions, setAnsweredQuestions] = useState([]);
 
 
 
@@ -53,10 +53,8 @@ useEffect(() => {
   const fetchCategory = async () => {
     try {
       if (categoryId) {
-        console.log("Obteniendo datos de categoría con ID:", categoryId);
         const response = await getCategory(categoryId);
         const data = await response.json();
-        console.log("Datos recibidos de la categoría:", data);
         setCategoryDataForPoints(data);
       }
     } catch (error) {
@@ -67,64 +65,71 @@ useEffect(() => {
   fetchCategory();
 }, [categoryId]);
 
- 
-useEffect(() => {
-  const fetchStartGame = async () => {
-    if (!question || question.length === 0) {
-      console.error("No se pueden iniciar partidas sin preguntas.");
-      return;
-    }
-
-    if (gameId) {
-      console.log("El juego ya está iniciado.");
-      return;
-    }
-
-    try {
-      let gameData;
-      let response;
-      setLoading(true);
-      if (isRandomGame) {
-        gameData = { playerId, difficultyId };
-        response = await createRandomGame(gameData);
-      } else {
-        gameData = { playerId, categoryId, difficultyId };
-        response = await createGame(gameData);
-      }
-
-      if (!response.ok) {
-        const errorMessage = await response.text();
-        throw new Error(`Error en la respuesta: ${errorMessage}`);
-      }
-
-      const data = await response.json();
-      setGameId(data.id);
-      if (isRandomGame) {
-        setRandomGameData(data); 
-      }
-      setLoading(false);
-      setGameCount(prevCount => prevCount + 1);
-      console.log(gameCount);
-
-    } catch (error) {
-      console.error("Error al crear el juego:", error);
-      setLoading(false);
-    }
-  };
-
-  if (!gameId) {
-    fetchStartGame();
+const fetchStartGame = useCallback(async () => {
+  if (!question || question.length === 0) {
+    console.error("No se pueden iniciar partidas sin preguntas.");
+    return;
   }
 
-}, [playerId, categoryId, difficultyId, question, gameId, gameCount, isRandomGame]);
+  if (gameId) {
+    console.log("El juego ya está iniciado.");
+    return;
+  }
+
+  try {
+    let gameData;
+    let response;
+    setLoading(true);
+    if (isRandomGame) {
+      gameData = { playerId, difficultyId };
+      response = await createRandomGame(gameData);
+    } else {
+      gameData = { playerId, categoryId, difficultyId };
+      response = await createGame(gameData); 
+    }
+
+    if (!response.ok) {
+      const errorMessage = await response.text();
+      throw new Error(`Error en la respuesta: ${errorMessage}`);
+    }
+
+    const data = await response.json();
+    setGameId(data.id);
+    if (isRandomGame) {
+      setRandomGameData(data); 
+    }
+    setLoading(false);
+    setGameCount(prevCount => prevCount + 1);
+    console.log(gameCount);
+
+  } catch (error) {
+    console.error("Error al crear el juego:", error);
+    setLoading(false);
+  }
+}, [gameId, question, isRandomGame, playerId, categoryId, difficultyId, gameCount]);
+ 
+useEffect( () => {
+  if (!gameId) {
+  fetchStartGame();
+  }
+
+}, [gameId,fetchStartGame]);
 
 
 
   const handleAnswerClick = (points) => {
-    console.log("Puntos recibidos:", points);
+
+      const currentQuestion = question[currentQuestionIndex];
+  
+      if (currentQuestion && currentQuestion.id) {
+        setAnsweredQuestions((prev) => [
+          ...prev,
+          currentQuestion.id
+        ]);
+      }
+    
     setScore((prevScore) => {
       const newScore = prevScore + points;
-      console.log("Puntaje acumulado:", newScore);
       return newScore;
     })
 
@@ -152,12 +157,19 @@ useEffect(() => {
       
       };
     
+     
+
     const endGame = async () => { 
        if (isGameEndedRef.current || !gameId) return; 
        isGameEndedRef.current = true;
 
        try {
         setLoadingPoints(true);
+
+        const bodyData = isRandomGame
+        ? { totalScore: score } 
+        : { totalScore: score, answeredQuestionsIds: answeredQuestions };
+
           {
             const response = await fetch(`${APITRIVIA}/games/${gameId}/total-score`, {
               method: 'PATCH',
@@ -165,7 +177,7 @@ useEffect(() => {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${localStorage.getItem('authATRV')}`
               },
-              body: JSON.stringify({ totalScore: score })
+              body: JSON.stringify(bodyData)
             });
       
             if (!response.ok) {
@@ -202,10 +214,7 @@ useEffect(() => {
             if (!playerId) {
               console.error('ID de jugador no encontrado en el token');
               return;
-            }
-            
-            console.log('ID del jugador:', playerId);
-            
+            }          
           
             const response = await fetch(`http://localhost:3000/player/${playerId}/score`, {
               method: 'PATCH',
@@ -217,9 +226,7 @@ useEffect(() => {
             });
       
             const data = await response.json();
-           
-      
-            
+          
             if (response.ok) {
               console.log('Puntaje actualizado exitosamente:', data.score);
               setAuthUser(data);
@@ -232,17 +239,18 @@ useEffect(() => {
         }
       };
       
-      
-      
-      
-  
-      
-  const handleRestart = () => {
+   
+  const handleRestart = async() => {
     setShowFin(false); 
     setCurrentQuestionIndex(0); 
     setScore(0);
+    setGameId(null); 
+    setAnsweredQuestions([]);
+    await fetchStartGame();
     
   };
+
+
 
   if (loading || (!randomGameData && !question)) {
     return (
@@ -261,9 +269,6 @@ useEffect(() => {
       </div>
     );
   }
- 
-  console.log("isRandomGame enviado a Answers:", isRandomGame);
-  console.log("randomGameData enviado a Answers:", randomGameData);
   
   return (
     <>
@@ -283,7 +288,7 @@ useEffect(() => {
       <FinTrivia show={showFin} 
       onHide={handleRestart}
        onRestart={handleRestart}
-        questionsAnswered={currentQuestionIndex + 1 || 0}
+        questionsAnswered={answeredQuestions.length || 0}
         totalScore={score}
         playerTotalScore={authUser?.score}
         loadingPoints={loadingPoints}
