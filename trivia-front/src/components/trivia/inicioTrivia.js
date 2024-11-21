@@ -37,6 +37,7 @@ const isRandomGame = useMemo(() => categoryId === undefined  , [categoryId]);
 const [randomGameData, setRandomGameData] = useState(null);
 const [loadingPoints, setLoadingPoints] = useState(true);
 const [answeredQuestions, setAnsweredQuestions] = useState([]);
+const [restartTimer, setRestartTimer] = useState(false);
 
 
 
@@ -71,11 +72,6 @@ const fetchStartGame = useCallback(async () => {
     return;
   }
 
-  if (gameId) {
-    console.log("El juego ya está iniciado.");
-    return;
-  }
-
   try {
     let gameData;
     let response;
@@ -106,7 +102,7 @@ const fetchStartGame = useCallback(async () => {
     console.error("Error al crear el juego:", error);
     setLoading(false);
   }
-}, [gameId, question, isRandomGame, playerId, categoryId, difficultyId, gameCount]);
+}, [question, isRandomGame, playerId, categoryId, difficultyId, gameCount]);
  
 useEffect( () => {
   if (!gameId) {
@@ -114,7 +110,6 @@ useEffect( () => {
   }
 
 }, [gameId,fetchStartGame]);
-
 
 
   const handleAnswerClick = (points) => {
@@ -240,16 +235,28 @@ useEffect( () => {
       };
       
    
-  const handleRestart = async() => {
-    setShowFin(false); 
-    setCurrentQuestionIndex(0); 
-    setScore(0);
-    setGameId(null); 
-    setAnsweredQuestions([]);
-    await fetchStartGame();
+      const handleRestart = async () => {
+        setRestartTimer(true);
+        setTimeout(() => setRestartTimer(false), 100);
     
-  };
-
+        setScore(0);
+        setGameId(null);
+        setCurrentQuestionIndex(0);
+        setAnsweredQuestions([]);
+        isGameEndedRef.current = false;
+        setShowFin(false);
+    
+        setLoading(true);
+    
+        try {
+            await fetchStartGame(); 
+        } catch (error) {
+            console.error("Error al reiniciar la partida:", error);
+        } finally {
+            setLoading(false);
+        }
+    };
+    
 
 
   if (loading || (!randomGameData && !question)) {
@@ -274,7 +281,9 @@ useEffect( () => {
     <>
       <div className="inicioTrivia">
         <Reloj />
-        <Timer selectedTime={selectedTime}  onTimeUp={handleTimeUp} />
+        {!restartTimer && (
+          <Timer selectedTime={selectedTime} onTimeUp={handleTimeUp} />
+        )}
         <img alt="logo" src={logo} className="categoria" width="100px" />
       </div>
       <Answers categoryData={question[currentQuestionIndex]} 
