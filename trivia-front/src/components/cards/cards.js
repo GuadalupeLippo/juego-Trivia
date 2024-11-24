@@ -20,6 +20,7 @@ import arteLogo from "../../assets/login/iconoarte.png";
 import ModalConfig from "./PlayModal";
 
 
+
 const imagenesLogo = {
 1: {logo: arteLogo },
 4:{logo: historiaLogo} ,
@@ -210,7 +211,16 @@ const HadelCards = (selectedTime, selectedDifficultyId) => {
     </div>
 
     <div className="cardContainer1">
-      <h1>Esta categoría suma más puntos!!!</h1>
+      {/* titulo que cambia de color */}
+      <div class="container_title_change_color">
+  <h2 class="title_change_color">
+    <span class="title-word title-word-1">Esta</span>
+    <span class="title-word title-word-2">categoría</span>
+    <span class="title-word title-word-3">suma</span>
+    <span class="title-word title-word-4">más</span>
+    <span class="title-word title-word-5">puntos!!!</span>
+  </h2>
+</div>
       <div className="cards"   onClick={() => handleShowDifficulty(7)}>
         <div className="face front">
           <img src={aleatoria} alt="logo aleatoria" />
