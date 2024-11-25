@@ -35,3 +35,21 @@
     margin: 4px 4px;
     cursor: pointer;
 }
+
+.toggle-password {
+    position: absolute;
+    top: 50%; 
+    right: 0px; 
+    transform: translateY(-50%); 
+    background: transparent;
+    padding: 10px;
+    border: none;
+    color: #6c757d;
+    cursor: pointer;
+    z-index: 2;
+  }
+  
+  .toggle-password:hover {
+    color: #8f9ead;
+  }
+  
