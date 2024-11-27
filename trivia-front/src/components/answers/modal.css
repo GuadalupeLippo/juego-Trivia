@@ -1,0 +1,16 @@
+.modal-container {
+    z-index: 1050 ; 
+}
+.modalSuma{
+    display: flex;
+    justify-content: center; 
+     align-items: center;
+    background: transparent;
+}
+
+.modal-container .modal-Title{
+    font-size: 24px;
+    color: green;
+    font-weight: bold;
+  
+}
