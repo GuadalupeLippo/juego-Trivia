@@ -17,11 +17,11 @@ import { useNavigate } from "react-router-dom";
   }, [show]);
   
   const { setAuthUser } = useAuth();
-  const navigate = useNavigate(); // Usar useNavigate para redirigir
+  const navigate = useNavigate(); 
 
   const handleFirstLogin = async () => {
     
-    const access_token = localStorage.getItem('authATRV'); // Recuperar token del localStorage
+    const access_token = localStorage.getItem('authATRV'); 
 
     if (!access_token) {
       console.error('No se encontró el token en localStorage');
@@ -66,12 +66,11 @@ import { useNavigate } from "react-router-dom";
 
       setAuthUser(updatedPlayer);
       console.log(updatedPlayer)
-      // Redirigir al perfil del usuario
-      navigate(`/login/${updatedPlayer.id}`); // Asegúrate de que la ruta sea correcta
+      navigate(`/login/${updatedPlayer.id}`); 
 
     } catch (error) {
       console.error(error);
-      // Manejo de errores, como mostrar un mensaje de error al usuario
+  
     }
   };
 

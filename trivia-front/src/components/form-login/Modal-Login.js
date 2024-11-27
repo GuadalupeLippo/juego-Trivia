@@ -6,6 +6,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../auth/UserAuth";
 import { APITRIVIA } from "../../API/getDataBase";
+import { faEye,faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
 export function ModalLogin({ showLogin, handleCloseLogin}) {
@@ -22,15 +24,15 @@ export function ModalLogin({ showLogin, handleCloseLogin}) {
 
   const [formLogin, setFormLogin] = useState(initialForm);
   const [errorsLogin, setErrorsLogin] = useState({});
+  const [showPassword, setShowPassword] = useState(false);
 
   function SetFieldlogin(field, value) {
     setFormLogin({
-      ...formLogin, //los operadores ... copian el contenido actual del form
+      ...formLogin, 
       [field]: value,
     });
 
     if (!!errorsLogin[field]) {
-      //los operadores !!convierten un valor en booleano
       setErrorsLogin({
         ...errorsLogin,
         [field]: null,
@@ -114,7 +116,7 @@ export function ModalLogin({ showLogin, handleCloseLogin}) {
         <Modal.Header closeButton className="modal-registrer-exit">
           <Modal.Title className="modal-title-exit">Iniciar Sesión</Modal.Title>
         </Modal.Header>
-        <Modal.Body className="m-b">
+        <Modal.Body>
           <Form>
             <Form.Group className="mb-3" controlId="controlEmail">
               <div className="form-group position-relative mb-4">
@@ -141,16 +143,28 @@ export function ModalLogin({ showLogin, handleCloseLogin}) {
               </div>
             </Form.Group>
             <Form.Group className="mb-3" controlId="controlPassword">
-              <div className="form-group position-relative mb-4">
-                <Form.Label>Contraseña</Form.Label>
-                <Form.Control
-                    type="password"
-                    placeholder="Contraseña"
-                    value={formLogin.controlPassword}
-                    onChange={(e) =>SetFieldlogin("controlPassword", e.target.value)}
-                    isInvalid={!!errorsLogin.controlPassword}
-                    required
-                />
+            <div className="form-group position-relative mb-4">          
+            <Form.Control
+              type={showPassword ? "text" : "password"} 
+              placeholder="Contraseña"
+              value={formLogin.controlPassword}
+              onChange={(e) => SetFieldlogin("controlPassword", e.target.value)}
+              isInvalid={!!errorsLogin.controlPassword}
+              required
+            />
+            <button
+              type="button"
+              className=" toggle-password"
+              onClick={() => setShowPassword(!showPassword)} 
+            >
+              {showPassword ? <FontAwesomeIcon icon={faEye} /> : <FontAwesomeIcon icon={faEyeSlash} />}
+            </button>
+  <Form.Control.Feedback type="invalid">
+    {errorsLogin.controlPassword && (
+      <div className="error-message">{errorsLogin.controlPassword}</div>
+    )}
+  </Form.Control.Feedback>
+
                 <Form.Control.Feedback type="invalid">
                     {errorsLogin.controlPassword && (
                       <div className="error-message">

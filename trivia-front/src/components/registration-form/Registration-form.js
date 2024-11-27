@@ -5,6 +5,8 @@ import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import { APITRIVIA } from "../../API/getDataBase";
 import { useAuth } from "../auth/UserAuth";
+import { faEye,faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
 export function FormRegistration({handleCloseForm, handleShowExit,}) {
@@ -17,6 +19,7 @@ export function FormRegistration({handleCloseForm, handleShowExit,}) {
   const [form, setForm] = useState(initialData);
   const [errors, setErrors] = useState({});
   const { setAuthUser, fetchPlayerData } = useAuth();
+  const [showPassword, setShowPassword] = useState(false);
 
   function SetField(field, value) {
     setForm({
@@ -79,9 +82,9 @@ export function FormRegistration({handleCloseForm, handleShowExit,}) {
         console.log("Token recibido:", data.access_token);
         
         if (response.ok) {
-          // Guardar el token y cualquier otro dato relevante en localStorage
+         
           localStorage.setItem('authATRV', JSON.stringify({token: data.access_token}));
-          console.log("Token guardado:", localStorage.getItem('authATRV')); // Verifica lo que se guarda
+          console.log("Token guardado:", localStorage.getItem('authATRV')); 
 
         const playerData = await fetchPlayerData(data.access_token);
         setAuthUser(playerData);
@@ -89,14 +92,14 @@ export function FormRegistration({handleCloseForm, handleShowExit,}) {
         handleShowExit(form.name, data.access_token);
         setForm(initialData);
       } else if (response.status === 404) {
-        // Si el email ya está registrado, mostrar el error
+      
         setErrors({ email: "Este email ya está en uso" });
       } else {
-        setErrors({ general: 'Error al registrar jugador' });
+        setErrors({ general: 'este jugador ya se encuentra registrado'});
       }
     } catch (error) {
       console.error('Error:', error);
-      setErrors({ general: 'Error al registrar jugador' });
+      setErrors({ general: 'este jugador ya se encuentra registrado' });
     }
   }
 }
@@ -104,7 +107,7 @@ export function FormRegistration({handleCloseForm, handleShowExit,}) {
   return (
     <div className="col-sm col-md col-lg col-xl">
       <form onSubmit={handleSubmit}>
-        <div className="form-group position-relative mb-5">
+        <div className="form-group position-relative mb-4">
           <FloatingLabel
             controlId="name"
             label="Nombre de usuario"
@@ -122,7 +125,7 @@ export function FormRegistration({handleCloseForm, handleShowExit,}) {
             <div className="error-message">{errors.name}</div>
           )}
         </div>
-        <div className="form-group position-relative mb-5">
+        <div className="form-group position-relative mb-4">
           <FloatingLabel
             controlId="email"
             label="E-mail"
@@ -146,14 +149,22 @@ export function FormRegistration({handleCloseForm, handleShowExit,}) {
             label="Contraseña"
           >
             <Form.Control
-              type="password"
+             type={showPassword ? "text" : "password"} 
               placeholder="Contraseña"
               value={form.password}
               onChange={(e) => SetField("password", e.target.value)}
               isInvalid={!!errors.password}
               required
             />
+           
           </FloatingLabel>
+          <button
+                type="button"
+                className="toggle-password-registration"
+                onClick={() => setShowPassword(!showPassword)} 
+              >
+                  {showPassword ? <FontAwesomeIcon icon={faEye} /> : <FontAwesomeIcon icon={faEyeSlash} />}
+          </button>
           {errors.password && (
             <div className="error-message">{errors.password}</div>
           )}
@@ -161,7 +172,7 @@ export function FormRegistration({handleCloseForm, handleShowExit,}) {
         <div className="error-message">{errors.general}</div>
         )}
         </div>
-
+        <div className="confirmar">
          <Button
           className="btn-reg btnfos-5 "
           type="submit"
@@ -169,7 +180,7 @@ export function FormRegistration({handleCloseForm, handleShowExit,}) {
         >
           Confirmar
         </Button>
-
+        </div>
        
       </form>
      
