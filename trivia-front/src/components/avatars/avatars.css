@@ -61,18 +61,9 @@
     background-color: #069e21;
 }
 
-.swiper-button-next,
-.swiper-button-prev {
-  color: #fff;
-}
 
-.swiper-button-next {
-  right: 10px;
-}
 
-.swiper-button-prev {
-  left: 10px;
-}
+
 
 /* avatares comprados css -------------------- */
 
@@ -123,4 +114,38 @@
       
      
       
-      
+.slick-prev, .slick-next {
+  z-index: 2; 
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.slick-prev {
+  left: 5px; 
+}
+
+.slick-next {
+  right: 5px; 
+}
+
+
+.slick-prev::before,
+.slick-next::before {
+  content: '';
+  font-weight: 900;
+  font-size: 60px;
+  color:  #bcbebc; 
+}
+
+.slick-prev::before {
+  content: '←' 
+}
+
+.slick-next::before {
+  content: '→' 
+}
