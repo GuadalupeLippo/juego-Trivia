@@ -91,13 +91,14 @@
   background-image: linear-gradient(to right,#48d0f6 ,  #2285b3 );
   letter-spacing: 1.5px;
   color: rgb(244, 247, 248);
-  /* text-shadow: 2px 2px 4px rgba(26, 51, 80, 0.986); */
+  text-shadow: 2px 2px 4px rgba(26, 51, 80, 0.986);
  
 }
 .modal-title-exit{
   font-family: 'Foo', sans-serif;
   font-size: 30px;
-text-align: center;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(26, 51, 80, 0.986);
 }
 
 .body-registrer{
@@ -128,6 +129,10 @@ text-align: center;
   border-top: none;
 }
 
+.confirmar{
+  display: flex;
+  justify-content: flex-end;
+}
 .error-message {
   position: absolute;
   text-align: center;
@@ -136,6 +141,30 @@ text-align: center;
   font-size: 0.8rem;
   color: #DC3545;
 }
+
+.form-group {
+  position: relative;
+}
+
+
+.toggle-password-registration {
+  position: absolute;
+  top: 50%;
+  right: 0px; 
+  transform: translateY(-50%); 
+  border: none;
+  background: transparent;
+  padding: 15px;
+  font-size: 1.2rem; 
+  cursor: pointer;
+  color: #6c757d;
+  z-index: 2;
+}
+
+.toggle-password-registration :hover{
+  color: rgb(194, 199, 199);
+}
+
 @media (max-width: 1078px) {
 .error-message{
   font-size: 0.8rem;
