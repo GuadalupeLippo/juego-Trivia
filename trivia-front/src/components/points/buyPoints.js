@@ -3,9 +3,11 @@ import './buyPoints.css';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css"; 
+import { jwtDecode } from 'jwt-decode';
 
 export function CardPoints() {
   const [pointsData, setPointsData] = useState([]);
+  const [userId, setUserId] = useState(null);
 
   useEffect(() => {
     const fetchPointsData = async () => {
@@ -19,7 +21,24 @@ export function CardPoints() {
       }
     };
 
+    const getUserIdFromToken = () => {
+      const DataUser = localStorage.getItem('authATRV'); 
+      if (DataUser) {
+        try {
+          const { token } = JSON.parse(DataUser);
+          const decodedToken = jwtDecode(token);
+          if (decodedToken && decodedToken.sub) {
+            setUserId(decodedToken.sub); 
+            console.log("User ID obtenido del token:", decodedToken.sub);
+          }
+        } catch (error) {
+          console.error("Error al decodificar el token:", error);
+        }
+      }
+    };
+
     fetchPointsData();
+    getUserIdFromToken(); 
   }, []);
 
   const createPreference = async (point) => {
@@ -32,12 +51,15 @@ export function CardPoints() {
         body: JSON.stringify({
           items: [
             {
-              title: `${point.points} Puntos`,
+              pointsAmount: point.points,
               quantity: 1,
-              currency_id: "ARS", // Moneda
+              currency_id: "ARS", 
               unit_price: parseFloat(point.price)
             }
-          ]
+          ],
+          metadata: {
+            user_id: userId,
+          }
         })
       });
       const parsed = await res.json();
