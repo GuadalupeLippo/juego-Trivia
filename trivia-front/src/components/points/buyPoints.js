@@ -58,7 +58,7 @@ export function CardPoints() {
             }
           ],
           metadata: {
-            user_id: userId,
+            playerId: userId,
             pointsAmount: point.points,
           }
         })
