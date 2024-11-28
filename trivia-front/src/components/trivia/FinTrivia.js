@@ -7,7 +7,7 @@ import circle from "../../assets/trivia/circle2.jpg";
 import { useAuth } from "../auth/UserAuth";
 import React from 'react';
 
-export function FinTrivia({show, onHide, onRestart,  questionsAnswered, totalScore,  playerTotalScore, loadingPoints }) {
+export function FinTrivia({show, onHide, onRestart,  questionsAnswered, totalScore,  playerTotalScore, loadingPoints, loading, isProcessing }) {
   const { authUser } = useAuth();
   const login = useNavigate();
   const store = useNavigate();
@@ -31,6 +31,7 @@ export function FinTrivia({show, onHide, onRestart,  questionsAnswered, totalSco
         aria-labelledby="example-custom-modal-styling-title"
         className="color_bg"
         centered
+        backdrop= 'static'
       >
         <Modal.Header className="top_modal">
           <div className="title_modal">
@@ -69,8 +70,8 @@ export function FinTrivia({show, onHide, onRestart,  questionsAnswered, totalSco
         </h5>
 
         <div className="principal_button">
-        <Button className="btn1"  onClick={onRestart}>
-          ¡Nueva partida!
+        < Button onClick={onRestart} disabled={isProcessing || loading} className="btn1">
+          {loading ? "Cargando..." : "Nueva Partida"}
         </Button>
         </div>
         <div className="other_buttons">
