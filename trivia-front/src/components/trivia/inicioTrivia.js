@@ -31,13 +31,15 @@ const [loading, setLoading] = useState(true);
 const [score, setScore] = useState(0);
 const [gameId, setGameId] = useState(null);
 const [categoryDataForPoints, setCategoryDataForPoints] = useState(null);
-const [gameCount, setGameCount] = useState(0);
 const isGameEndedRef = useRef(false);
 const isRandomGame = useMemo(() => categoryId === undefined  , [categoryId]);
 const [randomGameData, setRandomGameData] = useState(null);
 const [loadingPoints, setLoadingPoints] = useState(true);
 const [answeredQuestions, setAnsweredQuestions] = useState([]);
 const [restartTimer, setRestartTimer] = useState(false);
+const [isProcessing, setIsProcessing] = useState(false);
+const isFetchingGameRef = useRef(false);
+const [newQuestions, setNewQuestions] = useState([]);
 
 
 
@@ -67,15 +69,20 @@ useEffect(() => {
 }, [categoryId]);
 
 const fetchStartGame = useCallback(async () => {
-  if (!question || question.length === 0) {
+  if (isFetchingGameRef.current) return; 
+  isFetchingGameRef.current = true;
+  
+  try {
+    
+    if (!question || question.length === 0) {
     console.error("No se pueden iniciar partidas sin preguntas.");
     return;
-  }
+    }
 
-  try {
     let gameData;
     let response;
     setLoading(true);
+
     if (isRandomGame) {
       gameData = { playerId, difficultyId };
       response = await createRandomGame(gameData);
@@ -90,23 +97,29 @@ const fetchStartGame = useCallback(async () => {
     }
 
     const data = await response.json();
+    console.log('id del game creado', data.id)
+    console.log("Preguntas recibidas para la partida:", data.questions);
     setGameId(data.id);
+    setNewQuestions(data.questions);
     if (isRandomGame) {
-      setRandomGameData(data); 
+      setRandomGameData(data);
+      setNewQuestions(data.questions); 
     }
     setLoading(false);
-    setGameCount(prevCount => prevCount + 1);
-    console.log(gameCount);
 
   } catch (error) {
     console.error("Error al crear el juego:", error);
     setLoading(false);
+  }  finally {
+    isFetchingGameRef.current = false; 
   }
-}, [question, isRandomGame, playerId, categoryId, difficultyId, gameCount]);
+}, [question, isRandomGame, playerId, categoryId, difficultyId]);
  
 useEffect( () => {
   if (!gameId) {
   fetchStartGame();
+  setNewQuestions([]); 
+    setCurrentQuestionIndex(0);
   }
 
 }, [gameId,fetchStartGame]);
@@ -114,7 +127,7 @@ useEffect( () => {
 
   const handleAnswerClick = (points) => {
 
-      const currentQuestion = question[currentQuestionIndex];
+      const currentQuestion = newQuestions[currentQuestionIndex];
   
       if (currentQuestion && currentQuestion.id) {
         setAnsweredQuestions((prev) => [
@@ -141,14 +154,18 @@ useEffect( () => {
   
       }
     
-   const handleTimeUp = () => {
+   const handleTimeUp = async() => {
         if (isGameEndedRef.current) return;
         if (!showFin){
         setShowFin(true);
         const audio = new Audio(sonidoFin);
         audio.play();}
 
-        endGame();
+        try {
+          await endGame(); 
+        } catch (error) {
+          console.error("Error al finalizar el juego al agotarse el tiempo:", error);
+        }
       
       };
     
@@ -157,7 +174,7 @@ useEffect( () => {
     const endGame = async () => { 
        if (isGameEndedRef.current || !gameId) return; 
        isGameEndedRef.current = true;
-
+       console.log('id del game modificado', gameId)
        try {
         setLoadingPoints(true);
 
@@ -236,11 +253,13 @@ useEffect( () => {
       
    
       const handleRestart = async () => {
+        if (isProcessing) return; 
+        setIsProcessing(true);
+
         setRestartTimer(true);
         setTimeout(() => setRestartTimer(false), 100);
     
         setScore(0);
-        setGameId(null);
         setCurrentQuestionIndex(0);
         setAnsweredQuestions([]);
         isGameEndedRef.current = false;
@@ -249,11 +268,14 @@ useEffect( () => {
         setLoading(true);
     
         try {
+
             await fetchStartGame(); 
+            console.log("Juego reiniciado con nuevas preguntas:", question);
         } catch (error) {
             console.error("Error al reiniciar la partida:", error);
         } finally {
             setLoading(false);
+            setIsProcessing(false);
         }
     };
     
@@ -286,7 +308,7 @@ useEffect( () => {
         )}
         <img alt="logo" src={logo} className="categoria" width="100px" />
       </div>
-      <Answers categoryData={question[currentQuestionIndex]} 
+      <Answers categoryData={newQuestions[currentQuestionIndex]} 
       categoryDataForPoints={categoryDataForPoints}
       isRandomGame={isRandomGame}
       randomGameData={randomGameData}
@@ -301,6 +323,8 @@ useEffect( () => {
         totalScore={score}
         playerTotalScore={authUser?.score}
         loadingPoints={loadingPoints}
+        loading={loading}
+        isProcessing={isProcessing}
        />
     </>
   );
