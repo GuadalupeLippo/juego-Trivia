@@ -1,50 +1,72 @@
-/* .timer{
-    color: rgb(240, 63, 63);
-   align-items: center;
-    
-    justify-content: center;
-    margin: 10px;
-    padding: 20px;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    /* background-color: rgba(214, 222, 223, 0.233); */
-    /* border-radius: 29%;
-    filter: drop-shadow(
-        0 0 5px rgba(59, 58, 58, 0.781)
-    );
-} */ */
-h1{
-    font-size: 50px; 
-    /* text-shadow: 6px 6px 8px rgba(241, 242, 245, 0.936); */
-    
-}
- .timer-bar-container {
-    width: 40%;
-    height: 30px;
-    background-color: #ddd; /* Fondo gris de la barra */
-     border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 0 4px aquamarine;
-  }
-  
-  .timer-bar {
-    height: 100%;
-    border-radius: 15px;
-    transition: width 1s linear;
-  }
-  .buenTiempo{
-    background-color: green;
-  }
-  .tiempoLimitado{
-background-color: red;
-
-
-@-moz-keyframes{
-
-
-  animation:first-line()
+.timer-bar-outer {
+  width: 40%;
+  height: 30px;
+  border-radius: 15px;
+  background-color: transparent;
+  position: relative;
+  box-shadow: 0 0 4px aquamarine;
+  transition: border-color 0.5s ease-in-out;
 }
 
+.timer-bar-container {
+  width: 100%;
+  height: 100%;
+  background-color: #ddd;
+  border-radius: 15px;
+  overflow: hidden;
+  position: relative;
+}
+
+.timer-bar {
+  height: 100%;
+  border-radius: 15px;
+  transition: width 1s linear;
+}
+
+.buenTiempo {
+  background-color: green;
+}
+
+.tiempoMedio {
+  background-color: rgba(105, 236, 105, 0.685);
+}
+
+.tiempoLimitado {
+  background-color: red;
+}
+
+.timer-bar-outer.tiempoLimitado {
+  outline-width: 1px;
+  outline-offset: 0;
+  outline-color: rgba(250, 38, 9, 0.974);
+  outline-style: solid;
+  animation: animateOutline 2s ease infinite;
+}
+
+
+@keyframes animateOutline {
+  0% {
+    outline-width: 1px;
+    outline-offset: 0;
+    outline-color: rgba(0, 130, 206, 0);
   }
-  .tiempoMedio{
-    background-color: rgba(105, 236, 105, 0.685);
-  } 
+
+  10% {
+    outline-color: rgba(206, 0, 0, 0.75);
+  }
+
+  /* The animation finishes at 50% */
+  50% {
+    outline-width: 7px;
+    outline-offset: 0px;
+    outline-color: rgba(0, 130, 206, 0);
+  }
+
+  100% {
+    outline-width: 7px;
+    outline-offset: 0px;
+    outline-color: rgba(102, 102, 102, 0);
+  }
+}
+
+
