@@ -187,8 +187,8 @@ const HadelCards = (selectedTime, selectedDifficultyId) => {
           <h3>Entretenimiento</h3>
           <p>
             ¿Eres un amante de las series, películas, teatro y todo lo
-            relacionado con el ocio y el entretenimiento? Esta es la categoría
-            para lucirte.
+            relacionado con el ocio y el entretenimiento?
+        
           </p>
           <PlayButton onClick={() => handleShowDifficulty(6)} />
         </div>
