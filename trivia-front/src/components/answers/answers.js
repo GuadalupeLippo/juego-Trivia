@@ -2,6 +2,7 @@ import { React, useEffect, useMemo, useState } from "react";
 
 import correct from '../../assets/trivia/positiveChoise.mp3';
 import incorrect from '../../assets/trivia/negativeChoise.mp3'
+
 import "./answers.css";
 import ModalSuma from "./modalSuma";
 
@@ -72,6 +73,7 @@ export function Answers({ categoryData, onAnswerClick, categoryDataForPoints, ra
       incorrectAudio.play()
     }
 
+    
     setTimeout(() => {
       onAnswerClick(points); 
     }, 1000)

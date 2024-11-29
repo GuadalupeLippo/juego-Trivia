@@ -5,7 +5,9 @@
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  justify-content: center; /* Centrar contenido */
+  justify-content: center; 
+  max-height: 100vh; /* Limitar la altura total */
+  overflow-y: auto;
 }
 
 .answers {
@@ -45,31 +47,39 @@
   width: 100%;
   border-radius: 15px;
   padding-top: 12px;
+  max-height: 20vh; /* Limitar el espacio que ocupa la pregunta */
+  overflow-y: auto;
 }
 
 .pregunta {
   margin-top: 3px;
   color: #121416;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  font-size: 2.5rem; /* Tamaño más grande en general */
+  font-size: clamp(1rem, 2.5vw, 2.3rem);
   text-align: center;
   border: rgba(6, 29, 44, 0.164) solid 3px;
   background-color: rgba(7, 54, 53, 0.041);
   padding: 1.1rem;
   border-radius: 13px;
+ 
+  white-space: normal; /* Permitir que el texto haga saltos de línea */
+  overflow: hidden; /* Evitar que desborde */
+  /* text-overflow: ellipsis; */
 }
 
 .botonContainer {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 20px;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  gap: 10px;
   background-color: rgba(6, 29, 44, 0.164);
-  padding: 20px;
+  padding: 10px;
   border-radius: 20px;
   width: 100%;
   max-width: 100%;
-  box-sizing: border-box; /* Incluye padding en el cálculo del ancho */
+  box-sizing: border-box;
+ 
 }
 
 .correct {
@@ -90,12 +100,15 @@
   align-items: center;
   padding: 20px 30px; /* Mayor tamaño */
   margin: 10px;
-  font-size: 2rem; /* Tamaño de fuente grande */
+  font-size: 1.5rem; /* Tamaño de fuente grande */
   cursor: pointer;
   border: none;
   border-radius: 15px;
   transition: background-color 0.3s, transform 0.2s;
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+  text-overflow: ellipsis; /* Mostrar puntos suspensivos para texto largo */
+  white-space: nowrap; /* Evitar que las palabras se dividan */
+  overflow: hidden;
 }
 
 .botonAswer:hover {
@@ -127,9 +140,9 @@
 
 @media (min-width: 1024px) {
   .botonAswer {
-      font-size: 3.1rem; /* Botones más grandes */
+      font-size: 2.5rem; /* Botones más grandes */
       padding: 25px 40px; /* Más espacio dentro de los botones */
-      flex: 1 1 calc(45% - 20px); /* Mayor ancho */
+      flex: 1 1 calc(35% - 10px); /* Mayor ancho */
   }
 
   .pregunta {
@@ -153,12 +166,18 @@
 
 @media (max-width: 480px) {
   .botonAswer {
-      font-size: 1.5rem; 
-      flex: 1 1 100%; 
-      padding: 10px;
+      font-size: 1rem; 
+     
+      padding: 8px;
   }
 
   .pregunta {
-      font-size: 1.8rem;
+      font-size: 1.6rem;
+      padding: 0.8rem;
+  }
+  .answersContainer {
+    gap: 10px; /* Espaciado menor */
+    max-height: 90vh; /* Usar el máximo de la pantalla */
+   
   }
 }
