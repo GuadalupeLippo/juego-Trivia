@@ -1,4 +1,6 @@
 import {React, useEffect, useMemo, useState} from "react";
+import correct from '../../assets/trivia/positiveChoise.mp3';
+import incorrect from '../../assets/trivia/negativeChoise.mp3'
 import "./answers.css";
 
 export function Answers({ categoryData, onAnswerClick, categoryDataForPoints, randomGameData,isRandomGame, currentQuestionIndex }) {
@@ -35,9 +37,17 @@ export function Answers({ categoryData, onAnswerClick, categoryDataForPoints, ra
     setSelectedAnswer(answer);
     setIsAnswersCorrect(isCorrect)
     let points = 0;
+
     if (isCorrect) {
       points = isRandomGame ? 10 : categoryDataForPoints?.puntos || 0;
-    } 
+      const correctAudio= new Audio(correct)
+      correctAudio.play()
+
+    } else {
+      const incorrectAudio= new Audio(incorrect)
+      incorrectAudio.play()
+    }
+
     setTimeout(() => {
       onAnswerClick(points); 
     }, 1000)
