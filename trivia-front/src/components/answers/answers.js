@@ -1,4 +1,7 @@
 import { React, useEffect, useMemo, useState } from "react";
+
+import correct from '../../assets/trivia/positiveChoise.mp3';
+import incorrect from '../../assets/trivia/negativeChoise.mp3'
 import "./answers.css";
 import ModalSuma from "./modalSuma";
 
@@ -42,9 +45,13 @@ export function Answers({ categoryData, onAnswerClick, categoryDataForPoints, ra
     setSelectedAnswer(answer);
     setIsAnswersCorrect(isCorrect)
     let points = 0;
+
     if (isCorrect) {
       points = isRandomGame ? 10 : categoryDataForPoints?.puntos || 0;
       // const buttonRect = event.target.getBoundingClientRect(); 
+
+       const correctAudio= new Audio(correct)
+      correctAudio.play()
       const buttonRect = event.target.getBoundingClientRect();
       setModalStyle({
         position: "absolute",
@@ -55,12 +62,16 @@ export function Answers({ categoryData, onAnswerClick, categoryDataForPoints, ra
         border: "none",
       });
       setShowModal(true)
-
+   
       setTimeout(() => {
         setShowModal(false);
-      }, 1000);
-    }
+      }, 1000);   
     
+    } else {
+      const incorrectAudio= new Audio(incorrect)
+      incorrectAudio.play()
+    }
+
     setTimeout(() => {
       onAnswerClick(points); 
     }, 1000)
