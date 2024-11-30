@@ -8,6 +8,9 @@
   justify-content: center; 
   max-height: 100vh; /* Limitar la altura total */
   overflow-y: auto;
+  
+   
+  
 }
 
 .answers {

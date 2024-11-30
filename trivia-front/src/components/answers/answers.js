@@ -51,19 +51,21 @@ export function Answers({ categoryData, onAnswerClick, categoryDataForPoints, ra
       points = isRandomGame ? 10 : categoryDataForPoints?.puntos || 0;
       // const buttonRect = event.target.getBoundingClientRect(); 
 
-       const correctAudio= new Audio(correct)
-      correctAudio.play()
+      
       const buttonRect = event.target.getBoundingClientRect();
+      
       setModalStyle({
-        position: "absolute",
+        position: 'fixed',
         top: `${buttonRect.top + window.scrollY}px`,
-        left: `${buttonRect.left + window.scrollX}px`,
-        width: "auto",
+         left: `${buttonRect.left + window.scrollX}px`,
         background: "transparent",
         border: "none",
       });
+      
+    const correctAudio= new Audio(correct)
+      correctAudio.play()
+
       setShowModal(true)
-   
       setTimeout(() => {
         setShowModal(false);
       }, 1000);   

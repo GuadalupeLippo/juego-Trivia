@@ -4,9 +4,9 @@ import Modal from 'react-bootstrap/Modal';
 import './modal.css'
 function ModalSuma({ onHide, style }) {
   return (
-    <Modal show onHide={onHide} centered style={style} backdrop={false}  dialogClassName='modal-container'>
+    <Modal show onHide={onHide} style={style} backdrop={false}  className='modal-container'>
     <div className="modalSuma">
-      <Modal.Title style={{ fontSize: "24px", color: "green", fontWeight: "bold" }}>+5</Modal.Title>
+      <h4 className='modal-Title'>+5</h4>
         </div></Modal>
   );
 }
