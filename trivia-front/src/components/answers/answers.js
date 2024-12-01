@@ -1,7 +1,7 @@
 import { React, useEffect, useMemo, useState } from "react";
 
+import incorrect from '../../assets/trivia/negativeChoise.mp3';
 import correct from '../../assets/trivia/positiveChoise.mp3';
-import incorrect from '../../assets/trivia/negativeChoise.mp3'
 
 import "./answers.css";
 import ModalSuma from "./modalSuma";
@@ -56,10 +56,11 @@ export function Answers({ categoryData, onAnswerClick, categoryDataForPoints, ra
       
       setModalStyle({
         position: 'fixed',
-        top: `${buttonRect.top + window.scrollY}px`,
-         left: `${buttonRect.left + window.scrollX}px`,
+        top: `${buttonRect.top }px`,
+        left: `${buttonRect.left + buttonRect.width - 50}px`, 
+         width: 'auto',
         background: "transparent",
-        border: "none",
+       
       });
       
     const correctAudio= new Audio(correct)
