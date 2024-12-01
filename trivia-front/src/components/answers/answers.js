@@ -1,11 +1,18 @@
-import {React, useEffect, useMemo, useState} from "react";
+import { React, useEffect, useMemo, useState } from "react";
+
 import correct from '../../assets/trivia/positiveChoise.mp3';
 import incorrect from '../../assets/trivia/negativeChoise.mp3'
-import "./answers.css";
 
-export function Answers({ categoryData, onAnswerClick, categoryDataForPoints, randomGameData,isRandomGame, currentQuestionIndex }) {
+import "./answers.css";
+import ModalSuma from "./modalSuma";
+
+export function Answers({ categoryData, onAnswerClick, categoryDataForPoints, randomGameData,isRandomGame, currentQuestionIndex}) {
   const [selectedAnswer, setSelectedAnswer] = useState(null);
-  const [isAnswersCorrect, setIsAnswersCorrect] = useState(null)
+  const [isAnswersCorrect, setIsAnswersCorrect] = useState(null);
+  const [showModal, setShowModal] = useState(false);
+  const [modalStyle, setModalStyle] = useState({});
+
+
 
   const shuffleArray = (array) => {
     for (let i = array.length - 1; i > 0; i--) {
@@ -26,13 +33,15 @@ export function Answers({ categoryData, onAnswerClick, categoryDataForPoints, ra
   useEffect(()   => {
     setSelectedAnswer(null)
     setIsAnswersCorrect(null)
+    setShowModal(false)
+
   }, [categoryData])
 
   if (!categoryData && !randomGameData) {
     return ;
   }
   
-  const handleClick = (answer) => {
+  const handleClick = (answer,event) => {
     const isCorrect = answer.value === true;
     setSelectedAnswer(answer);
     setIsAnswersCorrect(isCorrect)
@@ -40,14 +49,33 @@ export function Answers({ categoryData, onAnswerClick, categoryDataForPoints, ra
 
     if (isCorrect) {
       points = isRandomGame ? 10 : categoryDataForPoints?.puntos || 0;
-      const correctAudio= new Audio(correct)
+      // const buttonRect = event.target.getBoundingClientRect(); 
+
+      
+      const buttonRect = event.target.getBoundingClientRect();
+      
+      setModalStyle({
+        position: 'fixed',
+        top: `${buttonRect.top + window.scrollY}px`,
+         left: `${buttonRect.left + window.scrollX}px`,
+        background: "transparent",
+        border: "none",
+      });
+      
+    const correctAudio= new Audio(correct)
       correctAudio.play()
 
+      setShowModal(true)
+      setTimeout(() => {
+        setShowModal(false);
+      }, 1000);   
+    
     } else {
       const incorrectAudio= new Audio(incorrect)
       incorrectAudio.play()
     }
 
+    
     setTimeout(() => {
       onAnswerClick(points); 
     }, 1000)
@@ -67,13 +95,15 @@ export function Answers({ categoryData, onAnswerClick, categoryDataForPoints, ra
             className={`botonAswer ${
               selectedAnswer ? answer === selectedAnswer ? isAnswersCorrect ? "correct" : "incorrect" : "" : ""
             }`}
-            onClick={() => handleClick(answer)}
+            onClick={(event) => handleClick(answer, event)}
             disabled={!!selectedAnswer}
           >
             {answer.description}
           </button>
-        ))}
+        ))} 
+       
       </div>
+      {showModal && (<ModalSuma onHide={() => setShowModal(false)}  style={modalStyle}/>)}
     </div>
   );
 }
