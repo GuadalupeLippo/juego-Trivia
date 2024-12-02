@@ -23,7 +23,12 @@ export function ModalGames({ openGames, handleCloseGames }) {
       const response = await fetch(`http://localhost:3000/player/${playerId}/top-games`);
       if (response.ok) {
         const data = await response.json();
-        setTopGames(data);
+        // Reemplazar categorías nulas por "aleatoria"
+        const processedData = data.map((game) => ({
+          ...game,
+          category: game.category || { type: "aleatoria" },
+        }));
+        setTopGames(processedData);
       } else {
         console.error("Error al obtener los juegos");
       }
@@ -38,7 +43,7 @@ export function ModalGames({ openGames, handleCloseGames }) {
     if (openGames && playerId) {
       fetchTopGames();
     }
-  }, );
+  });
 
   return (
     <Modal show={openGames} onHide={handleCloseGames} className="Modal" backdrop="static" centered>
@@ -63,9 +68,9 @@ export function ModalGames({ openGames, handleCloseGames }) {
                 return (
                   <li className={`li-best-games ${className}`} key={index}>
                     <div className="game-rank">
-                      {index === 0 &&  <img src={primero} alt="Primero" />}
-                      {index === 1 && <img src={segundo}  alt="Segundo" />}
-                      {index === 2 &&  <img src={tercero} alt="Tercero" />}
+                      {index === 0 && <img src={primero} alt="Primero" />}
+                      {index === 1 && <img src={segundo} alt="Segundo" />}
+                      {index === 2 && <img src={tercero} alt="Tercero" />}
                       <strong className="total-points-li">Puntaje total:</strong> {game.totalScore} <br />
                       <strong className="category-li">Categoria:</strong> {game.category.type} <br />
                     </div>
@@ -73,7 +78,7 @@ export function ModalGames({ openGames, handleCloseGames }) {
                 );
               })
             ) : (
-              <li>Todavia no has jugado ninguna partida.</li>
+              <li>Todavía no has jugado ninguna partida.</li>
             )}
           </ul>
         )}
