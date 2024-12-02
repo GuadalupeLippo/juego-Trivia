@@ -6,21 +6,16 @@
   flex-wrap: wrap;
   gap: 20px;
   justify-content: center; 
-  max-height: 100vh; /* Limitar la altura total */
-  overflow-y: auto;
-  
-   
-  
 }
 
 .answers {
   text-align: center;
   background-color: #5DB1FF;
   margin: 10px;
-  flex: 1 1 calc(40% - 20px); /* Ajuste flexible según tamaño */
+  flex: 1 1 calc(40% - 20px); 
   padding: 10px;
-  border-radius: 10px; /* Redondear bordes */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
 }
 
 .answersContainer p {
@@ -31,16 +26,16 @@
 }
 
 .opciones {
-  font-size: 1.2rem; /* Tamaño de fuente escalable */
+  font-size: 1.2rem; 
   flex: 2;
   margin: 13px;
   padding: 10px;
   background-color: #233444b4;
-  width: 100%; /* Hacerlo flexible */
+  width: 100%; 
   display: flex;
-  justify-content: center; /* Centrar texto */
-  align-items: center; /* Centrar verticalmente */
-  border-radius: 10px; /* Redondear bordes */
+  justify-content: center; 
+  align-items: center;
+  border-radius: 10px; 
 }
 
 .questionContainer {
@@ -50,8 +45,7 @@
   width: 100%;
   border-radius: 15px;
   padding-top: 12px;
-  max-height: 20vh; /* Limitar el espacio que ocupa la pregunta */
-  overflow-y: auto;
+ 
 }
 
 .pregunta {
@@ -65,9 +59,9 @@
   padding: 1.1rem;
   border-radius: 13px;
  
-  white-space: normal; /* Permitir que el texto haga saltos de línea */
-  overflow: hidden; /* Evitar que desborde */
-  /* text-overflow: ellipsis; */
+  white-space: normal; 
+  overflow: hidden; 
+  
 }
 
 .botonContainer {
@@ -96,27 +90,28 @@
   background-color: rgb(252, 63, 6);
 }
 
+
 .botonAswer {
-  flex: 1 1 calc(50% - 20px); /* Dos botones por fila */
+  flex: 1 1 calc(50% - 20px); 
   text-align: center;
-  display: block;
-  align-items: center;
-  padding: 20px 30px; /* Mayor tamaño */
+  display: flex;
+  align-items: flex-start; 
+  justify-content: center;
+  padding: 10px 15px; 
   margin: 10px;
-  font-size: 1.5rem; /* Tamaño de fuente grande */
+  font-size: 1.2rem;
   cursor: pointer;
   border: none;
   border-radius: 15px;
   transition: background-color 0.3s, transform 0.2s;
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
-  text-overflow: ellipsis; /* Mostrar puntos suspensivos para texto largo */
-  white-space: nowrap; /* Evitar que las palabras se dividan */
-  overflow: hidden;
+  white-space: normal; 
+  word-break: break-word;
+  overflow-wrap: break-word; 
 }
-
 .botonAswer:hover {
   color: #ffffff;
-  transform: scale(1.1);
+  transform: scale(1);
   outline: 2px solid #253b3f8e;
   box-shadow: 1px 1px 7px #268391;
   border-radius: 10px;
@@ -141,28 +136,29 @@
 }
 
 
-@media (min-width: 1024px) {
-  .botonAswer {
-      font-size: 2.5rem; /* Botones más grandes */
-      padding: 25px 40px; /* Más espacio dentro de los botones */
-      flex: 1 1 calc(35% - 10px); /* Mayor ancho */
-  }
 
-  .pregunta {
-      font-size: 3rem; /* La pregunta la hacemos mas grande en pantalla grande */
-  }
+
+@media (min-width: 768px) {
+  .botonAswer {
+    font-size: 1.2rem; 
+    padding: 25px 40px; 
+    flex: 1 1 calc(35% - 10px); 
 }
 
+.pregunta {
+    font-size: 1.2rem; 
+}
+}
 
 @media (max-width: 768px) {
   .botonAswer {
-      font-size: 1.5rem;
+      font-size: 1rem;
       padding: 15px 20px;
       margin: 10px;
   }
 
   .pregunta {
-      font-size: 2rem; 
+      font-size: 1rem; 
   }
 }
 
@@ -170,17 +166,25 @@
 @media (max-width: 480px) {
   .botonAswer {
       font-size: 1rem; 
-     
       padding: 8px;
   }
 
   .pregunta {
-      font-size: 1.6rem;
+      font-size: 1rem;
       padding: 0.8rem;
   }
-  .answersContainer {
-    gap: 10px; /* Espaciado menor */
-    max-height: 90vh; /* Usar el máximo de la pantalla */
-   
+ 
+}
+
+@media (max-width: 390px) {
+  .botonAswer {
+      font-size: 0.7rem; 
+      padding: 8px;
   }
+
+  .pregunta {
+      font-size: 0.7rem;
+      padding: 0.8rem;
+  }
+ 
 }
