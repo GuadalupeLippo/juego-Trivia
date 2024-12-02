@@ -10,12 +10,12 @@
   text-align: center;
 }
 .modal-90w {
-  width: 100vw; /* Ocupa todo el ancho de la pantalla */
+  width: 100vw; 
   max-width: none;
 }
 .loading-text {
   font-size: 16px;
-  color: #a6a8ab;  /* El mismo color que el spinner o lo que prefieras */
+  color: #a6a8ab;  
 }
 .loading-point{
     display: flex;
@@ -89,8 +89,8 @@
 }
 
 .trivia_results {
-  top: 20%; /* Ajusta según sea necesario */
-  font-size: 1.2rem; /* Tamaño de texto */
+  top: 20%; 
+  font-size: 1.2rem; 
 }
 .win-score{
   position: absolute;
@@ -101,14 +101,14 @@
   
 }
 .win-score {
-  top: 20%; /* Ajusta según sea necesario */
-  font-size: 1.3rem; /* Tamaño del número */
+  top: 20%; 
+  font-size: 1.3rem; 
   margin: 0;
 }
 
 .info-game {
-  top: 50%; /* Ajusta según sea necesario */
-  font-size: 1.9rem; /* Tamaño del número */
+  top: 50%; 
+  font-size: 1.9rem; 
   margin-top: 5px;
 }
 
@@ -147,12 +147,6 @@
   color: rgb(251, 255, 3);
 }
 
-/* .winner {
-  font-family: 'Permanent Marker', cursive;
-  text-align: center;
-  font-size: 30px;
-  color: #5fdf58;
-} */
 
 .cerebrito-win {
   align-self: center;
@@ -184,50 +178,58 @@
   background-color:  rgb(254, 186, 1);
 }
 
-@media (max-width: 432px) {
-  .circle{
+@media (max-width: 320px) {
+  .circle {
+    max-width: 50%;
+  }
+  .winner {
+    font-size: 18px;
+  }
+  .result_container {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+}
+@media (max-width: 480px) {
+  .circle {
     max-width: 60%;
   }
-  
-  .title_shine {
-    font-size: 24px; 
-    
-  }
-
   .winner {
-    font-size: 24px; 
+    font-size: 20px;
   }
-
-  .all_results {
-    flex-direction: column; 
-    align-items: center; 
-  }
-
   .result_container {
-    width: 80%; 
-    margin-bottom: 20px; 
+    width: 80%;
+    margin-bottom: 20px;
   }
-  .trivia_results {
-    top: 20%; /* Ajusta según sea necesario */
-    font-size: 1.3rem; /* Tamaño de texto */
+}
+@media (max-width: 767px) {
+  .circle {
+    max-width: 70%;
   }
-  
-  .info-game {
-    top: 50%; /* Ajusta según sea necesario */
-    font-size: 2.5rem; /* Tamaño del número */
-    margin: 0;
+  .winner {
+    font-size: 24px;
   }
-  .win-score {
-    font-size: 1.5rem; /* Tamaño del número */
-    margin: 0;
-  }
-  .other_buttons {
+  .all_results {
     flex-direction: column;
-    align-items: center; 
+    align-items: center;
   }
-
-  .btn2 {
-    margin-top: 10px; 
 }
+@media (max-width: 1024px) {
+  .circle {
+    max-width: 80%;
+  }
+  .winner {
+    font-size: 28px;
+  }
+  .result_container {
+    width: 70%;
+  }
 }
-
+@media (max-width: 1366px) {
+  .circle {
+    max-width: 90%;
+  }
+  .winner {
+    font-size: 32px;
+  }
+}

@@ -36,7 +36,6 @@ export function FinTrivia({show, onHide, onRestart,  questionsAnswered, totalSco
         <Modal.Header className="top_modal">
           <div className="title_modal">
            <h5 className="winner">Tiempo cumplido...</h5> 
-           {/* <h3 className="title_shine"> ¡¡¡Felicitaciones!!!</h3> */}
             
           </div>
         </Modal.Header>
