@@ -25,7 +25,7 @@ const NotificationBonus = ({ onClose, navLoginRef }) => {
       } 
     }, 5000);
 
-    // Limpia el timer y el zoom cuando el modal se cierre
+
     return () => {
       clearTimeout(timer);
       navRef?.resetStoreIcon();

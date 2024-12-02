@@ -1,0 +1,27 @@
+.modal-container {
+    z-index: 1080 ; 
+    justify-content: flex-end;
+}
+.modalSuma{
+    display: flex;
+    justify-content: flex-end;
+     align-items: flex-end;
+    background: transparent;
+    position: fixed;
+    
+}
+
+.modal-container .modal-Title{
+    font-size: 44px;
+    color: rgb(254, 255, 254);
+    font-weight: bold;
+    text-shadow: 25px rgb(29, 52, 32);
+    
+}
+    
+  
+.modal-Title{
+    -webkit-text-stroke-width: 1.5px;
+  -webkit-text-stroke-color:  rgb(29, 52, 32);
+    padding-right: 10px;
+}

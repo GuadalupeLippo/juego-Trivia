@@ -160,7 +160,7 @@ export function CardPremium() {
               <h1 className='premium_title'><TitlePremium /></h1>
               <img className='premium_img' src={avatar.image} alt={`${avatar.price} Puntos`} />
               <h1 className={`premium_price ${purchasedAvatars[avatar.id] ? 'avatar_obtenido' : ''}`}>
-                {purchasedAvatars[avatar.id] ? 'Avatar obtenido' : `${avatar.price} Puntos`}
+                {purchasedAvatars[avatar.id] ? 'Canjeado' : `${avatar.price} Puntos`}
               </h1>
               {!purchasedAvatars[avatar.id] && (
                 <button className='button_premium' onClick={() => handleShowModal(avatar)}>

@@ -143,7 +143,7 @@ export function CarrouselAvatars({ avatar }) {
                       <h3 className="card_precio">{avatar.price}</h3>
                     )}
                     {purchasedAvatars.includes(avatar.id) ? (
-                      <p className="card_obtenido">Avatar obtenido</p>
+                      <p className="card_obtenido">Canjeado</p>
                     ) : (
                       <button className="card_button" onClick={() => handleShowModal(avatar)}>
                         Canjear

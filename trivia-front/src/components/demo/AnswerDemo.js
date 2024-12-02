@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { ModalFormRegister } from "../nav-home/ModalRegistration";
 import { ModalRegistrerExit } from "../registration-form/modalRegistrerExit";
+import correct from '../../assets/trivia/positiveChoise.mp3';
+import incorrect from '../../assets/trivia/negativeChoise.mp3';
+import dingIdea from '../../assets/login/ding-idea.mp3'
 import './AnswerDemo.css';
 
 export default function AnswerDemo() {
@@ -25,12 +28,12 @@ export default function AnswerDemo() {
           ]
         },
         {
-          question: "¿Cuál es el país con más islas en el mundo?",
+          question: "¿Cuál es la duración de un partido de futbol profesional?",
           answers: [
-            { text: "Filipinas", correct: false },
-            { text: "Indonesia", correct: false },
-            { text: "Japón", correct: false },
-            { text: "Suecia", correct: true }
+            { text: "120 minutos", correct: false },
+            { text: "45 minutos", correct: false },
+            { text: "80 minutos", correct: false },
+            { text: "90 minutos", correct: true }
           ]
         },
         {
@@ -41,6 +44,15 @@ export default function AnswerDemo() {
             { text: "Melbourne", correct: false },
             { text: "Brisbane", correct: false }
           ]
+        },
+        {
+          question: "¿Quien pintó La Mona Lisa?",
+          answers: [
+            { text: "Claudio Monet", correct: false },
+            { text: "Leonardo Da Vinci", correct: true },
+            { text: "Pablo Picasso", correct: false },
+            { text: "Diego Rivera", correct: false }
+          ]
         }
       ];
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -50,14 +62,22 @@ export default function AnswerDemo() {
   const [userName, setUserName] = useState("");
 
   const handleClick = (answer) => {
-    setBotonColor(answer);
+    
+    const isAnswersCorrect = answer.correct === true;
+    const correctAudio = new Audio(correct)
+    const incorrectAudio = new Audio(incorrect)
 
+    isAnswersCorrect? correctAudio.play() : incorrectAudio.play();
+
+    setBotonColor(answer);
     setTimeout(() => {
       setBotonColor(null);
       if (currentQuestionIndex + 1 < QuestionDemo.length) {
         setCurrentQuestionIndex(currentQuestionIndex + 1);
       } else {
         setShowRegisterModal(true); 
+        const audio = new Audio(dingIdea);
+        audio.play()
       }
     }, 1000);
   };
