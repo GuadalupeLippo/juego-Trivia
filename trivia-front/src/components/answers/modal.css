@@ -15,11 +15,13 @@
     font-size: 44px;
     color: rgb(254, 255, 254);
     font-weight: bold;
-    text-shadow: 15px rgb(0, 0, 0);
+    text-shadow: 25px rgb(29, 52, 32);
+    
+}
     
   
-}
 .modal-Title{
-    -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: rgb(9, 22, 6);
+    -webkit-text-stroke-width: 1.5px;
+  -webkit-text-stroke-color:  rgb(29, 52, 32);
+    padding-right: 10px;
 }

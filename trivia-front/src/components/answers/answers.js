@@ -49,16 +49,14 @@ export function Answers({ categoryData, onAnswerClick, categoryDataForPoints, ra
 
     if (isCorrect) {
       points = isRandomGame ? 10 : categoryDataForPoints?.puntos || 0;
-      // const buttonRect = event.target.getBoundingClientRect(); 
-
-      
+     
       const buttonRect = event.target.getBoundingClientRect();
       
       setModalStyle({
         position: 'fixed',
         top: `${buttonRect.top }px`,
-        left: `${buttonRect.left + buttonRect.width - 50}px`, 
-         width: 'auto',
+        left: `${buttonRect.left + buttonRect.width - 100}px`, 
+        width: 'auto',
         background: "transparent",
        
       });
@@ -104,7 +102,7 @@ export function Answers({ categoryData, onAnswerClick, categoryDataForPoints, ra
         ))} 
        
       </div>
-      {showModal && (<ModalSuma onHide={() => setShowModal(false)}  style={modalStyle}/>)}
+      {showModal && (<ModalSuma onHide={() => setShowModal(false)}  style={modalStyle} isRandomGame={isRandomGame}/>)}
     </div>
   );
 }

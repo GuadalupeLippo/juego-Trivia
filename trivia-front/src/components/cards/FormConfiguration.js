@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 
 export  function FormConfiguration({setSelectedTime, setDifficultyId}) {
 const [difficultys, setDifficulty] = useState([]);
+const [selectedDifficultyId, setSelectedDifficultyId] = useState(null);
 
 
 
@@ -15,16 +16,22 @@ const response = await getDifficulty();
 const difficultyData = await response.json();
 
   setDifficulty(difficultyData)
+  if (difficultyData.length > 0) {
+    setSelectedDifficultyId(difficultyData[0].id);
+    setSelectedTime(difficultyData[0].duracion);
+    setDifficultyId(difficultyData[0].id);
+  }
 } catch (error) {
   console.error("Error al obtener las dificultades:", error);
 }
 
 } fetchDifficulties();
- }, []);
+ }, [setSelectedTime, setDifficultyId]);
 
   const handleDifficultyChange = (event) => {
-    const selectedDifficultyId = parseInt(event.target.value);
+    const selectedId = parseInt(event.target.value);
     console.log(selectedDifficultyId)
+    setSelectedDifficultyId(selectedId);
     const selectedDifficulty = difficultys.find((d) => d.id === selectedDifficultyId);
        if(selectedDifficulty){
 
@@ -39,7 +46,10 @@ const difficultyData = await response.json();
   return (
     <>
       <FloatingLabel controlId="floatingSelect" label="selecciona la dificultad">
-        <Form.Select aria-label="dificultad" className="mb-3" onChange={handleDifficultyChange}>
+        <Form.Select aria-label="dificultad" 
+        className="mb-3"
+         onChange={handleDifficultyChange}
+          value={selectedDifficultyId}>
         {difficultys.map((difficulty) => (
           <option key={difficulty.id} value={difficulty.id}>
             {difficulty.nivel}
