@@ -51,14 +51,15 @@ export function CardPoints() {
         body: JSON.stringify({
           items: [
             {
-              pointsAmount: point.points,
+              title: `${point.points} Puntos`,
               quantity: 1,
               currency_id: "ARS", 
               unit_price: parseFloat(point.price)
             }
           ],
           metadata: {
-            user_id: userId,
+            playerId: userId,
+            pointsAmount: point.points,
           }
         })
       });
