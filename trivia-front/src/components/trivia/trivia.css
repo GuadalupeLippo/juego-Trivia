@@ -6,6 +6,7 @@
    flex-wrap: wrap;
     
 }
+
 .spiner{
  display: "flex";
  gap: "10px"
@@ -28,7 +29,7 @@
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 498px) {
     .inicioTrivia {
         flex-direction:row;
         align-items: center; 
@@ -37,6 +38,8 @@
     .container-trivia{
         padding: 5px;
     }
-
-
+    .categoria{
+        width:50px;
+    }
 }
+
