@@ -2,8 +2,10 @@
     background: linear-gradient(rgba(43, 68, 92, 0.048), rgba(95, 168, 252, 0.233)), 
                 url('imagenloguin.png') no-repeat center center;
     background-size: cover;
-    height: 100vh; 
-    width: 100vw;  
+    height: 100%;
+    width: 100%;  
     margin: 0;    
-    padding: 0;    
+    padding: 0; 
 }
+
+

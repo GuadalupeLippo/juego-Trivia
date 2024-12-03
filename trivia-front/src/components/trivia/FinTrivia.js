@@ -27,9 +27,8 @@ export function FinTrivia({show, onHide, onRestart,  questionsAnswered, totalSco
       <Modal
         show={show}
         onHide={onHide}
-        dialogClassName="modal-100w"
-        aria-labelledby="example-custom-modal-styling-title"
         className="color_bg"
+        aria-labelledby="contained-modal-title-vcenter"
         centered
         backdrop= 'static'
       >
@@ -39,7 +38,7 @@ export function FinTrivia({show, onHide, onRestart,  questionsAnswered, totalSco
             
           </div>
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body className="body-finTrivia">
           <div className="all_results"> 
             <div className="result_container">
               <img className="circle" src={circle} alt="circulo"/>
@@ -55,16 +54,16 @@ export function FinTrivia({show, onHide, onRestart,  questionsAnswered, totalSco
           </div>
          
         </Modal.Body>
-        <img className="cerebrito-win" src={cerebroGanador} alt="logo pagina" width="190" />
+        <img className="cerebrito-win" src={cerebroGanador} alt="logo pagina" width="150" />
         
             <h5 className="playertotalscore">
-            Puntaje actual <br />
+            Puntaje actual:   
         {loadingPoints ? (
           <div className="loading-point">
             <span className="loading-text">Cargando tus puntos...</span>
           </div>
         ) : (
-          <span className="score">{playerTotalScore} puntos</span>
+             <span className="score">   {playerTotalScore}</span>
         )}
         </h5>
 
