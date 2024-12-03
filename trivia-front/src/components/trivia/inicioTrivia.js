@@ -234,7 +234,7 @@ useEffect( () => {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${token}`,
               },
-              body: JSON.stringify({ totalScore: score }), 
+              body: JSON.stringify({ points: score }), 
             });
       
             const data = await response.json();

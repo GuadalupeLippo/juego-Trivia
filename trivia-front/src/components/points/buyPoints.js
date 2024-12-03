@@ -9,6 +9,7 @@ export function CardPoints() {
   const [pointsData, setPointsData] = useState([]);
   const [userId, setUserId] = useState(null);
 
+ 
   useEffect(() => {
     const fetchPointsData = async () => {
       try {
@@ -60,7 +61,8 @@ export function CardPoints() {
           metadata: {
             playerId: userId,
             pointsAmount: point.points,
-          }
+          },
+          notification_url: 'https://e85c-179-51-247-228.ngrok-free.app/mercadopago/notificacions?success=true'
         })
       });
       const parsed = await res.json();
