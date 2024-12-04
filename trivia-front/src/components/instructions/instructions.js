@@ -1,5 +1,5 @@
 import store from "../../assets/home/store.gif";
-import demo from "../../assets/home/demo.gif";
+import categories from "../../assets/home/categories.gif";
 import register from "../../assets/home/register.gif";
 import trivia from "../../assets/home/trivia.gif";
 import yourAvatars from "../../assets/home/yourAvatars.gif";
@@ -22,7 +22,7 @@ export function CarrouselGifs() {
       <Carousel.Item >
         <img  
           className="d-block w-100"
-          src={demo}
+          src={categories}
           alt="Second slide"
         />
         
