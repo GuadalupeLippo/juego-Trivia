@@ -125,7 +125,7 @@ const HadelCards = (selectedTime, selectedDifficultyId) => {
   return (
     <>
     <div className="cardContainer">
-      <div className="cards" onClick={() => handleShowDifficulty(1)}>
+      <div className="cards" >
         <div className="face front">
           <img src={arte} alt="arte" />
         </div>
@@ -139,7 +139,7 @@ const HadelCards = (selectedTime, selectedDifficultyId) => {
         </div>
       </div>
 
-      <div className="cards"   onClick={() => handleShowDifficulty(4)}>
+      <div className="cards"   >
         <div className="face front">
           <img src={historia} alt=" historia"  />
         </div>
@@ -150,7 +150,7 @@ const HadelCards = (selectedTime, selectedDifficultyId) => {
         </div>
       </div>
 
-      <div className="cards"   onClick={() => handleShowDifficulty(2)}>
+      <div className="cards">
         <div className="face front">
           <img src={ciencias} alt="ciencias" />
         </div>
@@ -164,7 +164,7 @@ const HadelCards = (selectedTime, selectedDifficultyId) => {
         </div>
       </div>
 
-      <div className="cards"   onClick={() => handleShowDifficulty(3)}>
+      <div className="cards"   >
         <div className="face front">
           <img src={deportes} alt="deportes" />
         </div>
@@ -179,7 +179,7 @@ const HadelCards = (selectedTime, selectedDifficultyId) => {
         </div>
       </div>
 
-      <div className="cards"  onClick={() => handleShowDifficulty(6)} >
+      <div className="cards" >
         <div className="face front">
           <img src={entretenimiento} alt="entretenimiento" />
         </div>
@@ -194,7 +194,7 @@ const HadelCards = (selectedTime, selectedDifficultyId) => {
         </div>
       </div>
 
-      <div className="cards"   onClick={() => handleShowDifficulty(5)}>
+      <div className="cards">
         <div className="face front">
           <img src={geografia} alt="geografia" />
         </div>
@@ -221,7 +221,7 @@ const HadelCards = (selectedTime, selectedDifficultyId) => {
     <span class="title-word title-word-5">puntos!!!</span>
   </h2>
 </div>
-      <div className="cards"   onClick={() => handleShowDifficulty(7)}>
+      <div className="cards"   >
         <div className="face front">
           <img src={aleatoria} alt="logo aleatoria" />
         </div>
