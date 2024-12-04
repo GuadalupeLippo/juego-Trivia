@@ -59,10 +59,10 @@ export function CardPoints() {
             }
           ],
           metadata: {
-            playerId: userId,
-            pointsAmount: point.points,
+            player_id: userId,
+            points_amount: point.points,
           },
-          notification_url: 'https://e85c-179-51-247-228.ngrok-free.app/mercadopago/notificacions?success=true'
+          notification_url: 'https://3906-179-51-247-227.ngrok-free.app/mercadopago/notificacions?success=true'
         })
       });
       const parsed = await res.json();
