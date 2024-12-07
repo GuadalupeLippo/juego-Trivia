@@ -62,7 +62,7 @@ export function CardPoints() {
             player_id: userId,
             points_amount: point.points,
           },
-          notification_url: 'https://3906-179-51-247-227.ngrok-free.app/mercadopago/notificacions?success=true'
+          notification_url: 'https://7749-179-51-247-226.ngrok-free.app/mercadopago/notificacions?success=true'
         })
       });
       const parsed = await res.json();

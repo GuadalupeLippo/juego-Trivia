@@ -48,7 +48,7 @@ export function ModalGames({ openGames, handleCloseGames }) {
   return (
     <Modal show={openGames} onHide={handleCloseGames} className="Modal" backdrop="static" centered>
       <Modal.Header className="modal-registrer" closeButton>
-        <Modal.Title className="title-games">Registro de partidas</Modal.Title>
+        <Modal.Title className="title-games">Mejores partidas</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         {loading ? (

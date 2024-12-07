@@ -3,18 +3,22 @@
     .answersContainerDemo{
     display: flex;
     margin: 50px 20px ;
-    margin-top: 30px;
+    margin-top: 50px;
     padding-left: 20px;
     flex-wrap: wrap;
-    background: linear-gradient( rgba(212, 253, 65, 0.342),rgba(187, 207, 6, 0.342));
+    background: linear-gradient(rgba(177, 190, 202, 0.755), rgba(84, 90, 96, 0.53));
+    background-position: 100%;
    text-align: center;
    justify-content: center;
-    filter: drop-shadow(5px 5px 21px #9a8f14);
+    filter: drop-shadow(5px 5px 21px  rgba(212, 253, 65, 0.455));
     border-radius: 10px;
     padding: 40px;
-/*     
-    gap: 10px; */
+  overflow: hidden;
+  transition: none;
+  
+
 }
+
 
 .answers{ 
   display: flex;
@@ -44,20 +48,11 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;  }
+        .botonAswerDemo {
+          font-size: clamp(1rem, 2.5vw, 1.8rem);
+        }
     }
   
-      
-    .opciones{ 
-      display: flex;
-        font-size: 40px;
-        display: inline-block;
-        flex: 2;
-        margin: 13px;
-        padding: 10px;
-        background-color :#aabfd3b4;
-        width: 50%;
-       
-    }
 
     .questionContainerDemo{
    
@@ -67,16 +62,15 @@
   width: 100%;
   align-items: center;
   border-radius: 15px;
-  padding-top: 12px;
 }
 
     .preguntaDemo{
         margin-top: 3px;
       display: flex;
         color: #222422;
-        font-size:50px;
+        font-size: clamp(1.5rem, 2.8vw, 2.3rem);
        text-align: center;
-       text-shadow: 6px 6px 8px rgba(231, 182, 96, 0.936);
+       text-shadow: 2px 0 0  #0dcaf059, -2px 0 0  #0dcaf059, 0 2px 0  #0dcaf059, 0 -2px 0  #0dcaf059, 1px 1px #fcfdfd59, -1px -1px 0  #0dcaf059, 1px -1px 0  #0dcaf059, -1px 1px 0  #f5f6f759;
       
       padding: 1.2rem;
         border-radius: 13px;
@@ -94,9 +88,10 @@
         flex-wrap: wrap;
         justify-content: center;
         gap: 10px;
-       
+        background-color: rgba(64, 116, 151, 0.448);
         border-radius: 20px;
         display: flex;
+        
       }
 
 
@@ -115,55 +110,62 @@
         transition: all 0.2s ease;
     }
 
-    .botonAswerDemo{
+    .botonAswerDemo {
+      flex: 1 1 calc(50% - 40px);
       display: flex;
-        min-width: 450px;
-        text-align:center;
-         flex: 1;
-        display: block;
-        align-items: center;
-        line-height: 30px;
-        padding:30px;
-        margin: 30px;
-        font-size: 45px;
-        cursor: pointer;
-        border: none;
-        border-radius: 15px;
-        transition: background-color 0.3s;
-        box-shadow: 0 5px 2px 1px; 
-        max-width: 200px;
-        max-height: 150px;
-        min-width: 250px; 
-         flex: 1 1 30%; 
-        text-align: center;
-        padding: 20px;
-        margin: 15px;
-        font-size: 25px;
-       
-
+      position: relative; /* Agregado */
+      overflow: hidden;   /* Limita el pseudo-elemento dentro del botón */
+      min-width: 450px;
+      text-align: center;
+      flex: 1;
+      display: block;
+      align-items: center;
+      line-height: 30px;
+      padding: 30px;
+      margin: 30px;
+      cursor: pointer;
+      border: none;
+      border-radius: 15px;
+      transition: background-color 0.3s;
+      box-shadow: 0 5px 2px 1px;
+      max-width: 200px;
+      max-height: 150px;
+      min-width: 250px;
+      flex: 1 1 30%;
+      text-align: center;
+      padding: 20px;
+      margin: 15px;
+      font-size: 25px;
+    }
+    .botonAswerDemo::before {
+      content: "";
+      position: absolute;
+      left: 0; /* Corrección */
+      top: 0;
+      width: 0;
+      height: 100%;
+      background-color: #0dcaf059;
+      transform: skewX(1deg);
+      z-index: -1; /* Detrás del contenido del botón */
+      transition: width 1000ms;
     }
     .botonAswerDemo:hover {
-      transform: scale(1.1);
-      outline: 2px solid #c46b118e;
-      box-shadow: 1px 1px 7px  #917526c0;
+      color: #ffffff;
+      transform: scale(1);
+      outline: 2px solid #253b3f8e;
+      box-shadow: 1px 1px 7px #268391;
       border-radius: 10px;
+      transform: scale(1);
+    }
+    
+    .botonAswerDemo:hover::before {
+      width: 100%;
+    }
+  
+    @media (min-width: 768px) {
+      .botonAswerDemo {
+        flex: 1 1 calc(50% - 40px); 
+        max-width: 45%; 
+        font-size: clamp(1rem, 2.5vw, 1.8rem);
       }
-      
-      .botonAswerDemo::before {
-        color: #FFFFFF;
-        content: "";
-        position: absolute;
-        left: -2px;
-        top: 0;
-        width: 0;
-        height: 100%;
-        background-color:#0dcaf0;
-        transform: skewX(1deg);
-        z-index: -3;
-        transition: width 1000ms;
-      }
-      
-      .botonAswer:hover::before {
-        width: 100%;
-      }
-   
+    }
