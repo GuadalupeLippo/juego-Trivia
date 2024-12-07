@@ -89,6 +89,7 @@ export function ModalLogin({ showLogin, handleCloseLogin}) {
         login(playerData.player, playerData.access_token);
         navigate(`/login/${playerData.player.id}`);
         setFormLogin(initialForm);
+        handleClearForm()
 
       } catch (error) {
         setErrorMessage('Error al iniciar sesión. Verifica que los datos ingresados sean correctos.');
@@ -99,7 +100,10 @@ export function ModalLogin({ showLogin, handleCloseLogin}) {
   const handleClearForm = () => {
     handleCloseLogin();
     setFormLogin(initialForm);
-    setErrorMessage("");
+    setFormLogin(initialForm); 
+    setErrorsLogin({}); 
+    setErrorMessage(""); 
+    setShowPassword(false);
   };
 
   

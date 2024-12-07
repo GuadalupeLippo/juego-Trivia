@@ -23,11 +23,8 @@ export function Login() {
     <div className="login">
       <NavLogin ref={navLoginRef} />
       <Cards />
-      {/* Pasamos isLoggedIn como prop a Reseñas */}
       <Reviews isLoggedIn={!!token} />
       <FooterLogin />
-      
-      {/* Lógica de notificación */}
       {showNotification && <NotificationBonus onClose={handleCloseNotification} navLoginRef={navLoginRef} />}
     </div>
   );
