@@ -31,7 +31,7 @@
 
 @media (max-width: 498px) {
     .inicioTrivia {
-        flex-direction:row;
+        flex-direction:column;
         align-items: center; 
    
     }
@@ -39,7 +39,7 @@
         padding: 5px;
     }
     .categoria{
-        width:50px;
+        width: 50px;
     }
 }
 

@@ -1,4 +1,4 @@
-.container-trivia {
+/* .container-trivia {
     background: linear-gradient(rgba(43, 68, 92, 0.048), rgba(95, 168, 252, 0.233)), 
                 url('imagenloguin.png') no-repeat center center;
     background-size: cover;
@@ -7,5 +7,24 @@
     margin: 0;    
     padding: 0; 
 }
+ */
 
-
+ .container-trivia {
+    background: linear-gradient(rgba(43, 68, 92, 0.048), rgba(95, 168, 252, 0.233)), 
+                url('imagenloguin.png') no-repeat center center;
+    background-size: cover;
+    /* Ajustar la altura mínima a 100vh para ocupar toda la pantalla */
+    width: 100%;  
+    height: 100vh;
+    margin: 0;    
+    padding: 0;
+    display: flex;
+    flex-direction: column; /* Asegurar que los hijos se apilen verticalmente */
+  }
+  
+  @media (max-width: 768px) {
+    .container-trivia {
+      padding: 5px; /* Ajustar padding para dispositivos pequeños */
+      min-height: 100vh; }
+  }
+  
