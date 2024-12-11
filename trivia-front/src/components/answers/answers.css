@@ -25,18 +25,6 @@
   text-align: center;
 }
 
-.opciones {
-  font-size: 1.2rem; 
-  flex: 2;
-  margin: 13px;
-  padding: 10px;
-  background-color: #233444b4;
-  width: 100%; 
-  display: flex;
-  justify-content: center; 
-  align-items: center;
-  border-radius: 10px; 
-}
 
 .questionContainer {
   display: flex;
@@ -92,31 +80,6 @@
 }
 
 
-/* .botonAswer {
-  flex: 1 1 calc(50% - 20px); 
-  text-align: center;
-  display: flex;
-  align-items: flex-start; 
-  justify-content: center;
-  padding: 10px 15px; 
-  margin: 10px;
-  font-size: 1.2rem;
-  cursor: pointer;
-  border: none;
-  border-radius: 15px;
-  transition: background-color 0.3s, transform 0.2s;
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
-  white-space: normal; 
-  word-break: break-word;
-  overflow-wrap: break-word; 
-}
-.botonAswer:hover {
-  color: #ffffff;
-  transform: scale(1);
-  outline: 2px solid #253b3f8e;
-  box-shadow: 1px 1px 7px #268391;
-  border-radius: 10px;
-} */
 
 .botonAswer {
   flex: 1 1 calc(50% - 20px); 
@@ -135,7 +98,7 @@
   white-space: normal; 
   word-break: break-word;
   overflow-wrap: break-word; 
-  overflow: hidden; /* Esto oculta el efecto que se escapa */
+  overflow: hidden; 
   position: relative; 
 }
 
@@ -180,54 +143,23 @@
 }
 }
 
-@media (min-width: 360px) {
-  .botonAswer {
-    font-size:2rem;
-    padding: 15px 20px;
-    margin: 10px;
-  }}
+
+
 
 @media (max-width: 768px) {
+  .botonContainer{
+    margin-bottom: 50px;
+  }
   .botonAswer {
-    font-size: clamp(0.8rem, 2vw, 1rem); 
+    font-size: clamp(0.8rem, 2vw, 1.2rem); 
     padding: 15px 20px;
     margin: 10px;
   }
 
   .pregunta {
-      font-size: 1rem; 
+      font-size: 1.2rem; 
   }
 }
-
-
-@media (max-width: 480px) {
-  .botonAswer {
-    font-size: clamp(1.3rem, 2.5vw, 1rem); 
-    padding: 8px;
-  }
-
-  .pregunta {
-      font-size: 1.2rem;
-      padding: 0.8rem;
-  }
- 
-}
-
-@media (max-width: 390px) {
-  .botonAswer {
-    font-size: clamp(1.1rem, 3vw, 0.7rem); 
-    padding: 8px;
-  }
-
-  .pregunta {
-      font-size: 1rem;
-      padding: 0.8rem;
-  }
- 
-}
-
-
-
 
 
 
