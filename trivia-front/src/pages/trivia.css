@@ -9,3 +9,14 @@
 }
 
 
+@media (min-width: 768px) {
+    .botonAswer {
+      font-size: clamp(1rem, 2vw, 1.4rem); 
+      padding: 25px 40px;
+    flex:  1 1 calc(35% - 10px);
+    }
+  
+    .pregunta {
+        font-size: 1.6rem; 
+    }
+  }
